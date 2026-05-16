@@ -170,8 +170,9 @@ function ToggleButton({
 }) {
   return (
     <button
+      type="button"
       onClick={onClick}
-      className="flex items-center gap-1.5 text-xs font-medium text-zinc-500 hover:text-zinc-200 transition-colors px-3 py-2 rounded-md bg-zinc-800/50 hover:bg-zinc-800 min-h-[36px]"
+      className="flex items-center gap-1.5 text-xs font-medium text-zinc-500 hover:text-zinc-200 transition-colors px-3 py-2 rounded-md bg-zinc-800/50 hover:bg-zinc-800 min-h-[44px] touch-manipulation"
     >
       <svg
         className={`w-3 h-3 transition-transform duration-150 ${open ? "rotate-180" : ""}`}

@@ -24,8 +24,9 @@ function PassRow({ item }: { item: PassGame }) {
   return (
     <div className="border-b border-zinc-800/40 last:border-0">
       <button
+        type="button"
         onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-center justify-between gap-3 py-3 px-1 text-left hover:bg-zinc-800/20 rounded transition-colors min-h-[44px]"
+        className="w-full flex items-center justify-between gap-3 py-3 px-1 text-left hover:bg-zinc-800/20 rounded transition-colors min-h-[44px] touch-manipulation"
       >
         <div className="flex items-center gap-3 min-w-0">
           <svg
@@ -89,8 +90,9 @@ export default function PassSection({ items }: { items: PassGame[] }) {
   return (
     <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/20 overflow-hidden">
       <button
+        type="button"
         onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-center justify-between gap-3 p-4 text-left hover:bg-zinc-900/40 transition-colors min-h-[52px]"
+        className="w-full flex items-center justify-between gap-3 p-4 text-left hover:bg-zinc-900/40 transition-colors min-h-[52px] touch-manipulation"
       >
         <div className="flex items-center gap-3">
           <span className="w-2 h-2 rounded-full bg-zinc-700 shrink-0" />
