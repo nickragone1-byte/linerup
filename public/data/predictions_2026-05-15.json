@@ -1,0 +1,142 @@
+import { promises as fs } from "fs";
+import path from "path";
+import { PredictionsData, Game } from "@/lib/types";
+import { computeTier, tierColor } from "@/lib/tier";
+
+async function getData(): Promise<PredictionsData> {
+  const filePath = path.join(process.cwd(), "public", "data", "predictions.json");
+  const file = await fs.readFile(filePath, "utf8");
+  return JSON.parse(file);
+}
+
+function formatML(ml: number): string {
+  return ml > 0 ? `+${ml}` : `${ml}`;
+}
+
+function formatMove(move: number | null): string {
+  if (move === null) return "—";
+  if (move === 0) return "0";
+  return move > 0 ? `+${move}` : `${move}`;
+}
+
+function tierPriority(tier: string): number {
+  const order = ["LOCK", "BET", "BET (sharp)", "LEAN", "VALUE", "INFO", "TBD", "THIN SP", "SKIP", "FADE"];
+  for (let i = 0; i < order.length; i++) {
+    if (tier.includes(order[i])) return i;
+  }
+  return 99;
+}
+
+export default async function Home() {
+  const data = await getData();
+  const games = [...data.games].sort((a, b) => {
+    const tA = computeTier(a);
+    const tB = computeTier(b);
+    const pA = tierPriority(tA);
+    const pB = tierPriority(tB);
+    if (pA !== pB) return pA - pB;
+    return b.confidence - a.confidence;
+  });
+
+  return (
+    <main className="min-h-screen bg-zinc-950 text-zinc-100">
+      <header className="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur sticky top-0 z-10">
+        <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight">Linerup</h1>
+            <p className="text-xs text-zinc-500">MLB predictions, line movement, sharp action</p>
+          </div>
+          <div className="text-right text-xs text-zinc-500">
+            <div>Model {data.model_version}</div>
+            <div>{data.training_accuracy}% on {data.training_games.toLocaleString()} games</div>
+          </div>
+        </div>
+      </header>
+
+      <div className="max-w-5xl mx-auto px-4 pt-6">
+        <h2 className="text-lg font-semibold">
+          {new Date(data.date + "T12:00:00").toLocaleDateString("en-US", {
+            weekday: "long",
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          })}
+        </h2>
+        <p className="text-sm text-zinc-500 mt-1">{data.games.length} games</p>
+      </div>
+
+      <div className="max-w-5xl mx-auto px-4 py-6 space-y-3">
+        {games.map((game, i) => (
+          <GameCard key={i} game={game} />
+        ))}
+      </div>
+
+      <footer className="border-t border-zinc-800 py-8 mt-12">
+        <div className="max-w-5xl mx-auto px-4 text-xs text-zinc-500">
+          <p><strong>Linerup</strong> - Analytics tool - For entertainment only - Not gambling advice - 21+ where applicable</p>
+          <p className="mt-2">Model uses 8-variable logistic regression trained on 2023-2026 MLB games. Lines from ESPN. Sharp action computed from open vs current line movement.</p>
+        </div>
+      </footer>
+    </main>
+  );
+}
+
+function GameCard({ game }: { game: Game }) {
+  const tier = computeTier(game);
+  const colorClass = tierColor(tier);
+  const pickIsHome = game.pick === game.home_team;
+
+  return (
+    <div className={`rounded-lg border-l-4 ${colorClass} border border-zinc-800 p-4`}>
+      <div className="flex items-start justify-between mb-3">
+        <div>
+          <div className="text-sm text-zinc-400">
+            {game.away_team} ({game.away_record}) <span className="text-zinc-600">@</span> {game.home_team} ({game.home_record})
+          </div>
+          <div className="text-xs text-zinc-500 mt-1">
+            {game.away_pitcher} <span className="text-zinc-700">vs</span> {game.home_pitcher} - {game.venue}
+          </div>
+        </div>
+        <div className="text-right">
+          <div className="text-xs font-semibold">{tier}</div>
+          <div className="text-xs text-zinc-500 mt-1">O/U {game.over_under ?? "—"}</div>
+        </div>
+      </div>
+
+      <div className="bg-zinc-900/60 rounded p-3 mb-3">
+        <div className="flex items-center justify-between">
+          <div>
+            <div className="text-xs uppercase tracking-wider text-zinc-500 mb-1">Pick</div>
+            <div className="text-lg font-semibold">{game.pick}</div>
+            <div className="text-xs text-zinc-500">{formatML(pickIsHome ? game.home_ml : game.away_ml)}</div>
+          </div>
+          <div className="text-right">
+            <div className="text-xs uppercase tracking-wider text-zinc-500 mb-1">Confidence</div>
+            <div className="text-2xl font-bold">{game.confidence}%</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+        <Stat label="Model" value={`${game.model_prob_home}% H`} />
+        <Stat label="Vegas" value={game.vegas_prob_home !== null ? `${game.vegas_prob_home}% H` : "—"} />
+        <Stat label="Edge" value={game.edge !== null ? `${game.edge > 0 ? "+" : ""}${game.edge}` : "—"} />
+        <Stat label="Line move" value={formatMove(game.line_move)} />
+      </div>
+
+      <div className="mt-3 pt-3 border-t border-zinc-800 flex items-center justify-between text-xs text-zinc-400">
+        <span>{game.sharp_signal}</span>
+        <span className="text-zinc-600">SP weight: {game.away_sp_weight}% / {game.home_sp_weight}%</span>
+      </div>
+    </div>
+  );
+}
+
+function Stat({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <div className="text-zinc-500 uppercase tracking-wider">{label}</div>
+      <div className="font-mono mt-0.5">{value}</div>
+    </div>
+  );
+}
