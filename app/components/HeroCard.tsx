@@ -32,16 +32,8 @@ export default function HeroCard({ game, display, narrative }: Props) {
 
   const stats = [
     { label: "Win Probability", value: `${game.confidence.toFixed(1)}%`, highlight: true },
-    {
-      label: "Edge vs Market",
-      value: `+${pickEdge.toFixed(1)}%`,
-      highlight: false,
-    },
-    {
-      label: "Confidence Weight",
-      value: `+${confidenceWeight}%`,
-      highlight: false,
-    },
+    { label: "Edge vs Market", value: `+${pickEdge.toFixed(1)}%`, highlight: false },
+    { label: "Confidence Weight", value: `+${confidenceWeight}%`, highlight: false },
   ];
 
   return (
@@ -49,22 +41,18 @@ export default function HeroCard({ game, display, narrative }: Props) {
       className="rounded-xl overflow-hidden mb-4"
       style={{ background: "#0f1422", border: `1px solid ${style.border}` }}
     >
-      {/* Tier badge */}
+      {/* Tier badge row */}
       <div
         className="flex items-center justify-between px-5 py-3"
         style={{ borderBottom: "1px solid #1a2335" }}
       >
         <span
-          className="uppercase font-semibold tracking-widest"
-          style={{
-            fontSize: 10,
-            color: style.color,
-            letterSpacing: "0.14em",
-          }}
+          className="uppercase font-semibold"
+          style={{ fontSize: 10, color: style.color, letterSpacing: "0.14em" }}
         >
           {display === "LOCK" ? "Model Favorite · Lock" : "Model Favorite"}
         </span>
-        <span style={{ fontSize: 12, color: "#4a5568" }}>
+        <span style={{ fontSize: 12, color: "#c9d1d9" }}>
           {isHome ? "Home" : "Away"}
         </span>
       </div>
@@ -72,19 +60,20 @@ export default function HeroCard({ game, display, narrative }: Props) {
       <div className="px-5 pt-5 pb-4">
         {/* Teams row */}
         <div className="flex items-center gap-3 mb-5">
-          <TeamLogo teamName={game.away_team} size={36} />
+          <TeamLogo teamName={game.away_team} size={48} />
           <div className="flex-1 min-w-0">
             <div className="flex items-baseline justify-between gap-2">
               <span
-                className="font-semibold truncate"
+                className="font-bold truncate"
                 style={{
-                  fontSize: 15,
-                  color: pickedSide === "away" ? "#e6edf3" : "#4a5568",
+                  fontSize: pickedSide === "away" ? 28 : 20,
+                  color: pickedSide === "away" ? "#ffffff" : "#4a5568",
+                  lineHeight: 1.1,
                 }}
               >
                 {game.away_team.split(" ").pop()}
               </span>
-              <span className="font-mono shrink-0" style={{ fontSize: 12, color: "#4a5568" }}>
+              <span className="font-mono shrink-0" style={{ fontSize: 12, color: "#c9d1d9", fontWeight: 500 }}>
                 {game.away_record}
               </span>
             </div>
@@ -92,21 +81,22 @@ export default function HeroCard({ game, display, narrative }: Props) {
           <span style={{ fontSize: 11, color: "#2a3a55" }}>vs</span>
           <div className="flex-1 min-w-0">
             <div className="flex items-baseline justify-between gap-2">
-              <span className="font-mono shrink-0" style={{ fontSize: 12, color: "#4a5568" }}>
+              <span className="font-mono shrink-0" style={{ fontSize: 12, color: "#c9d1d9", fontWeight: 500 }}>
                 {game.home_record}
               </span>
               <span
-                className="font-semibold truncate text-right"
+                className="font-bold truncate text-right"
                 style={{
-                  fontSize: 15,
-                  color: pickedSide === "home" ? "#e6edf3" : "#4a5568",
+                  fontSize: pickedSide === "home" ? 28 : 20,
+                  color: pickedSide === "home" ? "#ffffff" : "#4a5568",
+                  lineHeight: 1.1,
                 }}
               >
                 {game.home_team.split(" ").pop()}
               </span>
             </div>
           </div>
-          <TeamLogo teamName={game.home_team} size={36} />
+          <TeamLogo teamName={game.home_team} size={48} />
         </div>
 
         {/* Probability bar */}
@@ -127,11 +117,11 @@ export default function HeroCard({ game, display, narrative }: Props) {
         <div>
           <div
             className="uppercase mb-2"
-            style={{ fontSize: 9, letterSpacing: "0.12em", color: "#2a3a55" }}
+            style={{ fontSize: 9, letterSpacing: "0.12em", color: "#7d8590" }}
           >
             The Read
           </div>
-          <p style={{ fontSize: 14, color: "#8b95a8", lineHeight: 1.7 }}>{narrative}</p>
+          <p style={{ fontSize: 14, color: "#c9d1d9", lineHeight: 1.7 }}>{narrative}</p>
         </div>
 
         {/* Expand toggle */}
@@ -139,7 +129,7 @@ export default function HeroCard({ game, display, narrative }: Props) {
           type="button"
           onClick={() => setExpanded((v) => !v)}
           className="mt-4 flex items-center gap-1 touch-manipulation"
-          style={{ fontSize: 12, color: "#2a3a55", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+          style={{ fontSize: 12, color: "#c9d1d9", background: "none", border: "none", cursor: "pointer", padding: 0 }}
         >
           <span>{expanded ? "Less" : "More"}</span>
           <svg
@@ -165,11 +155,11 @@ export default function HeroCard({ game, display, narrative }: Props) {
                 { label: "Sharp Signal", value: game.sharp_signal, sub: `Line move ${game.line_move > 0 ? "+" : ""}${game.line_move}` },
               ].map(({ label, value, sub }) => (
                 <div key={label}>
-                  <div style={{ fontSize: 9, color: "#2a3a55", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2 }}>
+                  <div style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2 }}>
                     {label}
                   </div>
-                  <div style={{ fontSize: 13, color: "#8b95a8" }}>{value}</div>
-                  <div style={{ fontSize: 11, color: "#2a3a55" }}>{sub}</div>
+                  <div style={{ fontSize: 13, color: "#c9d1d9" }}>{value}</div>
+                  <div style={{ fontSize: 11, color: "#6e7681" }}>{sub}</div>
                 </div>
               ))}
             </div>

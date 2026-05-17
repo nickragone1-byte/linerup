@@ -14,24 +14,24 @@ export default function ProbabilityBar({ awayProb, homeProb, pickedTeam }: Props
         <div
           style={{
             width: `${awayPct}%`,
-            background: pickedTeam === "away" ? "#00e088" : "#1a2335",
+            background: pickedTeam === "away" ? "#00e088" : "#2a3548",
             transition: "width 0.3s ease",
           }}
         />
         <div
           style={{
             width: `${homePct}%`,
-            background: pickedTeam === "home" ? "#00e088" : "#1a2335",
+            background: pickedTeam === "home" ? "#00e088" : "#2a3548",
             transition: "width 0.3s ease",
           }}
         />
       </div>
-      <div className="flex justify-between mt-1">
+      <div className="flex justify-between mt-1.5">
         <span
           className="font-mono"
           style={{
-            fontSize: 11,
-            color: pickedTeam === "away" ? "#00e088" : "#8b95a8",
+            fontSize: 12,
+            color: pickedTeam === "away" ? "#ffffff" : "#c9d1d9",
             fontVariantNumeric: "tabular-nums",
           }}
         >
@@ -40,8 +40,8 @@ export default function ProbabilityBar({ awayProb, homeProb, pickedTeam }: Props
         <span
           className="font-mono"
           style={{
-            fontSize: 11,
-            color: pickedTeam === "home" ? "#00e088" : "#8b95a8",
+            fontSize: 12,
+            color: pickedTeam === "home" ? "#ffffff" : "#c9d1d9",
             fontVariantNumeric: "tabular-nums",
           }}
         >

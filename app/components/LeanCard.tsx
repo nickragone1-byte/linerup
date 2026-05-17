@@ -22,17 +22,17 @@ export default function LeanCard({ game, narrative }: Props) {
       <div className="px-4 py-3">
         {/* Main row */}
         <div className="flex items-center gap-3">
-          <TeamLogo teamName={game.pick} size={28} />
+          <TeamLogo teamName={game.pick} size={40} />
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
-              <span style={{ fontSize: 14, fontWeight: 600, color: "#e6edf3" }}>
+              <span style={{ fontSize: 15, fontWeight: 700, color: "#ffffff" }}>
                 {game.pick.split(" ").pop()}
               </span>
-              <span style={{ fontSize: 12, color: "#4a5568" }}>
+              <span style={{ fontSize: 12, color: "#c9d1d9" }}>
                 vs {(isHome ? game.away_team : game.home_team).split(" ").pop()}
               </span>
             </div>
-            <p className="truncate" style={{ fontSize: 12, color: "#4a5568", marginTop: 2, lineHeight: 1.5 }}>
+            <p className="truncate" style={{ fontSize: 12, color: "#7d8590", marginTop: 2, lineHeight: 1.5 }}>
               {narrative}
             </p>
           </div>
@@ -41,7 +41,7 @@ export default function LeanCard({ game, narrative }: Props) {
               <div className="font-mono" style={{ fontSize: 14, color: "#f59e0b", fontVariantNumeric: "tabular-nums" }}>
                 {game.confidence.toFixed(0)}%
               </div>
-              <div style={{ fontSize: 10, color: "#2a3a55" }}>
+              <div style={{ fontSize: 10, color: "#6e7681" }}>
                 +{pickEdge.toFixed(1)}% edge
               </div>
             </div>
@@ -61,7 +61,7 @@ export default function LeanCard({ game, narrative }: Props) {
               type="button"
               onClick={() => setExpanded((v) => !v)}
               className="touch-manipulation"
-              style={{ background: "none", border: "none", cursor: "pointer", padding: 4, color: "#2a3a55" }}
+              style={{ background: "none", border: "none", cursor: "pointer", padding: 4, color: "#7d8590" }}
             >
               <svg
                 width="14"
@@ -87,10 +87,10 @@ export default function LeanCard({ game, narrative }: Props) {
               { label: "Park Factor", value: game.park_factor.toFixed(2) },
             ].map(({ label, value }) => (
               <div key={label}>
-                <div style={{ fontSize: 9, color: "#2a3a55", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2 }}>
+                <div style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2 }}>
                   {label}
                 </div>
-                <div style={{ fontSize: 12, color: "#8b95a8" }}>{value}</div>
+                <div style={{ fontSize: 12, color: "#c9d1d9" }}>{value}</div>
               </div>
             ))}
           </div>

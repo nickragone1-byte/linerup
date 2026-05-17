@@ -30,7 +30,7 @@ export default function StatBox({ stats }: Props) {
             className="font-mono font-semibold"
             style={{
               fontSize: 18,
-              color: stat.highlight ? "#00e088" : "#e6edf3",
+              color: stat.highlight ? "#00e088" : "#ffffff",
               fontVariantNumeric: "tabular-nums",
               letterSpacing: "-0.02em",
             }}
@@ -39,7 +39,7 @@ export default function StatBox({ stats }: Props) {
           </span>
           <span
             className="uppercase mt-1"
-            style={{ fontSize: 9, color: "#4a5568", letterSpacing: "0.1em" }}
+            style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}
           >
             {stat.label}
           </span>

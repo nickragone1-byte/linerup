@@ -9,10 +9,11 @@ interface Props {
   size?: number;
 }
 
-export default function TeamLogo({ teamName, size = 40 }: Props) {
+export default function TeamLogo({ teamName, size = 48 }: Props) {
   const [failed, setFailed] = useState(false);
   const info = getTeamInfo(teamName);
   const abbr = info?.abbr ?? teamName.slice(0, 3).toUpperCase();
+  const innerSize = Math.round(size * 0.7);
 
   if (!info || failed) {
     return (
@@ -22,10 +23,10 @@ export default function TeamLogo({ teamName, size = 40 }: Props) {
           width: size,
           height: size,
           background: "#1a2335",
-          border: "1px solid #2a3a55",
-          fontSize: size * 0.3,
+          border: "1px solid #2a3548",
+          fontSize: Math.round(size * 0.28),
           fontWeight: 700,
-          color: "#8b95a8",
+          color: "#7d8590",
           fontFamily: "var(--font-geist-mono)",
         }}
       >
@@ -35,14 +36,23 @@ export default function TeamLogo({ teamName, size = 40 }: Props) {
   }
 
   return (
-    <div className="shrink-0 rounded-full overflow-hidden" style={{ width: size, height: size, background: "#0a0e1a" }}>
+    <div
+      className="flex items-center justify-center rounded-full shrink-0"
+      style={{
+        width: size,
+        height: size,
+        background: "#1a2335",
+        border: "1px solid #2a3548",
+        padding: Math.round(size * 0.15),
+      }}
+    >
       <Image
         src={getTeamLogoUrl(info.id)}
         alt={teamName}
-        width={size}
-        height={size}
+        width={innerSize}
+        height={innerSize}
         onError={() => setFailed(true)}
-        style={{ objectFit: "contain" }}
+        style={{ objectFit: "contain", width: "100%", height: "100%" }}
         unoptimized
       />
     </div>
