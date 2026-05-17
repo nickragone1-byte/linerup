@@ -15,16 +15,16 @@ export default function HowItWorks() {
       </h2>
 
       <div style={{ maxWidth: "560px" }}>
-        <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.75, marginBottom: 16 }}>
+        <p style={{ fontSize: 15, color: "#c9d1d9", lineHeight: 1.75, marginBottom: 16 }}>
           V8 is an 8-variable logistic regression model trained on {MODEL_TRAINING_GAMES.toLocaleString()} MLB games from 2023–2026,
           calibrated to {MODEL_ACCURACY}% accuracy. It finds games where the model&apos;s win probability differs
           meaningfully from the Vegas-implied probability — that difference is the edge.
         </p>
-        <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.75, marginBottom: 16 }}>
+        <p style={{ fontSize: 15, color: "#c9d1d9", lineHeight: 1.75, marginBottom: 16 }}>
           Model Favorites are games where V8 finds a clear edge above the market. Leans are
           positive-edge games with a smaller confidence window. Everything else is a pass.
         </p>
-        <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.75, marginBottom: 28 }}>
+        <p style={{ fontSize: 15, color: "#c9d1d9", lineHeight: 1.75, marginBottom: 28 }}>
           Every prediction is published before first pitch. Every result is tracked. Nothing is sold.
           This is analytics research, not gambling advice.
         </p>

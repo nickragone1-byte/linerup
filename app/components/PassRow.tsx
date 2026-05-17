@@ -30,7 +30,7 @@ function reasonColor(reason: string): string {
   if (r.includes("tbd") || r.includes("pitcher") || r.includes("thin") || r.includes("pending") || r.includes("insufficient"))
     return "#f59e0b"; // amber — data quality issue
   if (r.includes("disagree") || r.includes("sharp") || r.includes("market"))
-    return "#f87171"; // soft red — sharp fade
+    return "#fb923c"; // amber — sharp fade
   return "#6e7681";   // gray — no edge
 }
 
@@ -49,6 +49,7 @@ export default function PassRow({ items }: Props) {
         style={{
           background: "#0f1422",
           border: "1px solid #1a2335",
+          outline: "none",
           cursor: "pointer",
           minHeight: 44,
           paddingTop: 10,

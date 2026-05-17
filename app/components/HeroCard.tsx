@@ -98,13 +98,11 @@ export default function HeroCard({ game, display, narrative }: Props) {
               <TeamLogo teamName={game.home_team} size={40} />
             </div>
           </div>
-          {/* Row 2: records — fix #1: plain text, no link styling */}
-          <div className="text-center" style={{ fontSize: 14, color: "#c9d1d9", userSelect: "none" }}>
-            <span style={{ color: "#c9d1d9" }}>{game.away_record}</span>
-            {" "}
-            <span style={{ color: "#4a5568" }}>vs</span>
-            {" "}
-            <span style={{ color: "#c9d1d9" }}>{game.home_record}</span>
+          {/* Row 2: records — centered flexbox, equal gap */}
+          <div className="flex items-center justify-center" style={{ gap: 8, userSelect: "none" }}>
+            <span style={{ fontSize: 15, color: "#c9d1d9", fontWeight: 500 }}>{game.away_record}</span>
+            <span style={{ fontSize: 12, color: "#7d8590" }}>vs</span>
+            <span style={{ fontSize: 15, color: "#c9d1d9", fontWeight: 500 }}>{game.home_record}</span>
           </div>
         </div>
 
@@ -115,7 +113,7 @@ export default function HeroCard({ game, display, narrative }: Props) {
             <div className="flex items-baseline justify-between gap-2">
               <span
                 className="font-bold"
-                style={{ fontSize: pickedSide === "away" ? 28 : 22, color: "#ffffff", lineHeight: 1.1 }}
+                style={{ fontSize: 28, color: "#ffffff", lineHeight: 1.1 }}
               >
                 {awayName}
               </span>
@@ -132,7 +130,7 @@ export default function HeroCard({ game, display, narrative }: Props) {
               </span>
               <span
                 className="font-bold"
-                style={{ fontSize: pickedSide === "home" ? 28 : 22, color: "#ffffff", lineHeight: 1.1 }}
+                style={{ fontSize: 28, color: "#ffffff", lineHeight: 1.1 }}
               >
                 {homeName}
               </span>
