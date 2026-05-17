@@ -12,6 +12,18 @@ import Footer from "@/app/components/Footer";
 import MobileBottomBar from "@/app/components/MobileBottomBar";
 import type { PassItem } from "@/app/components/PassRow";
 
+// "2026-05-15 09:01:32 PDT" → "Updated at 9:01 AM"
+function formatUpdatedAt(generatedAt: string): string {
+  const timePart = generatedAt.split(" ")[1];
+  if (!timePart) return "";
+  const [hStr, mStr] = timePart.split(":");
+  const h = parseInt(hStr, 10);
+  const m = parseInt(mStr, 10);
+  const hour = h % 12 || 12;
+  const ampm = h < 12 ? "AM" : "PM";
+  return `Updated at ${hour}:${String(m).padStart(2, "0")} ${ampm}`;
+}
+
 export default async function MLBPage() {
   const [predictions, results] = await Promise.all([
     getPredictions("mlb"),
@@ -43,6 +55,7 @@ export default async function MLBPage() {
     year: "numeric",
   });
 
+  const updatedLabel = formatUpdatedAt(predictions.generated_at);
   const playCount = topGames.length;
   const leanCount = leans.length;
 
@@ -50,9 +63,22 @@ export default async function MLBPage() {
     <div className="min-h-screen" style={{ background: "#0a0e1a" }}>
       <Header />
 
-      {/* Date strip */}
+      {/* Date strip — inline on desktop, stacked on mobile */}
       <div className="max-w-3xl mx-auto px-5 pt-6 pb-0">
-        <span style={{ fontSize: 13, color: "#4a5568" }}>{dateLabel}</span>
+        {/* Desktop: single line */}
+        <div className="hidden sm:flex items-center gap-3">
+          <span style={{ fontSize: 13, color: "#4a5568" }}>{dateLabel}</span>
+          {updatedLabel && (
+            <span style={{ fontSize: 13, color: "#7d8590" }}>· {updatedLabel}</span>
+          )}
+        </div>
+        {/* Mobile: stacked */}
+        <div className="sm:hidden">
+          <div style={{ fontSize: 13, color: "#4a5568" }}>{dateLabel}</div>
+          {updatedLabel && (
+            <div style={{ fontSize: 12, color: "#7d8590", marginTop: 2 }}>{updatedLabel}</div>
+          )}
+        </div>
       </div>
 
       {/* Hero section */}

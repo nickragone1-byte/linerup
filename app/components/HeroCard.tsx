@@ -44,7 +44,7 @@ export default function HeroCard({ game, display, narrative }: Props) {
       className="rounded-xl overflow-hidden mb-4"
       style={{ background: "#0f1422", border: `1px solid ${style.border}` }}
     >
-      {/* Tier badge row — hidden on mobile, visible on desktop */}
+      {/* ── DESKTOP header row: MODEL FAVORITE label + Home/Away ── */}
       <div
         className="hidden sm:flex items-center justify-between px-5 py-3"
         style={{ borderBottom: "1px solid #1a2335" }}
@@ -60,35 +60,31 @@ export default function HeroCard({ game, display, narrative }: Props) {
         </span>
       </div>
 
-      {/* Mobile-only top row: just Away/Home indicator */}
+      {/* ── MOBILE header row: just Home/Away indicator, no redundant label ── */}
       <div
-        className="flex sm:hidden items-center justify-between px-4 py-2"
+        className="flex sm:hidden items-center justify-end px-4 py-2"
         style={{ borderBottom: "1px solid #1a2335" }}
       >
-        <span
-          className="uppercase font-semibold"
-          style={{ fontSize: 10, color: style.color, letterSpacing: "0.14em" }}
-        >
-          {display === "LOCK" ? "Lock" : "Model Favorite"}
-        </span>
         <span style={{ fontSize: 12, color: "#c9d1d9" }}>
           {isHome ? "Home" : "Away"}
         </span>
       </div>
 
-      <div className="px-4 sm:px-5 pt-4 sm:pt-5 pb-4">
+      {/* Card body — equal top/bottom padding 16px */}
+      <div className="px-4 sm:px-5" style={{ paddingTop: 16, paddingBottom: 16 }}>
 
         {/* ── MOBILE matchup (two-row layout) ── */}
-        <div className="sm:hidden mb-4">
-          {/* Row 1: logos + names */}
-          <div className="flex items-center justify-between gap-2 mb-2">
-            <div className="flex items-center gap-2 min-w-0">
+        <div className="sm:hidden" style={{ marginBottom: 16 }}>
+          {/* Row 1: [logo + name] ......... [name + logo] */}
+          <div className="flex items-center justify-between" style={{ marginBottom: 8 }}>
+            {/* Away side */}
+            <div className="flex items-center" style={{ gap: 12 }}>
               <TeamLogo teamName={game.away_team} size={40} />
               <span
                 style={{
-                  fontSize: pickedSide === "away" ? 22 : 17,
+                  fontSize: 20,
                   fontWeight: 700,
-                  color: pickedSide === "away" ? "#ffffff" : "#4a5568",
+                  color: "#ffffff",
                   lineHeight: 1.1,
                   whiteSpace: "nowrap",
                 }}
@@ -96,12 +92,13 @@ export default function HeroCard({ game, display, narrative }: Props) {
                 {awayName}
               </span>
             </div>
-            <div className="flex items-center gap-2 min-w-0">
+            {/* Home side */}
+            <div className="flex items-center" style={{ gap: 12 }}>
               <span
                 style={{
-                  fontSize: pickedSide === "home" ? 22 : 17,
+                  fontSize: 20,
                   fontWeight: 700,
-                  color: pickedSide === "home" ? "#ffffff" : "#4a5568",
+                  color: "#ffffff",
                   lineHeight: 1.1,
                   whiteSpace: "nowrap",
                 }}
@@ -112,13 +109,13 @@ export default function HeroCard({ game, display, narrative }: Props) {
             </div>
           </div>
           {/* Row 2: records centered */}
-          <div className="text-center" style={{ fontSize: 12, color: "#8b95a8" }}>
-            {game.away_record} <span style={{ color: "#2a3a55" }}>vs</span> {game.home_record}
+          <div className="text-center" style={{ fontSize: 14, color: "#c9d1d9" }}>
+            {game.away_record} <span style={{ color: "#4a5568" }}>vs</span> {game.home_record}
           </div>
         </div>
 
         {/* ── DESKTOP matchup (single-row layout) ── */}
-        <div className="hidden sm:flex items-center gap-3 mb-5">
+        <div className="hidden sm:flex items-center gap-3" style={{ marginBottom: 20 }}>
           <TeamLogo teamName={game.away_team} size={48} />
           <div className="flex-1 min-w-0">
             <div className="flex items-baseline justify-between gap-2">
@@ -159,7 +156,7 @@ export default function HeroCard({ game, display, narrative }: Props) {
         </div>
 
         {/* Probability bar */}
-        <div className="mb-4">
+        <div style={{ marginBottom: 16 }}>
           <ProbabilityBar
             awayProb={100 - game.model_prob_home}
             homeProb={game.model_prob_home}
@@ -168,34 +165,34 @@ export default function HeroCard({ game, display, narrative }: Props) {
         </div>
 
         {/* Stat boxes */}
-        <div className="mb-4">
+        <div style={{ marginBottom: 16 }}>
           <StatBox stats={stats} />
         </div>
 
         {/* THE READ */}
-        <div>
+        <div style={{ marginBottom: 4 }}>
           <div
-            className="uppercase mb-2"
-            style={{ fontSize: 9, letterSpacing: "0.12em", color: "#7d8590" }}
+            className="uppercase"
+            style={{ fontSize: 9, letterSpacing: "0.12em", color: "#7d8590", marginBottom: 6 }}
           >
             The Read
           </div>
           <p style={{ fontSize: 14, color: "#c9d1d9", lineHeight: 1.7 }}>{narrative}</p>
         </div>
 
-        {/* Expand toggle — 44px tap target */}
+        {/* Expand toggle — 44px tap target, tight spacing */}
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
-          className="mt-3 flex items-center gap-1 touch-manipulation"
+          className="flex items-center gap-1 touch-manipulation"
           style={{
             fontSize: 12,
             color: "#c9d1d9",
             background: "none",
             border: "none",
             cursor: "pointer",
-            padding: "10px 0",
-            minHeight: 44,
+            padding: "10px 0 0 0",
+            minHeight: 36,
           }}
         >
           <span>{expanded ? "Less" : "More"}</span>
@@ -211,7 +208,7 @@ export default function HeroCard({ game, display, narrative }: Props) {
         </button>
 
         {expanded && (
-          <div className="pt-4" style={{ borderTop: "1px solid #1a2335" }}>
+          <div style={{ borderTop: "1px solid #1a2335", marginTop: 12, paddingTop: 16 }}>
             <div className="grid grid-cols-2 gap-3">
               {[
                 { label: "Away Pitcher", value: game.away_pitcher, sub: `${game.away_sp_ip} IP` },
