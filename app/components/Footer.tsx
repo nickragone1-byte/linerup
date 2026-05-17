@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="py-8 px-5" style={{ borderTop: "1px solid #1a2335" }}>
       <div className="max-w-3xl mx-auto">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-5">
-          <span style={{ fontSize: 13, color: "#4a5568", fontWeight: 700, letterSpacing: "-0.02em" }}>
+          <span style={{ fontSize: 13, color: "#e6edf3", fontWeight: 700, letterSpacing: "-0.03em" }}>
             Line<span style={{ color: "#00e088" }}>r</span>up
           </span>
           <div className="flex gap-5">

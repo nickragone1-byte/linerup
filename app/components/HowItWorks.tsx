@@ -9,7 +9,7 @@ export default function HowItWorks() {
     >
       <h2
         className="uppercase mb-5"
-        style={{ fontSize: 12, letterSpacing: "0.10em", color: "#c9d1d9", fontWeight: 600, fontFamily: "var(--font-geist-mono)" }}
+        style={{ fontSize: 12, letterSpacing: "0.2em", color: "#c9d1d9", fontWeight: 600, fontFamily: "var(--font-geist-mono)" }}
       >
         How This Works
       </h2>

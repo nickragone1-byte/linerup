@@ -86,7 +86,7 @@ export default async function MLBPage() {
         <section className="max-w-3xl mx-auto px-5 pt-6 pb-4">
           <h2
             className="uppercase mb-4"
-            style={{ fontSize: 13, letterSpacing: "0.10em", color: "#c9d1d9", fontWeight: 600 }}
+            style={{ fontSize: 12, letterSpacing: "0.2em", color: "#c9d1d9", fontWeight: 600, fontFamily: "var(--font-geist-mono)" }}
           >
             Model Favorites
           </h2>
@@ -122,7 +122,7 @@ export default async function MLBPage() {
         <section className="max-w-3xl mx-auto px-5 pb-8">
           <h2
             className="uppercase mb-4"
-            style={{ fontSize: 13, letterSpacing: "0.10em", color: "#c9d1d9", fontWeight: 600 }}
+            style={{ fontSize: 12, letterSpacing: "0.2em", color: "#c9d1d9", fontWeight: 600, fontFamily: "var(--font-geist-mono)" }}
           >
             Leans
           </h2>

@@ -19,7 +19,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 function P({ children }: { children: React.ReactNode }) {
   return (
-    <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.75, marginBottom: 16 }}>
+    <p style={{ fontSize: 15, color: "#c9d1d9", lineHeight: 1.75, marginBottom: 16 }}>
       {children}
     </p>
   );
@@ -36,7 +36,7 @@ export default function MethodologyPage() {
         >
           Methodology
         </h1>
-        <p className="mb-12" style={{ fontSize: 15, color: "#4a5568" }}>
+        <p className="mb-12" style={{ fontSize: 15, color: "#8b95a8" }}>
           How V8 generates predictions — in plain English.
         </p>
 
@@ -128,7 +128,7 @@ export default function MethodologyPage() {
                 >
                   {tier}
                 </span>
-                <p style={{ fontSize: 14, color: "#4a5568", lineHeight: 1.7 }}>{desc}</p>
+                <p style={{ fontSize: 14, color: "#8b95a8", lineHeight: 1.7 }}>{desc}</p>
               </div>
             ))}
           </div>
