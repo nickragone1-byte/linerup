@@ -24,6 +24,9 @@ export default function Footer() {
             ))}
           </div>
         </div>
+        <p style={{ fontSize: 11, color: "#2a3a55", marginBottom: 8 }}>
+          Auto-refreshed hourly · MLB season
+        </p>
         <p style={{ fontSize: 11, color: "#2a3a55", lineHeight: 1.6 }}>
           Linerup is a sports analytics research platform for entertainment purposes only. Nothing on this site
           constitutes gambling advice. If you or someone you know has a gambling problem, call
