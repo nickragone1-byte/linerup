@@ -22,11 +22,11 @@ export default function TeamLogo({ teamName, size = 48 }: Props) {
         style={{
           width: size,
           height: size,
-          background: "#1a2335",
+          background: "#ffffff",
           border: "1px solid #2a3548",
           fontSize: Math.round(size * 0.28),
           fontWeight: 700,
-          color: "#7d8590",
+          color: "#1a2335",
           fontFamily: "var(--font-geist-mono)",
         }}
       >
@@ -41,7 +41,7 @@ export default function TeamLogo({ teamName, size = 48 }: Props) {
       style={{
         width: size,
         height: size,
-        background: "#1a2335",
+        background: "#ffffff",
         border: "1px solid #2a3548",
         padding: Math.round(size * 0.15),
       }}
