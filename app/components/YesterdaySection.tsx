@@ -8,11 +8,10 @@ interface Props {
   data: ResultsData;
 }
 
-function fmtYesterdayLabel(dateStr: string): string {
-  return new Date(dateStr + "T12:00:00").toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-  }).toUpperCase();
+function fmtDateLabel(dateStr: string): string {
+  return new Date(dateStr + "T12:00:00")
+    .toLocaleDateString("en-US", { month: "short", day: "numeric" })
+    .toUpperCase();
 }
 
 function fmtTrackingDate(dateStr: string): string {
@@ -22,12 +21,6 @@ function fmtTrackingDate(dateStr: string): string {
     day: "numeric",
     year: "numeric",
   });
-}
-
-function getYesterdayPT(): string {
-  const d = new Date();
-  d.setDate(d.getDate() - 1);
-  return d.toLocaleDateString("en-CA", { timeZone: "America/Los_Angeles" });
 }
 
 function TierBadge({ tier }: { tier: "PLAY" | "LEAN" }) {
@@ -58,13 +51,11 @@ function ResultMark({ outcome }: { outcome: string }) {
 }
 
 export default function YesterdaySection({ data }: Props) {
-  const yesterday = getYesterdayPT();
-  const picks = data.results.filter((r) => r.date === yesterday);
+  const completed = data.results.filter((r) => r.outcome !== "PENDING");
 
-  const trackingStart = data.tracking_start_date;
-  const beforeTracking = trackingStart && yesterday < trackingStart;
-
-  if (picks.length === 0) {
+  // Empty state: no completed results at all
+  if (completed.length === 0) {
+    const trackingStart = data.tracking_start_date;
     return (
       <section
         className="max-w-3xl mx-auto px-5 py-8"
@@ -74,12 +65,12 @@ export default function YesterdaySection({ data }: Props) {
           className="uppercase mb-3"
           style={{ fontSize: 12, letterSpacing: "0.2em", color: "#c9d1d9", fontWeight: 600, fontFamily: "var(--font-geist-mono)" }}
         >
-          Yesterday
+          Yesterday&apos;s Results
         </h2>
         <p style={{ fontSize: 14, color: "#4a5568" }}>
-          {beforeTracking && trackingStart
+          {trackingStart
             ? `Track record begins ${fmtTrackingDate(trackingStart)}.`
-            : "No picks recorded for yesterday."}
+            : "No results recorded yet."}
         </p>
         <Link
           href="/track-record"
@@ -92,9 +83,45 @@ export default function YesterdaySection({ data }: Props) {
     );
   }
 
-  const completed = picks.filter((p) => p.outcome !== "PENDING");
-  const wins  = completed.filter((p) => p.outcome === "WIN").length;
-  const losses = completed.filter((p) => p.outcome === "LOSS").length;
+  // Most recent date with completed results
+  const mostRecentDate = completed.reduce(
+    (max, r) => (r.date > max ? r.date : max),
+    completed[0].date
+  );
+
+  // All picks on that date (including pending, if any)
+  const picks = data.results.filter((r) => r.date === mostRecentDate);
+  const dateCompleted = picks.filter((p) => p.outcome !== "PENDING");
+
+  // Pending-only state on most recent date
+  if (dateCompleted.length === 0) {
+    return (
+      <section
+        className="max-w-3xl mx-auto px-5 py-8"
+        style={{ borderTop: "1px solid #1a2335" }}
+      >
+        <h2
+          className="uppercase mb-3"
+          style={{ fontSize: 12, letterSpacing: "0.2em", color: "#c9d1d9", fontWeight: 600, fontFamily: "var(--font-geist-mono)" }}
+        >
+          Yesterday&apos;s Results · {fmtDateLabel(mostRecentDate)}
+        </h2>
+        <p style={{ fontSize: 14, color: "#4a5568" }}>
+          Awaiting results · {fmtDateLabel(mostRecentDate)}
+        </p>
+        <Link
+          href="/track-record"
+          className="nav-link"
+          style={{ fontSize: 13, color: "#c9d1d9", display: "inline-block", marginTop: 12 }}
+        >
+          → Full track record
+        </Link>
+      </section>
+    );
+  }
+
+  const wins = dateCompleted.filter((p) => p.outcome === "WIN").length;
+  const losses = dateCompleted.filter((p) => p.outcome === "LOSS").length;
   const recordColor = wins > losses ? "#00e088" : "#fb923c";
 
   return (
@@ -107,7 +134,7 @@ export default function YesterdaySection({ data }: Props) {
           className="uppercase"
           style={{ fontSize: 12, letterSpacing: "0.2em", color: "#c9d1d9", fontWeight: 600, fontFamily: "var(--font-geist-mono)" }}
         >
-          Yesterday · {fmtYesterdayLabel(yesterday)}
+          Yesterday&apos;s Results · {fmtDateLabel(mostRecentDate)}
         </h2>
         <span
           className="font-mono font-semibold uppercase"
