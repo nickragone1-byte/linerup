@@ -3,10 +3,15 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-brand: #00ff88;
-  --color-surface: #0a0a0a;
-  --color-edge: #1a1a1a;
-  --color-dim: #888888;
+  --color-brand: #00e088;
+  --color-amber: #fb923c;
+  --color-surface: #0f1422;
+  --color-edge: #1a2335;
+  --color-primary: #e6edf3;
+  --color-secondary: #8b95a8;
+  --color-play: #10b981;
+  --color-lean: #f59e0b;
+  --color-pass: #475569;
 }
 
 *,
@@ -16,19 +21,18 @@
 }
 
 html {
-  background: #000;
+  background: #0a0e1a;
 }
 
 body {
-  background: #000;
-  color: #fff;
+  background: #0a0e1a;
+  color: #e6edf3;
   font-size: 15px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Tabular nums for all mono text */
 .font-mono {
   font-variant-numeric: tabular-nums;
 }

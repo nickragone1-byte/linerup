@@ -7,6 +7,12 @@ function sharpConfirmsPick(game: Game): boolean {
   return isHome ? s.includes("home") : s.includes("away");
 }
 
+function sharpFadesPick(game: Game): boolean {
+  const s = game.sharp_signal.toLowerCase();
+  if (s === "neutral") return false;
+  return !sharpConfirmsPick(game);
+}
+
 function lineMoveAgainstPick(game: Game): boolean {
   const isHome = game.pick === game.home_team;
   return isHome ? game.line_move > 0 : game.line_move < 0;
@@ -14,30 +20,44 @@ function lineMoveAgainstPick(game: Game): boolean {
 
 export function generateNarrative(game: Game, _internal: Tier): string {
   const isHome = game.pick === game.home_team;
-  const opponent = isHome ? game.away_team : game.home_team;
   const pickPitcher = isHome ? game.home_pitcher : game.away_pitcher;
   const pickPitcherIP = isHome ? game.home_sp_ip : game.away_sp_ip;
+  const pickEdge = isHome ? game.edge : -game.edge;
 
   const confirms = sharpConfirmsPick(game);
+  const fades = sharpFadesPick(game);
   const lineAgainst = lineMoveAgainstPick(game);
-  const thinSP = pickPitcherIP > 0 && pickPitcherIP < 30;
+  const isNeutral = game.sharp_signal.toLowerCase() === "neutral";
 
-  let sentence1: string;
+  // S1: edge size description
+  let edgeLabel: string;
+  if (pickEdge < 4) edgeLabel = "small";
+  else if (pickEdge < 8) edgeLabel = "solid";
+  else edgeLabel = "strong";
 
-  if (confirms && game.edge > 0) {
-    sentence1 = "Strong model edge. Sharps agree.";
-  } else if (lineAgainst && game.edge > 0) {
-    sentence1 = `Model likes ${game.pick} despite the line moving toward ${opponent}.`;
-  } else if (game.edge >= 0 && game.edge < 6) {
-    sentence1 = "Solid model edge against the market.";
-  } else {
-    const vegasPct = (isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home).toFixed(1);
-    sentence1 = `V8 sees ${game.confidence.toFixed(1)}% — Vegas has it at ${vegasPct}%.`;
+  const sentence1 = `V8 finds a ${edgeLabel} edge over the market line.`;
+
+  // S2: pitcher quality or park context
+  let sentence2 = "";
+  if (pickPitcherIP >= 40) {
+    sentence2 = ` ${pickPitcher} at full strength (${pickPitcherIP.toFixed(0)} IP).`;
+  } else if (pickPitcherIP > 0 && pickPitcherIP < 30) {
+    sentence2 = ` Light pitcher sample — weight accordingly.`;
+  } else if (game.park_factor > 1.05) {
+    sentence2 = ` Park favors offense tonight.`;
+  } else if (game.park_factor < 0.95) {
+    sentence2 = ` Park favors pitching tonight.`;
   }
 
-  const sentence2 = thinSP
-    ? ` ${pickPitcher} sample is light — weight accordingly.`
-    : "";
+  // S3: sharp signal context
+  let sentence3 = "";
+  if (confirms) {
+    sentence3 = ` Sharps confirm the lean.`;
+  } else if (fades) {
+    sentence3 = ` Market moving against this pick.`;
+  } else if (isNeutral && lineAgainst) {
+    sentence3 = ` Sharps neutral despite line movement.`;
+  }
 
-  return sentence1 + sentence2;
+  return sentence1 + sentence2 + sentence3;
 }

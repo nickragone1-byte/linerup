@@ -2,21 +2,15 @@ import { getPredictions, getResults } from "@/lib/data";
 import { computeTier, TIER_ORDER } from "@/lib/tier";
 import { toDisplayTier, passReason } from "@/lib/display-tier";
 import { generateNarrative } from "@/lib/narrative";
-import StickyHeader from "@/app/components/StickyHeader";
-import HeroSection from "@/app/components/HeroSection";
+import Header from "@/app/components/Header";
+import HeroCard from "@/app/components/HeroCard";
 import LeanCard from "@/app/components/LeanCard";
-import PassLine from "@/app/components/PassLine";
+import PassRow from "@/app/components/PassRow";
 import YesterdaySection from "@/app/components/YesterdaySection";
 import HowItWorks from "@/app/components/HowItWorks";
-import type { PassItem } from "@/app/components/PassLine";
-import type { HeroGame } from "@/app/components/HeroSection";
-
-function timeDescription(generatedAt: string): string {
-  const hour = parseInt(generatedAt.split(" ")[1]?.split(":")[0] ?? "9", 10);
-  if (hour < 12) return "Updated this morning";
-  if (hour < 17) return "Updated this afternoon";
-  return "Updated this evening";
-}
+import Footer from "@/app/components/Footer";
+import MobileBottomBar from "@/app/components/MobileBottomBar";
+import type { PassItem } from "@/app/components/PassRow";
 
 export default async function MLBPage() {
   const [predictions, results] = await Promise.all([
@@ -34,7 +28,7 @@ export default async function MLBPage() {
     })
     .sort((a, b) => TIER_ORDER.indexOf(a.internal) - TIER_ORDER.indexOf(b.internal));
 
-  const topGames: HeroGame[] = withTiers.filter(
+  const topGames = withTiers.filter(
     (g) => g.display === "LOCK" || g.display === "PLAY"
   );
   const leans = withTiers.filter((g) => g.display === "LEAN");
@@ -49,31 +43,60 @@ export default async function MLBPage() {
     year: "numeric",
   });
 
-  const timeDesc = timeDescription(predictions.generated_at);
+  const playCount = topGames.length;
+  const leanCount = leans.length;
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <StickyHeader
-        modelVersion={predictions.model_version}
-        accuracy={predictions.training_accuracy}
-        sport="mlb"
-      />
+    <div className="min-h-screen" style={{ background: "#0a0e1a" }}>
+      <Header />
 
       {/* Date strip */}
-      <div className="max-w-3xl mx-auto px-5 pt-7 pb-0 flex items-center justify-between">
-        <span style={{ fontSize: "13px", color: "#555" }}>{dateLabel}</span>
-        <span style={{ fontSize: "13px", color: "#333" }}>{timeDesc}</span>
+      <div className="max-w-3xl mx-auto px-5 pt-6 pb-0">
+        <span style={{ fontSize: 13, color: "#2a3a55" }}>{dateLabel}</span>
       </div>
 
-      {/* Hero */}
-      <HeroSection topGames={topGames} />
+      {/* Hero section */}
+      {topGames.length > 0 ? (
+        <section className="max-w-3xl mx-auto px-5 pt-6 pb-4">
+          <h2
+            className="uppercase mb-4"
+            style={{ fontSize: 11, letterSpacing: "0.12em", color: "#4a5568" }}
+          >
+            Model Favorites
+          </h2>
+          <div>
+            {topGames.map(({ game, display, narrative }) => (
+              <HeroCard
+                key={`${game.away_team}-${game.home_team}`}
+                game={game}
+                display={display}
+                narrative={narrative}
+              />
+            ))}
+          </div>
+        </section>
+      ) : (
+        <section className="max-w-3xl mx-auto px-5 pt-6 pb-4">
+          <div
+            className="rounded-xl px-8 py-12 text-center"
+            style={{ background: "#0f1422", border: "1px solid #1a2335" }}
+          >
+            <p style={{ fontSize: 15, color: "#4a5568" }}>
+              No strong model edges today.
+            </p>
+            <p className="mt-2" style={{ fontSize: 13, color: "#2a3a55" }}>
+              V8 passes when there is no clear edge over the market.
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Leans */}
       {leans.length > 0 && (
-        <section className="max-w-3xl mx-auto px-5 pb-10">
+        <section className="max-w-3xl mx-auto px-5 pb-8">
           <h2
             className="uppercase mb-4"
-            style={{ fontSize: "11px", letterSpacing: "0.12em", color: "#555" }}
+            style={{ fontSize: 11, letterSpacing: "0.12em", color: "#4a5568" }}
           >
             Leans
           </h2>
@@ -89,24 +112,23 @@ export default async function MLBPage() {
         </section>
       )}
 
-      {/* Pass line */}
-      {passes.length > 0 && <PassLine items={passes} />}
+      {/* Passes */}
+      <PassRow items={passes} />
 
-      {/* Yesterday */}
+      {/* Yesterday results */}
       <YesterdaySection results={results} />
 
       {/* How it works */}
       <HowItWorks />
 
       {/* Footer */}
-      <footer
-        className="py-8"
-        style={{ borderTop: "1px solid #1a1a1a" }}
-      >
-        <p className="text-center" style={{ fontSize: "12px", color: "#444" }}>
-          Linerup · For entertainment only · Not gambling advice · 21+
-        </p>
-      </footer>
+      <Footer />
+
+      {/* Mobile bottom bar */}
+      <MobileBottomBar playCount={playCount} leanCount={leanCount} />
+
+      {/* Bottom padding for mobile bar */}
+      <div className="h-20 sm:hidden" />
     </div>
   );
 }

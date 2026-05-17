@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Linerup — MLB Predictions",
-  description: "Disciplined MLB betting analytics. Every pick published before first pitch. Every result tracked.",
+  title: "Linerup — MLB Analytics",
+  description: "Public, transparent MLB analytics model. Every prediction published before first pitch. Every result tracked.",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#0a0e1a",
   width: "device-width",
   initialScale: 1,
 };
@@ -35,7 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="min-h-screen bg-black text-white antialiased">{children}</body>
+      <body className="min-h-screen antialiased" style={{ background: "#0a0e1a", color: "#e6edf3" }}>
+        {children}
+      </body>
     </html>
   );
 }
