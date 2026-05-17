@@ -65,7 +65,7 @@ export default function YesterdaySection({ data }: Props) {
           className="uppercase mb-3"
           style={{ fontSize: 12, letterSpacing: "0.2em", color: "#c9d1d9", fontWeight: 600, fontFamily: "var(--font-geist-mono)" }}
         >
-          Yesterday&apos;s Results
+          Recent Results
         </h2>
         <p style={{ fontSize: 14, color: "#4a5568" }}>
           {trackingStart
@@ -104,7 +104,7 @@ export default function YesterdaySection({ data }: Props) {
           className="uppercase mb-3"
           style={{ fontSize: 12, letterSpacing: "0.2em", color: "#c9d1d9", fontWeight: 600, fontFamily: "var(--font-geist-mono)" }}
         >
-          Yesterday&apos;s Results · {fmtDateLabel(mostRecentDate)}
+          Recent Results · {fmtDateLabel(mostRecentDate)}
         </h2>
         <p style={{ fontSize: 14, color: "#4a5568" }}>
           Awaiting results · {fmtDateLabel(mostRecentDate)}
@@ -134,7 +134,7 @@ export default function YesterdaySection({ data }: Props) {
           className="uppercase"
           style={{ fontSize: 12, letterSpacing: "0.2em", color: "#c9d1d9", fontWeight: 600, fontFamily: "var(--font-geist-mono)" }}
         >
-          Yesterday&apos;s Results · {fmtDateLabel(mostRecentDate)}
+          Recent Results · {fmtDateLabel(mostRecentDate)}
         </h2>
         <span
           className="font-mono font-semibold uppercase"
