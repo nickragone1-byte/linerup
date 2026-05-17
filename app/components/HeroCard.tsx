@@ -6,6 +6,7 @@ import ProbabilityBar from "./ProbabilityBar";
 import StatBox from "./StatBox";
 import type { Game } from "@/lib/types";
 import type { DisplayTier } from "@/lib/display-tier";
+import { MODEL_TRAINING_GAMES } from "@/lib/constants";
 
 interface Props {
   game: Game;
@@ -172,7 +173,7 @@ export default function HeroCard({ game, display, narrative }: Props) {
         >
           <span style={{ fontSize: 13, lineHeight: 1 }}>📊</span>
           <p style={{ fontSize: 12, color: "#fb923c", lineHeight: 1.5 }}>
-            MLB model favorites at this confidence have hit {proofPct} over 7,649 historical games.
+            MLB model favorites at this confidence have hit {proofPct} over {MODEL_TRAINING_GAMES.toLocaleString()} historical games.
           </p>
         </div>
 

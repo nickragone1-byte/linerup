@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import { MODEL_TRAINING_GAMES, MODEL_ACCURACY, MODEL_BREAKEVEN } from "@/lib/constants";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -41,7 +42,7 @@ export default function MethodologyPage() {
 
         <Section title="The Model">
           <P>
-            V8 is a logistic regression model trained on 7,649 MLB regular-season games from 2023
+            V8 is a logistic regression model trained on {MODEL_TRAINING_GAMES.toLocaleString()} MLB regular-season games from 2023
             through 2026. Logistic regression was chosen deliberately: it produces well-calibrated
             probabilities, is interpretable, and resists overfitting on a dataset this size. More
             complex models — neural nets, gradient boosting — showed no statistically significant
@@ -79,8 +80,8 @@ export default function MethodologyPage() {
 
         <Section title="Calibration">
           <P>
-            A 57.1% accuracy sounds modest. In sports betting, it is not. The break-even win rate
-            at standard -110 juice is 52.4%. V8&apos;s edge above that line, sustained over 7,649
+            A {MODEL_ACCURACY}% accuracy sounds modest. In sports betting, it is not. The break-even win rate
+            at standard -110 juice is {MODEL_BREAKEVEN}%. V8&apos;s edge above that line, sustained over {MODEL_TRAINING_GAMES.toLocaleString()}
             games, is the signal worth tracking.
           </P>
           <P>

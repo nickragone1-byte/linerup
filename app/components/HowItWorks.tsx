@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MODEL_TRAINING_GAMES, MODEL_ACCURACY } from "@/lib/constants";
 
 export default function HowItWorks() {
   return (
@@ -15,8 +16,8 @@ export default function HowItWorks() {
 
       <div style={{ maxWidth: "560px" }}>
         <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.75, marginBottom: 16 }}>
-          V8 is an 8-variable logistic regression model trained on 7,649 MLB games from 2023–2026,
-          calibrated to 57.1% accuracy. It finds games where the model&apos;s win probability differs
+          V8 is an 8-variable logistic regression model trained on {MODEL_TRAINING_GAMES.toLocaleString()} MLB games from 2023–2026,
+          calibrated to {MODEL_ACCURACY}% accuracy. It finds games where the model&apos;s win probability differs
           meaningfully from the Vegas-implied probability — that difference is the edge.
         </p>
         <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.75, marginBottom: 16 }}>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import TeamLogo from "./TeamLogo";
 import type { Game } from "@/lib/types";
+import { MODEL_TRAINING_GAMES } from "@/lib/constants";
 
 interface Props {
   game: Game;
@@ -98,7 +99,7 @@ export default function LeanCard({ game, narrative }: Props) {
         >
           <span style={{ fontSize: 12, lineHeight: 1 }}>📊</span>
           <p style={{ fontSize: 11, color: "#fb923c", lineHeight: 1.5 }}>
-            MLB leans at this confidence have hit 54% over 7,649 historical games.
+            MLB leans at this confidence have hit 54% over {MODEL_TRAINING_GAMES.toLocaleString()} historical games.
           </p>
         </div>
 

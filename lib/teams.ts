@@ -41,7 +41,7 @@ export function getTeamInfo(name: string): TeamInfo | null {
 }
 
 export function getTeamLogoUrl(teamId: number): string {
-  return `https://www.mlbstatic.com/team-logos/${teamId}.svg`;
+  return `https://www.mlbstatic.com/team-logos/team-cap-on-light/${teamId}.svg`;
 }
 
 export function teamAbbr(name: string): string {
