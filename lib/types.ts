@@ -47,3 +47,17 @@ export type Tier =
   | "⚠️ THIN SP"
   | "⚪ SKIP"
   | "🔴 FADE";
+
+export interface PickResult {
+  pick: string;
+  opponent: string;
+  tier: "PLAY" | "LEAN";
+  result: "W" | "L" | "P";
+  confidence: number;
+  edge?: number;
+}
+
+export interface DayResult {
+  date: string;
+  results: PickResult[];
+}

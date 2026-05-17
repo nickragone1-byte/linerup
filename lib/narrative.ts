@@ -1,38 +1,43 @@
-import type { Game } from "./types";
-import type { Tier } from "./types";
+import type { Game, Tier } from "./types";
 
-function sharpDesc(signal: string): string {
-  const s = signal.toLowerCase();
-  if (s === "neutral") return "Sharp action is neutral.";
-  if (s.includes("home")) return "Sharp money is on the home side.";
-  if (s.includes("away")) return "Sharp money is on the away side.";
-  return `${signal}.`;
+function sharpConfirmsPick(game: Game): boolean {
+  const s = game.sharp_signal.toLowerCase();
+  if (s === "neutral") return false;
+  const isHome = game.pick === game.home_team;
+  return isHome ? s.includes("home") : s.includes("away");
 }
 
-export function generateNarrative(game: Game, internal: Tier): string {
-  const { pick, confidence, vegas_prob_home, home_team, sharp_signal } = game;
-  const isHome = pick === home_team;
-  const vegasPct = (isHome ? vegas_prob_home : 100 - vegas_prob_home).toFixed(1);
-  const conf = confidence.toFixed(1);
+function lineMoveAgainstPick(game: Game): boolean {
+  const isHome = game.pick === game.home_team;
+  return isHome ? game.line_move > 0 : game.line_move < 0;
+}
 
-  switch (internal) {
-    case "🔒 LOCK":
-      return `Strong model edge on ${pick}. Sharp money confirms.`;
-    case "🟢 BET":
-      return `V8 favors ${pick} with ${conf}% confidence (Vegas: ${vegasPct}%). ${sharpDesc(sharp_signal)}`;
-    case "🟢 BET (sharp)":
-      return `V8 favors ${pick} with ${conf}% confidence (Vegas: ${vegasPct}%). Sharp action confirms the lean.`;
-    case "🟡 LEAN":
-      return `Smaller edge on ${pick}. Worth a smaller play if the line holds.`;
-    case "🟡 VALUE":
-      return `${pick} offers value at current odds — model sees more edge than Vegas implies.`;
-    case "🔴 FADE":
-      return `V8 leans ${pick} but the line moved against them — no clean play.`;
-    case "⚠️ TBD":
-      return `Pitcher pending — revisit closer to game time.`;
-    case "⚠️ THIN SP":
-      return `Starter has limited innings data — model confidence is reduced.`;
-    default:
-      return `No actionable edge identified.`;
+export function generateNarrative(game: Game, _internal: Tier): string {
+  const isHome = game.pick === game.home_team;
+  const opponent = isHome ? game.away_team : game.home_team;
+  const pickPitcher = isHome ? game.home_pitcher : game.away_pitcher;
+  const pickPitcherIP = isHome ? game.home_sp_ip : game.away_sp_ip;
+
+  const confirms = sharpConfirmsPick(game);
+  const lineAgainst = lineMoveAgainstPick(game);
+  const thinSP = pickPitcherIP > 0 && pickPitcherIP < 30;
+
+  let sentence1: string;
+
+  if (confirms && game.edge > 0) {
+    sentence1 = "Strong model edge. Sharps agree.";
+  } else if (lineAgainst && game.edge > 0) {
+    sentence1 = `Model likes ${game.pick} despite the line moving toward ${opponent}.`;
+  } else if (game.edge >= 0 && game.edge < 6) {
+    sentence1 = "Solid model edge against the market.";
+  } else {
+    const vegasPct = (isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home).toFixed(1);
+    sentence1 = `V8 sees ${game.confidence.toFixed(1)}% — Vegas has it at ${vegasPct}%.`;
   }
+
+  const sentence2 = thinSP
+    ? ` ${pickPitcher} sample is light — weight accordingly.`
+    : "";
+
+  return sentence1 + sentence2;
 }
