@@ -91,6 +91,17 @@ export default function LeanCard({ game, narrative }: Props) {
           </div>
         </div>
 
+        {/* Historical proof line */}
+        <div
+          className="flex items-start gap-2 rounded-md px-3 py-2 mt-2"
+          style={{ background: "rgba(251,146,60,0.06)", border: "1px solid rgba(251,146,60,0.12)" }}
+        >
+          <span style={{ fontSize: 12, lineHeight: 1 }}>📊</span>
+          <p style={{ fontSize: 11, color: "#fb923c", lineHeight: 1.5 }}>
+            MLB leans at this confidence have hit 54% over 7,478 historical games.
+          </p>
+        </div>
+
         {expanded && (
           <div className="mt-3 pt-3 grid grid-cols-2 gap-3" style={{ borderTop: "1px solid #1a2335" }}>
             {[

@@ -31,7 +31,7 @@ export default function Header() {
       }}
     >
       <div className="max-w-3xl mx-auto px-5 h-14 flex items-center justify-between">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-5">
           <Link href="/mlb" style={{ fontSize: 16, fontWeight: 700, letterSpacing: "-0.03em", color: "#e6edf3" }}>
             Line<span style={{ color: "#00e088" }}>r</span>up
           </Link>

@@ -21,38 +21,47 @@ export default function PassRow({ items }: Props) {
 
   return (
     <section className="max-w-3xl mx-auto px-5 pb-10">
-      {/* 44px tap target for the toggle header */}
       <button
         type="button"
         onClick={() => setExpanded((v) => !v)}
-        className="flex items-center gap-2 touch-manipulation"
+        className="w-full flex items-center gap-3 touch-manipulation rounded-lg px-4"
         style={{
-          background: "none",
-          border: "none",
+          background: "#0f1422",
+          border: "1px solid #1a2335",
           cursor: "pointer",
-          padding: "10px 0",
           minHeight: 44,
-          marginBottom: 4,
+          paddingTop: 10,
+          paddingBottom: 10,
         }}
       >
         <span
           className="uppercase"
-          style={{ fontSize: 11, letterSpacing: "0.12em", color: "#555" }}
+          style={{ fontSize: 12, letterSpacing: "0.10em", color: "#c9d1d9", fontWeight: 600 }}
         >
           Passes
         </span>
         <span
           className="font-mono"
-          style={{ fontSize: 11, color: "#2a3a55", fontVariantNumeric: "tabular-nums" }}
+          style={{
+            fontSize: 12,
+            color: "#fb923c",
+            fontVariantNumeric: "tabular-nums",
+            fontWeight: 700,
+          }}
         >
-          ({items.length})
+          {items.length}
         </span>
         <svg
           width="12"
           height="12"
           viewBox="0 0 12 12"
           fill="none"
-          style={{ color: "#2a3a55", transform: expanded ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.15s" }}
+          className="ml-auto"
+          style={{
+            color: "#ffffff",
+            transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
+            transition: "transform 0.15s",
+          }}
         >
           <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -60,7 +69,7 @@ export default function PassRow({ items }: Props) {
 
       {expanded && (
         <div
-          className="rounded-lg overflow-hidden"
+          className="rounded-lg overflow-hidden mt-1"
           style={{ border: "1px solid #1a2335" }}
         >
           {items.map(({ game, reason }, i) => (
@@ -73,10 +82,10 @@ export default function PassRow({ items }: Props) {
                 minHeight: 44,
               }}
             >
-              <span style={{ fontSize: 13, color: "#4a5568" }}>
+              <span style={{ fontSize: 13, color: "#c9d1d9" }}>
                 {game.away_team.split(" ").pop()} @ {game.home_team.split(" ").pop()}
               </span>
-              <span style={{ fontSize: 11, color: "#2a3a55", flexShrink: 0, marginLeft: 12 }}>{reason}</span>
+              <span style={{ fontSize: 11, color: "#4a5568", flexShrink: 0, marginLeft: 12 }}>{reason}</span>
             </div>
           ))}
         </div>

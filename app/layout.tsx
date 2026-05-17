@@ -20,6 +20,10 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
     title: "Linerup",
   },
+  // Prevents iOS Safari from auto-linking records like "27-17" as phone numbers
+  other: {
+    "format-detection": "telephone=no, date=no, address=no, email=no, url=no",
+  },
 };
 
 export const viewport: Viewport = {
