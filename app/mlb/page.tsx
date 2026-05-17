@@ -52,7 +52,7 @@ export default async function MLBPage() {
 
       {/* Date strip */}
       <div className="max-w-3xl mx-auto px-5 pt-6 pb-0">
-        <span style={{ fontSize: 13, color: "#2a3a55" }}>{dateLabel}</span>
+        <span style={{ fontSize: 13, color: "#4a5568" }}>{dateLabel}</span>
       </div>
 
       {/* Hero section */}
@@ -127,8 +127,8 @@ export default async function MLBPage() {
       {/* Mobile bottom bar */}
       <MobileBottomBar playCount={playCount} leanCount={leanCount} />
 
-      {/* Bottom padding for mobile bar */}
-      <div className="h-20 sm:hidden" />
+      {/* Bottom padding so content isn't hidden behind mobile bar */}
+      <div className="h-24 sm:hidden" />
     </div>
   );
 }

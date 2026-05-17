@@ -13,6 +13,8 @@ export default function LeanCard({ game, narrative }: Props) {
   const [expanded, setExpanded] = useState(false);
   const isHome = game.pick === game.home_team;
   const pickEdge = isHome ? game.edge : -game.edge;
+  const opponent = (isHome ? game.away_team : game.home_team).split(" ").pop();
+  const pickName = game.pick.split(" ").pop();
 
   return (
     <div
@@ -23,30 +25,34 @@ export default function LeanCard({ game, narrative }: Props) {
         {/* Main row */}
         <div className="flex items-center gap-3">
           <TeamLogo teamName={game.pick} size={40} />
+
+          {/* Team info — grows, never truncates the name */}
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 flex-wrap">
-              <span style={{ fontSize: 15, fontWeight: 700, color: "#ffffff" }}>
-                {game.pick.split(" ").pop()}
+            <div className="flex items-center gap-2">
+              <span style={{ fontSize: 15, fontWeight: 700, color: "#ffffff", whiteSpace: "nowrap" }}>
+                {pickName}
               </span>
-              <span style={{ fontSize: 12, color: "#c9d1d9" }}>
-                vs {(isHome ? game.away_team : game.home_team).split(" ").pop()}
+              <span style={{ fontSize: 12, color: "#c9d1d9", whiteSpace: "nowrap" }}>
+                vs {opponent}
               </span>
             </div>
             <p className="truncate" style={{ fontSize: 12, color: "#7d8590", marginTop: 2, lineHeight: 1.5 }}>
               {narrative}
             </p>
           </div>
-          <div className="flex items-center gap-3 shrink-0">
+
+          {/* Right side: confidence + badge + chevron */}
+          <div className="flex items-center gap-2 shrink-0">
             <div className="text-right">
               <div className="font-mono" style={{ fontSize: 14, color: "#f59e0b", fontVariantNumeric: "tabular-nums" }}>
                 {game.confidence.toFixed(0)}%
               </div>
               <div style={{ fontSize: 10, color: "#6e7681" }}>
-                +{pickEdge.toFixed(1)}% edge
+                +{pickEdge.toFixed(1)}%
               </div>
             </div>
             <span
-              className="px-2 py-0.5 rounded-full uppercase font-semibold"
+              className="hidden sm:inline-block px-2 py-0.5 rounded-full uppercase font-semibold"
               style={{
                 fontSize: 9,
                 letterSpacing: "0.1em",
@@ -57,11 +63,20 @@ export default function LeanCard({ game, narrative }: Props) {
             >
               LEAN
             </span>
+            {/* 44px tap target for chevron */}
             <button
               type="button"
               onClick={() => setExpanded((v) => !v)}
-              className="touch-manipulation"
-              style={{ background: "none", border: "none", cursor: "pointer", padding: 4, color: "#7d8590" }}
+              className="touch-manipulation flex items-center justify-center"
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                width: 44,
+                height: 44,
+                color: "#7d8590",
+                flexShrink: 0,
+              }}
             >
               <svg
                 width="14"

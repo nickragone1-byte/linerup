@@ -21,11 +21,19 @@ export default function PassRow({ items }: Props) {
 
   return (
     <section className="max-w-3xl mx-auto px-5 pb-10">
+      {/* 44px tap target for the toggle header */}
       <button
         type="button"
         onClick={() => setExpanded((v) => !v)}
-        className="flex items-center gap-2 mb-3 touch-manipulation"
-        style={{ background: "none", border: "none", cursor: "pointer", padding: 0 }}
+        className="flex items-center gap-2 touch-manipulation"
+        style={{
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          padding: "10px 0",
+          minHeight: 44,
+          marginBottom: 4,
+        }}
       >
         <span
           className="uppercase"
@@ -62,14 +70,13 @@ export default function PassRow({ items }: Props) {
               style={{
                 borderTop: i > 0 ? "1px solid #1a2335" : "none",
                 background: "#0f1422",
+                minHeight: 44,
               }}
             >
-              <div className="flex items-center gap-2 min-w-0">
-                <span style={{ fontSize: 13, color: "#4a5568" }}>
-                  {game.away_team.split(" ").pop()} @ {game.home_team.split(" ").pop()}
-                </span>
-              </div>
-              <span style={{ fontSize: 11, color: "#2a3a55" }}>{reason}</span>
+              <span style={{ fontSize: 13, color: "#4a5568" }}>
+                {game.away_team.split(" ").pop()} @ {game.home_team.split(" ").pop()}
+              </span>
+              <span style={{ fontSize: 11, color: "#2a3a55", flexShrink: 0, marginLeft: 12 }}>{reason}</span>
             </div>
           ))}
         </div>

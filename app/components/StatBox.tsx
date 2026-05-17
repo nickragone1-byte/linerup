@@ -1,5 +1,6 @@
 interface Stat {
   label: string;
+  mobileLabel?: string;
   value: string;
   highlight?: boolean;
 }
@@ -37,8 +38,16 @@ export default function StatBox({ stats }: Props) {
           >
             {stat.value}
           </span>
+          {/* Mobile label (short) */}
           <span
-            className="uppercase mt-1"
+            className="sm:hidden uppercase mt-1"
+            style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}
+          >
+            {stat.mobileLabel ?? stat.label}
+          </span>
+          {/* Desktop label (full) */}
+          <span
+            className="hidden sm:inline uppercase mt-1"
             style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}
           >
             {stat.label}
