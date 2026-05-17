@@ -172,7 +172,7 @@ export default function HeroCard({ game, display, narrative }: Props) {
         >
           <span style={{ fontSize: 13, lineHeight: 1 }}>📊</span>
           <p style={{ fontSize: 12, color: "#fb923c", lineHeight: 1.5 }}>
-            MLB model favorites at this confidence have hit {proofPct} over 7,478 historical games.
+            MLB model favorites at this confidence have hit {proofPct} over 7,649 historical games.
           </p>
         </div>
 

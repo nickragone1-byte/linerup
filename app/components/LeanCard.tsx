@@ -98,7 +98,7 @@ export default function LeanCard({ game, narrative }: Props) {
         >
           <span style={{ fontSize: 12, lineHeight: 1 }}>📊</span>
           <p style={{ fontSize: 11, color: "#fb923c", lineHeight: 1.5 }}>
-            MLB leans at this confidence have hit 54% over 7,478 historical games.
+            MLB leans at this confidence have hit 54% over 7,649 historical games.
           </p>
         </div>
 

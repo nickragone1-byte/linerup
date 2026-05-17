@@ -7,7 +7,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
     <section className="mb-12">
       <h2
         className="uppercase mb-5"
-        style={{ fontSize: 11, letterSpacing: "0.12em", color: "#4a5568" }}
+        style={{ fontSize: 12, letterSpacing: "0.10em", color: "#c9d1d9", fontFamily: "var(--font-geist-mono)" }}
       >
         {title}
       </h2>
@@ -41,7 +41,7 @@ export default function MethodologyPage() {
 
         <Section title="The Model">
           <P>
-            V8 is a logistic regression model trained on 7,619 MLB regular-season games from 2023
+            V8 is a logistic regression model trained on 7,649 MLB regular-season games from 2023
             through 2026. Logistic regression was chosen deliberately: it produces well-calibrated
             probabilities, is interpretable, and resists overfitting on a dataset this size. More
             complex models — neural nets, gradient boosting — showed no statistically significant
@@ -80,7 +80,7 @@ export default function MethodologyPage() {
         <Section title="Calibration">
           <P>
             A 57.1% accuracy sounds modest. In sports betting, it is not. The break-even win rate
-            at standard -110 juice is 52.4%. V8&apos;s edge above that line, sustained over 7,619
+            at standard -110 juice is 52.4%. V8&apos;s edge above that line, sustained over 7,649
             games, is the signal worth tracking.
           </P>
           <P>
@@ -146,10 +146,10 @@ export default function MethodologyPage() {
         </Section>
 
         <div className="flex items-center gap-6 pt-4" style={{ borderTop: "1px solid #1a2335" }}>
-          <Link href="/track-record" style={{ fontSize: 13, color: "#2a3a55" }}>
+          <Link href="/track-record" className="nav-link" style={{ fontSize: 13, color: "#c9d1d9" }}>
             Track record →
           </Link>
-          <Link href="/about" style={{ fontSize: 13, color: "#2a3a55" }}>
+          <Link href="/about" className="nav-link" style={{ fontSize: 13, color: "#c9d1d9" }}>
             About →
           </Link>
         </div>

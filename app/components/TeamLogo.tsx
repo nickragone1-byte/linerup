@@ -52,7 +52,7 @@ export default function TeamLogo({ teamName, size = 48 }: Props) {
         width={innerSize}
         height={innerSize}
         onError={() => setFailed(true)}
-        style={{ objectFit: "contain", width: "100%", height: "100%", clipPath: "inset(0 0 10% 0)" }}
+        style={{ objectFit: "contain", width: "100%", height: "100%", clipPath: "circle(46% at 50% 47%)" }}
         unoptimized
       />
     </div>

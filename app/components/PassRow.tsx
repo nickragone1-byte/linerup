@@ -20,7 +20,7 @@ export default function PassRow({ items }: Props) {
   if (items.length === 0) return null;
 
   return (
-    <section className="max-w-3xl mx-auto px-5 pb-10">
+    <section className="max-w-3xl mx-auto px-5 pb-4">
       <button
         type="button"
         onClick={() => setExpanded((v) => !v)}
