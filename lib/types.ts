@@ -48,6 +48,33 @@ export type Tier =
   | "⚪ SKIP"
   | "🔴 FADE";
 
+// ── Results / Track-record schema ────────────────────────────────────────────
+
+export type Outcome = "WIN" | "LOSS" | "PUSH" | "PENDING";
+
+export interface PickRecord {
+  date: string;               // "2026-05-16"
+  matchup: string;            // "Yankees @ Mets"
+  away_team: string;          // full name matching lib/teams.ts
+  home_team: string;
+  tier: "PLAY" | "LEAN";
+  pick: string;               // "Yankees ML"
+  model_prob: number;         // 0.608
+  edge: number;               // 0.034
+  confidence_weight: number;  // 0.084
+  outcome: Outcome;
+  final_score: string | null;
+  the_read: string;
+}
+
+export interface ResultsData {
+  model_version: string;
+  last_updated: string;
+  tracking_start_date: string;
+  results: PickRecord[];
+}
+
+// Legacy types — kept for reference, no longer used by live code
 export interface PickResult {
   pick: string;
   opponent: string;

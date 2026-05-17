@@ -1,6 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
-import type { PredictionsData, DayResult } from "./types";
+import type { PredictionsData, ResultsData } from "./types";
 
 export async function getPredictions(sport: string): Promise<PredictionsData> {
   const filePath = path.join(
@@ -14,7 +14,14 @@ export async function getPredictions(sport: string): Promise<PredictionsData> {
   return JSON.parse(raw) as PredictionsData;
 }
 
-export async function getResults(sport: string): Promise<DayResult[]> {
+const EMPTY_RESULTS: ResultsData = {
+  model_version: "V8",
+  last_updated: "",
+  tracking_start_date: "",
+  results: [],
+};
+
+export async function getResults(sport: string): Promise<ResultsData> {
   const filePath = path.join(
     process.cwd(),
     "public",
@@ -24,8 +31,8 @@ export async function getResults(sport: string): Promise<DayResult[]> {
   );
   try {
     const raw = await fs.readFile(filePath, "utf-8");
-    return JSON.parse(raw) as DayResult[];
+    return JSON.parse(raw) as ResultsData;
   } catch {
-    return [];
+    return EMPTY_RESULTS;
   }
 }

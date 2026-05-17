@@ -142,7 +142,7 @@ export default async function MLBPage() {
       <PassRow items={passes} />
 
       {/* Yesterday results */}
-      <YesterdaySection results={results} />
+      <YesterdaySection data={results} />
 
       {/* How it works */}
       <HowItWorks />
