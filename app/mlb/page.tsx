@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import { getPredictions, getResults } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: "Linerup — MLB Analytics",
+  description: "Public, transparent MLB analytics model. Every prediction published before first pitch. Every result tracked.",
+};
 import { computeTier, TIER_ORDER } from "@/lib/tier";
 import { toDisplayTier, passReason } from "@/lib/display-tier";
 import { generateNarrative } from "@/lib/narrative";

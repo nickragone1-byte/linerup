@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import { getNBAPredictions, getNBAResults } from "@/lib/data-nba";
+
+export const metadata: Metadata = {
+  title: "Linerup — NBA Analytics",
+  description: "Public, transparent NBA analytics model. V6 validated at 68.0% out-of-sample. Every prediction published before tip-off. Every result tracked.",
+};
 import { computeNBATier, NBA_TIER_ORDER } from "@/lib/tier-nba";
 import { toNBADisplayTier } from "@/lib/display-tier-nba";
 import { generateNBANarrative } from "@/lib/narrative-nba";

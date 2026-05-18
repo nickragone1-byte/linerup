@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Linerup — MLB Analytics",
-  description: "Public, transparent MLB analytics model. Every prediction published before first pitch. Every result tracked.",
+  title: "Linerup — Sports Analytics",
+  description: "Public, transparent sports analytics models. Every prediction published before first pitch. Every result tracked.",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },

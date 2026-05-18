@@ -1,6 +1,17 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+function refreshLabel(pathname: string): string {
+  if (pathname.startsWith("/nba")) return "Auto-refreshed hourly · NBA playoffs";
+  if (pathname.startsWith("/nfl")) return "Auto-refreshed hourly · NFL season";
+  return "Auto-refreshed hourly · MLB season";
+}
 
 export default function Footer() {
+  const pathname = usePathname() ?? "";
+
   return (
     <footer className="py-8 px-5" style={{ borderTop: "1px solid #1a2335" }}>
       <div className="max-w-3xl mx-auto">
@@ -26,7 +37,7 @@ export default function Footer() {
           </div>
         </div>
         <p style={{ fontSize: 11, color: "#7d8590", marginBottom: 8 }}>
-          Auto-refreshed hourly · MLB season
+          {refreshLabel(pathname)}
         </p>
         <p style={{ fontSize: 11, color: "#4a5568", lineHeight: 1.6, maxWidth: "680px" }}>
           Linerup is a sports analytics research platform for entertainment purposes only. Nothing on
