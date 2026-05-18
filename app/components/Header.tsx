@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const SPORTS = [
-  { label: "MLB", href: "/mlb", active: true },
-  { label: "NBA", href: "/nba", active: false },
-  { label: "NFL", href: "/nfl", active: false },
+  { label: "MLB", href: "/mlb" },
+  { label: "NBA", href: "/nba" },
+  { label: "NFL", href: "/nfl" },
 ];
 
 export default function Header() {
@@ -51,7 +51,7 @@ export default function Header() {
         </div>
 
         <nav className="flex items-center gap-1">
-          {SPORTS.map(({ label, href, active }) => {
+          {SPORTS.map(({ label, href }) => {
             const isCurrent = pathname?.startsWith(href);
             return (
               <Link
@@ -61,10 +61,8 @@ export default function Header() {
                 style={{
                   fontSize: 13,
                   fontWeight: isCurrent ? 600 : 400,
-                  color: isCurrent ? "#e6edf3" : active ? "#4a5568" : "#2a3a55",
+                  color: isCurrent ? "#e6edf3" : "#4a5568",
                   background: isCurrent ? "#1a2335" : "transparent",
-                  cursor: active ? "pointer" : "default",
-                  pointerEvents: active ? "auto" : "none",
                 }}
               >
                 {label}

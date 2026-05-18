@@ -47,7 +47,7 @@ export default function TeamLogo({ teamName, size = 48 }: Props) {
       }}
     >
       <Image
-        src={getTeamLogoUrl(info.id)}
+        src={getTeamLogoUrl(info)}
         alt={teamName}
         width={innerSize}
         height={innerSize}
