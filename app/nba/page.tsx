@@ -167,7 +167,7 @@ export default async function NBAPage() {
       <PassRowNBA items={passes} />
 
       {/* Recent results */}
-      <YesterdaySection data={results} />
+      <YesterdaySection data={results} sport="nba" />
 
       {/* How it works */}
       <HowItWorksNBA />

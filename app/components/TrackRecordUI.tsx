@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import TeamLogo from "./TeamLogo";
 import type { ResultsData, PickRecord } from "@/lib/types";
@@ -337,9 +338,28 @@ interface Props {
   nbaData: ResultsData;
 }
 
-export default function TrackRecordUI({ mlbData, nbaData }: Props) {
-  const [sport, setSport] = useState<"mlb" | "nba">("mlb");
+const SPORT_LABELS: Record<string, string> = {
+  mlb: "MLB · V8",
+  nba: "NBA · V6",
+  nfl: "NFL · V1",
+};
+
+const VALID_SPORTS = ["mlb", "nba"] as const;
+type Sport = typeof VALID_SPORTS[number];
+
+function TrackRecordContent({ mlbData, nbaData }: Props) {
+  const searchParams = useSearchParams();
+  const rawSport = searchParams.get("sport") ?? "mlb";
+  const initial: Sport = VALID_SPORTS.includes(rawSport as Sport) ? (rawSport as Sport) : "mlb";
+
+  const [sport, setSport] = useState<Sport>(initial);
   const data = sport === "mlb" ? mlbData : nbaData;
+
+  function handleTabClick(s: Sport) {
+    setSport(s);
+    // Shallow URL update — no reload, preserves back/forward
+    window.history.replaceState(null, "", `/track-record?sport=${s}`);
+  }
 
   return (
     <div className="max-w-3xl mx-auto px-5 py-10">
@@ -355,11 +375,11 @@ export default function TrackRecordUI({ mlbData, nbaData }: Props) {
 
         {/* Sport tabs */}
         <div className="flex items-center gap-1 mt-4">
-          {(["mlb", "nba"] as const).map((s) => (
+          {VALID_SPORTS.map((s) => (
             <button
               key={s}
               type="button"
-              onClick={() => setSport(s)}
+              onClick={() => handleTabClick(s)}
               className="px-4 py-1.5 rounded-md uppercase font-semibold transition-colors duration-150"
               style={{
                 fontSize: 12,
@@ -381,7 +401,7 @@ export default function TrackRecordUI({ mlbData, nbaData }: Props) {
       <SportPanel
         key={sport}
         data={data}
-        sportLabel={sport === "mlb" ? "MLB · V8" : "NBA · V6"}
+        sportLabel={SPORT_LABELS[sport] ?? sport.toUpperCase()}
       />
 
       {/* Footer link */}
@@ -391,5 +411,14 @@ export default function TrackRecordUI({ mlbData, nbaData }: Props) {
         </Link>
       </div>
     </div>
+  );
+}
+
+// Suspense wrapper keeps the parent page statically renderable
+export default function TrackRecordUI(props: Props) {
+  return (
+    <Suspense fallback={<div className="max-w-3xl mx-auto px-5 py-10" style={{ minHeight: "60vh" }} />}>
+      <TrackRecordContent {...props} />
+    </Suspense>
   );
 }

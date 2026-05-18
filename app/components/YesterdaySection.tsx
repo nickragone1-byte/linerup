@@ -6,6 +6,7 @@ import type { ResultsData } from "@/lib/types";
 
 interface Props {
   data: ResultsData;
+  sport?: string; // "mlb" | "nba" | "nfl" — used to deep-link to the right track-record tab
 }
 
 function fmtDateLabel(dateStr: string): string {
@@ -50,7 +51,8 @@ function ResultMark({ outcome }: { outcome: string }) {
   return <span style={{ fontSize: 13, color: "#7d8590" }}>Pending</span>;
 }
 
-export default function YesterdaySection({ data }: Props) {
+export default function YesterdaySection({ data, sport = "mlb" }: Props) {
+  const trackRecordHref = `/track-record?sport=${sport}`;
   const completed = data.results.filter((r) => r.outcome !== "PENDING");
 
   // Empty state: no completed results at all
@@ -73,7 +75,7 @@ export default function YesterdaySection({ data }: Props) {
             : "No results recorded yet."}
         </p>
         <Link
-          href="/track-record"
+          href={trackRecordHref}
           className="nav-link"
           style={{ fontSize: 13, color: "#c9d1d9", display: "inline-block", marginTop: 12 }}
         >
@@ -110,7 +112,7 @@ export default function YesterdaySection({ data }: Props) {
           Awaiting results · {fmtDateLabel(mostRecentDate)}
         </p>
         <Link
-          href="/track-record"
+          href={trackRecordHref}
           className="nav-link"
           style={{ fontSize: 13, color: "#c9d1d9", display: "inline-block", marginTop: 12 }}
         >
@@ -174,7 +176,7 @@ export default function YesterdaySection({ data }: Props) {
       </div>
 
       <div className="mt-4">
-        <Link href="/track-record" className="nav-link" style={{ fontSize: 13, color: "#c9d1d9" }}>
+        <Link href={trackRecordHref} className="nav-link" style={{ fontSize: 13, color: "#c9d1d9" }}>
           → Full track record
         </Link>
       </div>
