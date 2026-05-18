@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-05-17 22:35:00 PDT",
+  "date": "2026-05-17",
+  "model_version": "V6",
+  "validated_oos_accuracy": 67.97,
+  "training_games": 6257,
+  "games": [
+    {
+      "away_team": "Cleveland Cavaliers",
+      "home_team": "Detroit Pistons",
+      "away_ml": 160,
+      "home_ml": -192,
+      "ml_open_home": -185,
+      "line_move": -7,
+      "vegas_spread": -4.5,
+      "vegas_spread_open": -4.0,
+      "spread_move": -0.5,
+      "sharp_signal": "neutral",
+      "h_top_missing": 0,
+      "a_top_missing": 1,
+      "model_prob_home": 66.2,
+      "vegas_prob_home": 64.6,
+      "final_prob_home": 65.7,
+      "pick": "Detroit Pistons",
+      "confidence": 65.7,
+      "edge": 1.6,
+      "over_under": 215.5,
+      "is_playoff": 1
+    }
+  ]
+}
