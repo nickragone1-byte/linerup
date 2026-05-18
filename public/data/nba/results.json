@@ -1,6 +1,21 @@
 {
   "model_version": "V6",
-  "last_updated": "",
+  "last_updated": "2026-05-18",
   "tracking_start_date": "2026-05-17",
-  "results": []
+  "results": [
+    {
+      "date": "2026-05-17",
+      "matchup": "Cavaliers @ Pistons",
+      "away_team": "Cleveland Cavaliers",
+      "home_team": "Detroit Pistons",
+      "tier": "PLAY",
+      "pick": "Pistons ML",
+      "model_prob": 0.657,
+      "edge": 0.016,
+      "confidence_weight": 0.133,
+      "outcome": "LOSS",
+      "final_score": "Cavaliers 125, Pistons 94",
+      "the_read": "V6 finds a small edge over the market line. Cleveland Cavaliers missing 1 top-8 rotation player."
+    }
+  ]
 }
