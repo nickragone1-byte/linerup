@@ -5,9 +5,12 @@ import { generateNBANarrative } from "@/lib/narrative-nba";
 import Header from "@/app/components/Header";
 import HeroCardNBA from "@/app/components/HeroCardNBA";
 import LeanCardNBA from "@/app/components/LeanCardNBA";
+import PassRowNBA from "@/app/components/PassRowNBA";
 import HowItWorksNBA from "@/app/components/HowItWorksNBA";
 import Footer from "@/app/components/Footer";
 import MobileBottomBar from "@/app/components/MobileBottomBar";
+import type { NBAPassItem } from "@/app/components/PassRowNBA";
+import { nbaPassReason } from "@/lib/display-tier-nba";
 
 // "2026-05-17 22:35:00 PDT" → "Updated at 10:35 PM"
 function formatUpdatedAt(generatedAt: string): string {
@@ -37,7 +40,9 @@ export default async function NBAPage() {
     (g) => g.display === "LOCK" || g.display === "PLAY"
   );
   const leans = withTiers.filter((g) => g.display === "LEAN");
-  const passes = withTiers.filter((g) => g.display === "PASS");
+  const passes: NBAPassItem[] = withTiers
+    .filter((g) => g.display === "PASS")
+    .map(({ game, internal }) => ({ game, internalTier: internal, reason: nbaPassReason(internal) }));
 
   const dateLabel = new Date(predictions.date + "T12:00:00").toLocaleDateString("en-US", {
     weekday: "long",
@@ -148,22 +153,8 @@ export default async function NBAPage() {
         </section>
       )}
 
-      {/* Passes summary line */}
-      {passes.length > 0 && (
-        <section className="max-w-3xl mx-auto px-5 pb-6">
-          <div
-            className="rounded-lg px-4 py-3 flex items-center justify-between"
-            style={{ background: "#0f1422", border: "1px solid #1a2335" }}
-          >
-            <span style={{ fontSize: 13, color: "#7d8590" }}>
-              Passes
-            </span>
-            <span style={{ fontSize: 13, color: "#c9d1d9", fontWeight: 600 }}>
-              {passes.length}
-            </span>
-          </div>
-        </section>
-      )}
+      {/* Passes */}
+      <PassRowNBA items={passes} />
 
       {/* How it works */}
       <HowItWorksNBA />
