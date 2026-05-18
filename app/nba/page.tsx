@@ -1,4 +1,4 @@
-import { getNBAPredictions } from "@/lib/data-nba";
+import { getNBAPredictions, getNBAResults } from "@/lib/data-nba";
 import { computeNBATier, NBA_TIER_ORDER } from "@/lib/tier-nba";
 import { toNBADisplayTier } from "@/lib/display-tier-nba";
 import { generateNBANarrative } from "@/lib/narrative-nba";
@@ -6,6 +6,7 @@ import Header from "@/app/components/Header";
 import HeroCardNBA from "@/app/components/HeroCardNBA";
 import LeanCardNBA from "@/app/components/LeanCardNBA";
 import PassRowNBA from "@/app/components/PassRowNBA";
+import YesterdaySection from "@/app/components/YesterdaySection";
 import HowItWorksNBA from "@/app/components/HowItWorksNBA";
 import Footer from "@/app/components/Footer";
 import MobileBottomBar from "@/app/components/MobileBottomBar";
@@ -25,7 +26,10 @@ function formatUpdatedAt(generatedAt: string): string {
 }
 
 export default async function NBAPage() {
-  const predictions = await getNBAPredictions();
+  const [predictions, results] = await Promise.all([
+    getNBAPredictions(),
+    getNBAResults(),
+  ]);
 
   const withTiers = predictions.games
     .map((game) => {
@@ -155,6 +159,9 @@ export default async function NBAPage() {
 
       {/* Passes */}
       <PassRowNBA items={passes} />
+
+      {/* Recent results */}
+      <YesterdaySection data={results} />
 
       {/* How it works */}
       <HowItWorksNBA />

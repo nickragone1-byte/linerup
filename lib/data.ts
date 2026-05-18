@@ -14,11 +14,9 @@ export async function getPredictions(sport: string): Promise<PredictionsData> {
   return JSON.parse(raw) as PredictionsData;
 }
 
-const EMPTY_RESULTS: ResultsData = {
-  model_version: "V8",
-  last_updated: "",
-  tracking_start_date: "",
-  results: [],
+const MODEL_VERSIONS: Record<string, string> = {
+  mlb: "V8",
+  nba: "V6",
 };
 
 export async function getResults(sport: string): Promise<ResultsData> {
@@ -33,6 +31,11 @@ export async function getResults(sport: string): Promise<ResultsData> {
     const raw = await fs.readFile(filePath, "utf-8");
     return JSON.parse(raw) as ResultsData;
   } catch {
-    return EMPTY_RESULTS;
+    return {
+      model_version: MODEL_VERSIONS[sport] ?? "V8",
+      last_updated: "",
+      tracking_start_date: "",
+      results: [],
+    };
   }
 }
