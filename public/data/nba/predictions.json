@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-20 18:00:37 UTC",
+  "generated_at": "2026-05-20 19:00:36 UTC",
   "date": "2026-05-20",
   "model_version": "V7",
   "validated_oos_accuracy": 68.2,
@@ -8,10 +8,10 @@
     {
       "away_team": "San Antonio Spurs",
       "home_team": "Oklahoma City Thunder",
-      "away_ml": 195,
-      "home_ml": -238,
+      "away_ml": 190,
+      "home_ml": -230,
       "ml_open_home": -258,
-      "line_move": 20,
+      "line_move": 28,
       "vegas_spread": -7.5,
       "vegas_spread_open": null,
       "spread_move": null,
