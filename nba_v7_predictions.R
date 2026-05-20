@@ -18,7 +18,11 @@
 # ============================================================
 
 library(hoopR)
-library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(stringr)
+library(readr)
 library(httr)
 library(jsonlite)
 library(lubridate)
@@ -26,7 +30,7 @@ library(zoo)
 
 `%||%` <- function(a, b) if (is.null(a) || length(a) == 0) b else a
 
-OUTPUT_PATH <- path.expand("~/Desktop/linerup/public/data/nba/predictions.json")
+OUTPUT_PATH <- "/root/linerup/public/data/nba/predictions.json"
 
 # ============================================================
 #  PHASE 1 — HISTORICAL DATA

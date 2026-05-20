@@ -29,7 +29,11 @@
 # ============================================================
 
 library(baseballr)
-library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(stringr)
+library(readr)
 library(zoo)
 library(httr)
 library(jsonlite)
@@ -37,7 +41,7 @@ library(lubridate)
 
 `%||%` <- function(a, b) if (is.null(a) || length(a) == 0) b else a
 
-OUTPUT_PATH <- path.expand("~/Desktop/linerup/public/data/mlb/predictions.json")
+OUTPUT_PATH <- "/root/linerup/public/data/mlb/predictions.json"
 
 # ============================================================
 #  REFERENCE TABLES
