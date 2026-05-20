@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-20 21:00:36 UTC",
+  "generated_at": "2026-05-20 22:00:34 UTC",
   "date": "2026-05-20",
   "model_version": "V7",
   "validated_oos_accuracy": 68.2,
@@ -8,27 +8,27 @@
     {
       "away_team": "San Antonio Spurs",
       "home_team": "Oklahoma City Thunder",
-      "away_ml": 190,
-      "home_ml": -230,
+      "away_ml": 210,
+      "home_ml": -258,
       "ml_open_home": -258,
-      "line_move": 28,
+      "line_move": 0,
       "vegas_spread": -7.5,
       "vegas_spread_open": null,
       "spread_move": null,
-      "sharp_signal": "sharp on AWAY",
+      "sharp_signal": "neutral",
       "h_top_missing": 0,
       "a_top_missing": 0,
       "h_top_wtd": 0,
       "a_top_wtd": 0,
       "model_prob_home": 56.1,
       "vegas_prob_home": 73.4,
-      "final_prob_home": 59.3,
+      "final_prob_home": 61.3,
       "pick": "Oklahoma City Thunder",
-      "confidence": 59.3,
+      "confidence": 61.3,
       "edge": -17.3,
       "over_under": 216.5,
       "is_playoff": 1,
-      "the_read": "V7 finds a strong edge over the market line. Both teams at full strength. Market moving against this pick."
+      "the_read": "V7 finds a strong edge over the market line. Both teams at full strength."
     }
   ]
 }
