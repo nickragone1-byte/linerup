@@ -1,14 +1,14 @@
 import type { NBAGame, NBATier } from "./types-nba";
 
 function sharpConfirmsPick(game: NBAGame): boolean {
-  const s = game.sharp_signal.toLowerCase();
+  const s = (game.sharp_signal ?? "neutral").toLowerCase();
   if (s === "neutral" || s === "no data") return false;
   const isHome = game.pick === game.home_team;
   return isHome ? s.includes("home") : s.includes("away");
 }
 
 function sharpFadesPick(game: NBAGame): boolean {
-  const s = game.sharp_signal.toLowerCase();
+  const s = (game.sharp_signal ?? "neutral").toLowerCase();
   if (s === "neutral" || s === "no data") return false;
   return !sharpConfirmsPick(game);
 }
@@ -29,8 +29,8 @@ export function generateNBANarrative(game: NBAGame, _internal: NBATier): string 
   const fades = sharpFadesPick(game);
   const lineAgainst = lineMoveAgainstPick(game);
   const isNeutral =
-    game.sharp_signal.toLowerCase() === "neutral" ||
-    game.sharp_signal.toLowerCase() === "no data";
+    (game.sharp_signal ?? "neutral").toLowerCase() === "neutral" ||
+    (game.sharp_signal ?? "neutral").toLowerCase() === "no data";
 
   // S1: edge size — mirror MLB phrasing exactly
   let edgeLabel: string;

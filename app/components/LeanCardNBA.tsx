@@ -54,8 +54,8 @@ export default function LeanCardNBA({ game, narrative }: Props) {
               </div>
               {(() => {
                 const pickML = isHome ? game.home_ml : game.away_ml;
-                if (!pickML) return null;
                 const ev = computeEV(game.confidence, pickML);
+                if (ev === null) return null;
                 return (
                   <div className="font-mono" style={{ fontSize: 10, color: evColor(ev), fontVariantNumeric: "tabular-nums" }}>
                     {fmtEV(ev)} EV

@@ -168,8 +168,8 @@ export default function HeroCard({ game, display, narrative }: Props) {
         {/* EV display */}
         {(() => {
           const pickML = isHome ? game.home_ml : game.away_ml;
-          if (!pickML) return null;
           const ev = computeEV(game.confidence, pickML);
+          if (ev === null) return null;
           const color = evColor(ev);
           return (
             <div className="flex items-center gap-2 mb-3">

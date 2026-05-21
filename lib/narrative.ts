@@ -1,14 +1,14 @@
 import type { Game, Tier } from "./types";
 
 function sharpConfirmsPick(game: Game): boolean {
-  const s = game.sharp_signal.toLowerCase();
+  const s = (game.sharp_signal ?? "neutral").toLowerCase();
   if (s === "neutral") return false;
   const isHome = game.pick === game.home_team;
   return isHome ? s.includes("home") : s.includes("away");
 }
 
 function sharpFadesPick(game: Game): boolean {
-  const s = game.sharp_signal.toLowerCase();
+  const s = (game.sharp_signal ?? "neutral").toLowerCase();
   if (s === "neutral") return false;
   return !sharpConfirmsPick(game);
 }
@@ -27,7 +27,7 @@ export function generateNarrative(game: Game, _internal: Tier): string {
   const confirms = sharpConfirmsPick(game);
   const fades = sharpFadesPick(game);
   const lineAgainst = lineMoveAgainstPick(game);
-  const isNeutral = game.sharp_signal.toLowerCase() === "neutral";
+  const isNeutral = (game.sharp_signal ?? "neutral").toLowerCase() === "neutral";
 
   // S1: edge size description
   let edgeLabel: string;
