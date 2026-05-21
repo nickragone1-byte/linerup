@@ -38,7 +38,7 @@ export function generateNBANarrative(game: NBAGame, _internal: NBATier): string 
   else if (pickEdge < 8) edgeLabel = "solid";
   else edgeLabel = "strong";
 
-  const sentence1 = `V6 finds a ${edgeLabel} edge over the market line.`;
+  const sentence1 = `V7 finds a ${edgeLabel} edge over the market line.`;
 
   // S2: NBA-specific context — injury impact is the V6 signature
   let sentence2 = "";

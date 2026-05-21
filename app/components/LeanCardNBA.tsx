@@ -3,6 +3,7 @@
 import { useState } from "react";
 import TeamLogo from "./TeamLogo";
 import type { NBAGame } from "@/lib/types-nba";
+import { computeEV, fmtEV, evColor } from "@/lib/ev";
 
 interface Props {
   game: NBAGame;
@@ -51,6 +52,16 @@ export default function LeanCardNBA({ game, narrative }: Props) {
               <div style={{ fontSize: 10, color: "#6e7681" }}>
                 +{pickEdge.toFixed(1)}%
               </div>
+              {(() => {
+                const pickML = isHome ? game.home_ml : game.away_ml;
+                if (!pickML) return null;
+                const ev = computeEV(game.confidence, pickML);
+                return (
+                  <div className="font-mono" style={{ fontSize: 10, color: evColor(ev), fontVariantNumeric: "tabular-nums" }}>
+                    {fmtEV(ev)} EV
+                  </div>
+                );
+              })()}
             </div>
             <span
               className="hidden sm:inline-block px-2 py-0.5 rounded-full uppercase font-semibold"
@@ -98,7 +109,7 @@ export default function LeanCardNBA({ game, narrative }: Props) {
         >
           <span style={{ fontSize: 12, lineHeight: 1 }}>📊</span>
           <p style={{ fontSize: 11, color: "#10b981", lineHeight: 1.5 }}>
-            V6 validated at 68.0% out-of-sample on 1,305 NBA games.
+            V7 validated at 68.2% out-of-sample on 6,258 NBA games.
           </p>
         </div>
 

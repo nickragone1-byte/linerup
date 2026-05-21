@@ -1,35 +1,7 @@
 {
-  "model_version": "V8",
-  "last_updated": "2026-05-17T08:30:00-07:00",
-  "tracking_start_date": "2026-05-15",
-  "results": [
-    {
-      "date": "2026-05-15",
-      "matchup": "Yankees @ Mets",
-      "away_team": "New York Yankees",
-      "home_team": "New York Mets",
-      "tier": "PLAY",
-      "pick": "Yankees ML",
-      "model_prob": 0.608,
-      "edge": 0.034,
-      "confidence_weight": 0.084,
-      "outcome": "WIN",
-      "final_score": "Yankees 5, Mets 2",
-      "the_read": "V8 finds a small edge over the market line. Cam Schlittler at full strength (53 IP)."
-    },
-    {
-      "date": "2026-05-15",
-      "matchup": "Guardians @ Reds",
-      "away_team": "Cleveland Guardians",
-      "home_team": "Cincinnati Reds",
-      "tier": "LEAN",
-      "pick": "Guardians ML",
-      "model_prob": 0.610,
-      "edge": 0.087,
-      "confidence_weight": 0.045,
-      "outcome": "LOSS",
-      "final_score": "Reds 7, Guardians 6",
-      "the_read": "V8 finds a strong edge over the market line. Tanner Bibee at full strength (45 IP)."
-    }
-  ]
+  "model_version": "V10",
+  "last_updated": "2026-05-20",
+  "tracking_start_date": "2026-05-20",
+  "note": "V10 launched May 20, 2026. Earlier picks were made by predecessor model V8 and are not counted in the current track record.",
+  "results": []
 }

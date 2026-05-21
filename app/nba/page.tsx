@@ -3,12 +3,13 @@ import { getNBAPredictions, getNBAResults } from "@/lib/data-nba";
 
 export const metadata: Metadata = {
   title: "Linerup — NBA Analytics",
-  description: "Public, transparent NBA analytics model. V6 validated at 68.0% out-of-sample. Every prediction published before tip-off. Every result tracked.",
+  description: "Public, transparent NBA analytics model. V7 validated at 68.2% out-of-sample on 6,258 games. Every prediction published before tip-off. Every result tracked.",
 };
 import { computeNBATier, NBA_TIER_ORDER } from "@/lib/tier-nba";
 import { toNBADisplayTier } from "@/lib/display-tier-nba";
 import { generateNBANarrative } from "@/lib/narrative-nba";
 import Header from "@/app/components/Header";
+import UpdatedLabel from "@/app/components/UpdatedLabel";
 import HeroCardNBA from "@/app/components/HeroCardNBA";
 import LeanCardNBA from "@/app/components/LeanCardNBA";
 import PassRowNBA from "@/app/components/PassRowNBA";
@@ -19,17 +20,6 @@ import MobileBottomBar from "@/app/components/MobileBottomBar";
 import type { NBAPassItem } from "@/app/components/PassRowNBA";
 import { nbaPassReason } from "@/lib/display-tier-nba";
 
-// "2026-05-17 22:35:00 PDT" → "Updated at 10:35 PM"
-function formatUpdatedAt(generatedAt: string): string {
-  const timePart = generatedAt.split(" ")[1];
-  if (!timePart) return "";
-  const [hStr, mStr] = timePart.split(":");
-  const h = parseInt(hStr, 10);
-  const m = parseInt(mStr, 10);
-  const hour = h % 12 || 12;
-  const ampm = h < 12 ? "AM" : "PM";
-  return `Updated at ${hour}:${String(m).padStart(2, "0")} ${ampm}`;
-}
 
 export default async function NBAPage() {
   const [predictions, results] = await Promise.all([
@@ -61,7 +51,6 @@ export default async function NBAPage() {
     year: "numeric",
   });
 
-  const updatedLabel = formatUpdatedAt(predictions.generated_at);
   const playCount = topGames.length;
   const leanCount = leans.length;
   const hasGames = predictions.games.length > 0;
@@ -74,15 +63,11 @@ export default async function NBAPage() {
       <div className="max-w-3xl mx-auto px-5 pt-6 pb-0">
         <div className="hidden sm:flex items-center gap-3">
           <span style={{ fontSize: 13, color: "#4a5568" }}>{dateLabel}</span>
-          {updatedLabel && (
-            <span style={{ fontSize: 13, color: "#7d8590" }}>· {updatedLabel}</span>
-          )}
+          <UpdatedLabel generatedAt={predictions.generated_at} />
         </div>
         <div className="sm:hidden">
           <div style={{ fontSize: 13, color: "#4a5568" }}>{dateLabel}</div>
-          {updatedLabel && (
-            <div style={{ fontSize: 12, color: "#7d8590", marginTop: 2 }}>{updatedLabel}</div>
-          )}
+          <UpdatedLabel generatedAt={predictions.generated_at} mobile />
         </div>
       </div>
 
@@ -176,7 +161,7 @@ export default async function NBAPage() {
       <Footer />
 
       {/* Mobile bottom bar */}
-      <MobileBottomBar playCount={playCount} leanCount={leanCount} />
+      <MobileBottomBar playCount={playCount} leanCount={leanCount} modelInfo="V7 · 68.2%" />
 
       {/* Bottom padding so content isn't hidden behind mobile bar */}
       <div className="h-24 sm:hidden" />

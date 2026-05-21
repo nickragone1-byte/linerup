@@ -4,6 +4,7 @@ import { useState } from "react";
 import TeamLogo from "./TeamLogo";
 import type { Game } from "@/lib/types";
 import { MODEL_TRAINING_GAMES } from "@/lib/constants";
+import { computeEV, fmtEV, evColor } from "@/lib/ev";
 
 interface Props {
   game: Game;
@@ -51,6 +52,16 @@ export default function LeanCard({ game, narrative }: Props) {
               <div style={{ fontSize: 10, color: "#6e7681" }}>
                 +{pickEdge.toFixed(1)}%
               </div>
+              {(() => {
+                const pickML = isHome ? game.home_ml : game.away_ml;
+                if (!pickML) return null;
+                const ev = computeEV(game.confidence, pickML);
+                return (
+                  <div className="font-mono" style={{ fontSize: 10, color: evColor(ev), fontVariantNumeric: "tabular-nums" }}>
+                    {fmtEV(ev)} EV
+                  </div>
+                );
+              })()}
             </div>
             <span
               className="hidden sm:inline-block px-2 py-0.5 rounded-full uppercase font-semibold"
@@ -92,14 +103,14 @@ export default function LeanCard({ game, narrative }: Props) {
           </div>
         </div>
 
-        {/* Historical proof line */}
+        {/* Proof line */}
         <div
           className="flex items-start gap-2 rounded-md px-3 py-2 mt-2"
           style={{ background: "rgba(251,146,60,0.06)", border: "1px solid rgba(251,146,60,0.12)" }}
         >
           <span style={{ fontSize: 12, lineHeight: 1 }}>📊</span>
           <p style={{ fontSize: 11, color: "#fb923c", lineHeight: 1.5 }}>
-            MLB leans at this confidence have hit 54% over {MODEL_TRAINING_GAMES.toLocaleString()} historical games.
+            V10 trained on {MODEL_TRAINING_GAMES.toLocaleString()} MLB games · 55.3% honest out-of-sample accuracy.
           </p>
         </div>
 

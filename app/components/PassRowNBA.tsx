@@ -82,7 +82,7 @@ export default function PassRowNBA({ items }: Props) {
             const awayName = game.away_team.split(" ").pop()!;
             const homeName = game.home_team.split(" ").pop()!;
 
-            // V6's favored side even when no edge
+            // V7's favored side even when no edge
             const v6FavorsHome = game.model_prob_home >= 50;
             const v6Prob = v6FavorsHome ? game.model_prob_home : 100 - game.model_prob_home;
             const v6Abbr = teamAbbr(v6FavorsHome ? game.home_team : game.away_team);
@@ -100,14 +100,14 @@ export default function PassRowNBA({ items }: Props) {
                   <TeamLogo teamName={game.home_team} size={24} />
                 </div>
 
-                {/* Left: matchup + V6 read */}
+                {/* Left: matchup + V7 read */}
                 <div className="flex-1 min-w-0">
                   <div style={{ fontSize: 13, color: "#c9d1d9", fontWeight: 600, lineHeight: 1.3 }}>
                     {awayName} @ {homeName}
                   </div>
                   <div className="flex items-center gap-2" style={{ marginTop: 2 }}>
                     <span className="font-mono" style={{ fontSize: 11, color: "#6e7681", fontVariantNumeric: "tabular-nums" }}>
-                      V6: {v6Prob.toFixed(1)}% {v6Abbr}
+                      V7: {v6Prob.toFixed(1)}% {v6Abbr}
                     </span>
                     <span style={{ fontSize: 11, color: "#2a3a55" }}>·</span>
                     <span style={{ fontSize: 11, color: "#6e7681" }}>

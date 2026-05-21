@@ -3,9 +3,10 @@
 interface Props {
   playCount: number;
   leanCount: number;
+  modelInfo?: string;
 }
 
-export default function MobileBottomBar({ playCount, leanCount }: Props) {
+export default function MobileBottomBar({ playCount, leanCount, modelInfo = "V10 · 55.3%" }: Props) {
   const total = playCount + leanCount;
   if (total === 0) return null;
 
@@ -50,10 +51,10 @@ export default function MobileBottomBar({ playCount, leanCount }: Props) {
             className="font-mono"
             style={{ fontSize: 11, color: "#4a5568" }}
           >
-            V8 · 57.1%
+            {modelInfo}
           </div>
           <div style={{ fontSize: 9, color: "#2a3a55", letterSpacing: "0.08em" }}>
-            Training accuracy
+            OOS accuracy
           </div>
         </div>
       </div>

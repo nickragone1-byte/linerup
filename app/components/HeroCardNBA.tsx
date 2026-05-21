@@ -6,6 +6,7 @@ import ProbabilityBar from "./ProbabilityBar";
 import StatBox from "./StatBox";
 import type { NBAGame } from "@/lib/types-nba";
 import type { NBADisplayTier } from "@/lib/display-tier-nba";
+import { computeEV, fmtEV, evColor } from "@/lib/ev";
 
 interface Props {
   game: NBAGame;
@@ -153,14 +154,30 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
           <p style={{ fontSize: 14, color: "#c9d1d9", lineHeight: 1.7 }}>{narrative}</p>
         </div>
 
-        {/* Validated accuracy footnote — replaces MLB's historical-proof line */}
+        {/* EV display */}
+        {(() => {
+          const pickML = isHome ? game.home_ml : game.away_ml;
+          if (!pickML) return null;
+          const ev = computeEV(game.confidence, pickML);
+          const color = evColor(ev);
+          return (
+            <div className="flex items-center gap-2 mb-3">
+              <span style={{ fontSize: 11, color: "#7d8590" }}>EV per $100:</span>
+              <span className="font-mono" style={{ fontSize: 12, color, fontWeight: 600, fontVariantNumeric: "tabular-nums" }}>
+                {fmtEV(ev)}
+              </span>
+            </div>
+          );
+        })()}
+
+        {/* Validated accuracy footnote */}
         <div
           className="flex items-start gap-2 rounded-md px-3 py-2"
           style={{ background: "rgba(16,185,129,0.06)", border: "1px solid rgba(16,185,129,0.12)", marginBottom: 12 }}
         >
           <span style={{ fontSize: 13, lineHeight: 1 }}>📊</span>
           <p style={{ fontSize: 12, color: "#10b981", lineHeight: 1.5 }}>
-            V6 validated at 68.0% out-of-sample on 1,305 NBA games.
+            V7 validated at 68.2% out-of-sample on 6,258 NBA games.
           </p>
         </div>
 

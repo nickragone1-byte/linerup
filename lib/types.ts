@@ -71,6 +71,7 @@ export interface ResultsData {
   model_version: string;
   last_updated: string;
   tracking_start_date: string;
+  note?: string;
   results: PickRecord[];
 }
 

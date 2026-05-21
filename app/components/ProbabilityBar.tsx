@@ -6,7 +6,7 @@ interface Props {
 
 export default function ProbabilityBar({ awayProb, homeProb, pickedTeam }: Props) {
   const awayPct = Math.round(awayProb);
-  const homePct = Math.round(homeProb);
+  const homePct = 100 - awayPct;
 
   return (
     <div className="w-full">

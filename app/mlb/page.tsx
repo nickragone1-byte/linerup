@@ -9,6 +9,7 @@ import { computeTier, TIER_ORDER } from "@/lib/tier";
 import { toDisplayTier, passReason } from "@/lib/display-tier";
 import { generateNarrative } from "@/lib/narrative";
 import Header from "@/app/components/Header";
+import UpdatedLabel from "@/app/components/UpdatedLabel";
 import HeroCard from "@/app/components/HeroCard";
 import LeanCard from "@/app/components/LeanCard";
 import PassRow from "@/app/components/PassRow";
@@ -18,17 +19,6 @@ import Footer from "@/app/components/Footer";
 import MobileBottomBar from "@/app/components/MobileBottomBar";
 import type { PassItem } from "@/app/components/PassRow";
 
-// "2026-05-15 09:01:32 PDT" → "Updated at 9:01 AM"
-function formatUpdatedAt(generatedAt: string): string {
-  const timePart = generatedAt.split(" ")[1];
-  if (!timePart) return "";
-  const [hStr, mStr] = timePart.split(":");
-  const h = parseInt(hStr, 10);
-  const m = parseInt(mStr, 10);
-  const hour = h % 12 || 12;
-  const ampm = h < 12 ? "AM" : "PM";
-  return `Updated at ${hour}:${String(m).padStart(2, "0")} ${ampm}`;
-}
 
 export default async function MLBPage() {
   const [predictions, results] = await Promise.all([
@@ -61,7 +51,6 @@ export default async function MLBPage() {
     year: "numeric",
   });
 
-  const updatedLabel = formatUpdatedAt(predictions.generated_at);
   const playCount = topGames.length;
   const leanCount = leans.length;
 
@@ -74,16 +63,12 @@ export default async function MLBPage() {
         {/* Desktop: single line */}
         <div className="hidden sm:flex items-center gap-3">
           <span style={{ fontSize: 13, color: "#4a5568" }}>{dateLabel}</span>
-          {updatedLabel && (
-            <span style={{ fontSize: 13, color: "#7d8590" }}>· {updatedLabel}</span>
-          )}
+          <UpdatedLabel generatedAt={predictions.generated_at} />
         </div>
         {/* Mobile: stacked */}
         <div className="sm:hidden">
           <div style={{ fontSize: 13, color: "#4a5568" }}>{dateLabel}</div>
-          {updatedLabel && (
-            <div style={{ fontSize: 12, color: "#7d8590", marginTop: 2 }}>{updatedLabel}</div>
-          )}
+          <UpdatedLabel generatedAt={predictions.generated_at} mobile />
         </div>
       </div>
 
@@ -157,7 +142,7 @@ export default async function MLBPage() {
       <Footer />
 
       {/* Mobile bottom bar */}
-      <MobileBottomBar playCount={playCount} leanCount={leanCount} />
+      <MobileBottomBar playCount={playCount} leanCount={leanCount} modelInfo="V10 · 55.3%" />
 
       {/* Bottom padding so content isn't hidden behind mobile bar */}
       <div className="h-24 sm:hidden" />

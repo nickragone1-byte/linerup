@@ -35,7 +35,7 @@ export function generateNarrative(game: Game, _internal: Tier): string {
   else if (pickEdge < 8) edgeLabel = "solid";
   else edgeLabel = "strong";
 
-  const sentence1 = `V8 finds a ${edgeLabel} edge over the market line.`;
+  const sentence1 = `V10 finds a ${edgeLabel} edge over the market line.`;
 
   // S2: pitcher quality or park context
   let sentence2 = "";

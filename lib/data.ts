@@ -15,8 +15,8 @@ export async function getPredictions(sport: string): Promise<PredictionsData> {
 }
 
 const MODEL_VERSIONS: Record<string, string> = {
-  mlb: "V8",
-  nba: "V6",
+  mlb: "V10",
+  nba: "V7",
 };
 
 export async function getResults(sport: string): Promise<ResultsData> {

@@ -7,6 +7,7 @@ import StatBox from "./StatBox";
 import type { Game } from "@/lib/types";
 import type { DisplayTier } from "@/lib/display-tier";
 import { MODEL_TRAINING_GAMES } from "@/lib/constants";
+import { computeEV, fmtEV, evColor } from "@/lib/ev";
 
 interface Props {
   game: Game;
@@ -164,14 +165,30 @@ export default function HeroCard({ game, display, narrative }: Props) {
           <p style={{ fontSize: 14, color: "#c9d1d9", lineHeight: 1.7 }}>{narrative}</p>
         </div>
 
-        {/* fix #5 — historical proof line */}
+        {/* EV display */}
+        {(() => {
+          const pickML = isHome ? game.home_ml : game.away_ml;
+          if (!pickML) return null;
+          const ev = computeEV(game.confidence, pickML);
+          const color = evColor(ev);
+          return (
+            <div className="flex items-center gap-2 mb-3">
+              <span style={{ fontSize: 11, color: "#7d8590" }}>EV per $100:</span>
+              <span className="font-mono" style={{ fontSize: 12, color, fontWeight: 600, fontVariantNumeric: "tabular-nums" }}>
+                {fmtEV(ev)}
+              </span>
+            </div>
+          );
+        })()}
+
+        {/* historical proof line */}
         <div
           className="flex items-start gap-2 rounded-md px-3 py-2"
           style={{ background: "rgba(251,146,60,0.06)", border: "1px solid rgba(251,146,60,0.12)", marginBottom: 12 }}
         >
           <span style={{ fontSize: 13, lineHeight: 1 }}>📊</span>
           <p style={{ fontSize: 12, color: "#fb923c", lineHeight: 1.5 }}>
-            MLB model favorites at this confidence have hit {proofPct} over {MODEL_TRAINING_GAMES.toLocaleString()} historical games.
+            V10 trained on {MODEL_TRAINING_GAMES.toLocaleString()} MLB games · 55.3% honest out-of-sample accuracy.
           </p>
         </div>
 

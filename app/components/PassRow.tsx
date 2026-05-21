@@ -87,7 +87,7 @@ export default function PassRow({ items }: Props) {
             const awayName = game.away_team.split(" ").pop()!;
             const homeName = game.home_team.split(" ").pop()!;
 
-            // V8's favored team even when no edge
+            // V10's favored team even when no edge
             const v8FavorsHome = game.model_prob_home >= 50;
             const v8Prob = v8FavorsHome ? game.model_prob_home : 100 - game.model_prob_home;
             const v8Abbr = teamAbbr(v8FavorsHome ? game.home_team : game.away_team);
@@ -105,14 +105,14 @@ export default function PassRow({ items }: Props) {
                   <TeamLogo teamName={game.home_team} size={24} />
                 </div>
 
-                {/* Left: matchup + V8 read */}
+                {/* Left: matchup + V10 read */}
                 <div className="flex-1 min-w-0">
                   <div style={{ fontSize: 13, color: "#c9d1d9", fontWeight: 600, lineHeight: 1.3 }}>
                     {awayName} @ {homeName}
                   </div>
                   <div className="flex items-center gap-2" style={{ marginTop: 2 }}>
                     <span className="font-mono" style={{ fontSize: 11, color: "#6e7681", fontVariantNumeric: "tabular-nums" }}>
-                      V8: {v8Prob.toFixed(1)}% {v8Abbr}
+                      V10: {v8Prob.toFixed(1)}% {v8Abbr}
                     </span>
                     <span style={{ fontSize: 11, color: "#2a3a55" }}>·</span>
                     <span style={{ fontSize: 11, color: "#6e7681" }}>{awaySP} vs {homeSP}</span>

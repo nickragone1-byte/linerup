@@ -202,6 +202,19 @@ function SportPanel({ data, sportLabel }: { data: ResultsData; sportLabel: strin
           Recent Picks
         </h2>
 
+        {/* Archive note when track record has been reset */}
+        {data.note && sampleSize === 0 && (
+          <div
+            className="rounded-xl px-5 py-4 mb-6 flex items-start gap-3"
+            style={{ background: "#0f1422", border: "1px solid #2a3548" }}
+          >
+            <span style={{ fontSize: 14, lineHeight: 1 }}>📁</span>
+            <p style={{ fontSize: 13, color: "#7d8590", lineHeight: 1.6 }}>
+              {data.note}
+            </p>
+          </div>
+        )}
+
         <div className="rounded-xl overflow-hidden" style={{ border: "1px solid #1a2335" }}>
           {sorted.length === 0 ? (
             <div className="px-5 py-10 text-center" style={{ background: "#0f1422" }}>
@@ -339,8 +352,8 @@ interface Props {
 }
 
 const SPORT_LABELS: Record<string, string> = {
-  mlb: "MLB · V8",
-  nba: "NBA · V6",
+  mlb: "MLB · V10",
+  nba: "NBA · V7",
   nfl: "NFL · V1",
 };
 
