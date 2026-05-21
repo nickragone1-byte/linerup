@@ -102,7 +102,7 @@ export default async function MLBPage() {
               No strong model edges today.
             </p>
             <p className="mt-2" style={{ fontSize: 13, color: "#2a3a55" }}>
-              V8 passes when there is no clear edge over the market.
+              V10 passes when there is no clear edge over the market.
             </p>
           </div>
         </section>

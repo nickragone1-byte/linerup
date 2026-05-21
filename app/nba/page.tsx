@@ -121,7 +121,7 @@ export default async function NBAPage() {
               No strong model edges today.
             </p>
             <p className="mt-2" style={{ fontSize: 13, color: "#2a3a55" }}>
-              V6 passes when there is no clear edge over the market.
+              V7 passes when there is no clear edge over the market.
             </p>
           </div>
         </section>

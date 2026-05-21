@@ -32,7 +32,7 @@ export async function getResults(sport: string): Promise<ResultsData> {
     return JSON.parse(raw) as ResultsData;
   } catch {
     return {
-      model_version: MODEL_VERSIONS[sport] ?? "V8",
+      model_version: MODEL_VERSIONS[sport] ?? "V10",
       last_updated: "",
       tracking_start_date: "",
       results: [],

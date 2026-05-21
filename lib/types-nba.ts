@@ -19,7 +19,7 @@ export interface NBAGame {
   // Signals
   sharp_signal: string;
 
-  // Injury features (V6's biggest signals)
+  // Injury features (V7's biggest signals)
   h_top_missing: number;       // 0..8
   a_top_missing: number;
 
@@ -41,7 +41,7 @@ export interface NBAGame {
 export interface NBAPredictionsData {
   generated_at: string;
   date: string;
-  model_version: string;            // "V6"
+  model_version: string;            // "V7"
   validated_oos_accuracy: number;   // 67.97
   training_games: number;           // 6257
   games: NBAGame[];

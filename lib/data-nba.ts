@@ -16,7 +16,7 @@ export async function getNBAPredictions(): Promise<NBAPredictionsData> {
 }
 
 const EMPTY_RESULTS: ResultsData = {
-  model_version: "V6",
+  model_version: "V7",
   last_updated: "",
   tracking_start_date: "",
   results: [],

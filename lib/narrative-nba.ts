@@ -40,7 +40,7 @@ export function generateNBANarrative(game: NBAGame, _internal: NBATier): string 
 
   const sentence1 = `V7 finds a ${edgeLabel} edge over the market line.`;
 
-  // S2: NBA-specific context — injury impact is the V6 signature
+  // S2: NBA-specific context — injury impact is the V7 signature
   let sentence2 = "";
   if (oppTopMissing >= 2) {
     sentence2 = ` ${isHome ? game.away_team : game.home_team} missing ${oppTopMissing} top-8 rotation players.`;
