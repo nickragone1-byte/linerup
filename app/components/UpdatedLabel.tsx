@@ -7,35 +7,37 @@ interface Props {
   mobile?: boolean;
 }
 
-/**
- * Convert "2026-05-21 09:00:00 PDT" to a Date by building a proper
- * ISO-8601 string with a numeric offset. The Date constructor reliably
- * parses "2026-05-21T09:00:00-07:00" in every browser; it does NOT
- * reliably parse timezone abbreviations like "PDT".
- */
-function parseGeneratedAt(generatedAt: string): Date | null {
-  const parts = generatedAt.trim().split(" ");
-  if (parts.length < 2) return null;
-  const [datePart, timePart, tzPart = "PDT"] = parts;
-  // PDT = UTC-7, PST = UTC-8; anything else treated as PDT
-  const offset = tzPart === "PST" ? "-08:00" : "-07:00";
-  const iso = `${datePart}T${timePart}${offset}`;
-  const d = new Date(iso);
-  return isNaN(d.getTime()) ? null : d;
-}
-
 export default function UpdatedLabel({ generatedAt, mobile = false }: Props) {
-  // Start empty so server HTML and initial client render match (no hydration mismatch).
-  // useEffect fires only in the browser, where toLocaleTimeString uses the real local TZ.
   const [timeStr, setTimeStr] = useState<string>("");
 
   useEffect(() => {
     if (!generatedAt) return;
-    const d = parseGeneratedAt(generatedAt);
-    if (!d) return;
+
+    // "2026-05-21 09:00:00 PDT" — Chrome/V8 parses this correctly, but
+    // Firefox and Safari do not recognise "PDT"/"PST" as timezone identifiers.
+    // Normalise to an unambiguous ISO-8601 offset string first, then fall back
+    // to a straight new Date() if the string is already in another format.
+    let d = new Date(
+      generatedAt
+        .replace(" PDT", "-07:00")
+        .replace(" PST", "-08:00")
+        .replace(" ", "T")   // "2026-05-21T09:00:00-07:00"
+    );
+
+    // Fallback: try the raw string (works in Chrome for PDT/PST abbreviations)
+    if (isNaN(d.getTime())) {
+      d = new Date(generatedAt);
+    }
+
+    if (isNaN(d.getTime())) return;
+
+    // toLocaleTimeString with no timeZone option → always uses the
+    // browser's local timezone, never UTC.
     setTimeStr(d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }));
   }, [generatedAt]);
 
+  // Render nothing until the effect has run in the browser.
+  // This prevents the server-rendered HTML from ever containing a UTC time.
   if (!timeStr) return null;
 
   if (mobile) {
