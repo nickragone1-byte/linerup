@@ -31,9 +31,7 @@ export default function HeroCard({ game, display, narrative }: Props) {
   const [expanded, setExpanded] = useState(false);
   const isHome = game.pick === game.home_team;
   const pickedSide: "away" | "home" = isHome ? "home" : "away";
-  const vegasImplied = game.vegas_prob_home != null
-    ? (isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home)
-    : null;
+  const vegasImplied = isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home;
 
   const style = TIER_STYLES[display] ?? TIER_STYLES.PLAY;
   const proofPct = PROOF_PCT[display] ?? "60%";
@@ -170,7 +168,7 @@ export default function HeroCard({ game, display, narrative }: Props) {
           {/* Vegas Implied */}
           <div className="flex flex-col items-center justify-center py-4 px-2" style={{ background: "#0f1422" }}>
             <span className="font-mono font-semibold" style={{ fontSize: 18, color: "#c9d1d9", fontVariantNumeric: "tabular-nums", letterSpacing: "-0.02em" }}>
-              {vegasImplied != null ? `${vegasImplied.toFixed(1)}%` : "—"}
+              {vegasImplied.toFixed(1)}%
             </span>
             <span className="hidden sm:inline uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>Vegas Implied</span>
             <span className="sm:hidden uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>Vegas %</span>
@@ -233,9 +231,9 @@ export default function HeroCard({ game, display, narrative }: Props) {
                 { label: "Away Pitcher", value: game.away_pitcher, sub: `${game.away_sp_ip} IP` },
                 { label: "Home Pitcher", value: game.home_pitcher, sub: `${game.home_sp_ip} IP` },
                 { label: "Venue", value: game.venue, sub: `Park factor ${game.park_factor}` },
-                { label: "Vegas Line", value: (game.away_ml != null && game.home_ml != null) ? `${game.away_ml > 0 ? "+" : ""}${game.away_ml} / ${game.home_ml > 0 ? "+" : ""}${game.home_ml}` : "Line TBA", sub: game.over_under != null ? `O/U ${game.over_under}` : "O/U —" },
-                { label: "Vegas Implied", value: vegasImplied != null ? `${vegasImplied.toFixed(1)}%` : "—", sub: "market win prob" },
-                { label: "Sharp Signal", value: game.sharp_signal ?? "—", sub: game.line_move != null ? `Line move ${game.line_move > 0 ? "+" : ""}${game.line_move}` : "Line move —" },
+                { label: "Vegas Line", value: (game.away_ml != null && game.home_ml != null) ? `${game.away_ml > 0 ? "+" : ""}${game.away_ml} / ${game.home_ml > 0 ? "+" : ""}${game.home_ml}` : "Line TBA", sub: `O/U ${game.over_under}` },
+                { label: "Vegas Implied", value: `${vegasImplied.toFixed(1)}%`, sub: "market win prob" },
+                { label: "Sharp Signal", value: game.sharp_signal, sub: `Line move ${game.line_move > 0 ? "+" : ""}${game.line_move}` },
               ].map(({ label, value, sub }) => (
                 <div key={label}>
                   <div style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2 }}>
