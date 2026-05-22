@@ -43,7 +43,8 @@ export default async function NBAPage() {
     .filter((g) => g.display === "PASS")
     .map(({ game, internal }) => ({ game, internalTier: internal, reason: nbaPassReason(internal) }));
 
-  const dateLabel = new Date(predictions.date + "T12:00:00").toLocaleDateString("en-US", {
+  const [year, month, day] = predictions.date.split("-").map(Number);
+  const dateLabel = new Date(year, month - 1, day).toLocaleDateString([], {
     weekday: "long",
     month: "long",
     day: "numeric",
