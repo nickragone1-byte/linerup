@@ -138,12 +138,12 @@ export default function HeroPlayCard({ game, displayTier, narrative, compact = f
             value={
               game.line_move == null ? "—" : game.line_move === 0
                 ? "—"
-                : `${game.line_move > 0 ? "+" : ""}${game.line_move}`
+                : game.line_move != null ? `${game.line_move > 0 ? "+" : ""}${game.line_move}` : "—"
             }
           />
           <MathStat
             label="Sharp"
-            value={game.sharp_signal === "neutral" ? "Neutral" : game.sharp_signal}
+            value={game.sharp_signal == null ? "—" : game.sharp_signal === "neutral" ? "Neutral" : game.sharp_signal}
           />
           <MathStat label="Park" value={`${game.park_factor}×`} />
           <MathStat label="Away wt" value={`${game.away_sp_weight}%`} />
