@@ -220,7 +220,7 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
                 { label: `${awayName} Injuries`, value: `${game.a_top_missing} top-8 out`, sub: game.a_top_missing > 0 ? "rotation impacted" : "fully healthy" },
                 { label: `${homeName} Injuries`, value: `${game.h_top_missing} top-8 out`, sub: game.h_top_missing > 0 ? "rotation impacted" : "fully healthy" },
                 { label: "Vegas Spread", value: `${game.vegas_spread > 0 ? "+" : ""}${game.vegas_spread.toFixed(1)}`, sub: `Opened ${game.vegas_spread_open > 0 ? "+" : ""}${game.vegas_spread_open.toFixed(1)}` },
-                { label: "Vegas Line", value: `${game.away_ml > 0 ? "+" : ""}${game.away_ml} / ${game.home_ml > 0 ? "+" : ""}${game.home_ml}`, sub: `O/U ${game.over_under}` },
+                { label: "Vegas Line", value: (game.away_ml != null && game.home_ml != null) ? `${game.away_ml > 0 ? "+" : ""}${game.away_ml} / ${game.home_ml > 0 ? "+" : ""}${game.home_ml}` : "Line TBA", sub: `O/U ${game.over_under}` },
                 { label: "Vegas Implied", value: `${vegasImplied.toFixed(1)}%`, sub: "market win prob" },
                 { label: "Sharp Signal", value: game.sharp_signal, sub: `Line move ${game.line_move > 0 ? "+" : ""}${game.line_move}` },
               ].map(({ label, value, sub }) => (

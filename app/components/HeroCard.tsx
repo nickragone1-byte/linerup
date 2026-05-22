@@ -231,7 +231,7 @@ export default function HeroCard({ game, display, narrative }: Props) {
                 { label: "Away Pitcher", value: game.away_pitcher, sub: `${game.away_sp_ip} IP` },
                 { label: "Home Pitcher", value: game.home_pitcher, sub: `${game.home_sp_ip} IP` },
                 { label: "Venue", value: game.venue, sub: `Park factor ${game.park_factor}` },
-                { label: "Vegas Line", value: `${game.away_ml > 0 ? "+" : ""}${game.away_ml} / ${game.home_ml > 0 ? "+" : ""}${game.home_ml}`, sub: `O/U ${game.over_under}` },
+                { label: "Vegas Line", value: (game.away_ml != null && game.home_ml != null) ? `${game.away_ml > 0 ? "+" : ""}${game.away_ml} / ${game.home_ml > 0 ? "+" : ""}${game.home_ml}` : "Line TBA", sub: `O/U ${game.over_under}` },
                 { label: "Vegas Implied", value: `${vegasImplied.toFixed(1)}%`, sub: "market win prob" },
                 { label: "Sharp Signal", value: game.sharp_signal, sub: `Line move ${game.line_move > 0 ? "+" : ""}${game.line_move}` },
               ].map(({ label, value, sub }) => (
