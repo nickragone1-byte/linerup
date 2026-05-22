@@ -233,7 +233,7 @@ export default function HeroCard({ game, display, narrative }: Props) {
                 { label: "Venue", value: game.venue, sub: `Park factor ${game.park_factor}` },
                 { label: "Vegas Line", value: (game.away_ml != null && game.home_ml != null) ? `${game.away_ml > 0 ? "+" : ""}${game.away_ml} / ${game.home_ml > 0 ? "+" : ""}${game.home_ml}` : "Line TBA", sub: `O/U ${game.over_under}` },
                 { label: "Vegas Implied", value: `${vegasImplied != null ? vegasImplied.toFixed(1) : "—"}%`, sub: "market win prob" },
-                { label: "Sharp Signal", value: game.sharp_signal, sub: `Line move ${game.line_move != null ? game.line_move > 0 ? "+" : ""}${game.line_move : "—"}` },
+                { label: "Sharp Signal", value: game.sharp_signal ?? "—", sub: game.line_move != null ? `Line move ${game.line_move > 0 ? "+" : ""}${game.line_move}` : "Line move —" },
               ].map(({ label, value, sub }) => (
                 <div key={label}>
                   <div style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2 }}>
