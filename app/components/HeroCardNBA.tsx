@@ -3,7 +3,6 @@
 import { useState } from "react";
 import TeamLogo from "./TeamLogo";
 import ProbabilityBar from "./ProbabilityBar";
-import StatBox from "./StatBox";
 import type { NBAGame } from "@/lib/types-nba";
 import type { NBADisplayTier } from "@/lib/display-tier-nba";
 import { computeEV, fmtEV, evColor } from "@/lib/ev";
@@ -25,8 +24,6 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
   const [expanded, setExpanded] = useState(false);
   const isHome = game.pick === game.home_team;
   const pickedSide: "away" | "home" = isHome ? "home" : "away";
-  const pickEdge = isHome ? game.edge : -game.edge;
-  const confidenceWeight = (game.confidence - 52.4).toFixed(1);
   const vegasImplied = isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home;
 
   const style = TIER_STYLES[display] ?? TIER_STYLES.PLAY;
@@ -38,11 +35,10 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
   const pickSpread = isHome ? game.vegas_spread : -game.vegas_spread;
   const spreadStr = pickSpread > 0 ? `+${pickSpread.toFixed(1)}` : pickSpread.toFixed(1);
 
-  const stats = [
-    { label: "Win Probability", mobileLabel: "Win %", value: `${game.confidence.toFixed(1)}%`, highlight: true },
-    { label: "Edge vs Market", mobileLabel: "Edge", value: `+${pickEdge.toFixed(1)}%` },
-    { label: "Confidence Weight", mobileLabel: "Weight", value: `+${confidenceWeight}%` },
-  ];
+  const pickML = isHome ? game.home_ml : game.away_ml;
+  const ev = computeEV(game.confidence, pickML);
+  const evDisplay = ev !== null ? fmtEV(ev) : "—";
+  const evClr = ev !== null ? evColor(ev) : "#4a5568";
 
   return (
     <div
@@ -129,18 +125,43 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
           <TeamLogo teamName={game.home_team} size={48} />
         </div>
 
-        {/* Probability bar */}
+        {/* Probability bar — model win probability for each side */}
         <div style={{ marginBottom: 16 }}>
           <ProbabilityBar
-            awayProb={100 - game.model_prob_home}
-            homeProb={game.model_prob_home}
+            awayProb={isHome ? 100 - game.confidence : game.confidence}
+            homeProb={isHome ? game.confidence : 100 - game.confidence}
             pickedTeam={pickedSide}
           />
         </div>
 
-        {/* Stat boxes */}
-        <div style={{ marginBottom: 16 }}>
-          <StatBox stats={stats} />
+        {/* Stats row: Win Prob | EV (hero) | Vegas Implied */}
+        <div
+          className="grid grid-cols-3 gap-px rounded-lg overflow-hidden"
+          style={{ background: "#1a2335", marginBottom: 16 }}
+        >
+          {/* Win Probability */}
+          <div className="flex flex-col items-center justify-center py-4 px-2" style={{ background: "#0f1422" }}>
+            <span className="font-mono font-semibold" style={{ fontSize: 18, color: "#ffffff", fontVariantNumeric: "tabular-nums", letterSpacing: "-0.02em" }}>
+              {game.confidence.toFixed(1)}%
+            </span>
+            <span className="hidden sm:inline uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>Win Probability</span>
+            <span className="sm:hidden uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>Win Prob</span>
+          </div>
+          {/* EV — hero stat */}
+          <div className="flex flex-col items-center justify-center py-4 px-2" style={{ background: "#0f1422" }}>
+            <span className="font-mono font-bold" style={{ fontSize: 22, color: evClr, fontVariantNumeric: "tabular-nums", letterSpacing: "-0.02em" }}>
+              {evDisplay}
+            </span>
+            <span className="uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>EV per $100</span>
+          </div>
+          {/* Vegas Implied */}
+          <div className="flex flex-col items-center justify-center py-4 px-2" style={{ background: "#0f1422" }}>
+            <span className="font-mono font-semibold" style={{ fontSize: 18, color: "#c9d1d9", fontVariantNumeric: "tabular-nums", letterSpacing: "-0.02em" }}>
+              {vegasImplied.toFixed(1)}%
+            </span>
+            <span className="hidden sm:inline uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>Vegas Implied</span>
+            <span className="sm:hidden uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>Vegas %</span>
+          </div>
         </div>
 
         {/* THE READ */}
@@ -153,22 +174,6 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
           </div>
           <p style={{ fontSize: 14, color: "#c9d1d9", lineHeight: 1.7 }}>{narrative}</p>
         </div>
-
-        {/* EV display */}
-        {(() => {
-          const pickML = isHome ? game.home_ml : game.away_ml;
-          const ev = computeEV(game.confidence, pickML);
-          if (ev === null) return null;
-          const color = evColor(ev);
-          return (
-            <div className="flex items-center gap-2 mb-3">
-              <span style={{ fontSize: 11, color: "#7d8590" }}>EV per $100:</span>
-              <span className="font-mono" style={{ fontSize: 12, color, fontWeight: 600, fontVariantNumeric: "tabular-nums" }}>
-                {fmtEV(ev)}
-              </span>
-            </div>
-          );
-        })()}
 
         {/* Validated accuracy footnote */}
         <div
