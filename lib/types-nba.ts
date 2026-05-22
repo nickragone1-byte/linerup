@@ -40,7 +40,7 @@ export interface NBAGame {
 
 export interface NBAPredictionsData {
   generated_at: string;
-  date: string;
+  date?: string;
   model_version: string;            // "V7"
   validated_oos_accuracy: number;   // 67.97
   training_games: number;           // 6257

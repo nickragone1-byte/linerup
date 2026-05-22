@@ -43,13 +43,17 @@ export default async function MLBPage() {
     .filter((g) => g.display === "PASS")
     .map(({ game, internal, reason }) => ({ game, internalTier: internal, reason }));
 
-  const [year, month, day] = predictions.date.split("-").map(Number);
-  const dateLabel = new Date(year, month - 1, day).toLocaleDateString([], {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
+  const dateLabel = (() => {
+    if (!predictions.date) return "";
+    const [year, month, day] = predictions.date.split("-").map(Number);
+    if (!year || !month || !day) return "";
+    return new Date(year, month - 1, day).toLocaleDateString([], {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
+  })();
 
   const playCount = topGames.length;
   const leanCount = leans.length;

@@ -29,7 +29,7 @@ export interface Game {
 
 export interface PredictionsData {
   generated_at: string;
-  date: string;
+  date?: string;
   model_version: string;
   training_accuracy: number;
   training_games: number;
