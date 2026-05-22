@@ -9,7 +9,6 @@ import { computeNBATier, NBA_TIER_ORDER } from "@/lib/tier-nba";
 import { toNBADisplayTier } from "@/lib/display-tier-nba";
 import { generateNBANarrative } from "@/lib/narrative-nba";
 import Header from "@/app/components/Header";
-import UpdatedLabel from "@/app/components/UpdatedLabel";
 import HeroCardNBA from "@/app/components/HeroCardNBA";
 import LeanCardNBA from "@/app/components/LeanCardNBA";
 import PassRowNBA from "@/app/components/PassRowNBA";
@@ -61,14 +60,7 @@ export default async function NBAPage() {
 
       {/* Date strip */}
       <div className="max-w-3xl mx-auto px-5 pt-6 pb-0">
-        <div className="hidden sm:flex items-center gap-3">
-          <span style={{ fontSize: 13, color: "#4a5568" }}>{dateLabel}</span>
-          <UpdatedLabel generatedAt={predictions.generated_at} />
-        </div>
-        <div className="sm:hidden">
-          <div style={{ fontSize: 13, color: "#4a5568" }}>{dateLabel}</div>
-          <UpdatedLabel generatedAt={predictions.generated_at} mobile />
-        </div>
+        <div style={{ fontSize: 13, color: "#4a5568" }}>{dateLabel}</div>
       </div>
 
       {/* No games today */}

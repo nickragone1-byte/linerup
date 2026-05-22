@@ -9,7 +9,6 @@ import { computeTier, TIER_ORDER } from "@/lib/tier";
 import { toDisplayTier, passReason } from "@/lib/display-tier";
 import { generateNarrative } from "@/lib/narrative";
 import Header from "@/app/components/Header";
-import UpdatedLabel from "@/app/components/UpdatedLabel";
 import HeroCard from "@/app/components/HeroCard";
 import LeanCard from "@/app/components/LeanCard";
 import PassRow from "@/app/components/PassRow";
@@ -60,16 +59,7 @@ export default async function MLBPage() {
 
       {/* Date strip — inline on desktop, stacked on mobile */}
       <div className="max-w-3xl mx-auto px-5 pt-6 pb-0">
-        {/* Desktop: single line */}
-        <div className="hidden sm:flex items-center gap-3">
-          <span style={{ fontSize: 13, color: "#4a5568" }}>{dateLabel}</span>
-          <UpdatedLabel generatedAt={predictions.generated_at} />
-        </div>
-        {/* Mobile: stacked */}
-        <div className="sm:hidden">
-          <div style={{ fontSize: 13, color: "#4a5568" }}>{dateLabel}</div>
-          <UpdatedLabel generatedAt={predictions.generated_at} mobile />
-        </div>
+        <div style={{ fontSize: 13, color: "#4a5568" }}>{dateLabel}</div>
       </div>
 
       {/* Hero section */}
