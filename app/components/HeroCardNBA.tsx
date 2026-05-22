@@ -24,7 +24,7 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
   const [expanded, setExpanded] = useState(false);
   const isHome = game.pick === game.home_team;
   const pickedSide: "away" | "home" = isHome ? "home" : "away";
-  const vegasImplied = isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home;
+  const vegasImplied = game.vegas_prob_home != null ? (isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home) : null;
 
   const style = TIER_STYLES[display] ?? TIER_STYLES.PLAY;
 
@@ -157,7 +157,7 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
           {/* Vegas Implied */}
           <div className="flex flex-col items-center justify-center py-4 px-2" style={{ background: "#0f1422" }}>
             <span className="font-mono font-semibold" style={{ fontSize: 18, color: "#c9d1d9", fontVariantNumeric: "tabular-nums", letterSpacing: "-0.02em" }}>
-              {vegasImplied.toFixed(1)}%
+              {vegasImplied != null ? vegasImplied.toFixed(1) : "—"}%
             </span>
             <span className="hidden sm:inline uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>Vegas Implied</span>
             <span className="sm:hidden uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>Vegas %</span>
@@ -221,7 +221,7 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
                 { label: `${homeName} Injuries`, value: `${game.h_top_missing} top-8 out`, sub: game.h_top_missing > 0 ? "rotation impacted" : "fully healthy" },
                 { label: "Vegas Spread", value: `${game.vegas_spread > 0 ? "+" : ""}${game.vegas_spread.toFixed(1)}`, sub: `Opened ${game.vegas_spread_open > 0 ? "+" : ""}${game.vegas_spread_open.toFixed(1)}` },
                 { label: "Vegas Line", value: (game.away_ml != null && game.home_ml != null) ? `${game.away_ml > 0 ? "+" : ""}${game.away_ml} / ${game.home_ml > 0 ? "+" : ""}${game.home_ml}` : "Line TBA", sub: `O/U ${game.over_under}` },
-                { label: "Vegas Implied", value: `${vegasImplied.toFixed(1)}%`, sub: "market win prob" },
+                { label: "Vegas Implied", value: `${vegasImplied != null ? vegasImplied.toFixed(1) : "—"}%`, sub: "market win prob" },
                 { label: "Sharp Signal", value: game.sharp_signal ?? "—", sub: game.line_move != null ? `Line move ${game.line_move > 0 ? "+" : ""}${game.line_move}` : "Line move —" },
               ].map(({ label, value, sub }) => (
                 <div key={label}>

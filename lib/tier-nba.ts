@@ -13,6 +13,7 @@ function sharpConfirms(game: NBAGame): boolean {
 function lineMoveContradicts(game: NBAGame): boolean {
   // line_move = home_ml - ml_open_home
   // positive = home ML went up = money on away = contradicts home pick
+  if (game.line_move == null) return false;
   if (pickIsHome(game)) return game.line_move > 0;
   return game.line_move < 0;
 }

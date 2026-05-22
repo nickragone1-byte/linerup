@@ -25,10 +25,11 @@ export default function HeroPlayCard({ game, displayTier, narrative, compact = f
   const [expanded, setExpanded] = useState(false);
 
   const isHome = game.pick === game.home_team;
-  const pickML = formatML(isHome ? game.home_ml : game.away_ml);
+  const _hpML = isHome ? game.home_ml : game.away_ml;
+  const pickML = _hpML != null ? formatML(_hpML as number) : "TBA";
   const ts = TIER_STYLE[displayTier];
   const modelPct = isHome ? game.model_prob_home : 100 - game.model_prob_home;
-  const vegasPct = isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home;
+  const vegasPct = game.vegas_prob_home != null ? (isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home) : null;
 
   return (
     <div

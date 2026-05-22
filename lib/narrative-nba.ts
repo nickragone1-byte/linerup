@@ -15,12 +15,13 @@ function sharpFadesPick(game: NBAGame): boolean {
 
 function lineMoveAgainstPick(game: NBAGame): boolean {
   const isHome = game.pick === game.home_team;
+  if (game.line_move == null) return false;
   return isHome ? game.line_move > 0 : game.line_move < 0;
 }
 
 export function generateNBANarrative(game: NBAGame, _internal: NBATier): string {
   const isHome = game.pick === game.home_team;
-  const pickEdge = isHome ? game.edge : -game.edge;
+  const pickEdge = game.edge != null ? (isHome ? game.edge : -game.edge) : 0;
 
   const oppTopMissing = isHome ? game.a_top_missing : game.h_top_missing;
   const pickTopMissing = isHome ? game.h_top_missing : game.a_top_missing;

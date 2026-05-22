@@ -19,7 +19,8 @@ function PassRow({ item }: { item: PassGame }) {
   const [expanded, setExpanded] = useState(false);
   const { game, reason, narrative } = item;
   const isHome = game.pick === game.home_team;
-  const pickML = formatML(isHome ? game.home_ml : game.away_ml);
+  const _psML = isHome ? game.home_ml : game.away_ml;
+  const pickML = _psML != null ? formatML(_psML as number) : "TBA";
 
   return (
     <div className="border-b border-zinc-800/40 last:border-0">
@@ -61,8 +62,7 @@ function PassRow({ item }: { item: PassGame }) {
             <div>
               <span className="text-zinc-700">Edge </span>
               <span className="text-zinc-500">
-                {game.edge > 0 ? "+" : ""}
-                {game.edge.toFixed(1)}%
+                {game.edge != null ? `${game.edge > 0 ? "+" : ""}${game.edge.toFixed(1)}%` : "—"}
               </span>
             </div>
             <div>
