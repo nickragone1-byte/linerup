@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# Old R scripts — keep out of repo
+*.R
+!v10-mlb-playoff.R
+!nba_v7_predictions.R
+*.zip
+deploy.sh
+predictions/
+scripts/
