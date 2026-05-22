@@ -130,6 +130,8 @@ export default function LeanCard({ game, narrative }: Props) {
         {expanded && (
           <div className="mt-3 pt-3 grid grid-cols-2 gap-3" style={{ borderTop: "1px solid #1a2335" }}>
             {[
+              { label: "EV / $100", value: (() => { const isHome = game.pick === game.home_team; const ml = isHome ? game.home_ml : game.away_ml; const ev = computeEV(game.confidence, ml); return ev !== null ? fmtEV(ev) : "—"; })() },
+              { label: "EV / $100", value: (() => { const isHome = game.pick === game.home_team; const ml = isHome ? game.home_ml : game.away_ml; const ev = computeEV(game.confidence, ml); return ev !== null ? fmtEV(ev) : "—"; })() },
               { label: "Venue", value: game.venue },
               { label: "Line", value: hasLine ? `${awayML} / ${homeML}` : "Line TBA" },
               { label: (game.away_team.split(" ").pop() ?? "Away") + " SP", value: `${game.away_pitcher} (${game.away_sp_ip} IP)` },

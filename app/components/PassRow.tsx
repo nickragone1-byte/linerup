@@ -53,7 +53,7 @@ export default function PassRow({ items }: Props) {
           className="uppercase"
           style={{ fontSize: 12, letterSpacing: "0.2em", color: "#c9d1d9", fontWeight: 600, fontFamily: "var(--font-geist-mono)" }}
         >
-          Full Slate
+          Cautious Plays
         </span>
         <span
           className="font-mono"
