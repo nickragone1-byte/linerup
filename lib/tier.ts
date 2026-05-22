@@ -5,12 +5,14 @@ function pickIsHome(game: Game): boolean {
 }
 
 function sharpConfirms(game: Game): boolean {
+  if (!game.sharp_signal) return false;
   const signal = game.sharp_signal.toLowerCase();
   if (signal === "neutral") return false;
   return pickIsHome(game) ? signal.includes("home") : signal.includes("away");
 }
 
 function lineMoveContradicts(game: Game): boolean {
+  if (game.line_move == null) return false;
   // line_move = home_ml - ml_open_home
   // positive = home ML went up = away money = contradicts home pick
   // negative = home ML went down = home money = contradicts away pick

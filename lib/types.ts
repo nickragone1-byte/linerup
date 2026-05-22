@@ -11,18 +11,18 @@ export interface Game {
   home_sp_weight: number;
   venue: string;
   park_factor: number;
-  away_ml: number;
-  home_ml: number;
-  ml_open_home: number;
-  line_move: number;
-  sharp_signal: string;
+  away_ml: number | null;
+  home_ml: number | null;
+  ml_open_home: number | null;
+  line_move: number | null;
+  sharp_signal: string | null;
   model_prob_home: number;
-  vegas_prob_home: number;
+  vegas_prob_home: number | null;
   final_prob_home: number;
   pick: string;
   confidence: number;
-  edge: number;
-  over_under: number;
+  edge: number | null;
+  over_under: number | null;
   tbd_flag: string | null;
   thin_sp: boolean;
 }

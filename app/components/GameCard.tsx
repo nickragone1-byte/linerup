@@ -43,10 +43,10 @@ export default function GameCard({ game, displayTier, internalTier, narrative }:
 
   const cfg = TIER_CONFIG[displayTier];
   const isHome = game.pick === game.home_team;
-  const pickML = formatML(isHome ? game.home_ml : game.away_ml);
+  const pickML = (isHome ? game.home_ml : game.away_ml) != null ? formatML(isHome ? game.home_ml : game.away_ml) : "TBA";
   const modelPct = isHome ? game.model_prob_home : 100 - game.model_prob_home;
-  const vegasPct = isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home;
-  const edgePos = game.edge > 0;
+  const vegasPct = game.vegas_prob_home != null ? (isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home) : null;
+  const edgePos = (game.edge ?? 0) > 0;
 
   // Suppress internalTier lint — it's available via View data for future use
   void internalTier;
@@ -121,10 +121,10 @@ export default function GameCard({ game, displayTier, internalTier, narrative }:
             <div className="grid grid-cols-3 gap-x-4 gap-y-3">
               <Stat label="Confidence" value={`${game.confidence.toFixed(1)}%`} />
               <Stat label="Model" value={`${modelPct.toFixed(1)}%`} />
-              <Stat label="Vegas" value={`${vegasPct.toFixed(1)}%`} />
+              <Stat label="Vegas" value={vegasPct != null ? `${vegasPct.toFixed(1)}%` : "—"} />
               <Stat
                 label="Edge"
-                value={`${edgePos ? "+" : ""}${game.edge.toFixed(1)}%`}
+                value={game.edge != null ? `${edgePos ? "+" : ""}${game.edge.toFixed(1)}%` : "—"}
                 color={
                   game.edge > 8
                     ? "text-green-400"
@@ -135,18 +135,12 @@ export default function GameCard({ game, displayTier, internalTier, narrative }:
               />
               <Stat
                 label="Line move"
-                value={
-                  game.line_move === 0
-                    ? "None"
-                    : `${game.line_move > 0 ? "+" : ""}${game.line_move}`
-                }
+                value={game.line_move == null ? "—" : game.line_move === 0 ? "None" : `${game.line_move > 0 ? "+" : ""}${game.line_move}`}
               />
-              <Stat label="O/U" value={String(game.over_under)} />
+              <Stat label="O/U" value={game.over_under != null ? String(game.over_under) : "—"} />
               <Stat
                 label="Sharp"
-                value={
-                  game.sharp_signal === "neutral" ? "Neutral" : game.sharp_signal
-                }
+                value={game.sharp_signal == null ? "—" : game.sharp_signal === "neutral" ? "Neutral" : game.sharp_signal}
               />
               <Stat label="Park" value={`${game.park_factor}×`} />
               <Stat label="Away wt" value={`${game.away_sp_weight}%`} />
