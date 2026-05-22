@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-22 21:33:11 UTC",
+  "generated_at": "2026-05-22 22:00:26 UTC",
   "date": "2026-05-22",
   "model_version": "V7",
-  "validated_oos_accuracy": 68.63,
+  "validated_oos_accuracy": 68.24,
   "training_games": 6262,
   "games": [
     {
@@ -12,7 +12,7 @@
       "home_ml": -125,
       "ml_open_home": -105,
       "line_move": -20,
-      "vegas_spread": -1.5,
+      "vegas_spread": -2.5,
       "vegas_spread_open": null,
       "spread_move": null,
       "sharp_signal": "sharp on HOME",
@@ -20,15 +20,15 @@
       "a_top_missing": 0,
       "h_top_wtd": 0,
       "a_top_wtd": 0,
-      "model_prob_home": 61.1,
-      "vegas_prob_home": 55,
-      "final_prob_home": 60.7,
+      "model_prob_home": 61.2,
+      "vegas_prob_home": 58.3,
+      "final_prob_home": 61.8,
       "pick": "San Antonio Spurs",
-      "confidence": 60.7,
-      "edge": 6.1,
+      "confidence": 61.8,
+      "edge": 3,
       "over_under": 218.5,
       "is_playoff": 1,
-      "the_read": "V7 finds a solid edge over the market line. Both teams at full strength. Sharps confirm the lean."
+      "the_read": "V7 finds a small edge over the market line. Both teams at full strength. Sharps confirm the lean."
     }
   ]
 }
