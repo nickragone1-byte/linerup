@@ -43,7 +43,8 @@ export default function GameCard({ game, displayTier, internalTier, narrative }:
 
   const cfg = TIER_CONFIG[displayTier];
   const isHome = game.pick === game.home_team;
-  const pickML = (isHome ? game.home_ml : game.away_ml) != null ? formatML(isHome ? game.home_ml : game.away_ml) : "TBA";
+  const _rawML = isHome ? game.home_ml : game.away_ml;
+  const pickML = _rawML != null ? formatML(_rawML as number) : "TBA";
   const modelPct = isHome ? game.model_prob_home : 100 - game.model_prob_home;
   const vegasPct = game.vegas_prob_home != null ? (isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home) : null;
   const edgePos = (game.edge ?? 0) > 0;
@@ -126,9 +127,9 @@ export default function GameCard({ game, displayTier, internalTier, narrative }:
                 label="Edge"
                 value={game.edge != null ? `${edgePos ? "+" : ""}${game.edge.toFixed(1)}%` : "—"}
                 color={
-                  game.edge > 8
+                  (game.edge ?? 0) > 8
                     ? "text-green-400"
-                    : game.edge < 0
+                    : (game.edge ?? 0) < 0
                     ? "text-red-400"
                     : "text-zinc-200"
                 }

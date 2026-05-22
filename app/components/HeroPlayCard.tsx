@@ -126,17 +126,17 @@ export default function HeroPlayCard({ game, displayTier, narrative, compact = f
           style={{ borderTop: "1px solid #1a1a1a" }}
         >
           <MathStat label="Model" value={`${modelPct.toFixed(1)}%`} />
-          <MathStat label="Vegas" value={`${vegasPct.toFixed(1)}%`} />
+          <MathStat label="Vegas" value={vegasPct != null ? `${vegasPct.toFixed(1)}%` : "—"} />
           <MathStat
             label="Edge"
-            value={`${game.edge > 0 ? "+" : ""}${game.edge.toFixed(1)}%`}
-            highlight={game.edge > 6}
+            value={game.edge != null ? `${game.edge > 0 ? "+" : ""}${game.edge.toFixed(1)}%` : "—"}
+            highlight={(game.edge ?? 0) > 6}
           />
-          <MathStat label="O/U" value={String(game.over_under)} />
+          <MathStat label="O/U" value={game.over_under != null ? String(game.over_under) : "—"} />
           <MathStat
             label="Line move"
             value={
-              game.line_move === 0
+              game.line_move == null ? "—" : game.line_move === 0
                 ? "—"
                 : `${game.line_move > 0 ? "+" : ""}${game.line_move}`
             }

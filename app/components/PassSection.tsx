@@ -75,7 +75,7 @@ function PassRow({ item }: { item: PassGame }) {
             </div>
             <div>
               <span className="text-zinc-700">O/U </span>
-              <span className="text-zinc-500">{game.over_under}</span>
+              <span className="text-zinc-500">{game.over_under ?? "—"}</span>
             </div>
           </div>
         </div>

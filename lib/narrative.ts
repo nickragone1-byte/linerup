@@ -15,6 +15,7 @@ function sharpFadesPick(game: Game): boolean {
 
 function lineMoveAgainstPick(game: Game): boolean {
   const isHome = game.pick === game.home_team;
+  if (game.line_move == null) return false;
   return isHome ? game.line_move > 0 : game.line_move < 0;
 }
 
@@ -22,7 +23,7 @@ export function generateNarrative(game: Game, _internal: Tier): string {
   const isHome = game.pick === game.home_team;
   const pickPitcher = isHome ? game.home_pitcher : game.away_pitcher;
   const pickPitcherIP = isHome ? game.home_sp_ip : game.away_sp_ip;
-  const pickEdge = isHome ? game.edge : -game.edge;
+  const pickEdge = game.edge != null ? (isHome ? game.edge : -game.edge) : 0;
 
   const confirms = sharpConfirmsPick(game);
   const fades = sharpFadesPick(game);
