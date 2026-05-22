@@ -1,9 +1,34 @@
 {
-  "generated_at": "2026-05-21 09:00:00 PDT",
-  "date": "2026-05-21",
+  "generated_at": "2026-05-22 21:33:11 UTC",
+  "date": "2026-05-22",
   "model_version": "V7",
-  "validated_oos_accuracy": 68.22,
-  "training_games": 6258,
-  "games": [],
-  "note": "NBA predictions post before tip-off."
+  "validated_oos_accuracy": 68.63,
+  "training_games": 6262,
+  "games": [
+    {
+      "away_team": "Oklahoma City Thunder",
+      "home_team": "San Antonio Spurs",
+      "away_ml": 105,
+      "home_ml": -125,
+      "ml_open_home": -105,
+      "line_move": -20,
+      "vegas_spread": -1.5,
+      "vegas_spread_open": null,
+      "spread_move": null,
+      "sharp_signal": "sharp on HOME",
+      "h_top_missing": 0,
+      "a_top_missing": 0,
+      "h_top_wtd": 0,
+      "a_top_wtd": 0,
+      "model_prob_home": 61.1,
+      "vegas_prob_home": 55,
+      "final_prob_home": 60.7,
+      "pick": "San Antonio Spurs",
+      "confidence": 60.7,
+      "edge": 6.1,
+      "over_under": 218.5,
+      "is_playoff": 1,
+      "the_read": "V7 finds a solid edge over the market line. Both teams at full strength. Sharps confirm the lean."
+    }
+  ]
 }
