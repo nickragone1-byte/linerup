@@ -13,21 +13,16 @@ export default function UpdatedLabel({ generatedAt, mobile = false }: Props) {
   useEffect(() => {
     if (!generatedAt) return;
 
-    // "2026-05-21 09:00:00 PDT" — Chrome/V8 parses this correctly, but
-    // Firefox and Safari do not recognise "PDT"/"PST" as timezone identifiers.
-    // Normalise to an unambiguous ISO-8601 offset string first, then fall back
-    // to a straight new Date() if the string is already in another format.
-    let d = new Date(
-      generatedAt
-        .replace(" PDT", "-07:00")
-        .replace(" PST", "-08:00")
-        .replace(" ", "T")   // "2026-05-21T09:00:00-07:00"
-    );
+    const parseGeneratedAt = (str: string) => {
+      return new Date(str
+        .replace(' PDT', '-07:00')
+        .replace(' PST', '-08:00')
+        .replace(' UTC', '+00:00')
+        .replace(' ', 'T')
+      );
+    };
 
-    // Fallback: try the raw string (works in Chrome for PDT/PST abbreviations)
-    if (isNaN(d.getTime())) {
-      d = new Date(generatedAt);
-    }
+    const d = parseGeneratedAt(generatedAt);
 
     if (isNaN(d.getTime())) return;
 
