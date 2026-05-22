@@ -34,8 +34,8 @@ export function computeTier(game: Game): Tier {
   const ev = pickML != null ? computeEVRaw(confidence, pickML) : null;
   const positiveEV = ev !== null && ev > 0;
 
-  // FADE: market strongly disagrees or edge is too large to trust
-  if ((contradicts && Math.abs(edge) > 5) || (Math.abs(edge) > 12 && !sharp)) return "🔴 FADE";
+  // FADE: market strongly disagrees AND edge is large, or extreme edge with no sharp support
+  if ((contradicts && Math.abs(edge) > 8) || (Math.abs(edge) > 15 && !sharp)) return "🔴 FADE";
 
   // LOCK: high confidence + strong positive EV + sharp confirms
   if (confidence >= 60 && ev !== null && ev > 5 && sharp && !contradicts) return "🔒 LOCK";
