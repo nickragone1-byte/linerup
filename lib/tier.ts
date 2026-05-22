@@ -23,21 +23,40 @@ function lineMoveContradicts(game: Game): boolean {
 export function computeTier(game: Game): Tier {
   const { edge, tbd_flag, thin_sp, confidence } = game;
 
+  // No line = can't evaluate
   if (edge === null || edge === undefined) return "⚪ SKIP";
   if (tbd_flag) return "⚠️ TBD";
   if (thin_sp) return "⚠️ THIN SP";
 
   const sharp = sharpConfirms(game);
   const contradicts = lineMoveContradicts(game);
+  const pickML = game.pick === game.home_team ? game.home_ml : game.away_ml;
+  const ev = pickML != null ? computeEVRaw(confidence, pickML) : null;
+  const positiveEV = ev !== null && ev > 0;
 
-  if ((contradicts && edge > 5) || (edge > 12 && !sharp)) return "🔴 FADE";
-  if (confidence >= 60 && edge <= 4 && sharp) return "🔒 LOCK";
-  if (confidence >= 60 && edge <= 4) return "🟢 BET";
-  if (confidence >= 60 && edge <= 10 && sharp) return "🟢 BET (sharp)";
-  if (confidence >= 60 && edge <= 10) return "🟡 LEAN";
-  if (confidence >= 55 && edge >= 4 && edge <= 8) return "🟡 VALUE";
+  // FADE: market strongly disagrees or edge is too large to trust
+  if ((contradicts && Math.abs(edge) > 5) || (Math.abs(edge) > 12 && !sharp)) return "🔴 FADE";
+
+  // LOCK: high confidence + positive EV + sharp confirms
+  if (confidence >= 60 && positiveEV && sharp && !contradicts) return "🔒 LOCK";
+
+  // BET: high confidence + positive EV
+  if (confidence >= 60 && positiveEV && !contradicts) return "🟢 BET";
+
+  // LEAN: decent confidence + some edge, even if slightly negative EV
+  if (confidence >= 57 && edge >= 2 && !contradicts) return "🟡 LEAN";
+
+  // VALUE: lower confidence but genuine positive EV
+  if (confidence >= 53 && positiveEV) return "🟡 VALUE";
 
   return "⚪ SKIP";
+}
+
+// Raw EV calculation (mirrors lib/ev.ts logic)
+function computeEVRaw(winPct: number, ml: number): number {
+  const p = winPct / 100;
+  const payout = ml > 0 ? ml / 100 : 100 / Math.abs(ml);
+  return p * payout * 100 - (1 - p) * 100;
 }
 
 export const TIER_ORDER: Tier[] = [
