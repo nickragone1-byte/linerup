@@ -1,38 +1,24 @@
-"use client";
-
-import { useState, useEffect } from "react";
-
 interface Props {
   generatedAt: string;
   mobile?: boolean;
 }
 
+function fmtTime(generatedAt: string): string {
+  // "2026-05-21 09:00:00 PDT" → extract "09:00:00" and format as "9:00 AM"
+  const timePart = generatedAt.split(" ")[1]; // "09:00:00"
+  if (!timePart) return "";
+  const [hStr, mStr] = timePart.split(":");
+  const h = parseInt(hStr, 10);
+  if (isNaN(h)) return "";
+  const period = h >= 12 ? "PM" : "AM";
+  const displayHour = h % 12 || 12;
+  return `${displayHour}:${mStr} ${period}`;
+}
+
 export default function UpdatedLabel({ generatedAt, mobile = false }: Props) {
-  const [timeStr, setTimeStr] = useState<string>("");
+  if (!generatedAt) return null;
 
-  useEffect(() => {
-    if (!generatedAt) return;
-
-    const parseGeneratedAt = (str: string) => {
-      return new Date(str
-        .replace(' PDT', '-07:00')
-        .replace(' PST', '-08:00')
-        .replace(' UTC', '+00:00')
-        .replace(' ', 'T')
-      );
-    };
-
-    const d = parseGeneratedAt(generatedAt);
-
-    if (isNaN(d.getTime())) return;
-
-    // toLocaleTimeString with no timeZone option → always uses the
-    // browser's local timezone, never UTC.
-    setTimeStr(d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }));
-  }, [generatedAt]);
-
-  // Render nothing until the effect has run in the browser.
-  // This prevents the server-rendered HTML from ever containing a UTC time.
+  const timeStr = fmtTime(generatedAt);
   if (!timeStr) return null;
 
   if (mobile) {
