@@ -40,11 +40,17 @@ export function computeTier(game: Game): Tier {
   // LOCK: high confidence + strong positive EV + sharp confirms
   if (confidence >= 60 && ev !== null && ev > 5 && sharp && !contradicts) return "🔒 LOCK";
 
-  // BET: high confidence + positive EV (contradicts ok if EV still strong)
+  // BET: 58%+ confidence + positive EV
   if (confidence >= 58 && positiveEV) return "🟢 BET";
 
-  // LEAN: decent confidence + positive EV or solid edge
-  if (confidence >= 55 && (positiveEV || edge >= 3)) return "🟡 LEAN";
+  // BET: 55%+ confidence + strong positive EV (big underdog model likes)
+  if (confidence >= 55 && ev !== null && ev > 6) return "🟢 BET";
+
+  // LEAN: 55%+ confidence + positive EV
+  if (confidence >= 55 && positiveEV) return "🟡 LEAN";
+
+  // LEAN: 57%+ confidence + solid edge even if slightly negative EV
+  if (confidence >= 57 && edge >= 3) return "🟡 LEAN";
 
   // VALUE: any positive EV play
   if (positiveEV) return "🟡 VALUE";
