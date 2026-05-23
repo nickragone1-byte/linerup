@@ -156,7 +156,7 @@ export default function HeroPlayCard({ game, displayTier, narrative, compact = f
               Away SP
             </div>
             <div className="font-mono" style={{ fontSize: "12px", color: "#888" }}>
-              {game.away_pitcher} · {game.away_sp_ip} ip
+              {game.away_pitcher} · {game.away_sp_ip} IP{game.away_sp_siera != null ? ` · ${game.away_sp_siera} SIERA` : ""}
             </div>
           </div>
           <div className="col-span-2">
@@ -167,7 +167,7 @@ export default function HeroPlayCard({ game, displayTier, narrative, compact = f
               Home SP
             </div>
             <div className="font-mono" style={{ fontSize: "12px", color: "#888" }}>
-              {game.home_pitcher} · {game.home_sp_ip} ip
+              {game.home_pitcher} · {game.home_sp_ip} IP{game.home_sp_siera != null ? ` · ${game.home_sp_siera} SIERA` : ""}
             </div>
           </div>
         </div>
