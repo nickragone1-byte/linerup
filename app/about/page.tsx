@@ -29,7 +29,7 @@ export default function AboutPage() {
             a brand. This site is the opposite of that.
           </p>
           <p style={{ fontSize: 17, color: "#4a5568", lineHeight: 1.8, marginBottom: 20 }}>
-            Two models currently run on Linerup: V10 for MLB (55.3% honest out-of-sample accuracy,
+            Two models currently run on Linerup: V10 for MLB (57.4% honest out-of-sample accuracy,
             2.6pp edge over baseline) and V7 for NBA (68.2% honest out-of-sample accuracy, 12.5pp
             edge over baseline). Every prediction is published before the game starts. Every result
             is logged. The methodology is explained in full. Nothing is sold. If the models stop

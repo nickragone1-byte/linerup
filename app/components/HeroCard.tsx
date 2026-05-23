@@ -5,7 +5,7 @@ import TeamLogo from "./TeamLogo";
 import ProbabilityBar from "./ProbabilityBar";
 import type { Game } from "@/lib/types";
 import type { DisplayTier } from "@/lib/display-tier";
-import { MODEL_TRAINING_GAMES } from "@/lib/constants";
+import { MODEL_TRAINING_GAMES, MODEL_ACCURACY } from "@/lib/constants";
 import { computeEV, fmtEV, evColor } from "@/lib/ev";
 
 interface Props {
@@ -193,7 +193,7 @@ export default function HeroCard({ game, display, narrative }: Props) {
         >
           <span style={{ fontSize: 13, lineHeight: 1 }}>📊</span>
           <p style={{ fontSize: 12, color: "#fb923c", lineHeight: 1.5 }}>
-            V10 trained on {MODEL_TRAINING_GAMES.toLocaleString()} MLB games · 55.3% honest out-of-sample accuracy.
+            V10 trained on {MODEL_TRAINING_GAMES.toLocaleString()} MLB games · {MODEL_ACCURACY}% honest out-of-sample accuracy.
           </p>
         </div>
 

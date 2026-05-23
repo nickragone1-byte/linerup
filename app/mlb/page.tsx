@@ -152,7 +152,7 @@ export default async function MLBPage() {
       <Footer />
 
       {/* Mobile bottom bar */}
-      <MobileBottomBar playCount={playCount} leanCount={leanCount} modelInfo="V10 · 55.3%" />
+      <MobileBottomBar playCount={playCount} leanCount={leanCount} modelInfo="V10 · 57.4%" />
 
       {/* Bottom padding so content isn't hidden behind mobile bar */}
       <div className="h-24 sm:hidden" />

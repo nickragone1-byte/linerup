@@ -103,9 +103,9 @@ export default function MethodologyPage() {
 
           <Section title="Validation">
             <P>
-              V10 achieves 55.3% honest out-of-sample accuracy against a 52.7% baseline — a 2.6
-              percentage-point edge. In sports betting, a sustained 2-3pp edge over break-even is
-              the signal worth tracking. Break-even at standard -110 juice is 52.4%.
+              V10 achieves 57.4% honest out-of-sample accuracy against a 52.6% baseline — a 4.8
+              percentage-point edge. In sports betting, a sustained 2-3pp edge over break-even is meaningful; 4-5pp
+              would be exceptional if it holds across a full season. Break-even at standard -110 juice is 52.4%.
             </P>
             <P>
               &ldquo;Honest&rdquo; OOS means the test set was never used to tune the model. The

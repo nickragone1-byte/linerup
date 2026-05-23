@@ -3,7 +3,7 @@
 import { useState } from "react";
 import TeamLogo from "./TeamLogo";
 import type { Game } from "@/lib/types";
-import { MODEL_TRAINING_GAMES } from "@/lib/constants";
+import { MODEL_TRAINING_GAMES, MODEL_ACCURACY } from "@/lib/constants";
 import { computeEV, fmtEV, evColor } from "@/lib/ev";
 
 interface Props {
@@ -128,7 +128,7 @@ export default function LeanCard({ game, narrative }: Props) {
         >
           <span style={{ fontSize: 12, lineHeight: 1 }}>📊</span>
           <p style={{ fontSize: 11, color: "#fb923c", lineHeight: 1.5 }}>
-            V10 trained on {MODEL_TRAINING_GAMES.toLocaleString()} MLB games · 55.3% honest out-of-sample accuracy.
+            V10 trained on {MODEL_TRAINING_GAMES.toLocaleString()} MLB games · {MODEL_ACCURACY}% honest out-of-sample accuracy.
           </p>
         </div>
 

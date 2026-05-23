@@ -6,7 +6,7 @@ interface Props {
   modelInfo?: string;
 }
 
-export default function MobileBottomBar({ playCount, leanCount, modelInfo = "V10 · 55.3%" }: Props) {
+export default function MobileBottomBar({ playCount, leanCount, modelInfo = "V10 · 57.4%" }: Props) {
   const total = playCount + leanCount;
   if (total === 0) return null;
 

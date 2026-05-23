@@ -135,7 +135,7 @@ export default async function ResultsPage() {
               <div className="flex-1 rounded-lg px-4 py-3" style={{ background: "#0f1422", border: "1px solid #1a2335" }}>
                 <div style={{ fontSize: 10, color: "#4a5568", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 4 }}>MLB V10</div>
                 <div style={{ fontSize: 16, fontWeight: 700, color: "#c9d1d9" }}>{mlbWins}-{mlbLosses}</div>
-                <div style={{ fontSize: 11, color: "#4a5568" }}>55.3% OOS accuracy</div>
+                <div style={{ fontSize: 11, color: "#4a5568" }}>57.4% OOS accuracy</div>
               </div>
             )}
             {nbaWins + nbaLosses > 0 && (
