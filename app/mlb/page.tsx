@@ -56,12 +56,13 @@ export default async function MLBPage() {
     if (!predictions.date) return "";
     const [year, month, day] = predictions.date.split("-").map(Number);
     if (!year || !month || !day) return "";
-    return new Date(year, month - 1, day).toLocaleDateString([], {
-      weekday: "long",
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-    });
+    // Format date in UTC so server + client always produce identical strings
+    // (no toLocaleDateString -> no hydration mismatch). The snapshot date is
+    // a calendar date, not a timestamp, so timezone conversion is wrong here.
+    const WEEKDAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    const d = new Date(Date.UTC(year, month - 1, day));
+    return `${WEEKDAYS[d.getUTCDay()]}, ${MONTHS[d.getUTCMonth()]} ${d.getUTCDate()}, ${d.getUTCFullYear()}`;
   })();
 
   const playCount = topGames.length;
