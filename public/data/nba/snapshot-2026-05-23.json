@@ -28,7 +28,10 @@
       "edge": -24.2,
       "over_under": 215.5,
       "is_playoff": 1,
-      "the_read": "V7 finds a strong edge over the market line. Both teams at full strength."
+      "the_read": "V7 finds a strong edge over the market line. Both teams at full strength.",
+      "closing_ml_home": -148,
+      "closing_ml_away": 124,
+      "closing_ml_captured_at": "2026-05-23 22:45:01 UTC"
     }
   ]
 }
