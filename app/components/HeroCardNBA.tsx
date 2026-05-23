@@ -25,6 +25,7 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
   const isHome = game.pick === game.home_team;
   const pickedSide: "away" | "home" = isHome ? "home" : "away";
   const vegasImplied = game.vegas_prob_home != null ? (isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home) : null;
+  const modelProb = isHome ? game.model_prob_home : 100 - game.model_prob_home;
 
   const style = TIER_STYLES[display] ?? TIER_STYLES.PLAY;
 
@@ -142,10 +143,10 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
           {/* Win Probability */}
           <div className="flex flex-col items-center justify-center py-4 px-2" style={{ background: "#0f1422" }}>
             <span className="font-mono font-semibold" style={{ fontSize: 18, color: "#ffffff", fontVariantNumeric: "tabular-nums", letterSpacing: "-0.02em" }}>
-              {game.confidence.toFixed(1)}%
+              {modelProb.toFixed(1)}%
             </span>
-            <span className="hidden sm:inline uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>Win Probability</span>
-            <span className="sm:hidden uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>Win Prob</span>
+            <span className="hidden sm:inline uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>Model %</span>
+            <span className="sm:hidden uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>Model %</span>
           </div>
           {/* EV — hero stat */}
           <div className="flex flex-col items-center justify-center py-4 px-2" style={{ background: "#0f1422" }}>
@@ -159,7 +160,7 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
             <span className="font-mono font-semibold" style={{ fontSize: 18, color: "#c9d1d9", fontVariantNumeric: "tabular-nums", letterSpacing: "-0.02em" }}>
               {vegasImplied != null ? vegasImplied.toFixed(1) : "—"}%
             </span>
-            <span className="hidden sm:inline uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>Vegas Implied</span>
+            <span className="hidden sm:inline uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>Vegas %</span>
             <span className="sm:hidden uppercase mt-1" style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em" }}>Vegas %</span>
           </div>
         </div>
