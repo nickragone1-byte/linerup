@@ -27,6 +27,7 @@ export interface Game {
   over_under: number | null;
   tbd_flag: string | null;
   thin_sp: boolean;
+  game_time: string | null;
 }
 
 export interface PredictionsData {

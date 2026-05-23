@@ -499,7 +499,8 @@ espn <- tryCatch(
 vegas <- tibble(home_team = character(),
                 home_ml = numeric(), away_ml = numeric(),
                 home_ml_open = numeric(), away_ml_open = numeric(),
-                vegas_home_prob = numeric(), over_under = numeric())
+                vegas_home_prob = numeric(), over_under = numeric(),
+                game_time = character())
 
 if (!is.null(espn) && length(espn$events) > 0) {
   vegas <- map_dfr(espn$events, function(event) {
@@ -520,7 +521,8 @@ if (!is.null(espn) && length(espn$events) > 0) {
       home_no_vig  <- home_imp / (home_imp + away_imp)
       tibble(home_team = odds$homeTeamOdds$team$displayName,
              home_ml, away_ml, home_ml_open, away_ml_open,
-             vegas_home_prob = home_no_vig, over_under = ou)
+             vegas_home_prob = home_no_vig, over_under = ou,
+             game_time = event$date %||% NA_character_)
     }, error = function(e) NULL)
   })
 }
@@ -840,6 +842,7 @@ export_data <- list(
       over_under,
       tbd_flag           = ifelse(tbd_flag == "", NA, tbd_flag),
       thin_sp,
+      game_time          = coalesce(game_time, NA_character_),
       the_read
     )
 )
