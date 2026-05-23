@@ -123,6 +123,11 @@ export default function PassRow({ items }: Props) {
                     <span className="font-mono" style={{ fontSize: 11, color: "#6e7681", fontVariantNumeric: "tabular-nums" }}>
                       V10: {favProb.toFixed(1)}% {favAbbr}
                     </span>
+                    {game.series_game_number > 1 && (
+                      <span style={{ fontSize: 10, color: game.late_series ? "#fb923c" : "#4a5568", marginLeft: 6 }}>
+                        {game.late_series ? "Series finale" : `Game ${game.series_game_number}`}
+                      </span>
+                    )}
                   </div>
                   <div className="truncate" style={{ marginTop: 1, fontSize: 11, color: "#4a5568", maxWidth: "100%" }}>
                     {awaySP} vs {homeSP}

@@ -228,6 +228,7 @@ export default function HeroCard({ game, display, narrative }: Props) {
           <div style={{ borderTop: "1px solid #1a2335", marginTop: 12, paddingTop: 16 }}>
             <div className="grid grid-cols-2 gap-3">
               {[
+                { label: "Series", value: game.series_game_number > 1 ? (game.late_series ? `Game ${game.series_game_number} (finale)` : `Game ${game.series_game_number}`) : "Game 1" },
                 { label: "Game Time", value: (() => {
                   if (!game.game_time) return "TBD";
                   const d = new Date(game.game_time);

@@ -25,6 +25,8 @@ export interface Game {
   confidence: number;
   edge: number | null;
   over_under: number | null;
+  series_game_number: number;
+  late_series: number;
   tbd_flag: string | null;
   thin_sp: boolean;
   game_time: string | null;
