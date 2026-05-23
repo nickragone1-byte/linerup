@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23 18:00:26 UTC",
+  "generated_at": "2026-05-23 19:00:26 UTC",
   "date": "2026-05-23",
   "model_version": "V7",
   "validated_oos_accuracy": 68.19,
@@ -8,8 +8,8 @@
     {
       "away_team": "New York Knicks",
       "home_team": "Cleveland Cavaliers",
-      "away_ml": 114,
-      "home_ml": -135,
+      "away_ml": 110,
+      "home_ml": -130,
       "ml_open_home": 100,
       "line_move": null,
       "vegas_spread": -2.5,
