@@ -108,12 +108,12 @@ export default function PassRow({ items }: Props) {
                 <div className="flex-1 min-w-0">
                   <div style={{ fontSize: 13, color: "#c9d1d9", fontWeight: 600, lineHeight: 1.3 }}>
                     {awayName} @ {homeName}
-                    {game.game_time && (
-                      <span style={{ fontSize: 10, color: "#4a5568", marginLeft: 6, fontWeight: 400, whiteSpace: "nowrap" }}>
-                        {new Date(game.game_time).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York", hour12: true })} ET
-                      </span>
-                    )}
                   </div>
+                  {game.game_time && (
+                    <div style={{ fontSize: 10, color: "#4a5568", marginTop: 1, fontWeight: 400, whiteSpace: "nowrap" }}>
+                      {new Date(game.game_time).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York", hour12: true })} ET
+                    </div>
+                  )}
                   {reason && reason !== "Proceed with caution" && (
                     <div style={{ fontSize: 10, color: "#4a5568", marginTop: 1, letterSpacing: "0.04em" }}>
                       {reason}

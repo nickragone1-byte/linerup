@@ -105,12 +105,12 @@ export default function PassRowNBA({ items }: Props) {
                 <div className="flex-1 min-w-0">
                   <div style={{ fontSize: 13, color: "#c9d1d9", fontWeight: 600, lineHeight: 1.3 }}>
                     {awayName} @ {homeName}
-                    {game.game_time && (
-                      <span style={{ fontSize: 10, color: "#4a5568", marginLeft: 6, fontWeight: 400, whiteSpace: "nowrap" }}>
-                        {new Date(game.game_time).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York", hour12: true })} ET
-                      </span>
-                    )}
                   </div>
+                  {game.game_time && (
+                    <div style={{ fontSize: 10, color: "#4a5568", marginTop: 1, fontWeight: 400, whiteSpace: "nowrap" }}>
+                      {new Date(game.game_time).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York", hour12: true })} ET
+                    </div>
+                  )}
                   <div className="flex items-center gap-2 flex-wrap" style={{ marginTop: 2 }}>
                     <span className="font-mono" style={{ fontSize: 11, color: "#6e7681", fontVariantNumeric: "tabular-nums" }}>
                       V7: {favProb.toFixed(1)}% {favAbbr}
