@@ -106,7 +106,7 @@ export default function PassRow({ items }: Props) {
 
                 {/* Left: matchup + model read */}
                 <div className="flex-1 min-w-0">
-                  <div style={{ fontSize: 13, color: "#c9d1d9", fontWeight: 600, lineHeight: 1.3 }}>
+                  <div style={{ fontSize: 12, color: "#c9d1d9", fontWeight: 600, lineHeight: 1.3 }}>
                     {awayName} @ {homeName}
                   </div>
                   {game.game_time && (
