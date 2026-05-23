@@ -567,7 +567,9 @@ today <- today_games %>%
          venue_name,
          is_playoff,
          series_game_number,
+         games_in_series,
          late_series,
+         series_finale,
          game_context) %>%
   left_join(prob_home, by = "game_pk") %>%
   left_join(prob_away, by = "game_pk") %>%
