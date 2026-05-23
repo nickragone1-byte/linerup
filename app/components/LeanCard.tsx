@@ -130,21 +130,21 @@ export default function LeanCard({ game, narrative }: Props) {
         {expanded && (
           <div className="mt-3 pt-3 grid grid-cols-2 gap-3" style={{ borderTop: "1px solid #1a2335" }}>
             {[
-              { label: "Model %", value: `${isHome ? game.model_prob_home.toFixed(1) : (100 - game.model_prob_home).toFixed(1)}%` },
-              { label: "Vegas %", value: game.vegas_prob_home != null ? `${(isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home).toFixed(1)}%` : "—" },
+              { label: "Model %", value: `${isHome ? game.model_prob_home.toFixed(1) : (100 - game.model_prob_home).toFixed(1)}%`, full: false },
+              { label: "Vegas %", value: game.vegas_prob_home != null ? `${(isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home).toFixed(1)}%` : "—", full: false },
               { label: "Game Time", value: (() => {
                 if (!game.game_time) return "TBD";
                 const d = new Date(game.game_time);
                 return d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York", hour12: true }) + " ET";
-              })() },
-              { label: "Venue", value: game.venue },
-              { label: "Line", value: hasLine ? `${awayML} / ${homeML}` : "Line TBA" },
-              { label: (game.away_team.split(" ").pop() ?? "Away") + " SP", value: `${game.away_pitcher} (${game.away_sp_ip} IP${game.away_sp_siera != null ? ` · ${game.away_sp_siera} SIERA` : ""})` },
-              { label: (game.home_team.split(" ").pop() ?? "Home") + " SP", value: `${game.home_pitcher} (${game.home_sp_ip} IP${game.home_sp_siera != null ? ` · ${game.home_sp_siera} SIERA` : ""})` },
-              { label: "Sharp Signal", value: game.sharp_signal ?? "—" },
-              { label: "Park Factor", value: game.park_factor.toFixed(2) },
-            ].map(({ label, value }) => (
-              <div key={label}>
+              })(), full: false },
+              { label: "Venue", value: game.venue, full: false },
+              { label: "Line", value: hasLine ? `${awayML} / ${homeML}` : "Line TBA", full: false },
+              { label: (game.away_team.split(" ").pop() ?? "Away") + " SP", value: `${game.away_pitcher} (${game.away_sp_ip} IP${game.away_sp_siera != null ? ` · ${game.away_sp_siera} SIERA` : ""})`, full: true },
+              { label: (game.home_team.split(" ").pop() ?? "Home") + " SP", value: `${game.home_pitcher} (${game.home_sp_ip} IP${game.home_sp_siera != null ? ` · ${game.home_sp_siera} SIERA` : ""})`, full: true },
+              { label: "Sharp Signal", value: game.sharp_signal ?? "—", full: false },
+              { label: "Park Factor", value: game.park_factor.toFixed(2), full: false },
+            ].map(({ label, value, full }) => (
+              <div key={label} className={full ? "col-span-2" : ""}>
                 <div style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2 }}>
                   {label}
                 </div>
