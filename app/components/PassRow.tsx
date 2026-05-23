@@ -109,12 +109,13 @@ export default function PassRow({ items }: Props) {
                   <div style={{ fontSize: 13, color: "#c9d1d9", fontWeight: 600, lineHeight: 1.3 }}>
                     {awayName} @ {homeName}
                   </div>
-                  <div className="flex items-center gap-2 flex-wrap" style={{ marginTop: 2 }}>
+                  <div style={{ marginTop: 2 }}>
                     <span className="font-mono" style={{ fontSize: 11, color: "#6e7681", fontVariantNumeric: "tabular-nums" }}>
                       V10: {favProb.toFixed(1)}% {favAbbr}
                     </span>
-                    <span style={{ fontSize: 11, color: "#2a3a55" }}>·</span>
-                    <span style={{ fontSize: 11, color: "#6e7681" }}>{awaySP} vs {homeSP}</span>
+                  </div>
+                  <div className="truncate" style={{ marginTop: 1, fontSize: 11, color: "#4a5568", maxWidth: "100%" }}>
+                    {awaySP} vs {homeSP}
                   </div>
                 </div>
 
