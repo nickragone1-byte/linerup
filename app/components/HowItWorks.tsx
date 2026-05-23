@@ -21,8 +21,7 @@ export default function HowItWorks() {
           win probability differs meaningfully from the Vegas-implied probability — that difference is the edge.
         </p>
         <p style={{ fontSize: 15, color: "#c9d1d9", lineHeight: 1.75, marginBottom: 16 }}>
-          Model Favorites are games where V10 finds a clear edge above the market. Leans are
-          positive-edge games with a smaller confidence window. Everything else is a pass.
+          Model Favorites are games where the model finds a clear edge with positive expected value. Leans are positive-EV plays with a smaller confidence window. Cautious Plays show the full slate — including games with market disagreement or thin edges.
         </p>
         <p style={{ fontSize: 15, color: "#c9d1d9", lineHeight: 1.75, marginBottom: 28 }}>
           Every prediction is published before first pitch. Every result is tracked. Nothing is sold.

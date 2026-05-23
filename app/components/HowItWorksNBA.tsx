@@ -21,8 +21,7 @@ export default function HowItWorksNBA() {
           each team&apos;s top-8 rotation players.
         </p>
         <p style={{ fontSize: 15, color: "#c9d1d9", lineHeight: 1.75, marginBottom: 16 }}>
-          Model Favorites are games where V7 finds a clear edge above the market. Leans are
-          positive-edge games with a smaller confidence window. Everything else is a pass.
+          Model Favorites are games where V7 finds a clear edge with positive expected value. Leans are positive-EV plays with a smaller confidence window. Cautious Plays show the full slate — including games with market disagreement or injury concerns.
         </p>
         <p style={{ fontSize: 15, color: "#c9d1d9", lineHeight: 1.75, marginBottom: 28 }}>
           Every prediction is published before tip-off. Every result is tracked. Nothing is
