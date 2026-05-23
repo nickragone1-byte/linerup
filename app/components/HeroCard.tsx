@@ -228,8 +228,8 @@ export default function HeroCard({ game, display, narrative }: Props) {
           <div style={{ borderTop: "1px solid #1a2335", marginTop: 12, paddingTop: 16 }}>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { label: "Away Pitcher", value: game.away_pitcher, sub: `${game.away_sp_ip} IP` },
-                { label: "Home Pitcher", value: game.home_pitcher, sub: `${game.home_sp_ip} IP` },
+                { label: "Away Pitcher", value: game.away_pitcher, sub: `${game.away_sp_ip} IP${game.away_sp_siera != null ? " · " + game.away_sp_siera + " SIERA" : ""}` },
+                { label: "Home Pitcher", value: game.home_pitcher, sub: `${game.home_sp_ip} IP${game.home_sp_siera != null ? " · " + game.home_sp_siera + " SIERA" : ""}` },
                 { label: "Venue", value: game.venue, sub: `Park factor ${game.park_factor}` },
                 { label: "Vegas Line", value: (game.away_ml != null && game.home_ml != null) ? `${game.away_ml > 0 ? "+" : ""}${game.away_ml} / ${game.home_ml > 0 ? "+" : ""}${game.home_ml}` : "Line TBA", sub: `O/U ${game.over_under}` },
                 { label: "Vegas Implied", value: `${vegasImplied != null ? vegasImplied.toFixed(1) : "—"}%`, sub: "market win prob" },
