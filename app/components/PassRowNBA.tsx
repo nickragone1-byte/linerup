@@ -106,7 +106,7 @@ export default function PassRowNBA({ items }: Props) {
                   <div style={{ fontSize: 13, color: "#c9d1d9", fontWeight: 600, lineHeight: 1.3 }}>
                     {awayName} @ {homeName}
                     {game.game_time && (
-                      <span style={{ fontSize: 10, color: "#4a5568", marginLeft: 6, fontWeight: 400 }}>
+                      <span style={{ fontSize: 10, color: "#4a5568", marginLeft: 6, fontWeight: 400, whiteSpace: "nowrap" }}>
                         {new Date(game.game_time).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York", hour12: true })} ET
                       </span>
                     )}
@@ -123,7 +123,7 @@ export default function PassRowNBA({ items }: Props) {
                 </div>
 
                 {/* Right: EV pill + amount + moneyline */}
-                <div className="shrink-0 text-right" style={{ minWidth: 90 }}>
+                <div className="shrink-0 text-right" style={{ minWidth: 80 }}>
                   {ev !== null ? (
                     <>
                       <div className="flex justify-end mb-1">
