@@ -146,15 +146,15 @@ export default function PassRow({ items }: Props) {
                             letterSpacing: "0.04em",
                             padding: "1px 7px",
                             borderRadius: 999,
-                            color: evClr,
-                            background: evPositive ? "rgba(0,224,136,0.1)" : "rgba(251,146,60,0.1)",
-                            border: `1px solid ${evPositive ? "rgba(0,224,136,0.25)" : "rgba(251,146,60,0.25)"}`,
+                            color: "#6e7681",
+                            background: "rgba(110,118,129,0.1)",
+                            border: "1px solid rgba(110,118,129,0.25)",
                           }}
                         >
                           {evPositive ? "+EV" : "−EV"}
                         </span>
                       </div>
-                      <div className="font-mono" style={{ fontSize: 11, color: evClr, fontWeight: 600, fontVariantNumeric: "tabular-nums" }}>
+                      <div className="font-mono" style={{ fontSize: 11, color: "#9ca3af", fontWeight: 600, fontVariantNumeric: "tabular-nums" }}>
                         {fmtEV(ev)} / $100
                       </div>
                       <div className="font-mono" style={{ fontSize: 10, color: "#6e7681", fontVariantNumeric: "tabular-nums", marginTop: 1 }}>
