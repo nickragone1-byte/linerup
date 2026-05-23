@@ -37,23 +37,23 @@ export function computeTier(game: Game): Tier {
   // FADE: market strongly disagrees AND edge is large, or extreme edge with no sharp support
   if ((contradicts && Math.abs(edge) > 8) || (Math.abs(edge) > 15 && !sharp)) return "🔴 FADE";
 
-  // LOCK: high confidence + strong positive EV + sharp confirms
-  if (confidence >= 60 && ev !== null && ev > 5 && sharp && !contradicts) return "🔒 LOCK";
+  // LOCK: 60%+ conf + positive EV + sharps agree + not contradicted
+  if (confidence >= 60 && ev !== null && ev > 3 && positiveEV && sharp && !contradicts) return "🔒 LOCK";
 
-  // BET: 58%+ confidence + positive EV
-  if (confidence >= 58 && positiveEV) return "🟢 BET";
+  // BET: 60%+ confidence + positive EV + not contradicted
+  if (confidence >= 60 && positiveEV && !contradicts) return "🟢 BET";
 
-  // BET: 55%+ confidence + strong positive EV (big underdog model likes)
-  if (confidence >= 55 && ev !== null && ev > 6) return "🟢 BET";
+  // BET: 58%+ confidence + solid positive EV
+  if (confidence >= 58 && ev !== null && ev > 3 && !contradicts) return "🟢 BET";
 
-  // LEAN: 55%+ confidence + positive EV
-  if (confidence >= 55 && positiveEV) return "🟡 LEAN";
+  // LEAN: 52%+ confidence + positive EV + not contradicted
+  if (confidence >= 52 && positiveEV && !contradicts) return "🟡 LEAN";
 
-  // LEAN: 57%+ confidence + solid edge even if slightly negative EV
-  if (confidence >= 57 && edge >= 3) return "🟡 LEAN";
+  // LEAN: positive EV even with minor contradiction
+  if (positiveEV && confidence >= 52) return "🟡 LEAN";
 
-  // VALUE: any positive EV play
-  if (positiveEV) return "🟡 VALUE";
+  // VALUE: lower confidence positive EV
+  if (positiveEV && confidence >= 50) return "🟡 VALUE";
 
   return "⚪ SKIP";
 }
