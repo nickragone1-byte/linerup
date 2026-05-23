@@ -50,6 +50,11 @@ export default function LeanCard({ game, narrative }: Props) {
               <span style={{ fontSize: 12, color: "#c9d1d9", whiteSpace: "nowrap" }}>
                 vs {opponent}
               </span>
+              {game.series_game_number > 1 && (
+                <span style={{ fontSize: 10, color: game.series_finale ? "#fb923c" : "#4a5568", whiteSpace: "nowrap" }}>
+                  {game.series_finale ? "Series finale" : `Game ${game.series_game_number}`}
+                </span>
+              )}
             </div>
             <p className="truncate" style={{ fontSize: 12, color: "#7d8590", marginTop: 2, lineHeight: 1.5 }}>
               {narrative}
@@ -138,6 +143,7 @@ export default function LeanCard({ game, narrative }: Props) {
                 return d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York", hour12: true }) + " ET";
               })(), full: false },
               { label: "Venue", value: game.venue, full: false },
+              { label: "Series", value: game.series_game_number > 1 ? (game.series_finale ? `Game ${game.series_game_number} (finale)` : `Game ${game.series_game_number}`) : "Game 1", full: false },
               { label: "Line", value: hasLine ? `${awayML} / ${homeML}` : "Line TBA", full: false },
               { label: (game.away_team.split(" ").pop() ?? "Away") + " SP", value: `${game.away_pitcher} (${game.away_sp_ip} IP${game.away_sp_siera != null ? ` · ${game.away_sp_siera} SIERA` : ""})`, full: true },
               { label: (game.home_team.split(" ").pop() ?? "Home") + " SP", value: `${game.home_pitcher} (${game.home_sp_ip} IP${game.home_sp_siera != null ? ` · ${game.home_sp_siera} SIERA` : ""})`, full: true },
