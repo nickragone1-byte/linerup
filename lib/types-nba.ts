@@ -4,6 +4,7 @@
 export interface NBAGame {
   away_team: string;
   home_team: string;
+  game_time?: string | null;
 
   // Moneyline
   away_ml: number;

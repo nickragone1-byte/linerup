@@ -132,6 +132,11 @@ export default function LeanCardNBA({ game, narrative }: Props) {
         {expanded && (
           <div className="mt-3 pt-3 grid grid-cols-2 gap-3" style={{ borderTop: "1px solid #1a2335" }}>
             {[
+              { label: "Game Time", value: (() => {
+                if (!game.game_time) return "TBD";
+                const d = new Date(game.game_time);
+                return d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York", hour12: true }) + " ET";
+              })() },
               { label: "Spread", value: game.vegas_spread != null ? `${game.vegas_spread > 0 ? "+" : ""}${game.vegas_spread.toFixed(1)}` : "—" },
               { label: "Line", value: hasLine ? `${awayML} / ${homeML}` : "Line TBA" },
               { label: `${awayName} injuries`, value: `${game.a_top_missing} top-8 out` },

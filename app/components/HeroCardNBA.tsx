@@ -218,6 +218,11 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
           <div style={{ borderTop: "1px solid #1a2335", marginTop: 12, paddingTop: 16 }}>
             <div className="grid grid-cols-2 gap-3">
               {[
+                { label: "Game Time", value: (() => {
+                  if (!game.game_time) return "TBD";
+                  const d = new Date(game.game_time);
+                  return d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York", hour12: true }) + " ET";
+                })(), sub: "" },
                 { label: `${awayName} Injuries`, value: `${game.a_top_missing} top-8 out`, sub: game.a_top_missing > 0 ? "rotation impacted" : "fully healthy" },
                 { label: `${homeName} Injuries`, value: `${game.h_top_missing} top-8 out`, sub: game.h_top_missing > 0 ? "rotation impacted" : "fully healthy" },
                 { label: "Vegas Spread", value: game.vegas_spread != null ? `${game.vegas_spread > 0 ? "+" : ""}${game.vegas_spread.toFixed(1)}` : "—", sub: game.vegas_spread_open != null ? `Opened ${game.vegas_spread_open > 0 ? "+" : ""}${game.vegas_spread_open.toFixed(1)}` : "Opened —" },

@@ -583,6 +583,7 @@ cat("\nPhase 12: building matchups...\n")
 today <- today_games %>%
   distinct(game_id, .keep_all = TRUE) %>%
   select(game_id,
+         start_date,
          home_team = home_display_name,
          away_team = away_display_name) %>%
   left_join(team_current %>%
@@ -780,6 +781,7 @@ export_data <- list(
     transmute(
       away_team,
       home_team,
+      game_time             = start_date,
       away_ml,
       home_ml,
       ml_open_home          = home_ml_open,

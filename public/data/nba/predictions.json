@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23 23:00:24 UTC",
+  "generated_at": "2026-05-23 23:06:25 UTC",
   "date": "2026-05-23",
   "model_version": "V7",
   "validated_oos_accuracy": 68.19,
@@ -8,6 +8,7 @@
     {
       "away_team": "New York Knicks",
       "home_team": "Cleveland Cavaliers",
+      "game_time": "2026-05-24T00:00Z",
       "away_ml": 124,
       "home_ml": -148,
       "ml_open_home": 100,
