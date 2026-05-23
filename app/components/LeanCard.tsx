@@ -132,6 +132,17 @@ export default function LeanCard({ game, narrative }: Props) {
           </p>
         </div>
 
+        {expanded && (game.starter_changed_home || game.starter_changed_away) && (
+          <div
+            className="mt-3 rounded-md px-3 py-2 flex items-start gap-2"
+            style={{ background: "rgba(251,146,60,0.08)", border: "1px solid rgba(251,146,60,0.25)" }}
+          >
+            <span style={{ fontSize: 12, lineHeight: 1 }}>⚠️</span>
+            <p style={{ fontSize: 11, color: "#fb923c", lineHeight: 1.4 }}>
+              Starter changed since this pick was locked. Pick remains frozen for track record integrity, but conditions have changed.
+            </p>
+          </div>
+        )}
         {expanded && (
           <div className="mt-3 pt-3 grid grid-cols-2 gap-3" style={{ borderTop: "1px solid #1a2335" }}>
             {[
@@ -145,8 +156,8 @@ export default function LeanCard({ game, narrative }: Props) {
               { label: "Venue", value: game.venue, full: false },
               { label: "Series", value: game.series_game_number > 1 ? (game.series_finale ? `Game ${game.series_game_number} (finale)` : `Game ${game.series_game_number}`) : "Game 1", full: false },
               { label: "Line", value: hasLine ? `${awayML} / ${homeML}` : "Line TBA", full: false },
-              { label: (game.away_team.split(" ").pop() ?? "Away") + " SP", value: `${game.away_pitcher} (${game.away_sp_ip} IP${game.away_sp_siera != null ? ` · ${game.away_sp_siera} SIERA` : ""})`, full: true },
-              { label: (game.home_team.split(" ").pop() ?? "Home") + " SP", value: `${game.home_pitcher} (${game.home_sp_ip} IP${game.home_sp_siera != null ? ` · ${game.home_sp_siera} SIERA` : ""})`, full: true },
+              { label: (game.away_team.split(" ").pop() ?? "Away") + " SP", value: `${game.away_pitcher} (${game.away_sp_ip} IP${game.away_sp_siera != null ? ` · ${game.away_sp_siera} SIERA` : ""})${game.starter_changed_away ? ` — was ${game.original_away_pitcher ?? "?"}` : ""}`, full: true },
+              { label: (game.home_team.split(" ").pop() ?? "Home") + " SP", value: `${game.home_pitcher} (${game.home_sp_ip} IP${game.home_sp_siera != null ? ` · ${game.home_sp_siera} SIERA` : ""})${game.starter_changed_home ? ` — was ${game.original_home_pitcher ?? "?"}` : ""}`, full: true },
               { label: "Sharp Signal", value: game.sharp_signal ?? "—", full: false },
               { label: "Park Factor", value: game.park_factor.toFixed(2), full: false },
             ].map(({ label, value, full }) => (

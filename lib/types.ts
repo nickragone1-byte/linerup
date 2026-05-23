@@ -29,6 +29,13 @@ export interface Game {
   late_series: number;
   games_in_series?: number;
   series_finale?: number;
+  starter_changed_home?: boolean;
+  starter_changed_away?: boolean;
+  original_home_pitcher?: string | null;
+  original_away_pitcher?: string | null;
+  current_home_pitcher?: string | null;
+  current_away_pitcher?: string | null;
+  starter_change_detected_at?: string | null;
   tbd_flag: string | null;
   thin_sp: boolean;
   game_time: string | null;

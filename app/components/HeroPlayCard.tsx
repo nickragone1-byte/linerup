@@ -121,6 +121,17 @@ export default function HeroPlayCard({ game, displayTier, narrative, compact = f
       </button>
 
       {/* Stats grid */}
+      {expanded && (game.starter_changed_home || game.starter_changed_away) && (
+        <div
+          className="mt-5 rounded-md px-3 py-2 flex items-start gap-2"
+          style={{ background: "rgba(251,146,60,0.08)", border: "1px solid rgba(251,146,60,0.25)" }}
+        >
+          <span style={{ fontSize: 12, lineHeight: 1 }}>⚠️</span>
+          <p style={{ fontSize: 11, color: "#fb923c", lineHeight: 1.4 }}>
+            Starter changed since this pick was locked. Pick remains frozen for track record integrity, but conditions have changed.
+          </p>
+        </div>
+      )}
       {expanded && (
         <div
           className="mt-5 pt-6 grid grid-cols-3 sm:grid-cols-4 gap-y-5 gap-x-4"
@@ -156,7 +167,7 @@ export default function HeroPlayCard({ game, displayTier, narrative, compact = f
               Away SP
             </div>
             <div className="font-mono" style={{ fontSize: "12px", color: "#888" }}>
-              {game.away_pitcher} · {game.away_sp_ip} IP{game.away_sp_siera != null ? ` · ${game.away_sp_siera} SIERA` : ""}
+              {game.away_pitcher} · {game.away_sp_ip} IP{game.away_sp_siera != null ? ` · ${game.away_sp_siera} SIERA` : ""}{game.starter_changed_away ? ` (was ${game.original_away_pitcher ?? "?"})` : ""}
             </div>
           </div>
           <div className="col-span-2">
@@ -167,7 +178,7 @@ export default function HeroPlayCard({ game, displayTier, narrative, compact = f
               Home SP
             </div>
             <div className="font-mono" style={{ fontSize: "12px", color: "#888" }}>
-              {game.home_pitcher} · {game.home_sp_ip} IP{game.home_sp_siera != null ? ` · ${game.home_sp_siera} SIERA` : ""}
+              {game.home_pitcher} · {game.home_sp_ip} IP{game.home_sp_siera != null ? ` · ${game.home_sp_siera} SIERA` : ""}{game.starter_changed_home ? ` (was ${game.original_home_pitcher ?? "?"})` : ""}
             </div>
           </div>
         </div>
