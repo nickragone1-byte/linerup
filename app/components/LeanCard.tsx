@@ -132,6 +132,11 @@ export default function LeanCard({ game, narrative }: Props) {
             {[
               { label: "Model %", value: `${isHome ? game.model_prob_home.toFixed(1) : (100 - game.model_prob_home).toFixed(1)}%` },
               { label: "Vegas %", value: game.vegas_prob_home != null ? `${(isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home).toFixed(1)}%` : "—" },
+              { label: "Game Time", value: (() => {
+                if (!game.game_time) return "TBD";
+                const d = new Date(game.game_time);
+                return d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York", hour12: true }) + " ET";
+              })() },
               { label: "Venue", value: game.venue },
               { label: "Line", value: hasLine ? `${awayML} / ${homeML}` : "Line TBA" },
               { label: (game.away_team.split(" ").pop() ?? "Away") + " SP", value: `${game.away_pitcher} (${game.away_sp_ip} IP${game.away_sp_siera != null ? ` · ${game.away_sp_siera} SIERA` : ""})` },

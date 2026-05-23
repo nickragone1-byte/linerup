@@ -228,6 +228,11 @@ export default function HeroCard({ game, display, narrative }: Props) {
           <div style={{ borderTop: "1px solid #1a2335", marginTop: 12, paddingTop: 16 }}>
             <div className="grid grid-cols-2 gap-3">
               {[
+                { label: "Game Time", value: (() => {
+                  if (!game.game_time) return "TBD";
+                  const d = new Date(game.game_time);
+                  return d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York", hour12: true }) + " ET";
+                })() },
                 { label: "Away Pitcher", value: game.away_pitcher, sub: `${game.away_sp_ip} IP${game.away_sp_siera != null ? " · " + game.away_sp_siera + " SIERA" : ""}` },
                 { label: "Home Pitcher", value: game.home_pitcher, sub: `${game.home_sp_ip} IP${game.home_sp_siera != null ? " · " + game.home_sp_siera + " SIERA" : ""}` },
                 { label: "Venue", value: game.venue, sub: `Park factor ${game.park_factor}` },
