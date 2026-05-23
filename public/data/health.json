@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23 22:57:09 UTC",
+  "generated_at": "2026-05-23 23:10:01 UTC",
   "overall": "WARN",
   "checks": {
     "mlb_snapshot": {
@@ -8,19 +8,19 @@
     },
     "mlb_predictions": {
       "status": "OK",
-      "msg": "MLB predictions fresh (24 min ago)"
+      "msg": "MLB predictions fresh (9 min ago)"
     },
     "mlb_clv": {
       "status": "OK",
-      "msg": "MLB CLV: 5/12 games captured, latest 2026-05-23 22:45:01 UTC"
+      "msg": "MLB CLV: 5/12 games captured, latest 2026-05-23 23:00:02 UTC"
     },
     "mlb_results": {
       "status": "WARN",
       "msg": "MLB grading skipped \u2014 no snapshot for previous day (pipeline gap)"
     },
     "mlb_starter": {
-      "status": "WARN",
-      "msg": "starter detector log missing"
+      "status": "OK",
+      "msg": "starter detector log fresh (5 min ago)"
     },
     "nba_snapshot": {
       "status": "OK",
@@ -28,11 +28,11 @@
     },
     "nba_predictions": {
       "status": "OK",
-      "msg": "NBA predictions fresh (57 min ago)"
+      "msg": "NBA predictions fresh (4 min ago)"
     },
     "nba_clv": {
       "status": "OK",
-      "msg": "NBA CLV: 1/1 games captured, latest 2026-05-23 22:45:01 UTC"
+      "msg": "NBA CLV: 1/1 games captured, latest 2026-05-23 23:00:02 UTC"
     },
     "nba_results": {
       "status": "WARN",
