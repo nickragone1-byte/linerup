@@ -20,14 +20,15 @@ export function toDisplayTier(internal: Tier): DisplayTier {
 export function passReason(internal: Tier): string {
   switch (internal) {
     case "🔴 FADE":
-      return "Market disagreement";
+      return "Market disagrees";
     case "⚠️ TBD":
-      return "Pitcher pending";
+      return "Pitcher TBD";
     case "⚠️ THIN SP":
-      return "Insufficient data";
-    case "⚠️ INFO":
+      return "Thin pitcher sample";
     case "⚪ SKIP":
+      return "Low confidence";
+    case "⚠️ INFO":
     default:
-      return "No edge";
+      return "Proceed with caution";
   }
 }

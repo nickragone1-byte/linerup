@@ -72,7 +72,7 @@ export default function PassRow({ items }: Props) {
 
       {expanded && (
         <div className="rounded-lg overflow-hidden mt-1" style={{ border: "1px solid #1a2335" }}>
-          {items.map(({ game }, i) => {
+          {items.map(({ game, reason }, i) => {
             const awaySP = fmtSP(game.away_pitcher, game.away_sp_ip);
             const homeSP = fmtSP(game.home_pitcher, game.home_sp_ip);
             const awayName = game.away_team.split(" ").pop()!;
@@ -114,6 +114,11 @@ export default function PassRow({ items }: Props) {
                       </span>
                     )}
                   </div>
+                  {reason && reason !== "Proceed with caution" && (
+                    <div style={{ fontSize: 10, color: "#4a5568", marginTop: 1, letterSpacing: "0.04em" }}>
+                      {reason}
+                    </div>
+                  )}
                   <div style={{ marginTop: 2 }}>
                     <span className="font-mono" style={{ fontSize: 11, color: "#6e7681", fontVariantNumeric: "tabular-nums" }}>
                       V10: {favProb.toFixed(1)}% {favAbbr}
