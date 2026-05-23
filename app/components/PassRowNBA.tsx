@@ -52,7 +52,7 @@ export default function PassRowNBA({ items }: Props) {
           className="uppercase"
           style={{ fontSize: 12, letterSpacing: "0.2em", color: "#c9d1d9", fontWeight: 600, fontFamily: "var(--font-geist-mono)" }}
         >
-          Full Slate
+          Cautious Plays
         </span>
         <span
           className="font-mono"
@@ -76,10 +76,10 @@ export default function PassRowNBA({ items }: Props) {
             const homeName = game.home_team.split(" ").pop()!;
 
             // Model's favored side (for EV context)
-            const favorsHome = game.model_prob_home >= 50;
-            const favProb = favorsHome ? game.model_prob_home : 100 - game.model_prob_home;
-            const favML = favorsHome ? game.home_ml : game.away_ml;
-            const favAbbr = teamAbbr(favorsHome ? game.home_team : game.away_team);
+            const pickIsHome = game.pick === game.home_team;
+            const favProb = game.confidence;
+            const favML = pickIsHome ? game.home_ml : game.away_ml;
+            const favAbbr = teamAbbr(game.pick);
 
             const ev = computeEV(favProb, favML);
             const evClr = ev !== null ? evColor(ev) : "#4a5568";

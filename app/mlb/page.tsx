@@ -25,7 +25,16 @@ export default async function MLBPage() {
     getResults("mlb"),
   ]);
 
-  const withTiers = predictions.games
+  // Deduplicate games by matchup key
+  const seenGames = new Set<string>();
+  const uniqueGames = predictions.games.filter((game) => {
+    const key = `${game.away_team}|${game.home_team}`;
+    if (seenGames.has(key)) return false;
+    seenGames.add(key);
+    return true;
+  });
+
+  const withTiers = uniqueGames
     .map((game) => {
       const internal = computeTier(game);
       const display = toDisplayTier(internal);
