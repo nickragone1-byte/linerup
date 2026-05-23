@@ -7,6 +7,8 @@ export interface Game {
   home_pitcher: string;
   away_sp_ip: number;
   home_sp_ip: number;
+  away_sp_siera: number | null;
+  home_sp_siera: number | null;
   away_sp_weight: number;
   home_sp_weight: number;
   venue: string;

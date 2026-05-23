@@ -134,8 +134,8 @@ export default function LeanCard({ game, narrative }: Props) {
               { label: "Vegas %", value: game.vegas_prob_home != null ? `${(isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home).toFixed(1)}%` : "—" },
               { label: "Venue", value: game.venue },
               { label: "Line", value: hasLine ? `${awayML} / ${homeML}` : "Line TBA" },
-              { label: (game.away_team.split(" ").pop() ?? "Away") + " SP", value: `${game.away_pitcher} (${game.away_sp_ip} IP)` },
-              { label: (game.home_team.split(" ").pop() ?? "Home") + " SP", value: `${game.home_pitcher} (${game.home_sp_ip} IP)` },
+              { label: (game.away_team.split(" ").pop() ?? "Away") + " SP", value: `${game.away_pitcher} (${game.away_sp_ip} IP${game.away_sp_siera != null ? ` · ${game.away_sp_siera} SIERA` : ""})` },
+              { label: (game.home_team.split(" ").pop() ?? "Home") + " SP", value: `${game.home_pitcher} (${game.home_sp_ip} IP${game.home_sp_siera != null ? ` · ${game.home_sp_siera} SIERA` : ""})` },
               { label: "Sharp Signal", value: game.sharp_signal ?? "—" },
               { label: "Park Factor", value: game.park_factor.toFixed(2) },
             ].map(({ label, value }) => (

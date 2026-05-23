@@ -812,6 +812,8 @@ export_data <- list(
       home_pitcher       = coalesce(home_pitcher, "TBD"),
       away_sp_ip         = coalesce(asp_IP, 0),
       home_sp_ip         = coalesce(hsp_IP, 0),
+      away_sp_siera      = round(coalesce(asp_SIERA, NA_real_), 2),
+      home_sp_siera      = round(coalesce(hsp_SIERA, NA_real_), 2),
       away_sp_weight     = round(asp_weight * 100, 0),
       home_sp_weight     = round(hsp_weight * 100, 0),
       venue              = venue_name,
