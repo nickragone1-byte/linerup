@@ -434,9 +434,15 @@ today_games <- today_sched %>%
   mutate(
     is_playoff         = as.integer(game_type %in% PLAYOFF_TYPES),
     series_game_number = as.integer(coalesce(series_game_number, 1L)),
+    games_in_series    = as.integer(coalesce(games_in_series, 3L)),
     late_series        = as.integer(
                            game_type %in% PLAYOFF_TYPES &
                            series_game_number >= 5
+                         ),
+    series_finale      = as.integer(
+                           !is.na(series_game_number) &
+                           !is.na(games_in_series) &
+                           series_game_number >= games_in_series
                          ),
     game_context = case_when(
       game_type == "W" ~ paste0("World Series Game ", series_game_number),
@@ -829,7 +835,9 @@ export_data <- list(
       a_cum_rd           = round(a_cum_rd, 2),
       is_playoff,
       series_game_number,
+      games_in_series,
       late_series,
+      series_finale,
       game_context,
       model_prob_home    = round(model_home_prob * 100, 1),
       vegas_prob_home    = ifelse(is.na(vegas_home_prob), NA,

@@ -27,6 +27,8 @@ export interface Game {
   over_under: number | null;
   series_game_number: number;
   late_series: number;
+  games_in_series?: number;
+  series_finale?: number;
   tbd_flag: string | null;
   thin_sp: boolean;
   game_time: string | null;
