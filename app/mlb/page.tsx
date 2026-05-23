@@ -39,7 +39,7 @@ export default async function MLBPage() {
       const internal = computeTier(game);
       const display = toDisplayTier(internal);
       const narrative = generateNarrative(game, internal);
-      const reason = passReason(internal);
+      const reason = passReason(internal, game);
       return { game, internal, display, narrative, reason };
     })
     .sort((a, b) => TIER_ORDER.indexOf(a.internal) - TIER_ORDER.indexOf(b.internal));
