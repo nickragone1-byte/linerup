@@ -47,10 +47,10 @@ export function computeTier(game: Game): Tier {
   if (confidence >= 58 && ev !== null && ev > 3 && !contradicts) return "🟢 BET";
 
   // LEAN: 52%+ confidence + positive EV + not contradicted
-  if (confidence >= 52 && positiveEV && !contradicts) return "🟡 LEAN";
+  if (confidence >= 52 && ev !== null && ev > 1 && !contradicts) return "🟡 LEAN";
 
   // LEAN: positive EV even with minor contradiction
-  if (positiveEV && confidence >= 52) return "🟡 LEAN";
+  if (ev !== null && ev > 1 && confidence >= 52) return "🟡 LEAN";
 
   // VALUE: lower confidence positive EV
   if (positiveEV && confidence >= 50) return "🟡 VALUE";
