@@ -1,7 +1,62 @@
 {
   "model_version": "V10",
-  "last_updated": "2026-05-20",
+  "last_updated": "2026-05-23",
   "tracking_start_date": "2026-05-20",
   "note": "V10 launched May 20, 2026. Earlier picks were made by predecessor model V8 and are not counted in the current track record.",
-  "results": []
+  "results": [
+    {
+      "date": "2026-05-23",
+      "matchup": "Washington Nationals @ Atlanta Braves",
+      "away_team": "Washington Nationals",
+      "home_team": "Atlanta Braves",
+      "tier": "PLAY",
+      "pick": "Atlanta Braves ML (-173)",
+      "model_prob": 0.634,
+      "edge": 3.8,
+      "confidence_weight": 0.134,
+      "outcome": "LOSS",
+      "final_score": "Washington Nationals 2, Atlanta Braves 0",
+      "the_read": "V10 finds a small edge over the market line. Grant Holmes at full strength (47 IP). Market moving against this pick.",
+      "lock_ml": -173,
+      "closing_ml": null,
+      "clv_cents": null,
+      "beat_close": null
+    },
+    {
+      "date": "2026-05-23",
+      "matchup": "St. Louis Cardinals @ Cincinnati Reds",
+      "away_team": "St. Louis Cardinals",
+      "home_team": "Cincinnati Reds",
+      "tier": "LEAN",
+      "pick": "St. Louis Cardinals ML (-111)",
+      "model_prob": 0.55,
+      "edge": -3.7,
+      "confidence_weight": 0.05,
+      "outcome": "LOSS",
+      "final_score": "St. Louis Cardinals 6, Cincinnati Reds 7",
+      "the_read": "V10 finds a small edge over the market line. Kyle Leahy at full strength (45 IP).",
+      "lock_ml": -111,
+      "closing_ml": -106,
+      "clv_cents": -5,
+      "beat_close": false
+    },
+    {
+      "date": "2026-05-23",
+      "matchup": "Seattle Mariners @ Kansas City Royals",
+      "away_team": "Seattle Mariners",
+      "home_team": "Kansas City Royals",
+      "tier": "LEAN",
+      "pick": "Seattle Mariners ML (-126)",
+      "model_prob": 0.576,
+      "edge": -6.1,
+      "confidence_weight": 0.076,
+      "outcome": "LOSS",
+      "final_score": "Seattle Mariners 0, Kansas City Royals 5",
+      "the_read": "V10 finds a solid edge over the market line. George Kirby at full strength (62 IP). Sharps confirm the lean.",
+      "lock_ml": -126,
+      "closing_ml": null,
+      "clv_cents": null,
+      "beat_close": null
+    }
+  ]
 }
