@@ -297,8 +297,8 @@ function SportPanel({ data, sportLabel }: { data: ResultsData; sportLabel: strin
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4">
                         {[
                           { label: "Model Prob", value: `${(pick.model_prob * 100).toFixed(1)}%` },
-                          { label: "Edge vs Market", value: `+${(pick.edge * 100).toFixed(1)}%` },
-                          { label: "Confidence Weight", value: `+${(pick.confidence_weight * 100).toFixed(1)}%` },
+                          { label: "Edge vs Market", value: `${pick.edge >= 0 ? "+" : ""}${pick.edge.toFixed(1)}%` },
+                          { label: "Confidence Weight", value: `${pick.confidence_weight >= 0 ? "+" : ""}${(pick.confidence_weight * 100).toFixed(1)}%` },
                           { label: "Final Score", value: pick.final_score ?? "Pending" },
                         ].map(({ label, value }) => (
                           <div key={label}>
