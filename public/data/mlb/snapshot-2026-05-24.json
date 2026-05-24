@@ -45,7 +45,7 @@
       "thin_sp": false,
       "game_time": "2026-05-24T20:10Z",
       "the_read": "V10 finds a solid edge over the market line. Mart\u00edn P\u00e9rez at full strength (41 IP).",
-      "display_tier": "PLAY",
+      "display_tier": "LEAN",
       "closing_ml_home": -171,
       "closing_ml_away": 139,
       "closing_ml_captured_at": "2026-05-24 16:30:02 UTC"
@@ -309,7 +309,7 @@
       "thin_sp": false,
       "game_time": "2026-05-24T17:35Z",
       "the_read": "V10 finds a solid edge over the market line. Andrew Painter at full strength (43 IP).",
-      "display_tier": "PASS",
+      "display_tier": "LEAN",
       "closing_ml_home": -105,
       "closing_ml_away": -115,
       "closing_ml_captured_at": "2026-05-24 16:30:02 UTC"
@@ -617,7 +617,7 @@
       "thin_sp": false,
       "game_time": "2026-05-24T23:20Z",
       "the_read": "V10 finds a strong edge over the market line. Reid Detmers at full strength (55 IP).",
-      "display_tier": "PASS",
+      "display_tier": "LEAN",
       "closing_ml_home": -120,
       "closing_ml_away": -101,
       "closing_ml_captured_at": "2026-05-24 16:30:02 UTC"
@@ -661,7 +661,7 @@
       "thin_sp": false,
       "game_time": "2026-05-24T18:10Z",
       "the_read": "V10 finds a solid edge over the market line. Seth Lugo at full strength (58 IP).",
-      "display_tier": "PASS",
+      "display_tier": "LEAN",
       "closing_ml_home": 106,
       "closing_ml_away": -127,
       "closing_ml_captured_at": "2026-05-24 16:30:02 UTC"
