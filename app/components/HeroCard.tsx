@@ -7,6 +7,7 @@ import type { Game } from "@/lib/types";
 import type { DisplayTier } from "@/lib/display-tier";
 import { MODEL_TRAINING_GAMES, MODEL_ACCURACY } from "@/lib/constants";
 import { computeEV, fmtEV, evColor } from "@/lib/ev";
+import { LiveDriftBanner } from "./LiveDriftBanner";
 
 interface Props {
   game: Game;
@@ -236,7 +237,18 @@ export default function HeroCard({ game, display, narrative }: Props) {
           </div>
         )}
         {expanded && (
-          <div style={{ borderTop: "1px solid #1a2335", marginTop: 12, paddingTop: 16 }}>
+          <>
+            <LiveDriftBanner
+              lockedPick={game.pick}
+              lockedConfidence={game.confidence}
+              livePick={game.live_pick}
+              liveConfidence={game.live_confidence}
+              liveEdge={game.live_edge}
+              liveModelDiverged={game.live_model_diverged}
+              livePickChanged={game.live_pick_changed}
+              liveUpdatedAt={game.live_updated_at}
+            />
+            <div style={{ borderTop: "1px solid #1a2335", marginTop: 12, paddingTop: 16 }}>
             <div className="grid grid-cols-2 gap-3">
               {[
                 { label: "Series", value: game.series_game_number > 1 ? (game.series_finale ? `Game ${game.series_game_number} (finale)` : `Game ${game.series_game_number}`) : "Game 1" },
@@ -262,6 +274,7 @@ export default function HeroCard({ game, display, narrative }: Props) {
               ))}
             </div>
           </div>
+          </>
         )}
       </div>
     </div>

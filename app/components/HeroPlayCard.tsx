@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { Game } from "@/lib/types";
 import type { DisplayTier } from "@/lib/display-tier";
+import { LiveDriftBanner } from "./LiveDriftBanner";
 
 function formatML(ml: number): string {
   return ml > 0 ? `+${ml}` : `${ml}`;
@@ -133,7 +134,18 @@ export default function HeroPlayCard({ game, displayTier, narrative, compact = f
         </div>
       )}
       {expanded && (
-        <div
+        <>
+          <LiveDriftBanner
+            lockedPick={game.pick}
+            lockedConfidence={game.confidence}
+            livePick={game.live_pick}
+            liveConfidence={game.live_confidence}
+            liveEdge={game.live_edge}
+            liveModelDiverged={game.live_model_diverged}
+            livePickChanged={game.live_pick_changed}
+            liveUpdatedAt={game.live_updated_at}
+          />
+          <div
           className="mt-5 pt-6 grid grid-cols-3 sm:grid-cols-4 gap-y-5 gap-x-4"
           style={{ borderTop: "1px solid #1a1a1a" }}
         >
@@ -182,6 +194,7 @@ export default function HeroPlayCard({ game, displayTier, narrative, compact = f
             </div>
           </div>
         </div>
+        </>
       )}
     </div>
   );

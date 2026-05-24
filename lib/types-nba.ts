@@ -5,6 +5,12 @@ export interface NBAGame {
   away_team: string;
   home_team: string;
   game_time?: string | null;
+  live_pick?: string | null;
+  live_confidence?: number | null;
+  live_edge?: number | null;
+  live_model_diverged?: boolean;
+  live_pick_changed?: boolean;
+  live_updated_at?: string | null;
 
   // Moneyline
   away_ml: number;

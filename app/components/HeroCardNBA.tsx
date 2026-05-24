@@ -6,6 +6,7 @@ import ProbabilityBar from "./ProbabilityBar";
 import type { NBAGame } from "@/lib/types-nba";
 import type { NBADisplayTier } from "@/lib/display-tier-nba";
 import { computeEV, fmtEV, evColor } from "@/lib/ev";
+import { LiveDriftBanner } from "./LiveDriftBanner";
 
 interface Props {
   game: NBAGame;
@@ -215,7 +216,18 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
         </button>
 
         {expanded && (
-          <div style={{ borderTop: "1px solid #1a2335", marginTop: 12, paddingTop: 16 }}>
+          <>
+            <LiveDriftBanner
+              lockedPick={game.pick}
+              lockedConfidence={game.confidence}
+              livePick={game.live_pick}
+              liveConfidence={game.live_confidence}
+              liveEdge={game.live_edge}
+              liveModelDiverged={game.live_model_diverged}
+              livePickChanged={game.live_pick_changed}
+              liveUpdatedAt={game.live_updated_at}
+            />
+            <div style={{ borderTop: "1px solid #1a2335", marginTop: 12, paddingTop: 16 }}>
             <div className="grid grid-cols-2 gap-3">
               {[
                 { label: "Game Time", value: (() => {
@@ -240,6 +252,7 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
               ))}
             </div>
           </div>
+          </>
         )}
       </div>
     </div>

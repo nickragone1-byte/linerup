@@ -36,6 +36,12 @@ export interface Game {
   current_home_pitcher?: string | null;
   current_away_pitcher?: string | null;
   starter_change_detected_at?: string | null;
+  live_pick?: string | null;
+  live_confidence?: number | null;
+  live_edge?: number | null;
+  live_model_diverged?: boolean;
+  live_pick_changed?: boolean;
+  live_updated_at?: string | null;
   tbd_flag: string | null;
   thin_sp: boolean;
   game_time: string | null;

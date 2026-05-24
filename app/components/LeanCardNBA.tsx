@@ -4,6 +4,7 @@ import { useState } from "react";
 import TeamLogo from "./TeamLogo";
 import type { NBAGame } from "@/lib/types-nba";
 import { computeEV, fmtEV, evColor } from "@/lib/ev";
+import { LiveDriftBanner } from "./LiveDriftBanner";
 
 interface Props {
   game: NBAGame;
@@ -130,7 +131,18 @@ export default function LeanCardNBA({ game, narrative }: Props) {
         </div>
 
         {expanded && (
-          <div className="mt-3 pt-3 grid grid-cols-2 gap-3" style={{ borderTop: "1px solid #1a2335" }}>
+          <>
+            <LiveDriftBanner
+              lockedPick={game.pick}
+              lockedConfidence={game.confidence}
+              livePick={game.live_pick}
+              liveConfidence={game.live_confidence}
+              liveEdge={game.live_edge}
+              liveModelDiverged={game.live_model_diverged}
+              livePickChanged={game.live_pick_changed}
+              liveUpdatedAt={game.live_updated_at}
+            />
+            <div className="mt-3 pt-3 grid grid-cols-2 gap-3" style={{ borderTop: "1px solid #1a2335" }}>
             {[
               { label: "Game Time", value: (() => {
                 if (!game.game_time) return "TBD";
@@ -152,6 +164,7 @@ export default function LeanCardNBA({ game, narrative }: Props) {
               </div>
             ))}
           </div>
+          </>
         )}
       </div>
     </div>
