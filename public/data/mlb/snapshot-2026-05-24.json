@@ -48,7 +48,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -169,
       "closing_ml_away": 139,
-      "closing_ml_captured_at": "2026-05-24 19:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 19:30:01 UTC"
     },
     {
       "away_team": "Houston Astros",
@@ -136,7 +136,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -181,
       "closing_ml_away": 149,
-      "closing_ml_captured_at": "2026-05-24 19:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 19:30:01 UTC"
     },
     {
       "away_team": "Colorado Rockies",
@@ -180,7 +180,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -205,
       "closing_ml_away": 168,
-      "closing_ml_captured_at": "2026-05-24 19:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 19:30:01 UTC"
     },
     {
       "away_team": "Tampa Bay Rays",
@@ -400,7 +400,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -125,
       "closing_ml_away": 104,
-      "closing_ml_captured_at": "2026-05-24 19:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 19:30:01 UTC"
     },
     {
       "away_team": "Detroit Tigers",
@@ -444,7 +444,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -125,
       "closing_ml_away": 104,
-      "closing_ml_captured_at": "2026-05-24 19:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 19:30:01 UTC"
     },
     {
       "away_team": "St. Louis Cardinals",
@@ -538,7 +538,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -124,
       "closing_ml_away": 103,
-      "closing_ml_captured_at": "2026-05-24 19:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 19:30:01 UTC"
     },
     {
       "away_team": "Los Angeles Dodgers",
@@ -626,7 +626,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -120,
       "closing_ml_away": -101,
-      "closing_ml_captured_at": "2026-05-24 19:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 19:30:01 UTC"
     },
     {
       "away_team": "Seattle Mariners",
