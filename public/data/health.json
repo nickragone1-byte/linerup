@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24 13:10:01 UTC",
+  "generated_at": "2026-05-24 14:10:01 UTC",
   "overall": "WARN",
   "checks": {
     "mlb_snapshot": {
@@ -8,19 +8,19 @@
     },
     "mlb_predictions": {
       "status": "WARN",
-      "msg": "MLB predictions.json is 849 min old (script may have failed)"
+      "msg": "MLB predictions.json is 909 min old (script may have failed)"
     },
     "mlb_clv": {
       "status": "OK",
       "msg": "MLB CLV check skipped (no snapshot yet)"
     },
     "mlb_results": {
-      "status": "WARN",
-      "msg": "MLB grading skipped \u2014 no snapshot for previous day (pipeline gap)"
+      "status": "OK",
+      "msg": "MLB grading ran successfully"
     },
     "mlb_starter": {
       "status": "WARN",
-      "msg": "starter detector log is 845 min old"
+      "msg": "starter detector log is 905 min old"
     },
     "nba_snapshot": {
       "status": "OK",
@@ -28,15 +28,15 @@
     },
     "nba_predictions": {
       "status": "WARN",
-      "msg": "NBA predictions.json is 844 min old (script may have failed)"
+      "msg": "NBA predictions.json is 904 min old (script may have failed)"
     },
     "nba_clv": {
       "status": "OK",
       "msg": "NBA CLV check skipped (no snapshot yet)"
     },
     "nba_results": {
-      "status": "WARN",
-      "msg": "NBA grading skipped \u2014 no snapshot for previous day (pipeline gap)"
+      "status": "OK",
+      "msg": "NBA grading ran successfully"
     }
   }
 }
