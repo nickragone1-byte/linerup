@@ -400,7 +400,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -127,
       "closing_ml_away": 106,
-      "closing_ml_captured_at": "2026-05-24 21:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 21:45:01 UTC"
     },
     {
       "away_team": "Detroit Tigers",
@@ -444,7 +444,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -127,
       "closing_ml_away": 106,
-      "closing_ml_captured_at": "2026-05-24 21:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 21:45:01 UTC"
     },
     {
       "away_team": "St. Louis Cardinals",
@@ -624,9 +624,9 @@
       "game_time": "2026-05-24T23:20Z",
       "the_read": "V10 finds a strong edge over the market line. Reid Detmers at full strength (55 IP).",
       "display_tier": "LEAN",
-      "closing_ml_home": -122,
-      "closing_ml_away": 101,
-      "closing_ml_captured_at": "2026-05-24 21:30:01 UTC"
+      "closing_ml_home": -125,
+      "closing_ml_away": 104,
+      "closing_ml_captured_at": "2026-05-24 21:45:01 UTC"
     },
     {
       "away_team": "Seattle Mariners",
