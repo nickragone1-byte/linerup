@@ -51,13 +51,13 @@ export default function AboutPage() {
           >
             <Link
               href="/methodology"
-              style={{ fontSize: 13, color: "#8b95a8" }}
+              style={{ fontSize: 13, color: "#c9d1d9" }}
             >
               Methodology →
             </Link>
             <Link
               href="/track-record"
-              style={{ fontSize: 13, color: "#8b95a8" }}
+              style={{ fontSize: 13, color: "#c9d1d9" }}
             >
               Track record →
             </Link>
