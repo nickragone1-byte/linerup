@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24 15:10:01 UTC",
+  "generated_at": "2026-05-24 16:10:01 UTC",
   "overall": "WARN",
   "checks": {
     "mlb_snapshot": {
@@ -7,8 +7,8 @@
       "msg": "MLB snapshot not yet created (before 9:30 AM PT)"
     },
     "mlb_predictions": {
-      "status": "WARN",
-      "msg": "MLB predictions.json is 969 min old (script may have failed)"
+      "status": "OK",
+      "msg": "MLB predictions fresh (9 min ago)"
     },
     "mlb_clv": {
       "status": "OK",
@@ -19,8 +19,8 @@
       "msg": "MLB grading ran successfully"
     },
     "mlb_starter": {
-      "status": "WARN",
-      "msg": "starter detector log is 965 min old"
+      "status": "OK",
+      "msg": "starter detector log fresh (5 min ago)"
     },
     "nba_snapshot": {
       "status": "OK",
@@ -28,7 +28,7 @@
     },
     "nba_predictions": {
       "status": "WARN",
-      "msg": "NBA predictions.json is 964 min old (script may have failed)"
+      "msg": "NBA predictions.json is 1024 min old (script may have failed)"
     },
     "nba_clv": {
       "status": "OK",
