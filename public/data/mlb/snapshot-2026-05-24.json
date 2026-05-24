@@ -398,9 +398,9 @@
       "game_time": "2026-05-24T16:35Z",
       "the_read": "V10 finds a solid edge over the market line. Trevor Rogers at full strength (38 IP).",
       "display_tier": "PASS",
-      "closing_ml_home": -125,
-      "closing_ml_away": 103,
-      "closing_ml_captured_at": "2026-05-24 20:45:01 UTC"
+      "closing_ml_home": -122,
+      "closing_ml_away": 101,
+      "closing_ml_captured_at": "2026-05-24 21:00:02 UTC"
     },
     {
       "away_team": "Detroit Tigers",
@@ -442,9 +442,9 @@
       "game_time": "2026-05-24T22:05Z",
       "the_read": "V10 finds a solid edge over the market line. Trevor Rogers at full strength (38 IP).",
       "display_tier": "PASS",
-      "closing_ml_home": -125,
-      "closing_ml_away": 103,
-      "closing_ml_captured_at": "2026-05-24 20:45:01 UTC"
+      "closing_ml_home": -122,
+      "closing_ml_away": 101,
+      "closing_ml_captured_at": "2026-05-24 21:00:02 UTC"
     },
     {
       "away_team": "St. Louis Cardinals",
@@ -626,7 +626,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -118,
       "closing_ml_away": -102,
-      "closing_ml_captured_at": "2026-05-24 20:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 21:00:02 UTC"
     },
     {
       "away_team": "Seattle Mariners",
