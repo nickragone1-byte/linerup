@@ -48,7 +48,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -163,
       "closing_ml_away": 135,
-      "closing_ml_captured_at": "2026-05-24 17:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 17:30:01 UTC"
     },
     {
       "away_team": "Houston Astros",
@@ -92,7 +92,7 @@
       "display_tier": "PLAY",
       "closing_ml_home": -175,
       "closing_ml_away": 144,
-      "closing_ml_captured_at": "2026-05-24 17:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 17:30:01 UTC"
     },
     {
       "away_team": "Athletics",
@@ -136,7 +136,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -171,
       "closing_ml_away": 141,
-      "closing_ml_captured_at": "2026-05-24 17:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 17:30:01 UTC"
     },
     {
       "away_team": "Colorado Rockies",
@@ -180,7 +180,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -205,
       "closing_ml_away": 168,
-      "closing_ml_captured_at": "2026-05-24 17:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 17:30:01 UTC"
     },
     {
       "away_team": "Tampa Bay Rays",
@@ -224,7 +224,7 @@
       "display_tier": "PLAY",
       "closing_ml_home": -141,
       "closing_ml_away": 117,
-      "closing_ml_captured_at": "2026-05-24 17:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 17:30:01 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -268,7 +268,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -175,
       "closing_ml_away": 144,
-      "closing_ml_captured_at": "2026-05-24 17:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 17:30:01 UTC"
     },
     {
       "away_team": "Cleveland Guardians",
@@ -310,9 +310,9 @@
       "game_time": "2026-05-24T17:35Z",
       "the_read": "V10 finds a solid edge over the market line. Andrew Painter at full strength (43 IP).",
       "display_tier": "LEAN",
-      "closing_ml_home": -105,
-      "closing_ml_away": -115,
-      "closing_ml_captured_at": "2026-05-24 17:15:01 UTC"
+      "closing_ml_home": -102,
+      "closing_ml_away": -118,
+      "closing_ml_captured_at": "2026-05-24 17:30:01 UTC"
     },
     {
       "away_team": "New York Mets",
@@ -356,7 +356,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -131,
       "closing_ml_away": 108,
-      "closing_ml_captured_at": "2026-05-24 17:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 17:30:01 UTC"
     },
     {
       "away_team": "Detroit Tigers",
@@ -400,7 +400,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -126,
       "closing_ml_away": 105,
-      "closing_ml_captured_at": "2026-05-24 17:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 17:30:01 UTC"
     },
     {
       "away_team": "Detroit Tigers",
@@ -444,7 +444,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -126,
       "closing_ml_away": 105,
-      "closing_ml_captured_at": "2026-05-24 17:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 17:30:01 UTC"
     },
     {
       "away_team": "St. Louis Cardinals",
@@ -530,9 +530,9 @@
       "game_time": "2026-05-24T20:05Z",
       "the_read": "V10 finds a small edge over the market line. Robbie Ray at full strength (54 IP). Mild sharp action confirms.",
       "display_tier": "PASS",
-      "closing_ml_home": -119,
-      "closing_ml_away": -102,
-      "closing_ml_captured_at": "2026-05-24 17:15:01 UTC"
+      "closing_ml_home": -124,
+      "closing_ml_away": 103,
+      "closing_ml_captured_at": "2026-05-24 17:30:01 UTC"
     },
     {
       "away_team": "Los Angeles Dodgers",
@@ -576,7 +576,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 124,
       "closing_ml_away": -149,
-      "closing_ml_captured_at": "2026-05-24 17:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 17:30:01 UTC"
     },
     {
       "away_team": "Texas Rangers",
@@ -620,7 +620,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -120,
       "closing_ml_away": -101,
-      "closing_ml_captured_at": "2026-05-24 17:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 17:30:01 UTC"
     },
     {
       "away_team": "Seattle Mariners",
@@ -664,7 +664,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": 106,
       "closing_ml_away": -127,
-      "closing_ml_captured_at": "2026-05-24 17:15:01 UTC"
+      "closing_ml_captured_at": "2026-05-24 17:30:01 UTC"
     }
   ]
 }
