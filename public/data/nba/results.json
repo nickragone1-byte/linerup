@@ -3,24 +3,5 @@
   "last_updated": "2026-05-23",
   "tracking_start_date": "2026-05-20",
   "note": "V7 launched May 20, 2026. Earlier picks were made by predecessor model V6 and are not counted in the current track record.",
-  "results": [
-    {
-      "date": "2026-05-23",
-      "matchup": "New York Knicks @ Cleveland Cavaliers",
-      "away_team": "New York Knicks",
-      "home_team": "Cleveland Cavaliers",
-      "tier": "PLAY",
-      "pick": "New York Knicks ML (+114)",
-      "model_prob": 0.587,
-      "edge": -24.2,
-      "confidence_weight": 0.087,
-      "outcome": "WIN",
-      "final_score": "New York Knicks 121, Cleveland Cavaliers 108",
-      "the_read": "V7 finds a strong edge over the market line. Both teams at full strength.",
-      "lock_ml": 114,
-      "closing_ml": 124,
-      "clv_cents": -10,
-      "beat_close": false
-    }
-  ]
+  "results": []
 }
