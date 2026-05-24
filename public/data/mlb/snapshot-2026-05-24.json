@@ -488,7 +488,13 @@
       "display_tier": "PASS",
       "closing_ml_home": -122,
       "closing_ml_away": 101,
-      "closing_ml_captured_at": "2026-05-24 17:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-24 17:00:02 UTC",
+      "live_pick": "St. Louis Cardinals",
+      "live_confidence": 51.7,
+      "live_edge": null,
+      "live_model_diverged": true,
+      "live_pick_changed": true,
+      "live_updated_at": "2026-05-24 18:07:02 UTC"
     },
     {
       "away_team": "Chicago White Sox",
