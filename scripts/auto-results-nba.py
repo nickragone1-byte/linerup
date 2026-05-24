@@ -53,23 +53,33 @@ def grade_picks(yesterday_str, date_str_espn):
     with open(snapshot_path) as f:
         snapshot = json.load(f)
 
+    # NEW: use display_tier from snapshot — the truth of what the site showed.
     gradeable = []
     for g in snapshot.get("games", []):
-        edge = g.get("edge")
-        confidence = g.get("confidence", 0)
-        if edge is None:
-            continue
         pick = g.get("pick")
         pick_ml = g.get("home_ml") if pick == g.get("home_team") else g.get("away_ml")
         if pick_ml is None:
             continue
-        ev = compute_ev(confidence, pick_ml)
-        if confidence >= 58 and ev > 0:
-            tier = "PLAY"
-        elif confidence >= 55 and ev > 0:
-            tier = "LEAN"
+        display_tier = g.get("display_tier")
+        if display_tier is not None:
+            if display_tier in ("PLAY", "LOCK"):
+                tier = "PLAY"
+            elif display_tier == "LEAN":
+                tier = "LEAN"
+            else:
+                continue
         else:
-            continue
+            edge = g.get("edge")
+            confidence = g.get("confidence", 0)
+            if edge is None:
+                continue
+            ev = compute_ev(confidence, pick_ml)
+            if confidence >= 58 and ev > 0:
+                tier = "PLAY"
+            elif confidence >= 55 and ev > 0:
+                tier = "LEAN"
+            else:
+                continue
         gradeable.append((g, tier))
 
     if not gradeable:
