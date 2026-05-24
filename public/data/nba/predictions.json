@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24 19:00:28 UTC",
+  "generated_at": "2026-05-24 20:00:29 UTC",
   "date": "2026-05-24",
   "model_version": "V7",
   "validated_oos_accuracy": 68.29,
@@ -27,7 +27,7 @@
       "pick": "San Antonio Spurs",
       "confidence": 55.7,
       "edge": -4.7,
-      "over_under": 219.5,
+      "over_under": 218.5,
       "is_playoff": 1,
       "the_read": "V7 finds a solid edge over the market line. Both teams at full strength. Mild sharp action confirms."
     }
