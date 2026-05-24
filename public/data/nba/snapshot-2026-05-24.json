@@ -30,7 +30,10 @@
       "over_under": 219.5,
       "is_playoff": 1,
       "the_read": "V7 finds a solid edge over the market line. Both teams at full strength.",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": -155,
+      "closing_ml_away": 130,
+      "closing_ml_captured_at": "2026-05-24 22:00:01 UTC"
     },
     {
       "away_team": "New York Knicks",
