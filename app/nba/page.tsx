@@ -15,7 +15,6 @@ import PassRowNBA from "@/app/components/PassRowNBA";
 import YesterdaySection from "@/app/components/YesterdaySection";
 import HowItWorksNBA from "@/app/components/HowItWorksNBA";
 import Footer from "@/app/components/Footer";
-import MobileBottomBar from "@/app/components/MobileBottomBar";
 import type { NBAPassItem } from "@/app/components/PassRowNBA";
 import { nbaPassReason } from "@/lib/display-tier-nba";
 
@@ -164,11 +163,6 @@ export default async function NBAPage() {
       {/* Footer */}
       <Footer />
 
-      {/* Mobile bottom bar */}
-      <MobileBottomBar playCount={playCount} leanCount={leanCount} modelInfo="V7 · 68.2%" />
-
-      {/* Bottom padding so content isn't hidden behind mobile bar */}
-      <div className="h-24 sm:hidden" />
     </div>
   );
 }
