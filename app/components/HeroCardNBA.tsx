@@ -240,7 +240,7 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
                 { label: "Vegas Spread", value: game.vegas_spread != null ? `${game.vegas_spread > 0 ? "+" : ""}${game.vegas_spread.toFixed(1)}` : "—", sub: game.vegas_spread_open != null ? `Opened ${game.vegas_spread_open > 0 ? "+" : ""}${game.vegas_spread_open.toFixed(1)}` : "Opened —" },
                 { label: "Vegas Line", value: (game.away_ml != null && game.home_ml != null) ? `${game.away_ml > 0 ? "+" : ""}${game.away_ml} / ${game.home_ml > 0 ? "+" : ""}${game.home_ml}` : "Line TBA", sub: game.over_under != null ? `O/U ${game.over_under}` : "O/U —" },
                 { label: "Vegas %", value: `${vegasImplied != null ? vegasImplied.toFixed(1) : "—"}%`, sub: "market win prob" },
-                { label: "Sharp Signal", value: game.sharp_signal ?? "—", sub: game.line_move != null ? `Line move ${game.line_move > 0 ? "+" : ""}${game.line_move}` : "Line move —" },
+                { label: "Sharp Signal", value: game.sharp_signal ?? "—", sub: game.line_move != null ? `Line moved ${game.line_move > 0 ? "+" : ""}${game.line_move}¢` : "Line steady" },
               ].map(({ label, value, sub }) => (
                 <div key={label}>
                   <div style={{ fontSize: 9, color: "#7d8590", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2 }}>

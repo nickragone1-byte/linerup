@@ -39,12 +39,12 @@ export default function LeanCard({ game, narrative }: Props) {
     >
       <div className="px-4 py-3">
         {/* Main row */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <TeamLogo teamName={game.pick} size={36} />
 
           {/* Left: matchup + narrative */}
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center flex-wrap" style={{ gap: 6 }}>
               <span style={{ fontSize: 15, fontWeight: 700, color: "#ffffff", whiteSpace: "nowrap" }}>
                 {pickName}
               </span>

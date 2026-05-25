@@ -178,7 +178,9 @@ function SportPanel({ data, sportLabel }: { data: ResultsData; sportLabel: strin
             <div className="font-mono mt-1" style={{ fontSize: 18, color: hitRateColor(playsRate), fontVariantNumeric: "tabular-nums", fontWeight: 600 }}>
               {playsRate !== null ? `${playsRate.toFixed(1)}%` : "—"}
             </div>
-            <div style={{ fontSize: 12, color: "#7d8590", marginTop: 6 }}>Expected: 60%</div>
+            <div style={{ fontSize: 12, color: "#7d8590", marginTop: 6 }}>
+              {sportLabel === "MLB" ? "Expected: 60%" : "Calibrating…"}
+            </div>
           </div>
           <div className="rounded-xl p-5" style={{ background: "#0f1422", border: "2px solid rgba(245,158,11,0.3)" }}>
             <TierBadge tier="LEAN" />
@@ -188,7 +190,9 @@ function SportPanel({ data, sportLabel }: { data: ResultsData; sportLabel: strin
             <div className="font-mono mt-1" style={{ fontSize: 18, color: hitRateColor(leansRate), fontVariantNumeric: "tabular-nums", fontWeight: 600 }}>
               {leansRate !== null ? `${leansRate.toFixed(1)}%` : "—"}
             </div>
-            <div style={{ fontSize: 12, color: "#7d8590", marginTop: 6 }}>Expected: 54%</div>
+            <div style={{ fontSize: 12, color: "#7d8590", marginTop: 6 }}>
+              {sportLabel === "MLB" ? "Expected: 54%" : "Calibrating…"}
+            </div>
           </div>
         </div>
       </div>
