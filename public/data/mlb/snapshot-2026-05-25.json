@@ -46,9 +46,9 @@
       "game_time": "2026-05-26T01:10Z",
       "the_read": "V10 finds a solid edge over the market line. Emmet Sheehan at full strength (45 IP).",
       "display_tier": "PASS",
-      "closing_ml_home": -338,
+      "closing_ml_home": -339,
       "closing_ml_away": 266,
-      "closing_ml_captured_at": "2026-05-25 21:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 21:45:01 UTC"
     },
     {
       "away_team": "St. Louis Cardinals",
@@ -186,7 +186,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -120,
       "closing_ml_away": 100,
-      "closing_ml_captured_at": "2026-05-25 21:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 21:45:01 UTC"
     },
     {
       "away_team": "Washington Nationals",
@@ -230,7 +230,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -175,
       "closing_ml_away": 144,
-      "closing_ml_captured_at": "2026-05-25 21:30:01 UTC",
+      "closing_ml_captured_at": "2026-05-25 21:45:01 UTC",
       "starter_changed_home": false,
       "starter_changed_away": true,
       "original_away_pitcher": "Zack Littell",
@@ -279,7 +279,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -156,
       "closing_ml_away": 129,
-      "closing_ml_captured_at": "2026-05-25 21:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 21:45:01 UTC"
     },
     {
       "away_team": "Chicago Cubs",
@@ -461,7 +461,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 100,
       "closing_ml_away": -120,
-      "closing_ml_captured_at": "2026-05-25 21:30:01 UTC",
+      "closing_ml_captured_at": "2026-05-25 21:45:01 UTC",
       "starter_changed_home": true,
       "starter_changed_away": false,
       "original_home_pitcher": "Randy V\u00e1squez",
@@ -554,7 +554,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -102,
       "closing_ml_away": -118,
-      "closing_ml_captured_at": "2026-05-25 21:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 21:45:01 UTC"
     },
     {
       "away_team": "New York Yankees",
