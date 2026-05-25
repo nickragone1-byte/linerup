@@ -450,7 +450,12 @@
       "display_tier": "PASS",
       "closing_ml_home": 102,
       "closing_ml_away": -123,
-      "closing_ml_captured_at": "2026-05-25 19:00:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 19:00:01 UTC",
+      "starter_changed_home": true,
+      "starter_changed_away": false,
+      "original_home_pitcher": "Randy V\u00e1squez",
+      "current_home_pitcher": "Griffin Canning",
+      "starter_change_detected_at": "2026-05-25 19:05:02 UTC"
     },
     {
       "away_team": "Tampa Bay Rays",
