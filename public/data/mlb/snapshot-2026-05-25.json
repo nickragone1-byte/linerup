@@ -48,7 +48,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -338,
       "closing_ml_away": 265,
-      "closing_ml_captured_at": "2026-05-25 23:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 23:45:03 UTC"
     },
     {
       "away_team": "St. Louis Cardinals",
@@ -554,7 +554,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -105,
       "closing_ml_away": -115,
-      "closing_ml_captured_at": "2026-05-25 23:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 23:45:03 UTC"
     },
     {
       "away_team": "New York Yankees",
