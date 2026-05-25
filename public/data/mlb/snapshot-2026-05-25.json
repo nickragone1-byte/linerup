@@ -48,7 +48,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -330,
       "closing_ml_away": 260,
-      "closing_ml_captured_at": "2026-05-25 22:30:03 UTC"
+      "closing_ml_captured_at": "2026-05-25 22:45:03 UTC"
     },
     {
       "away_team": "St. Louis Cardinals",
@@ -184,9 +184,9 @@
       "game_time": "2026-05-25T23:05Z",
       "the_read": "V10 finds a strong edge over the market line. Kumar Rocker at full strength (45 IP).",
       "display_tier": "PASS",
-      "closing_ml_home": -120,
-      "closing_ml_away": 100,
-      "closing_ml_captured_at": "2026-05-25 22:30:03 UTC"
+      "closing_ml_home": -123,
+      "closing_ml_away": 102,
+      "closing_ml_captured_at": "2026-05-25 22:45:03 UTC"
     },
     {
       "away_team": "Washington Nationals",
@@ -279,7 +279,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -156,
       "closing_ml_away": 129,
-      "closing_ml_captured_at": "2026-05-25 22:30:03 UTC"
+      "closing_ml_captured_at": "2026-05-25 22:45:03 UTC"
     },
     {
       "away_team": "Chicago Cubs",
@@ -554,7 +554,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -105,
       "closing_ml_away": -115,
-      "closing_ml_captured_at": "2026-05-25 22:30:03 UTC"
+      "closing_ml_captured_at": "2026-05-25 22:45:03 UTC"
     },
     {
       "away_team": "New York Yankees",
