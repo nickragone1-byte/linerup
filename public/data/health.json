@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-25 21:10:01 UTC",
-  "overall": "WARN",
+  "generated_at": "2026-05-25 22:10:01 UTC",
+  "overall": "OK",
   "checks": {
     "mlb_snapshot": {
       "status": "OK",
@@ -12,7 +12,7 @@
     },
     "mlb_clv": {
       "status": "OK",
-      "msg": "MLB CLV: 13/13 games captured, latest 2026-05-25 21:00:02 UTC"
+      "msg": "MLB CLV: 13/13 games captured, latest 2026-05-25 22:00:02 UTC"
     },
     "mlb_results": {
       "status": "OK",
@@ -31,8 +31,8 @@
       "msg": "NBA predictions fresh (10 min ago)"
     },
     "nba_clv": {
-      "status": "WARN",
-      "msg": "NBA CLV: no games captured yet (1 total, may be pre-capture-window)"
+      "status": "OK",
+      "msg": "NBA CLV: 1/1 games captured, latest 2026-05-25 22:00:05 UTC"
     },
     "nba_results": {
       "status": "OK",
