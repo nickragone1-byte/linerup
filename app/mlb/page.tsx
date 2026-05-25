@@ -15,7 +15,6 @@ import PassRow from "@/app/components/PassRow";
 import YesterdaySection from "@/app/components/YesterdaySection";
 import HowItWorks from "@/app/components/HowItWorks";
 import Footer from "@/app/components/Footer";
-import MobileBottomBar from "@/app/components/MobileBottomBar";
 import type { PassItem } from "@/app/components/PassRow";
 
 
@@ -152,11 +151,6 @@ export default async function MLBPage() {
       {/* Footer */}
       <Footer />
 
-      {/* Mobile bottom bar */}
-      <MobileBottomBar playCount={playCount} leanCount={leanCount} modelInfo="V10 · 57.4%" />
-
-      {/* Bottom padding so content isn't hidden behind mobile bar */}
-      <div className="h-24 sm:hidden" />
     </div>
   );
 }
