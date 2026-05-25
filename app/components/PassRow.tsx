@@ -24,7 +24,8 @@ function fmtMLSafe(ml: number | null | undefined): string {
 
 function fmtSP(name: string, ip: number): string {
   if (!name || name === "TBD") return "TBD";
-  return `${name.split(",")[0].split(" ").pop() ?? name} (${ip} IP)`;
+  // Last-name only, no IP — keeps the Cautious row from truncating mid-character.
+  return name.split(",")[0].split(" ").pop() ?? name;
 }
 
 export default function PassRow({ items }: Props) {
@@ -124,7 +125,7 @@ export default function PassRow({ items }: Props) {
                       V10: {favProb.toFixed(1)}% {favAbbr}
                     </span>
                     {game.series_game_number > 1 && (
-                      <span style={{ fontSize: 10, color: game.series_finale ? "#fb923c" : "#4a5568", marginLeft: 6 }}>
+                      <span style={{ fontSize: 10, color: game.series_finale ? "#fb923c" : "#4a5568", marginLeft: 6, whiteSpace: "nowrap", display: "inline-block" }}>
                         {game.series_finale ? "Series finale" : `Game ${game.series_game_number}`}
                       </span>
                     )}

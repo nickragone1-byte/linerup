@@ -161,10 +161,12 @@ export default function YesterdaySection({ data, sport = "mlb" }: Props) {
                 <TeamLogo teamName={pick.home_team} size={22} />
               </div>
               <div className="flex-1 min-w-0">
-                <span style={{ fontSize: 14, color: "#ffffff", fontWeight: 500 }}>
+                <div style={{ fontSize: 14, color: "#ffffff", fontWeight: 500, lineHeight: 1.25 }}>
                   {awayName} @ {homeName}
-                </span>
-                <span className="ml-2" style={{ fontSize: 12, color: "#7d8590" }}>{pick.pick}</span>
+                </div>
+                <div style={{ fontSize: 12, color: "#7d8590", marginTop: 2, lineHeight: 1.3 }}>
+                  {pick.pick}
+                </div>
               </div>
               <div className="flex items-center gap-3 shrink-0">
                 <TierBadge tier={pick.tier} />
