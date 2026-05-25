@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25 18:10:01 UTC",
+  "generated_at": "2026-05-25 19:10:01 UTC",
   "overall": "WARN",
   "checks": {
     "mlb_snapshot": {
@@ -12,7 +12,7 @@
     },
     "mlb_clv": {
       "status": "OK",
-      "msg": "MLB CLV: 13/13 games captured, latest 2026-05-25 18:00:02 UTC"
+      "msg": "MLB CLV: 13/13 games captured, latest 2026-05-25 19:00:01 UTC"
     },
     "mlb_results": {
       "status": "OK",
