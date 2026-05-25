@@ -374,16 +374,10 @@ write_predictions_json <- function(data) {
 }
 
 if (nrow(today_games) == 0) {
-  write_predictions_json(list(
-    generated_at       = format(Sys.time(), "%Y-%m-%d %H:%M:%S %Z"),
-    date               = as.character(Sys.Date()),
-    model_version      = model_version_label,
-    validated_oos_accuracy = round(oos_acc * 100, 2),
-    training_games     = nrow(train),
-    games              = list(),
-    note               = "No NBA games today."
-  ))
-  stop("No games today. JSON written.", call. = FALSE)
+  # No upcoming games — preserve predictions.json so the page can keep rendering
+  # via snapshot+live merge. Exit cleanly without touching the file.
+  cat("No pre-game NBA games found. Leaving predictions.json untouched.\n")
+  quit(save = "no", status = 0)
 }
 
 # ============================================================
