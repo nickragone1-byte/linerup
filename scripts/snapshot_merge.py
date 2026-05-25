@@ -46,15 +46,15 @@ def sharp_confirms_nba(g):
 
 
 def line_move_contradicts(g):
-    """Only count as 'contradiction' if move is meaningful (>=10 cents).
-    Small line drifts (1-9 cents) are routine and not a market signal."""
+    """Count as 'contradiction' when line move >=8 cents (matches R's
+    sharp_signal threshold for 'mild' signal). Smaller drifts are noise."""
     lm = g.get("line_move")
     if lm is None:
         return False
-    THRESHOLD = 10  # cents — anything smaller is noise
+    THRESHOLD = 8  # cents — matches R's "mild" sharp signal threshold
     if pick_is_home(g):
-        return lm >= THRESHOLD  # home pick contradicted when home ML moves up (away money)
-    return lm <= -THRESHOLD  # away pick contradicted when home ML moves down (home money)
+        return lm >= THRESHOLD
+    return lm <= -THRESHOLD
 
 
 def compute_tier_mlb(g):

@@ -18,7 +18,7 @@ function lineMoveContradicts(game: Game): boolean {
   // line_move = home_ml - ml_open_home
   //   positive = home ML moved up = away money coming in = contradicts home pick
   //   negative = home ML moved down = home money coming in = contradicts away pick
-  const THRESHOLD = 10;
+  const THRESHOLD = 8; // matches R's 'mild' sharp signal threshold
   if (pickIsHome(game)) return game.line_move >= THRESHOLD;
   return game.line_move <= -THRESHOLD;
 }
