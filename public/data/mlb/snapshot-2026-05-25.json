@@ -48,7 +48,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -338,
       "closing_ml_away": 266,
-      "closing_ml_captured_at": "2026-05-25 17:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 18:00:02 UTC"
     },
     {
       "away_team": "St. Louis Cardinals",
@@ -90,9 +90,9 @@
       "game_time": "2026-05-25T18:10Z",
       "the_read": "V10 finds a small edge over the market line. Jacob Misiorowski at full strength (57 IP).",
       "display_tier": "PASS",
-      "closing_ml_home": -231,
-      "closing_ml_away": 187,
-      "closing_ml_captured_at": "2026-05-25 17:45:01 UTC"
+      "closing_ml_home": -225,
+      "closing_ml_away": 183,
+      "closing_ml_captured_at": "2026-05-25 18:00:02 UTC"
     },
     {
       "away_team": "Cincinnati Reds",
@@ -136,7 +136,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -143,
       "closing_ml_away": 119,
-      "closing_ml_captured_at": "2026-05-25 17:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 18:00:02 UTC"
     },
     {
       "away_team": "Houston Astros",
@@ -180,7 +180,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -125,
       "closing_ml_away": 104,
-      "closing_ml_captured_at": "2026-05-25 17:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 18:00:02 UTC"
     },
     {
       "away_team": "Washington Nationals",
@@ -222,9 +222,9 @@
       "game_time": "2026-05-25T22:10Z",
       "the_read": "V10 finds a small edge over the market line. Tanner Bibee at full strength (60 IP).",
       "display_tier": "PASS",
-      "closing_ml_home": -174,
-      "closing_ml_away": 144,
-      "closing_ml_captured_at": "2026-05-25 17:45:01 UTC"
+      "closing_ml_home": -180,
+      "closing_ml_away": 148,
+      "closing_ml_captured_at": "2026-05-25 18:00:02 UTC"
     },
     {
       "away_team": "Miami Marlins",
@@ -268,7 +268,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -162,
       "closing_ml_away": 134,
-      "closing_ml_captured_at": "2026-05-25 17:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 18:00:02 UTC"
     },
     {
       "away_team": "Chicago Cubs",
@@ -356,7 +356,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -112,
       "closing_ml_away": -107,
-      "closing_ml_captured_at": "2026-05-25 17:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 18:00:02 UTC"
     },
     {
       "away_team": "Arizona Diamondbacks",
@@ -400,7 +400,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -132,
       "closing_ml_away": 109,
-      "closing_ml_captured_at": "2026-05-25 17:45:01 UTC",
+      "closing_ml_captured_at": "2026-05-25 18:00:02 UTC",
       "live_pick": "Arizona Diamondbacks",
       "live_confidence": 51.5,
       "live_edge": -5.6,
@@ -450,7 +450,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -102,
       "closing_ml_away": -119,
-      "closing_ml_captured_at": "2026-05-25 17:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 18:00:02 UTC"
     },
     {
       "away_team": "Tampa Bay Rays",
@@ -538,7 +538,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -105,
       "closing_ml_away": -115,
-      "closing_ml_captured_at": "2026-05-25 17:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 18:00:02 UTC"
     },
     {
       "away_team": "New York Yankees",
@@ -582,7 +582,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 114,
       "closing_ml_away": -137,
-      "closing_ml_captured_at": "2026-05-25 17:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 18:00:02 UTC"
     }
   ]
 }
