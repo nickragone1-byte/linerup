@@ -417,16 +417,12 @@ write_predictions_json <- function(data) {
 }
 
 if (nrow(today_sched) == 0) {
-  write_predictions_json(list(
-    generated_at   = format(Sys.time(), "%Y-%m-%d %H:%M:%S %Z"),
-    date           = as.character(Sys.Date()),
-    model_version  = "V10",
-    oos_accuracy   = round(oos_acc * 100, 2),
-    training_games = nrow(model_data),
-    games          = list(),
-    note           = "No MLB games today."
-  ))
-  stop("No games today. JSON written.", call. = FALSE)
+  # No upcoming games (all started or no games today).
+  # Do NOT overwrite predictions.json — preserve the morning's slate so the page
+  # can keep rendering frozen cards via the snapshot+live merge. The R script
+  # exits cleanly without touching the file.
+  cat("No pre-game games found. Leaving predictions.json untouched.\n")
+  quit(save = "no", status = 0)
 }
 
 # Flag today's game context
