@@ -1,62 +1,7 @@
 {
   "model_version": "V10",
-  "last_updated": "2026-05-23",
-  "tracking_start_date": "2026-05-20",
-  "note": "V10 launched May 20, 2026. Earlier picks were made by predecessor model V8 and are not counted in the current track record.",
-  "results": [
-    {
-      "date": "2026-05-23",
-      "matchup": "Washington Nationals @ Atlanta Braves",
-      "away_team": "Washington Nationals",
-      "home_team": "Atlanta Braves",
-      "tier": "LEAN",
-      "pick": "Atlanta Braves ML (-173)",
-      "model_prob": 0.634,
-      "edge": 3.8,
-      "confidence_weight": 0.134,
-      "outcome": "LOSS",
-      "final_score": "Washington Nationals 2, Atlanta Braves 0",
-      "the_read": "V10 finds a small edge over the market line. Grant Holmes at full strength (47 IP). Market moving against this pick.",
-      "lock_ml": -173,
-      "closing_ml": null,
-      "clv_cents": null,
-      "beat_close": null
-    },
-    {
-      "date": "2026-05-23",
-      "matchup": "Chicago White Sox @ San Francisco Giants",
-      "away_team": "Chicago White Sox",
-      "home_team": "San Francisco Giants",
-      "tier": "LEAN",
-      "pick": "Chicago White Sox ML (-105)",
-      "model_prob": 0.535,
-      "edge": -2.3,
-      "confidence_weight": 0.035,
-      "outcome": "LOSS",
-      "final_score": "Chicago White Sox 3, San Francisco Giants 10",
-      "the_read": "V10 finds a small edge over the market line. Adrian Houser at full strength (48 IP). Mild sharp action against.",
-      "lock_ml": -105,
-      "closing_ml": null,
-      "clv_cents": null,
-      "beat_close": null
-    },
-    {
-      "date": "2026-05-23",
-      "matchup": "New York Mets @ Miami Marlins",
-      "away_team": "New York Mets",
-      "home_team": "Miami Marlins",
-      "tier": "LEAN",
-      "pick": "New York Mets ML (-105)",
-      "model_prob": 0.537,
-      "edge": -3.8,
-      "confidence_weight": 0.037,
-      "outcome": "LOSS",
-      "final_score": "New York Mets 1, Miami Marlins 4",
-      "the_read": "V10 finds a small edge over the market line. Max Meyer at full strength (53 IP).",
-      "lock_ml": -105,
-      "closing_ml": null,
-      "clv_cents": null,
-      "beat_close": null
-    }
-  ]
+  "last_updated": "2026-05-25",
+  "tracking_start_date": "2026-05-25",
+  "note": "Track record reset on May 25, 2026 \u2014 clean start for honest tracking.",
+  "results": []
 }
