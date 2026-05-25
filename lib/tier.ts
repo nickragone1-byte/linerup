@@ -13,11 +13,14 @@ function sharpConfirms(game: Game): boolean {
 
 function lineMoveContradicts(game: Game): boolean {
   if (game.line_move == null) return false;
+  // Only count as contradiction if move is meaningful (>= 10 cents).
+  // Small drifts (1-9 cents) are routine noise, not a market signal.
   // line_move = home_ml - ml_open_home
-  // positive = home ML went up = away money = contradicts home pick
-  // negative = home ML went down = home money = contradicts away pick
-  if (pickIsHome(game)) return game.line_move > 0;
-  return game.line_move < 0;
+  //   positive = home ML moved up = away money coming in = contradicts home pick
+  //   negative = home ML moved down = home money coming in = contradicts away pick
+  const THRESHOLD = 10;
+  if (pickIsHome(game)) return game.line_move >= THRESHOLD;
+  return game.line_move <= -THRESHOLD;
 }
 
 export function computeTier(game: Game): Tier {
@@ -37,23 +40,19 @@ export function computeTier(game: Game): Tier {
   // FADE: market strongly disagrees AND edge is large, or extreme edge with no sharp support
   if ((contradicts && Math.abs(edge) > 8) || (Math.abs(edge) > 15 && !sharp)) return "🔴 FADE";
 
-  // LOCK: 60%+ conf + positive EV + sharps agree + not contradicted
+  // LOCK: 60%+ conf + EV>3 + sharps agree + not contradicted
   if (confidence >= 60 && ev !== null && ev > 3 && positiveEV && sharp && !contradicts) return "🔒 LOCK";
 
-  // BET: 60%+ confidence + positive EV + not contradicted
+  // BET (PLAY): 60%+ confidence + positive EV + not contradicted
   if (confidence >= 60 && positiveEV && !contradicts) return "🟢 BET";
 
-  // BET: 58%+ confidence + solid positive EV
+  // BET (PLAY): 58%+ confidence + EV>3 + not contradicted
   if (confidence >= 58 && ev !== null && ev > 3 && !contradicts) return "🟢 BET";
 
-  // LEAN: 52%+ confidence + positive EV + not contradicted
-  if (confidence >= 52 && ev !== null && ev > 1 && !contradicts) return "🟡 LEAN";
+  // LEAN: 55%+ confidence + EV>2 + not contradicted (V11 tightened from 52%/EV>1)
+  if (confidence >= 55 && ev !== null && ev > 2 && !contradicts) return "🟡 LEAN";
 
-  // LEAN: positive EV even with minor contradiction
-  if (ev !== null && ev > 1 && confidence >= 52) return "🟡 LEAN";
-
-  // VALUE: lower confidence positive EV
-  if (positiveEV && confidence >= 50) return "🟡 VALUE";
+  // No more LEAN-with-contradiction fallback or VALUE tier (V11 — too noisy)
 
   return "⚪ SKIP";
 }

@@ -46,10 +46,15 @@ def sharp_confirms_nba(g):
 
 
 def line_move_contradicts(g):
+    """Only count as 'contradiction' if move is meaningful (>=10 cents).
+    Small line drifts (1-9 cents) are routine and not a market signal."""
     lm = g.get("line_move")
     if lm is None:
         return False
-    return lm > 0 if pick_is_home(g) else lm < 0
+    THRESHOLD = 10  # cents — anything smaller is noise
+    if pick_is_home(g):
+        return lm >= THRESHOLD  # home pick contradicted when home ML moves up (away money)
+    return lm <= -THRESHOLD  # away pick contradicted when home ML moves down (home money)
 
 
 def compute_tier_mlb(g):
@@ -69,18 +74,20 @@ def compute_tier_mlb(g):
     positive_ev = ev is not None and ev > 0
     if (contradicts and abs(edge) > 8) or (abs(edge) > 15 and not sharp):
         return "FADE"
+    # LOCK: 60%+ conf + EV>3 + sharps agree + not contradicted
     if confidence >= 60 and ev is not None and ev > 3 and positive_ev and sharp and not contradicts:
         return "LOCK"
+    # BET (PLAY): 60%+ conf + positive EV + not contradicted
     if confidence >= 60 and positive_ev and not contradicts:
         return "BET"
+    # BET (PLAY): 58%+ conf + EV>3 + not contradicted (V11 tightened)
     if confidence >= 58 and ev is not None and ev > 3 and not contradicts:
         return "BET"
-    if confidence >= 52 and ev is not None and ev > 1 and not contradicts:
+    # LEAN: 55%+ conf + EV>2 + not contradicted (V11 tightened from 52/1)
+    if confidence >= 55 and ev is not None and ev > 2 and not contradicts:
         return "LEAN"
-    if ev is not None and ev > 1 and confidence >= 52:
-        return "LEAN"
-    if positive_ev and confidence >= 50:
-        return "VALUE"
+    # No more "LEAN with contradiction" fallback — if market disagrees, no Lean
+    # No more VALUE tier — too noisy, will display as PASS instead
     return "SKIP"
 
 
@@ -101,11 +108,9 @@ def compute_tier_nba(g):
         return "LOCK"
     if confidence >= 60 and positive_ev and not contradicts:
         return "BET"
-    if confidence >= 58 and positive_ev and not contradicts:
+    if confidence >= 58 and positive_ev and ev > 3 and not contradicts:
         return "BET"
-    if confidence >= 52 and positive_ev and not contradicts:
-        return "LEAN"
-    if ev is not None and ev > 1 and confidence >= 52:
+    if confidence >= 55 and positive_ev and ev > 2 and not contradicts:
         return "LEAN"
     return "SKIP"
 
