@@ -136,7 +136,13 @@
       "display_tier": "PASS",
       "closing_ml_home": -137,
       "closing_ml_away": 114,
-      "closing_ml_captured_at": "2026-05-25 19:00:01 UTC"
+      "closing_ml_captured_at": "2026-05-25 19:00:01 UTC",
+      "live_pick": "New York Mets",
+      "live_confidence": 60.7,
+      "live_edge": 7.6,
+      "live_model_diverged": true,
+      "live_pick_changed": false,
+      "live_updated_at": "2026-05-25 19:07:01 UTC"
     },
     {
       "away_team": "Houston Astros",
@@ -406,7 +412,7 @@
       "live_edge": -5.6,
       "live_model_diverged": true,
       "live_pick_changed": true,
-      "live_updated_at": "2026-05-25 18:07:01 UTC"
+      "live_updated_at": "2026-05-25 19:07:01 UTC"
     },
     {
       "away_team": "Philadelphia Phillies",
