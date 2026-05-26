@@ -48,7 +48,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -244,
       "closing_ml_away": 197,
-      "closing_ml_captured_at": "2026-05-26 23:30:02 UTC"
+      "closing_ml_captured_at": "2026-05-26 23:45:01 UTC"
     },
     {
       "away_team": "St. Louis Cardinals",
@@ -136,7 +136,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -132,
       "closing_ml_away": 109,
-      "closing_ml_captured_at": "2026-05-26 23:30:02 UTC"
+      "closing_ml_captured_at": "2026-05-26 23:45:01 UTC"
     },
     {
       "away_team": "Miami Marlins",
@@ -494,7 +494,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -115,
       "closing_ml_away": -105,
-      "closing_ml_captured_at": "2026-05-26 23:30:02 UTC"
+      "closing_ml_captured_at": "2026-05-26 23:45:01 UTC"
     },
     {
       "away_team": "Philadelphia Phillies",
@@ -538,7 +538,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -110,
       "closing_ml_away": -109,
-      "closing_ml_captured_at": "2026-05-26 23:30:02 UTC"
+      "closing_ml_captured_at": "2026-05-26 23:45:01 UTC"
     },
     {
       "away_team": "Tampa Bay Rays",
@@ -626,7 +626,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -112,
       "closing_ml_away": -108,
-      "closing_ml_captured_at": "2026-05-26 23:30:02 UTC",
+      "closing_ml_captured_at": "2026-05-26 23:45:01 UTC",
       "starter_changed_home": true,
       "starter_changed_away": false,
       "original_home_pitcher": "Luis Severino",
