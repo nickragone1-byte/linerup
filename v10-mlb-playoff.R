@@ -242,6 +242,16 @@ sp_lookup <- sp_leaders %>%
   filter(!is.na(SP_SIERA), SP_IP >= 5) %>%
   mutate(sp_weight = pmin(1, pmax(0, (SP_IP - 5) / 25)))
 
+# Save current-season pitcher stats to CSV for the Python re-eval script to read.
+# Includes ALL pitchers (qual=1 returns everyone), so post-lock replacements
+# (rookie call-ups, surprise spot starts) are looked up directly.
+dir.create("/root/linerup/data", showWarnings = FALSE)
+sp_leaders %>%
+  filter(Season == 2026) %>%
+  select(PlayerName, team_name, IP, SIERA, ERA, K_pct, BB_pct, GS) %>%
+  readr::write_csv("/root/linerup/data/pitchers_current.csv")
+cat("Saved pitcher stats CSV:", nrow(sp_leaders %>% filter(Season == 2026)), "pitchers\n")
+
 cat("Team pitching records:", nrow(pit_lookup), "\n")
 cat("Individual SP records:", nrow(sp_lookup), "\n")
 
