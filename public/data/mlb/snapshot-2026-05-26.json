@@ -48,7 +48,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -239,
       "closing_ml_away": 194,
-      "closing_ml_captured_at": "2026-05-26 20:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC"
     },
     {
       "away_team": "St. Louis Cardinals",
@@ -92,7 +92,7 @@
       "display_tier": "LOCK",
       "closing_ml_home": -186,
       "closing_ml_away": 153,
-      "closing_ml_captured_at": "2026-05-26 20:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC"
     },
     {
       "away_team": "Houston Astros",
@@ -134,9 +134,9 @@
       "game_time": "2026-05-27T00:05Z",
       "the_read": "V10 finds a strong edge over the market line. Jack Leiter at full strength (54 IP). Market moving against this pick.",
       "display_tier": "PASS",
-      "closing_ml_home": -132,
-      "closing_ml_away": 109,
-      "closing_ml_captured_at": "2026-05-26 20:45:01 UTC"
+      "closing_ml_home": -136,
+      "closing_ml_away": 113,
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC"
     },
     {
       "away_team": "Miami Marlins",
@@ -180,7 +180,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -131,
       "closing_ml_away": 108,
-      "closing_ml_captured_at": "2026-05-26 20:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC"
     },
     {
       "away_team": "Washington Nationals",
@@ -224,7 +224,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -137,
       "closing_ml_away": 114,
-      "closing_ml_captured_at": "2026-05-26 20:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC"
     },
     {
       "away_team": "Cincinnati Reds",
@@ -268,7 +268,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 101,
       "closing_ml_away": -122,
-      "closing_ml_captured_at": "2026-05-26 20:45:01 UTC",
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC",
       "live_pick": "New York Mets",
       "live_confidence": 60.1,
       "live_edge": 14.9,
@@ -318,7 +318,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -143,
       "closing_ml_away": 119,
-      "closing_ml_captured_at": "2026-05-26 20:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC"
     },
     {
       "away_team": "Los Angeles Angels",
@@ -362,7 +362,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -137,
       "closing_ml_away": 114,
-      "closing_ml_captured_at": "2026-05-26 20:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC"
     },
     {
       "away_team": "Atlanta Braves",
@@ -406,7 +406,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -110,
       "closing_ml_away": -110,
-      "closing_ml_captured_at": "2026-05-26 20:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -450,7 +450,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -102,
       "closing_ml_away": -118,
-      "closing_ml_captured_at": "2026-05-26 20:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC"
     },
     {
       "away_team": "Arizona Diamondbacks",
@@ -494,7 +494,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -114,
       "closing_ml_away": -105,
-      "closing_ml_captured_at": "2026-05-26 20:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC"
     },
     {
       "away_team": "Philadelphia Phillies",
@@ -538,7 +538,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -109,
       "closing_ml_away": -110,
-      "closing_ml_captured_at": "2026-05-26 20:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC"
     },
     {
       "away_team": "Tampa Bay Rays",
@@ -582,7 +582,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -107,
       "closing_ml_away": -112,
-      "closing_ml_captured_at": "2026-05-26 20:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC"
     },
     {
       "away_team": "Seattle Mariners",
@@ -626,7 +626,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -115,
       "closing_ml_away": -105,
-      "closing_ml_captured_at": "2026-05-26 20:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC"
     },
     {
       "away_team": "New York Yankees",
@@ -670,7 +670,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 168,
       "closing_ml_away": -205,
-      "closing_ml_captured_at": "2026-05-26 20:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC"
     }
   ]
 }
