@@ -622,7 +622,7 @@
       "tbd_flag": null,
       "thin_sp": true,
       "game_time": "2026-05-27T01:40Z",
-      "the_read": "Re-evaluated after starter change: Luis Severino \u2192 Gage Jump (Athletics). No SIERA data on Jump (rookie, tiny sample) \u2014 model can't cleanly evaluate. Tier demoted from LEAN to PASS for safety.",
+      "the_read": "Re-evaluated after starter change (Luis Severino \u2192 Gage Jump (home)). Stays PASS.",
       "display_tier": "PASS",
       "closing_ml_home": -115,
       "closing_ml_away": -105,
@@ -632,7 +632,7 @@
       "original_home_pitcher": "Luis Severino",
       "current_home_pitcher": "Gage Jump",
       "starter_change_detected_at": "2026-05-26 21:05:01 UTC",
-      "re_evaluated_at": "2026-05-26 21:55:40 UTC"
+      "re_evaluated_at": "2026-05-26 22:05:01 UTC"
     },
     {
       "away_team": "New York Yankees",
