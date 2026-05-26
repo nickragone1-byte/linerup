@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-05-25 23:10:01 UTC",
-  "overall": "OK",
+  "generated_at": "2026-05-26 00:10:02 UTC",
+  "overall": "FAIL",
   "checks": {
     "mlb_snapshot": {
-      "status": "OK",
-      "msg": "MLB snapshot exists (13 games)"
+      "status": "FAIL",
+      "msg": "MLB snapshot for 2026-05-26 is missing"
     },
     "mlb_predictions": {
       "status": "OK",
-      "msg": "MLB predictions fresh (9 min ago)"
+      "msg": "MLB predictions fresh (69 min ago)"
     },
     "mlb_clv": {
       "status": "OK",
-      "msg": "MLB CLV: 13/13 games captured, latest 2026-05-25 23:00:04 UTC"
+      "msg": "MLB CLV check skipped (no snapshot yet)"
     },
     "mlb_results": {
       "status": "OK",
@@ -20,19 +20,19 @@
     },
     "mlb_starter": {
       "status": "OK",
-      "msg": "starter detector log fresh (5 min ago)"
+      "msg": "starter detector log fresh (65 min ago)"
     },
     "nba_snapshot": {
-      "status": "OK",
-      "msg": "NBA snapshot exists (1 games)"
+      "status": "FAIL",
+      "msg": "NBA snapshot for 2026-05-26 is missing"
     },
     "nba_predictions": {
       "status": "OK",
-      "msg": "NBA predictions fresh (10 min ago)"
+      "msg": "NBA predictions fresh (70 min ago)"
     },
     "nba_clv": {
       "status": "OK",
-      "msg": "NBA CLV: 1/1 games captured, latest 2026-05-25 23:00:01 UTC"
+      "msg": "NBA CLV check skipped (no snapshot yet)"
     },
     "nba_results": {
       "status": "OK",
