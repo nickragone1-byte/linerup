@@ -48,7 +48,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -244,
       "closing_ml_away": 197,
-      "closing_ml_captured_at": "2026-05-26 23:15:03 UTC"
+      "closing_ml_captured_at": "2026-05-26 23:30:02 UTC"
     },
     {
       "away_team": "St. Louis Cardinals",
@@ -92,7 +92,7 @@
       "display_tier": "LOCK",
       "closing_ml_home": -218,
       "closing_ml_away": 178,
-      "closing_ml_captured_at": "2026-05-26 23:15:03 UTC"
+      "closing_ml_captured_at": "2026-05-26 23:30:02 UTC"
     },
     {
       "away_team": "Houston Astros",
@@ -136,7 +136,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -132,
       "closing_ml_away": 109,
-      "closing_ml_captured_at": "2026-05-26 23:15:03 UTC"
+      "closing_ml_captured_at": "2026-05-26 23:30:02 UTC"
     },
     {
       "away_team": "Miami Marlins",
@@ -448,9 +448,9 @@
       "game_time": "2026-05-26T23:40Z",
       "the_read": "V10 finds a small edge over the market line. Sean Burke at full strength (53 IP).",
       "display_tier": "PASS",
-      "closing_ml_home": -101,
-      "closing_ml_away": -120,
-      "closing_ml_captured_at": "2026-05-26 23:15:03 UTC"
+      "closing_ml_home": -102,
+      "closing_ml_away": -118,
+      "closing_ml_captured_at": "2026-05-26 23:30:02 UTC"
     },
     {
       "away_team": "Arizona Diamondbacks",
@@ -494,7 +494,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -115,
       "closing_ml_away": -105,
-      "closing_ml_captured_at": "2026-05-26 23:15:03 UTC"
+      "closing_ml_captured_at": "2026-05-26 23:30:02 UTC"
     },
     {
       "away_team": "Philadelphia Phillies",
@@ -538,7 +538,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -110,
       "closing_ml_away": -109,
-      "closing_ml_captured_at": "2026-05-26 23:15:03 UTC"
+      "closing_ml_captured_at": "2026-05-26 23:30:02 UTC"
     },
     {
       "away_team": "Tampa Bay Rays",
@@ -626,7 +626,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -112,
       "closing_ml_away": -108,
-      "closing_ml_captured_at": "2026-05-26 23:15:03 UTC",
+      "closing_ml_captured_at": "2026-05-26 23:30:02 UTC",
       "starter_changed_home": true,
       "starter_changed_away": false,
       "original_home_pitcher": "Luis Severino",
@@ -676,7 +676,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 168,
       "closing_ml_away": -205,
-      "closing_ml_captured_at": "2026-05-26 23:15:03 UTC"
+      "closing_ml_captured_at": "2026-05-26 23:30:02 UTC"
     }
   ]
 }
