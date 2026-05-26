@@ -626,7 +626,12 @@
       "display_tier": "LEAN",
       "closing_ml_home": -115,
       "closing_ml_away": -105,
-      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-26 21:00:02 UTC",
+      "starter_changed_home": true,
+      "starter_changed_away": false,
+      "original_home_pitcher": "Luis Severino",
+      "current_home_pitcher": "Gage Jump",
+      "starter_change_detected_at": "2026-05-26 21:05:01 UTC"
     },
     {
       "away_team": "New York Yankees",
