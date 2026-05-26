@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26 17:00:31 UTC",
+  "generated_at": "2026-05-26 18:00:30 UTC",
   "date": "2026-05-26",
   "model_version": "V7",
   "validated_oos_accuracy": 68.32,
@@ -27,7 +27,7 @@
       "pick": "Oklahoma City Thunder",
       "confidence": 62.5,
       "edge": -0.1,
-      "over_under": 216.5,
+      "over_under": 217.5,
       "is_playoff": 1,
       "the_read": "V7 finds a small edge over the market line. Both teams at full strength. Market moving against this pick."
     }
