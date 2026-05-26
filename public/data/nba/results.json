@@ -1,26 +1,7 @@
 {
   "model_version": "V7",
-  "last_updated": "2026-05-25",
-  "tracking_start_date": "2026-05-25",
-  "note": "Track record reset on May 25, 2026 \u2014 clean start for honest tracking.",
-  "results": [
-    {
-      "date": "2026-05-25",
-      "matchup": "New York Knicks @ Cleveland Cavaliers",
-      "away_team": "New York Knicks",
-      "home_team": "Cleveland Cavaliers",
-      "tier": "PLAY",
-      "pick": "New York Knicks ML (-135)",
-      "model_prob": 0.663,
-      "edge": -11.5,
-      "confidence_weight": 0.163,
-      "outcome": "WIN",
-      "final_score": "New York Knicks 130, Cleveland Cavaliers 93",
-      "the_read": "V7 finds a strong edge over the market line. Both teams at full strength.",
-      "lock_ml": -135,
-      "closing_ml": -135,
-      "clv_cents": 0,
-      "beat_close": false
-    }
-  ]
+  "last_updated": "2026-05-27",
+  "tracking_start_date": "2026-05-27",
+  "note": "Track record reset on May 27, 2026 \u2014 fresh start after week-one inconsistencies.",
+  "results": []
 }

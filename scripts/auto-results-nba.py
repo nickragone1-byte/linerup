@@ -163,10 +163,20 @@ def update_results(new_records, yesterday_str):
     print(f"Done: {len(new_records)} NBA records for {yesterday_str}")
 
 def main():
+    # Respect tracking_start_date from results.json — never grade picks from before the reset
+    with open(RESULTS_PATH) as f:
+        results_data = json.load(f)
+    tracking_start = results_data.get("tracking_start_date", "2026-05-27")
+
     now_et = datetime.now(timezone.utc) - timedelta(hours=4)
     yesterday = now_et - timedelta(days=1)
     yesterday_str = yesterday.strftime("%Y-%m-%d")
     date_str_espn = yesterday.strftime("%Y%m%d")
+
+    if yesterday_str < tracking_start:
+        print(f"Skipping NBA {yesterday_str} — before tracking_start ({tracking_start})")
+        return
+
     print(f"Grading NBA {yesterday_str}...")
     records = grade_picks(yesterday_str, date_str_espn)
     if records:
