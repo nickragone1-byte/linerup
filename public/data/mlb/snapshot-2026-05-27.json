@@ -578,7 +578,20 @@
       "display_tier": "PASS",
       "closing_ml_home": -115,
       "closing_ml_away": -105,
-      "closing_ml_captured_at": "2026-05-27 22:30:02 UTC"
+      "closing_ml_captured_at": "2026-05-27 22:30:02 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-27 22:40:01 UTC",
+      "locked_pick": "Atlanta Braves",
+      "locked_pick_ml": -105,
+      "locked_confidence": 54.4,
+      "locked_edge": -4.9,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": -115,
+      "locked_away_ml": -105,
+      "locked_home_pitcher": "Connelly Early",
+      "locked_away_pitcher": "Bryce Elder",
+      "locked_sharp_signal": "no data",
+      "locked_line_move": null
     },
     {
       "away_team": "Arizona Diamondbacks",
