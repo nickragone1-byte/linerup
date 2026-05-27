@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { getPredictions, getResults } from "@/lib/data";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: "Linerup — MLB Analytics",
   description: "Public, transparent MLB analytics model. Every prediction published before first pitch. Every result tracked.",

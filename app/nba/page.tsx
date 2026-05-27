@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { getNBAPredictions, getNBAResults } from "@/lib/data-nba";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: "Linerup — NBA Analytics",
   description: "Public, transparent NBA analytics model. V7 validated at 68.2% out-of-sample on 6,258 games. Every prediction published before tip-off. Every result tracked.",
