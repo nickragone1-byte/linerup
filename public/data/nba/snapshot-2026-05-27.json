@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-05-26 23:00:29 UTC",
+  "date": "2026-05-26",
+  "model_version": "V7",
+  "validated_oos_accuracy": 68.32,
+  "training_games": 6265,
+  "games": [
+    {
+      "away_team": "San Antonio Spurs",
+      "home_team": "Oklahoma City Thunder",
+      "game_time": "2026-05-27T00:30Z",
+      "away_ml": 136,
+      "home_ml": -162,
+      "ml_open_home": -198,
+      "line_move": 36,
+      "vegas_spread": -3.5,
+      "vegas_spread_open": null,
+      "spread_move": null,
+      "sharp_signal": "sharp on AWAY",
+      "h_top_missing": 0,
+      "a_top_missing": 0,
+      "h_top_wtd": 0,
+      "a_top_wtd": 0,
+      "model_prob_home": 64.5,
+      "vegas_prob_home": 61.5,
+      "final_prob_home": 61.6,
+      "pick": "Oklahoma City Thunder",
+      "confidence": 61.6,
+      "edge": 3,
+      "over_under": 217.5,
+      "is_playoff": 1,
+      "the_read": "V7 finds a small edge over the market line. Both teams at full strength. Market moving against this pick.",
+      "display_tier": "PASS"
+    }
+  ]
+}
