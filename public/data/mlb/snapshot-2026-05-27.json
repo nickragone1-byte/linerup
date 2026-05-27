@@ -224,7 +224,20 @@
       "display_tier": "PASS",
       "closing_ml_home": -185,
       "closing_ml_away": 152,
-      "closing_ml_captured_at": "2026-05-27 17:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-27 17:00:02 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-27 17:06:01 UTC",
+      "locked_pick": "Cleveland Guardians",
+      "locked_pick_ml": -188,
+      "locked_confidence": 59.9,
+      "locked_edge": -3.7,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": -188,
+      "locked_away_ml": 154,
+      "locked_home_pitcher": "Gavin Williams",
+      "locked_away_pitcher": "PJ Poulin",
+      "locked_sharp_signal": "mild on AWAY",
+      "locked_line_move": 11
     },
     {
       "away_team": "Miami Marlins",
