@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Public, transparent MLB analytics model. Every prediction published before first pitch. Every result tracked.",
 };
 import { computeTier, TIER_ORDER } from "@/lib/tier";
-import { toDisplayTier, passReason } from "@/lib/display-tier";
+import { toDisplayTier, passReason, type DisplayTier } from "@/lib/display-tier";
 import { generateNarrative } from "@/lib/narrative";
 import Header from "@/app/components/Header";
 import HeroCard from "@/app/components/HeroCard";
