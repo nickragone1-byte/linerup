@@ -489,7 +489,20 @@
       "display_tier": "PASS",
       "closing_ml_home": 123,
       "closing_ml_away": -148,
-      "closing_ml_captured_at": "2026-05-27 20:00:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 20:00:01 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-27 20:06:01 UTC",
+      "locked_pick": "Philadelphia Phillies",
+      "locked_pick_ml": -143,
+      "locked_confidence": 53.7,
+      "locked_edge": 3.9,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": 119,
+      "locked_away_ml": -143,
+      "locked_home_pitcher": "Walker Buehler",
+      "locked_away_pitcher": "Cristopher S\u00e1nchez",
+      "locked_sharp_signal": "mild on HOME",
+      "locked_line_move": -10
     },
     {
       "away_team": "Atlanta Braves",
