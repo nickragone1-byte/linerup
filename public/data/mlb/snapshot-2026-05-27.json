@@ -92,7 +92,20 @@
       "display_tier": "PLAY",
       "closing_ml_home": -180,
       "closing_ml_away": 148,
-      "closing_ml_captured_at": "2026-05-27 17:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 17:30:01 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-27 17:36:02 UTC",
+      "locked_pick": "Milwaukee Brewers",
+      "locked_pick_ml": -154,
+      "locked_confidence": 64.6,
+      "locked_edge": 6.3,
+      "locked_display_tier": "PLAY",
+      "locked_home_ml": -154,
+      "locked_away_ml": 128,
+      "locked_home_pitcher": "Chad Patrick",
+      "locked_away_pitcher": "Dustin May",
+      "locked_sharp_signal": "neutral",
+      "locked_line_move": -6
     },
     {
       "away_team": "Cincinnati Reds",
