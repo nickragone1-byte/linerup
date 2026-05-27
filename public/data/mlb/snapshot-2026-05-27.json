@@ -397,11 +397,11 @@
       "closing_ml_away": -107,
       "closing_ml_captured_at": "2026-05-27 20:00:01 UTC",
       "live_pick": "Los Angeles Angels",
-      "live_confidence": 50.2,
-      "live_edge": 4.8,
+      "live_confidence": 50.1,
+      "live_edge": 4.9,
       "live_model_diverged": true,
       "live_pick_changed": true,
-      "live_updated_at": "2026-05-27 19:07:01 UTC"
+      "live_updated_at": "2026-05-27 20:07:01 UTC"
     },
     {
       "away_team": "Minnesota Twins",
