@@ -30,7 +30,20 @@
       "over_under": 217.5,
       "is_playoff": 1,
       "the_read": "V7 finds a small edge over the market line. Both teams at full strength. Market moving against this pick.",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "is_locked": true,
+      "locked_at": "2026-05-27 17:32:01 UTC",
+      "locked_pick": "Oklahoma City Thunder",
+      "locked_pick_ml": -162,
+      "locked_confidence": 61.6,
+      "locked_edge": 3,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": -162,
+      "locked_away_ml": 136,
+      "locked_home_pitcher": null,
+      "locked_away_pitcher": null,
+      "locked_sharp_signal": "sharp on AWAY",
+      "locked_line_move": 36
     }
   ]
 }
