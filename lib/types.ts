@@ -45,6 +45,24 @@ export interface Game {
   tbd_flag: string | null;
   thin_sp: boolean;
   game_time: string | null;
+  // Per-game first-pitch lock fields (frozen 5 min before game starts)
+  is_locked?: boolean;
+  locked_at?: string;
+  locked_pick?: string;
+  locked_pick_ml?: number | null;
+  locked_confidence?: number;
+  locked_edge?: number | null;
+  locked_display_tier?: string;
+  locked_home_ml?: number | null;
+  locked_away_ml?: number | null;
+  locked_home_pitcher?: string;
+  locked_away_pitcher?: string;
+  locked_sharp_signal?: string | null;
+  locked_line_move?: number | null;
+  closing_ml_home?: number | null;
+  closing_ml_away?: number | null;
+  closing_ml_captured_at?: string;
+  display_tier?: string;
 }
 
 export interface PredictionsData {
