@@ -268,7 +268,20 @@
       "display_tier": "PASS",
       "closing_ml_home": -156,
       "closing_ml_away": 129,
-      "closing_ml_captured_at": "2026-05-27 17:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-27 17:00:02 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-27 17:02:01 UTC",
+      "locked_pick": "Toronto Blue Jays",
+      "locked_pick_ml": -156,
+      "locked_confidence": 59.6,
+      "locked_edge": -1.1,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": -156,
+      "locked_away_ml": 129,
+      "locked_home_pitcher": "Kevin Gausman",
+      "locked_away_pitcher": "Eury P\u00e9rez",
+      "locked_sharp_signal": "neutral",
+      "locked_line_move": 0
     },
     {
       "away_team": "Chicago Cubs",
