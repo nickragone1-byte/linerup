@@ -48,7 +48,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -443,
       "closing_ml_away": 336,
-      "closing_ml_captured_at": "2026-05-27 23:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-27 23:30:01 UTC"
     },
     {
       "away_team": "St. Louis Cardinals",
@@ -206,7 +206,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -149,
       "closing_ml_away": 124,
-      "closing_ml_captured_at": "2026-05-27 23:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-27 23:30:01 UTC"
     },
     {
       "away_team": "Washington Nationals",
@@ -484,7 +484,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -110,
       "closing_ml_away": -110,
-      "closing_ml_captured_at": "2026-05-27 23:15:02 UTC",
+      "closing_ml_captured_at": "2026-05-27 23:30:01 UTC",
       "starter_changed_home": true,
       "starter_changed_away": false,
       "original_home_pitcher": "Davis Martin",
@@ -825,7 +825,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 129,
       "closing_ml_away": -156,
-      "closing_ml_captured_at": "2026-05-27 23:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-27 23:30:01 UTC"
     }
   ]
 }
