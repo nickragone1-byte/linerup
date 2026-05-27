@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27 18:10:02 UTC",
+  "generated_at": "2026-05-27 19:10:01 UTC",
   "overall": "WARN",
   "checks": {
     "mlb_snapshot": {
@@ -8,11 +8,11 @@
     },
     "mlb_predictions": {
       "status": "OK",
-      "msg": "MLB predictions fresh (9 min ago)"
+      "msg": "MLB predictions fresh (8 min ago)"
     },
     "mlb_clv": {
       "status": "OK",
-      "msg": "MLB CLV: 15/15 games captured, latest 2026-05-27 18:00:02 UTC"
+      "msg": "MLB CLV: 15/15 games captured, latest 2026-05-27 19:00:01 UTC"
     },
     "mlb_results": {
       "status": "OK",
@@ -28,7 +28,7 @@
     },
     "nba_predictions": {
       "status": "WARN",
-      "msg": "NBA predictions.json is 1150 min old (script may have failed)"
+      "msg": "NBA predictions.json is 1210 min old (script may have failed)"
     },
     "nba_clv": {
       "status": "WARN",
