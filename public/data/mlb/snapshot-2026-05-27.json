@@ -398,10 +398,10 @@
       "closing_ml_captured_at": "2026-05-27 22:00:03 UTC",
       "live_pick": "Los Angeles Angels",
       "live_confidence": 50.1,
-      "live_edge": 5,
+      "live_edge": 4.9,
       "live_model_diverged": true,
       "live_pick_changed": true,
-      "live_updated_at": "2026-05-27 21:07:01 UTC"
+      "live_updated_at": "2026-05-27 22:07:01 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -653,7 +653,13 @@
       "display_tier": "PASS",
       "closing_ml_home": 108,
       "closing_ml_away": -131,
-      "closing_ml_captured_at": "2026-05-27 22:00:03 UTC"
+      "closing_ml_captured_at": "2026-05-27 22:00:03 UTC",
+      "live_pick": "Tampa Bay Rays",
+      "live_confidence": 56,
+      "live_edge": 0.4,
+      "live_model_diverged": true,
+      "live_pick_changed": false,
+      "live_updated_at": "2026-05-27 22:07:01 UTC"
     },
     {
       "away_team": "Seattle Mariners",
