@@ -38,8 +38,22 @@ export default async function MLBPage() {
 
   const withTiers = uniqueGames
     .map((game) => {
-      const internal = computeTier(game);
-      const display = toDisplayTier(internal);
+      // If game is locked (within 5 min of first pitch or already started),
+      // use the frozen locked_display_tier — that's the official call.
+      // Otherwise compute fresh tier from current data.
+      let display: string;
+      let internal: ReturnType<typeof computeTier>;
+      if (game.is_locked && game.locked_display_tier) {
+        display = game.locked_display_tier;
+        // Map display back to internal for sorting (LOCK/BET stay distinct)
+        internal = display === "LOCK" ? "LOCK"
+                 : display === "PLAY" ? "BET"
+                 : display === "LEAN" ? "LEAN"
+                 : computeTier(game);
+      } else {
+        internal = computeTier(game);
+        display = toDisplayTier(internal);
+      }
       const narrative = generateNarrative(game, internal);
       const reason = passReason(internal, game);
       return { game, internal, display, narrative, reason };

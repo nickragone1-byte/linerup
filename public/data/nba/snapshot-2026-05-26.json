@@ -33,7 +33,20 @@
       "display_tier": "PASS",
       "closing_ml_home": -162,
       "closing_ml_away": 136,
-      "closing_ml_captured_at": "2026-05-26 23:45:02 UTC"
+      "closing_ml_captured_at": "2026-05-26 23:45:02 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-27 04:25:05 UTC",
+      "locked_pick": "Oklahoma City Thunder",
+      "locked_pick_ml": -170,
+      "locked_confidence": 62.5,
+      "locked_edge": -0.1,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": -170,
+      "locked_away_ml": 142,
+      "locked_home_pitcher": null,
+      "locked_away_pitcher": null,
+      "locked_sharp_signal": "sharp on AWAY",
+      "locked_line_move": 28
     }
   ]
 }

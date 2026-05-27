@@ -60,7 +60,7 @@ def grade_picks(yesterday_str, date_str_espn):
         pick_ml = g.get("home_ml") if pick == g.get("home_team") else g.get("away_ml")
         if pick_ml is None:
             continue
-        display_tier = g.get("display_tier")
+        display_tier = g.get("locked_display_tier") or g.get("display_tier")
         if display_tier is not None:
             if display_tier in ("PLAY", "LOCK"):
                 tier = "PLAY"

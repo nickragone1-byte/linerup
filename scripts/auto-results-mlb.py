@@ -61,7 +61,8 @@ def grade_picks(yesterday_str, date_str_espn):
         pick_ml = g.get("home_ml") if pick == g.get("home_team") else g.get("away_ml")
         if pick_ml is None:
             continue
-        display_tier = g.get("display_tier")
+        # Prefer locked_display_tier (frozen at first pitch) over display_tier
+        display_tier = g.get("locked_display_tier") or g.get("display_tier")
         if display_tier is not None:
             # New-style snapshot: only grade PLAY and LEAN (and LOCK, which counts as PLAY).
             if display_tier in ("PLAY", "LOCK"):
@@ -130,7 +131,10 @@ def grade_picks(yesterday_str, date_str_espn):
         else:
             outcome = "LOSS"
         is_home_pick = pick == g.get("home_team")
-        pick_ml = g.get("home_ml") if is_home_pick else g.get("away_ml")
+        # Prefer locked_pick_ml (frozen at first pitch) over current ml
+        pick_ml = g.get("locked_pick_ml")
+        if pick_ml is None:
+            pick_ml = g.get("home_ml") if is_home_pick else g.get("away_ml")
         ml_str = f"+{pick_ml}" if pick_ml and pick_ml > 0 else str(pick_ml)
 
         # CLV: lock price - closing price, on the side we picked.
