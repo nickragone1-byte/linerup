@@ -48,7 +48,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -424,
       "closing_ml_away": 324,
-      "closing_ml_captured_at": "2026-05-27 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 20:00:01 UTC"
     },
     {
       "away_team": "St. Louis Cardinals",
@@ -149,7 +149,7 @@
       "display_tier": "PLAY",
       "closing_ml_home": -119,
       "closing_ml_away": -102,
-      "closing_ml_captured_at": "2026-05-27 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 20:00:01 UTC"
     },
     {
       "away_team": "Houston Astros",
@@ -193,7 +193,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -144,
       "closing_ml_away": 119,
-      "closing_ml_captured_at": "2026-05-27 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 20:00:01 UTC"
     },
     {
       "away_team": "Washington Nationals",
@@ -351,7 +351,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -126,
       "closing_ml_away": 104,
-      "closing_ml_captured_at": "2026-05-27 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 20:00:01 UTC"
     },
     {
       "away_team": "Los Angeles Angels",
@@ -395,7 +395,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -112,
       "closing_ml_away": -107,
-      "closing_ml_captured_at": "2026-05-27 19:45:01 UTC",
+      "closing_ml_captured_at": "2026-05-27 20:00:01 UTC",
       "live_pick": "Los Angeles Angels",
       "live_confidence": 50.2,
       "live_edge": 4.8,
@@ -445,7 +445,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -110,
       "closing_ml_away": -110,
-      "closing_ml_captured_at": "2026-05-27 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 20:00:01 UTC"
     },
     {
       "away_team": "Philadelphia Phillies",
@@ -489,7 +489,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 123,
       "closing_ml_away": -148,
-      "closing_ml_captured_at": "2026-05-27 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 20:00:01 UTC"
     },
     {
       "away_team": "Atlanta Braves",
@@ -531,9 +531,9 @@
       "game_time": "2026-05-27T22:45Z",
       "the_read": "V10 finds a solid edge over the market line. Connelly Early at full strength (54 IP).",
       "display_tier": "PASS",
-      "closing_ml_home": -117,
-      "closing_ml_away": -103,
-      "closing_ml_captured_at": "2026-05-27 19:45:01 UTC"
+      "closing_ml_home": -118,
+      "closing_ml_away": -102,
+      "closing_ml_captured_at": "2026-05-27 20:00:01 UTC"
     },
     {
       "away_team": "Arizona Diamondbacks",
@@ -634,7 +634,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -108,
       "closing_ml_away": -112,
-      "closing_ml_captured_at": "2026-05-27 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 20:00:01 UTC"
     },
     {
       "away_team": "Seattle Mariners",
@@ -735,7 +735,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 134,
       "closing_ml_away": -162,
-      "closing_ml_captured_at": "2026-05-27 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 20:00:01 UTC"
     }
   ]
 }
