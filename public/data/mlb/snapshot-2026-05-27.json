@@ -490,7 +490,20 @@
       "original_home_pitcher": "Davis Martin",
       "current_home_pitcher": "David Sandlin",
       "starter_change_detected_at": "2026-05-27 21:05:01 UTC",
-      "re_evaluated_at": "2026-05-27 23:05:01 UTC"
+      "re_evaluated_at": "2026-05-27 23:05:01 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-27 23:36:01 UTC",
+      "locked_pick": "Minnesota Twins",
+      "locked_pick_ml": -109,
+      "locked_confidence": 51.6,
+      "locked_edge": -1.7,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": -110,
+      "locked_away_ml": -109,
+      "locked_home_pitcher": "David Sandlin",
+      "locked_away_pitcher": "Connor Prielipp",
+      "locked_sharp_signal": "sharp on AWAY",
+      "locked_line_move": 21
     },
     {
       "away_team": "Philadelphia Phillies",
@@ -825,7 +838,20 @@
       "display_tier": "PASS",
       "closing_ml_home": 129,
       "closing_ml_away": -156,
-      "closing_ml_captured_at": "2026-05-27 23:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 23:30:01 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-27 23:36:01 UTC",
+      "locked_pick": "New York Yankees",
+      "locked_pick_ml": -157,
+      "locked_confidence": 58.7,
+      "locked_edge": -2.3,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": 130,
+      "locked_away_ml": -157,
+      "locked_home_pitcher": "Noah Cameron",
+      "locked_away_pitcher": "Gerrit Cole",
+      "locked_sharp_signal": "mild on AWAY",
+      "locked_line_move": 11
     }
   ]
 }
