@@ -23,14 +23,35 @@ export async function getPredictions(sport: string): Promise<PredictionsData> {
     month: "2-digit",
     day: "2-digit",
   }).format(new Date());
-  const snapshotPath = path.join(dataDir, `snapshot-${today}.json`);
-  const hasSnapshot = await fileExists(snapshotPath);
+  let snapshotPath = path.join(dataDir, `snapshot-${today}.json`);
+  let hasSnapshot = await fileExists(snapshotPath);
+
+  // Fallback: if today's snapshot doesn't exist yet (e.g. between midnight ET and
+  // the 9:30 AM PT freeze), use the most recent snapshot up to 2 days back.
+  if (!hasSnapshot) {
+    for (let i = 1; i <= 2; i++) {
+      const d = new Date();
+      d.setUTCDate(d.getUTCDate() - i);
+      const fallback = new Intl.DateTimeFormat("en-CA", {
+        timeZone: "America/New_York",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(d);
+      const fallbackPath = path.join(dataDir, `snapshot-${fallback}.json`);
+      if (await fileExists(fallbackPath)) {
+        snapshotPath = fallbackPath;
+        hasSnapshot = true;
+        break;
+      }
+    }
+  }
 
   // Load live predictions
   const liveRaw = await fs.readFile(livePath, "utf-8");
   const live = JSON.parse(liveRaw) as PredictionsData;
 
-  // If no snapshot yet, just return live
+  // If still no snapshot found, return live (very first day of operation)
   if (!hasSnapshot) return live;
 
   // Load snapshot (frozen picks/tiers)
