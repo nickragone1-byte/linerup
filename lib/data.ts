@@ -15,11 +15,14 @@ export async function getPredictions(sport: string): Promise<PredictionsData> {
   const dataDir = path.join(process.cwd(), "public", "data", sport);
   const livePath = path.join(dataDir, "predictions.json");
 
-  // Check for today's snapshot (using ET — same timezone the snapshots are stamped with)
-  const nowUtc = new Date();
-  const etOffsetMs = -4 * 60 * 60 * 1000;  // EDT in May (UTC-4)
-  const todayEt = new Date(nowUtc.getTime() + etOffsetMs).toISOString().split("T")[0];
-  const today = todayEt;
+  // Today in ET — using Intl.DateTimeFormat so DST transitions are handled correctly.
+  // en-CA locale formats dates as YYYY-MM-DD natively.
+  const today = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/New_York",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
   const snapshotPath = path.join(dataDir, `snapshot-${today}.json`);
   const hasSnapshot = await fileExists(snapshotPath);
 
