@@ -351,7 +351,20 @@
       "display_tier": "PASS",
       "closing_ml_home": -125,
       "closing_ml_away": 104,
-      "closing_ml_captured_at": "2026-05-27 22:30:02 UTC"
+      "closing_ml_captured_at": "2026-05-27 22:30:02 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-27 22:36:01 UTC",
+      "locked_pick": "Pittsburgh Pirates",
+      "locked_pick_ml": -119,
+      "locked_confidence": 54.2,
+      "locked_edge": 0.3,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": -119,
+      "locked_away_ml": -102,
+      "locked_home_pitcher": "Bubba Chandler",
+      "locked_away_pitcher": "Jameson Taillon",
+      "locked_sharp_signal": "neutral",
+      "locked_line_move": -4
     },
     {
       "away_team": "Los Angeles Angels",
@@ -401,7 +414,20 @@
       "live_edge": 4.9,
       "live_model_diverged": true,
       "live_pick_changed": true,
-      "live_updated_at": "2026-05-27 22:07:01 UTC"
+      "live_updated_at": "2026-05-27 22:07:01 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-27 22:36:01 UTC",
+      "locked_pick": "Detroit Tigers",
+      "locked_pick_ml": -115,
+      "locked_confidence": 50,
+      "locked_edge": 4.1,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": -115,
+      "locked_away_ml": -104,
+      "locked_home_pitcher": "Casey Mize",
+      "locked_away_pitcher": "Jos\u00e9 Soriano",
+      "locked_sharp_signal": "mild on AWAY",
+      "locked_line_move": 11
     },
     {
       "away_team": "Minnesota Twins",
