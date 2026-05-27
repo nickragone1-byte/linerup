@@ -48,7 +48,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -427,
       "closing_ml_away": 326,
-      "closing_ml_captured_at": "2026-05-27 21:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 21:45:02 UTC"
     },
     {
       "away_team": "St. Louis Cardinals",
@@ -149,7 +149,7 @@
       "display_tier": "PLAY",
       "closing_ml_home": -119,
       "closing_ml_away": -102,
-      "closing_ml_captured_at": "2026-05-27 21:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 21:45:02 UTC"
     },
     {
       "away_team": "Houston Astros",
@@ -193,7 +193,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -149,
       "closing_ml_away": 119,
-      "closing_ml_captured_at": "2026-05-27 21:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 21:45:02 UTC"
     },
     {
       "away_team": "Washington Nationals",
@@ -351,7 +351,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -125,
       "closing_ml_away": 104,
-      "closing_ml_captured_at": "2026-05-27 21:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 21:45:02 UTC"
     },
     {
       "away_team": "Los Angeles Angels",
@@ -395,7 +395,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -112,
       "closing_ml_away": -107,
-      "closing_ml_captured_at": "2026-05-27 21:30:01 UTC",
+      "closing_ml_captured_at": "2026-05-27 21:45:02 UTC",
       "live_pick": "Los Angeles Angels",
       "live_confidence": 50.1,
       "live_edge": 5,
@@ -445,7 +445,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -112,
       "closing_ml_away": -108,
-      "closing_ml_captured_at": "2026-05-27 21:30:01 UTC",
+      "closing_ml_captured_at": "2026-05-27 21:45:02 UTC",
       "starter_changed_home": true,
       "starter_changed_away": false,
       "original_home_pitcher": "Davis Martin",
@@ -552,7 +552,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -115,
       "closing_ml_away": -105,
-      "closing_ml_captured_at": "2026-05-27 21:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 21:45:02 UTC"
     },
     {
       "away_team": "Arizona Diamondbacks",
@@ -653,7 +653,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -108,
       "closing_ml_away": -112,
-      "closing_ml_captured_at": "2026-05-27 21:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 21:45:02 UTC"
     },
     {
       "away_team": "Seattle Mariners",
@@ -754,7 +754,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 130,
       "closing_ml_away": -157,
-      "closing_ml_captured_at": "2026-05-27 21:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 21:45:02 UTC"
     }
   ]
 }
