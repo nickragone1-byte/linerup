@@ -149,7 +149,20 @@
       "display_tier": "PLAY",
       "closing_ml_home": -120,
       "closing_ml_away": 100,
-      "closing_ml_captured_at": "2026-05-27 23:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-27 23:00:02 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-27 23:06:01 UTC",
+      "locked_pick": "New York Mets",
+      "locked_pick_ml": -119,
+      "locked_confidence": 61,
+      "locked_edge": 10,
+      "locked_display_tier": "PLAY",
+      "locked_home_ml": -119,
+      "locked_away_ml": -102,
+      "locked_home_pitcher": "Huascar Brazob\u00e1n",
+      "locked_away_pitcher": "Andrew Abbott",
+      "locked_sharp_signal": "neutral",
+      "locked_line_move": 3
     },
     {
       "away_team": "Houston Astros",
