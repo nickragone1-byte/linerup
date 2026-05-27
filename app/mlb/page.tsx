@@ -45,8 +45,8 @@ export default async function MLBPage() {
       // If game is locked (within 5 min of first pitch or already started),
       // use the frozen locked_display_tier — that's the official call.
       // Otherwise compute display tier fresh from current internal tier.
-      const display: string = (game.is_locked && game.locked_display_tier)
-        ? game.locked_display_tier
+      const display: DisplayTier = (game.is_locked && game.locked_display_tier)
+        ? (game.locked_display_tier as DisplayTier)
         : toDisplayTier(internal);
       const narrative = generateNarrative(game, internal);
       const reason = passReason(internal, game);
