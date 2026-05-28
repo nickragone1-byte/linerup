@@ -1,7 +1,7 @@
 {
   "model_version": "V7",
-  "last_updated": "2026-05-27",
-  "tracking_start_date": "2026-05-27",
-  "note": "Track record reset on May 27, 2026 \u2014 fresh start after week-one inconsistencies.",
+  "last_updated": "2026-05-28",
+  "tracking_start_date": "2026-05-28",
+  "note": "Track record reset on May 28, 2026 \u2014 fresh start after pipeline fixes (live model inputs, TBD guard, tiered contradiction rule). Clean slate so every tracked pick reflects the corrected system.",
   "results": []
 }

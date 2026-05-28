@@ -1,62 +1,7 @@
 {
   "model_version": "V10",
-  "last_updated": "2026-05-27",
-  "tracking_start_date": "2026-05-27",
-  "note": "Track record reset on May 27, 2026 \u2014 fresh start after week-one inconsistencies.",
-  "results": [
-    {
-      "date": "2026-05-27",
-      "matchup": "St. Louis Cardinals @ Milwaukee Brewers",
-      "away_team": "St. Louis Cardinals",
-      "home_team": "Milwaukee Brewers",
-      "tier": "PLAY",
-      "pick": "Milwaukee Brewers ML (-154)",
-      "model_prob": 0.646,
-      "edge": 6.3,
-      "confidence_weight": 0.146,
-      "outcome": "WIN",
-      "final_score": "St. Louis Cardinals 1, Milwaukee Brewers 2",
-      "the_read": "V10 finds a solid edge over the market line. Chad Patrick at full strength (41 IP).",
-      "lock_ml": -154,
-      "closing_ml": -180,
-      "clv_cents": 26,
-      "beat_close": true
-    },
-    {
-      "date": "2026-05-27",
-      "matchup": "Cincinnati Reds @ New York Mets",
-      "away_team": "Cincinnati Reds",
-      "home_team": "New York Mets",
-      "tier": "PLAY",
-      "pick": "New York Mets ML (-119)",
-      "model_prob": 0.61,
-      "edge": 10,
-      "confidence_weight": 0.11,
-      "outcome": "WIN",
-      "final_score": "Cincinnati Reds 2, New York Mets 4",
-      "the_read": "V10 finds a strong edge over the market line. Huascar Brazob\u00e1n at full strength (26 IP).",
-      "lock_ml": -119,
-      "closing_ml": -120,
-      "clv_cents": 1,
-      "beat_close": true
-    },
-    {
-      "date": "2026-05-27",
-      "matchup": "Seattle Mariners @ Athletics",
-      "away_team": "Seattle Mariners",
-      "home_team": "Athletics",
-      "tier": "PLAY",
-      "pick": "Seattle Mariners ML (-126)",
-      "model_prob": 0.581,
-      "edge": -3.9,
-      "confidence_weight": 0.081,
-      "outcome": "WIN",
-      "final_score": "Seattle Mariners 9, Athletics 1",
-      "the_read": "V10 finds a small edge over the market line. Jeffrey Springs at full strength (61 IP).",
-      "lock_ml": -126,
-      "closing_ml": -120,
-      "clv_cents": -6,
-      "beat_close": false
-    }
-  ]
+  "last_updated": "2026-05-28",
+  "tracking_start_date": "2026-05-28",
+  "note": "Track record reset on May 28, 2026 \u2014 fresh start after pipeline fixes (live model inputs, TBD guard, tiered contradiction rule). Clean slate so every tracked pick reflects the corrected system.",
+  "results": []
 }
