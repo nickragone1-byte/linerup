@@ -48,7 +48,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -136,
       "closing_ml_away": 113,
-      "closing_ml_captured_at": "2026-05-28 20:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-28 20:45:01 UTC"
     },
     {
       "away_team": "Los Angeles Angels",
@@ -149,7 +149,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -175,
       "closing_ml_away": 144,
-      "closing_ml_captured_at": "2026-05-28 20:30:01 UTC"
+      "closing_ml_captured_at": "2026-05-28 20:45:01 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -306,8 +306,8 @@
       "the_read": "V10 finds a strong edge over the market line. Chris Bassitt at full strength (47 IP).",
       "display_tier": "LEAN",
       "closing_ml_home": -131,
-      "closing_ml_away": 109,
-      "closing_ml_captured_at": "2026-05-28 20:30:01 UTC"
+      "closing_ml_away": 108,
+      "closing_ml_captured_at": "2026-05-28 20:45:01 UTC"
     }
   ]
 }
