@@ -206,7 +206,20 @@
       "display_tier": "PASS",
       "closing_ml_home": -149,
       "closing_ml_away": 124,
-      "closing_ml_captured_at": "2026-05-27 23:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 23:45:01 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-28 00:00:01 UTC",
+      "locked_pick": "Texas Rangers",
+      "locked_pick_ml": -144,
+      "locked_confidence": 60.4,
+      "locked_edge": 5.5,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": -144,
+      "locked_away_ml": 119,
+      "locked_home_pitcher": "Jacob deGrom",
+      "locked_away_pitcher": "Mike Burrows",
+      "locked_sharp_signal": "sharp on AWAY",
+      "locked_line_move": 24
     },
     {
       "away_team": "Washington Nationals",
