@@ -48,7 +48,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -136,
       "closing_ml_away": 113,
-      "closing_ml_captured_at": "2026-05-28 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-28 20:00:02 UTC"
     },
     {
       "away_team": "Los Angeles Angels",
@@ -149,7 +149,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -175,
       "closing_ml_away": 144,
-      "closing_ml_captured_at": "2026-05-28 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-28 20:00:02 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -248,9 +248,9 @@
       "game_time": "2026-05-28T20:10Z",
       "the_read": "V10 finds a small edge over the market line. Payton Tolle at full strength (36 IP).",
       "display_tier": "PASS",
-      "closing_ml_home": 112,
-      "closing_ml_away": -135,
-      "closing_ml_captured_at": "2026-05-28 19:45:01 UTC"
+      "closing_ml_home": 113,
+      "closing_ml_away": -136,
+      "closing_ml_captured_at": "2026-05-28 20:00:02 UTC"
     },
     {
       "away_team": "Toronto Blue Jays",
@@ -294,7 +294,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -131,
       "closing_ml_away": 109,
-      "closing_ml_captured_at": "2026-05-28 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-28 20:00:02 UTC"
     }
   ]
 }
