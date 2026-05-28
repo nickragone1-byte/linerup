@@ -30,7 +30,10 @@
       "over_under": 218.5,
       "is_playoff": 1,
       "the_read": "V7 finds a small edge over the market line. Both teams at full strength. Mild sharp action confirms.",
-      "display_tier": "PLAY"
+      "display_tier": "PLAY",
+      "closing_ml_home": -162,
+      "closing_ml_away": 136,
+      "closing_ml_captured_at": "2026-05-28 22:00:05 UTC"
     }
   ]
 }
