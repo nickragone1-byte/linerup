@@ -48,7 +48,20 @@
       "display_tier": "PASS",
       "closing_ml_home": -443,
       "closing_ml_away": 336,
-      "closing_ml_captured_at": "2026-05-27 23:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-27 23:45:01 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-28 02:06:01 UTC",
+      "locked_pick": "Los Angeles Dodgers",
+      "locked_pick_ml": -411,
+      "locked_confidence": 73.9,
+      "locked_edge": -8.4,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": -411,
+      "locked_away_ml": 315,
+      "locked_home_pitcher": "Shohei Ohtani",
+      "locked_away_pitcher": "Tomoyuki Sugano",
+      "locked_sharp_signal": "mild on HOME",
+      "locked_line_move": -11
     },
     {
       "away_team": "St. Louis Cardinals",
