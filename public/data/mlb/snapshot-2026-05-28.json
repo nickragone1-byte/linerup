@@ -92,7 +92,20 @@
       "display_tier": "PASS",
       "closing_ml_home": -136,
       "closing_ml_away": 113,
-      "closing_ml_captured_at": "2026-05-28 17:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-28 17:00:02 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-28 17:06:01 UTC",
+      "locked_pick": "Detroit Tigers",
+      "locked_pick_ml": -136,
+      "locked_confidence": 57.4,
+      "locked_edge": 0.3,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": -136,
+      "locked_away_ml": 113,
+      "locked_home_pitcher": "Jack Flaherty",
+      "locked_away_pitcher": "Grayson Rodriguez",
+      "locked_sharp_signal": "neutral",
+      "locked_line_move": -5
     },
     {
       "away_team": "Chicago Cubs",
