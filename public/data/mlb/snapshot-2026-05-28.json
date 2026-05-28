@@ -48,7 +48,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -148,
       "closing_ml_away": 122,
-      "closing_ml_captured_at": "2026-05-28 22:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-28 22:15:03 UTC"
     },
     {
       "away_team": "Los Angeles Angels",
@@ -149,7 +149,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -175,
       "closing_ml_away": 144,
-      "closing_ml_captured_at": "2026-05-28 22:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-28 22:15:03 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -307,7 +307,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -131,
       "closing_ml_away": 109,
-      "closing_ml_captured_at": "2026-05-28 22:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-28 22:15:03 UTC"
     }
   ]
 }
