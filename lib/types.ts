@@ -45,6 +45,7 @@ export interface Game {
   tbd_flag: string | null;
   thin_sp: boolean;
   game_time: string | null;
+  the_read?: string;
   // Per-game first-pitch lock fields (frozen 5 min before game starts)
   is_locked?: boolean;
   locked_at?: string;
