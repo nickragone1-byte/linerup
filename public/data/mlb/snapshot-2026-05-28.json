@@ -45,7 +45,10 @@
       "thin_sp": false,
       "game_time": "2026-05-29T00:05Z",
       "the_read": "V10 finds a solid edge over the market line. Nathan Eovaldi at full strength (61 IP). Mild sharp action against.",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": -143,
+      "closing_ml_away": 119,
+      "closing_ml_captured_at": "2026-05-28 16:45:02 UTC"
     },
     {
       "away_team": "Los Angeles Angels",
@@ -86,7 +89,10 @@
       "thin_sp": true,
       "game_time": "2026-05-28T17:10Z",
       "the_read": "V10 finds a small edge over the market line. Jack Flaherty at full strength (47 IP).",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": -136,
+      "closing_ml_away": 113,
+      "closing_ml_captured_at": "2026-05-28 16:45:02 UTC"
     },
     {
       "away_team": "Chicago Cubs",
@@ -127,7 +133,10 @@
       "thin_sp": false,
       "game_time": "2026-05-28T22:40Z",
       "the_read": "V10 finds a strong edge over the market line. Paul Skenes at full strength (60 IP).",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": -175,
+      "closing_ml_away": 144,
+      "closing_ml_captured_at": "2026-05-28 16:45:02 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -168,7 +177,10 @@
       "thin_sp": true,
       "game_time": "2026-05-28T18:10Z",
       "the_read": "V10 finds a solid edge over the market line. Davis Martin at full strength (61 IP). Sharps confirm the lean.",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": -157,
+      "closing_ml_away": 130,
+      "closing_ml_captured_at": "2026-05-28 16:45:02 UTC"
     },
     {
       "away_team": "Atlanta Braves",
@@ -209,7 +221,10 @@
       "thin_sp": false,
       "game_time": "2026-05-28T20:10Z",
       "the_read": "V10 finds a small edge over the market line. Payton Tolle at full strength (36 IP).",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": 114,
+      "closing_ml_away": -137,
+      "closing_ml_captured_at": "2026-05-28 16:45:02 UTC"
     },
     {
       "away_team": "Toronto Blue Jays",
@@ -250,7 +265,10 @@
       "thin_sp": false,
       "game_time": "2026-05-28T22:35Z",
       "the_read": "V10 finds a strong edge over the market line. Chris Bassitt at full strength (47 IP).",
-      "display_tier": "LEAN"
+      "display_tier": "LEAN",
+      "closing_ml_home": -131,
+      "closing_ml_away": 109,
+      "closing_ml_captured_at": "2026-05-28 16:45:02 UTC"
     }
   ]
 }
