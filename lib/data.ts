@@ -69,10 +69,51 @@ export async function getPredictions(sport: string): Promise<PredictionsData> {
     const key = `${snapGame.away_team}|${snapGame.home_team}`;
     const liveGame = liveMap.get(key);
 
-    // If game still in live feed, update lines/EV but keep snapshot pick/tier
+    // LOCKED game: keep all frozen locked_* values (the official call).
+    // Still surface live lines for information, but the pick/tier/pitcher
+    // are frozen and must not change.
+    if (snapGame.is_locked) {
+      if (liveGame && liveGame.away_ml != null) {
+        return {
+          ...snapGame,
+          // live lines for info only — locked_* fields drive grading + display
+          away_ml: liveGame.away_ml,
+          home_ml: liveGame.home_ml,
+          ml_open_home: liveGame.ml_open_home,
+          line_move: liveGame.line_move,
+          sharp_signal: liveGame.sharp_signal,
+          over_under: liveGame.over_under,
+          vegas_prob_home: liveGame.vegas_prob_home,
+          edge: liveGame.edge,
+        };
+      }
+      return snapGame;
+    }
+
+    // UNLOCKED game still in the live feed: take the FULL live model state
+    // (pitcher, SIERA, confidence, pick, model probs, edge — everything),
+    // so the page shows the latest and greatest until the game locks.
     if (liveGame && liveGame.away_ml != null) {
       return {
         ...snapGame,
+        // model inputs (the fix — these used to stay stale)
+        home_pitcher: liveGame.home_pitcher,
+        away_pitcher: liveGame.away_pitcher,
+        home_sp_siera: liveGame.home_sp_siera,
+        away_sp_siera: liveGame.away_sp_siera,
+        home_sp_ip: liveGame.home_sp_ip,
+        away_sp_ip: liveGame.away_sp_ip,
+        home_sp_weight: liveGame.home_sp_weight,
+        away_sp_weight: liveGame.away_sp_weight,
+        model_prob_home: liveGame.model_prob_home,
+        final_prob_home: liveGame.final_prob_home,
+        pick: liveGame.pick,
+        confidence: liveGame.confidence,
+        tbd_flag: liveGame.tbd_flag,
+        thin_sp: liveGame.thin_sp,
+        the_read: liveGame.the_read,
+        display_tier: liveGame.display_tier ?? snapGame.display_tier,
+        // lines
         away_ml: liveGame.away_ml,
         home_ml: liveGame.home_ml,
         ml_open_home: liveGame.ml_open_home,
@@ -84,7 +125,8 @@ export async function getPredictions(sport: string): Promise<PredictionsData> {
       };
     }
 
-    // Game no longer in live feed (started/finished) — show frozen snapshot card
+    // Game no longer in live feed (started/finished) but not locked —
+    // show frozen snapshot card as last resort
     return snapGame;
   });
 
