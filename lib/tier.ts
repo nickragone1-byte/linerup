@@ -11,16 +11,18 @@ function sharpConfirms(game: Game): boolean {
   return pickIsHome(game) ? signal.includes("home") : signal.includes("away");
 }
 
-function lineMoveContradicts(game: Game): boolean {
-  if (game.line_move == null) return false;
-  // Only count as contradiction if move is meaningful (>= 10 cents).
-  // Small drifts (1-9 cents) are routine noise, not a market signal.
+type ContradictionStrength = "none" | "mild" | "strong";
+
+function contradictionStrength(game: Game): ContradictionStrength {
+  if (game.line_move == null) return "none";
+  // Normalize so positive = move AGAINST our pick.
   // line_move = home_ml - ml_open_home
-  //   positive = home ML moved up = away money coming in = contradicts home pick
-  //   negative = home ML moved down = home money coming in = contradicts away pick
-  const THRESHOLD = 8; // matches R's 'mild' sharp signal threshold
-  if (pickIsHome(game)) return game.line_move >= THRESHOLD;
-  return game.line_move <= -THRESHOLD;
+  //   positive = home ML moved up = away money in = contradicts a home pick
+  //   negative = home ML moved down = home money in = contradicts an away pick
+  const against = pickIsHome(game) ? game.line_move : -game.line_move;
+  if (against >= 15) return "strong"; // real sharp signal — forces PASS
+  if (against >= 8) return "mild";    // caution — still allows LEAN
+  return "none";
 }
 
 export function computeTier(game: Game): Tier {
@@ -32,25 +34,30 @@ export function computeTier(game: Game): Tier {
   if (thin_sp) return "⚠️ THIN SP";
 
   const sharp = sharpConfirms(game);
-  const contradicts = lineMoveContradicts(game);
+  const strength = contradictionStrength(game);
+  const strongFade = strength === "strong";
+  const mildFade = strength === "mild";
   const pickML = game.pick === game.home_team ? game.home_ml : game.away_ml;
   const ev = pickML != null ? computeEVRaw(confidence, pickML) : null;
   const positiveEV = ev !== null && ev > 0;
 
-  // FADE: market strongly disagrees AND edge is large, or extreme edge with no sharp support
-  if ((contradicts && Math.abs(edge) > 8) || (Math.abs(edge) > 15 && !sharp)) return "🔴 FADE";
+  // FADE: strong contradiction on a big edge, or extreme edge with no sharp support
+  if ((strongFade && Math.abs(edge) > 8) || (Math.abs(edge) > 15 && !sharp)) return "🔴 FADE";
 
-  // LOCK: 60%+ conf + EV>3 + sharps agree + not contradicted
-  if (confidence >= 60 && ev !== null && ev > 3 && positiveEV && sharp && !contradicts) return "🔒 LOCK";
+  // LOCK: 60%+ conf + EV>3 + sharps agree + NO contradiction at all
+  if (confidence >= 60 && ev !== null && ev > 3 && positiveEV && sharp && strength === "none") return "🔒 LOCK";
 
-  // BET (PLAY): 60%+ confidence + positive EV + not contradicted
-  if (confidence >= 60 && positiveEV && !contradicts) return "🟢 BET";
+  // BET (PLAY): 60%+ confidence + positive EV + no contradiction
+  if (confidence >= 60 && positiveEV && strength === "none") return "🟢 BET";
 
-  // BET (PLAY): 58%+ confidence + EV>3 + not contradicted
-  if (confidence >= 58 && ev !== null && ev > 3 && !contradicts) return "🟢 BET";
+  // BET (PLAY): 58%+ confidence + EV>3 + no contradiction
+  if (confidence >= 58 && ev !== null && ev > 3 && strength === "none") return "🟢 BET";
 
-  // LEAN: 55%+ confidence + EV>2 + not contradicted (V11 tightened from 52%/EV>1)
-  if (confidence >= 55 && ev !== null && ev > 2 && !contradicts) return "🟡 LEAN";
+  // LEAN: 55%+ confidence + EV>2 + no STRONG fade (mild fade still allowed)
+  if (confidence >= 55 && ev !== null && ev > 2 && !strongFade) return "🟡 LEAN";
+
+  // LEAN (mild-fade survivor): high conf + positive EV with only a mild fade
+  if (confidence >= 58 && positiveEV && mildFade) return "🟡 LEAN";
 
   // No more LEAN-with-contradiction fallback or VALUE tier (V11 — too noisy)
 

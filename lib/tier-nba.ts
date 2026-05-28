@@ -10,12 +10,15 @@ function sharpConfirms(game: NBAGame): boolean {
   return pickIsHome(game) ? signal.includes("home") : signal.includes("away");
 }
 
-function lineMoveContradicts(game: NBAGame): boolean {
-  // line_move = home_ml - ml_open_home
-  // positive = home ML went up = money on away = contradicts home pick
-  if (game.line_move == null) return false;
-  if (pickIsHome(game)) return game.line_move > 0;
-  return game.line_move < 0;
+type ContradictionStrength = "none" | "mild" | "strong";
+
+function contradictionStrength(game: NBAGame): ContradictionStrength {
+  if (game.line_move == null) return "none";
+  // Normalize so positive = move AGAINST our pick.
+  const against = pickIsHome(game) ? game.line_move : -game.line_move;
+  if (against >= 15) return "strong"; // real sharp signal — forces PASS
+  if (against >= 8) return "mild";    // caution — still allows LEAN
+  return "none";
 }
 
 export function computeNBATier(game: NBAGame): NBATier {
@@ -24,23 +27,28 @@ export function computeNBATier(game: NBAGame): NBATier {
   if (edge === null || edge === undefined || isNaN(edge)) return "⚪ SKIP";
 
   const sharp = sharpConfirms(game);
-  const contradicts = lineMoveContradicts(game);
+  const strength = contradictionStrength(game);
+  const strongFade = strength === "strong";
+  const mildFade = strength === "mild";
 
   // Compute EV for pick side
   const pickML = game.pick === game.home_team ? game.home_ml : game.away_ml;
   const ev = pickML != null ? computeEVRaw(confidence, pickML) : null;
   const positiveEV = ev !== null && ev > 1;
 
-  if ((contradicts && Math.abs(edge) > 8) || (Math.abs(edge) > 15 && !sharp)) return "🔴 FADE";
+  // FADE: strong contradiction on a big edge, or extreme edge with no sharp support
+  if ((strongFade && Math.abs(edge) > 8) || (Math.abs(edge) > 15 && !sharp)) return "🔴 FADE";
 
-  // Require positive EV for Model Favorites
-  if (confidence >= 60 && positiveEV && ev > 5 && sharp && !contradicts) return "🔒 LOCK";
-  if (confidence >= 60 && positiveEV && !contradicts) return "🟢 BET";
-  if (confidence >= 58 && positiveEV && !contradicts) return "🟢 BET";
-
-  // Leans: positive EV
-  if (confidence >= 52 && positiveEV && !contradicts) return "🟡 LEAN";
-  if (ev !== null && ev > 1 && confidence >= 52) return "🟡 LEAN";
+  // LOCK: 60%+ conf + EV>5 + sharps agree + no contradiction
+  if (confidence >= 60 && positiveEV && ev !== null && ev > 5 && sharp && strength === "none") return "🔒 LOCK";
+  // BET: 60%+ conf + positive EV + no contradiction
+  if (confidence >= 60 && positiveEV && strength === "none") return "🟢 BET";
+  // BET: 58%+ conf + EV>3 + no contradiction
+  if (confidence >= 58 && positiveEV && ev !== null && ev > 3 && strength === "none") return "🟢 BET";
+  // LEAN: 55%+ conf + EV>2 + no STRONG fade (mild fade still allowed)
+  if (confidence >= 55 && positiveEV && ev !== null && ev > 2 && !strongFade) return "🟡 LEAN";
+  // LEAN (mild-fade survivor): high conf + positive EV with only a mild fade
+  if (confidence >= 58 && positiveEV && mildFade) return "🟡 LEAN";
 
   return "⚪ SKIP";
 }

@@ -45,16 +45,30 @@ def sharp_confirms_nba(g):
     return ("home" in s) if pick_is_home(g) else ("away" in s)
 
 
-def line_move_contradicts(g):
-    """Count as 'contradiction' when line move >=8 cents (matches R's
-    sharp_signal threshold for 'mild' signal). Smaller drifts are noise."""
+def contradiction_strength(g):
+    """Return how strongly the line move contradicts our pick:
+      "none"   — move < 8c against us (noise)
+      "mild"   — move 8-14c against us (caution, still allows LEAN)
+      "strong" — move >=15c against us (real sharp signal, forces PASS)
+    A move "against" the pick means the price on our side got cheaper /
+    the other side got bet up.
+    """
     lm = g.get("line_move")
     if lm is None:
-        return False
-    THRESHOLD = 8  # cents — matches R's "mild" sharp signal threshold
-    if pick_is_home(g):
-        return lm >= THRESHOLD
-    return lm <= -THRESHOLD
+        return "none"
+    # Normalize so positive = move AGAINST our pick
+    against = lm if pick_is_home(g) else -lm
+    if against >= 15:
+        return "strong"
+    if against >= 8:
+        return "mild"
+    return "none"
+
+
+def line_move_contradicts(g):
+    """Back-compat boolean: any mild-or-stronger contradiction.
+    Kept so existing callers don't break; new cascade uses strength directly."""
+    return contradiction_strength(g) != "none"
 
 
 def compute_tier_mlb(g):
@@ -68,26 +82,31 @@ def compute_tier_mlb(g):
     if g.get("thin_sp"):
         return "THIN SP"
     sharp = sharp_confirms_mlb(g)
-    contradicts = line_move_contradicts(g)
+    strength = contradiction_strength(g)
+    strong_fade = strength == "strong"
+    mild_fade = strength == "mild"
     pick_ml = g.get("home_ml") if pick_is_home(g) else g.get("away_ml")
     ev = compute_ev_raw(confidence, pick_ml) if pick_ml is not None else None
     positive_ev = ev is not None and ev > 0
-    if (contradicts and abs(edge) > 8) or (abs(edge) > 15 and not sharp):
+    # FADE: strong contradiction on a big edge, or huge edge with no sharp support
+    if (strong_fade and abs(edge) > 8) or (abs(edge) > 15 and not sharp):
         return "FADE"
-    # LOCK: 60%+ conf + EV>3 + sharps agree + not contradicted
-    if confidence >= 60 and ev is not None and ev > 3 and positive_ev and sharp and not contradicts:
+    # LOCK: 60%+ conf + EV>3 + sharps agree + NO contradiction at all
+    if confidence >= 60 and ev is not None and ev > 3 and positive_ev and sharp and strength == "none":
         return "LOCK"
-    # BET (PLAY): 60%+ conf + positive EV + not contradicted
-    if confidence >= 60 and positive_ev and not contradicts:
+    # BET (PLAY): 60%+ conf + positive EV + no strong/mild fade
+    if confidence >= 60 and positive_ev and strength == "none":
         return "BET"
-    # BET (PLAY): 58%+ conf + EV>3 + not contradicted (V11 tightened)
-    if confidence >= 58 and ev is not None and ev > 3 and not contradicts:
+    # BET (PLAY): 58%+ conf + EV>3 + no contradiction
+    if confidence >= 58 and ev is not None and ev > 3 and strength == "none":
         return "BET"
-    # LEAN: 55%+ conf + EV>2 + not contradicted (V11 tightened from 52/1)
-    if confidence >= 55 and ev is not None and ev > 2 and not contradicts:
+    # LEAN: 55%+ conf + EV>2 + no STRONG fade (mild fade still allowed here)
+    if confidence >= 55 and ev is not None and ev > 2 and not strong_fade:
         return "LEAN"
-    # No more "LEAN with contradiction" fallback — if market disagrees, no Lean
-    # No more VALUE tier — too noisy, will display as PASS instead
+    # LEAN (mild-fade survivor): high conf + positive EV picks that only have a
+    # MILD fade still earn a cautious LEAN rather than vanishing to PASS.
+    if confidence >= 58 and positive_ev and mild_fade:
+        return "LEAN"
     return "SKIP"
 
 
@@ -98,19 +117,23 @@ def compute_tier_nba(g):
     if edge is None:
         return "SKIP"
     sharp = sharp_confirms_nba(g)
-    contradicts = line_move_contradicts(g)
+    strength = contradiction_strength(g)
+    strong_fade = strength == "strong"
+    mild_fade = strength == "mild"
     pick_ml = g.get("home_ml") if pick_is_home(g) else g.get("away_ml")
     ev = compute_ev_raw(confidence, pick_ml) if pick_ml is not None else None
     positive_ev = ev is not None and ev > 1
-    if (contradicts and abs(edge) > 8) or (abs(edge) > 15 and not sharp):
+    if (strong_fade and abs(edge) > 8) or (abs(edge) > 15 and not sharp):
         return "FADE"
-    if confidence >= 60 and positive_ev and ev > 5 and sharp and not contradicts:
+    if confidence >= 60 and positive_ev and ev > 5 and sharp and strength == "none":
         return "LOCK"
-    if confidence >= 60 and positive_ev and not contradicts:
+    if confidence >= 60 and positive_ev and strength == "none":
         return "BET"
-    if confidence >= 58 and positive_ev and ev > 3 and not contradicts:
+    if confidence >= 58 and positive_ev and ev > 3 and strength == "none":
         return "BET"
-    if confidence >= 55 and positive_ev and ev > 2 and not contradicts:
+    if confidence >= 55 and positive_ev and ev > 2 and not strong_fade:
+        return "LEAN"
+    if confidence >= 58 and positive_ev and mild_fade:
         return "LEAN"
     return "SKIP"
 
@@ -124,6 +147,50 @@ def to_display_tier(internal):
     if internal in ("LEAN", "VALUE"):
         return "LEAN"
     return "PASS"
+
+
+
+def maybe_lock_game(g):
+    """Freeze pick/tier/ml/confidence for a game if it's within 5 min of first pitch
+    (or already started). Once locked, those values never change — used by grader and
+    shown as the official call on the site.
+    """
+    if g.get("is_locked"):
+        return  # already locked, never re-lock
+    
+    gt_str = g.get("game_time")
+    if not gt_str:
+        return
+    
+    from datetime import datetime, timezone
+    try:
+        # Parse ISO format like "2026-05-27T01:40Z"
+        gt = datetime.fromisoformat(gt_str.replace("Z", "+00:00"))
+    except (ValueError, AttributeError):
+        return
+    
+    now = datetime.now(timezone.utc)
+    minutes_to_game = (gt - now).total_seconds() / 60
+    
+    # Lock if game starts within 5 min OR has already started
+    if minutes_to_game <= 5:
+        is_home_pick = g.get("pick") == g.get("home_team")
+        pick_ml = g.get("home_ml") if is_home_pick else g.get("away_ml")
+        
+        g["is_locked"] = True
+        g["locked_at"] = now.strftime("%Y-%m-%d %H:%M:%S UTC")
+        g["locked_pick"] = g.get("pick")
+        g["locked_pick_ml"] = pick_ml
+        g["locked_confidence"] = g.get("confidence")
+        g["locked_edge"] = g.get("edge")
+        g["locked_display_tier"] = g.get("display_tier")
+        g["locked_home_ml"] = g.get("home_ml")
+        g["locked_away_ml"] = g.get("away_ml")
+        g["locked_home_pitcher"] = g.get("home_pitcher")
+        g["locked_away_pitcher"] = g.get("away_pitcher")
+        g["locked_sharp_signal"] = g.get("sharp_signal")
+        g["locked_line_move"] = g.get("line_move")
+        print(f"  🔒 LOCKED: {g['away_team']} @ {g['home_team']} | {g['locked_display_tier']} {g['locked_pick']} ({pick_ml})")
 
 
 def compute_display_tier(game, sport):
