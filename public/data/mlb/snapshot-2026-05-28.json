@@ -250,7 +250,20 @@
       "display_tier": "PASS",
       "closing_ml_home": 113,
       "closing_ml_away": -136,
-      "closing_ml_captured_at": "2026-05-28 20:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-28 20:00:02 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-28 20:06:01 UTC",
+      "locked_pick": "Atlanta Braves",
+      "locked_pick_ml": -137,
+      "locked_confidence": 56.1,
+      "locked_edge": 1.9,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": 114,
+      "locked_away_ml": -137,
+      "locked_home_pitcher": "Payton Tolle",
+      "locked_away_pitcher": "Chris Sale",
+      "locked_sharp_signal": "neutral",
+      "locked_line_move": -5
     },
     {
       "away_team": "Toronto Blue Jays",
