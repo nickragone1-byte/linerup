@@ -149,7 +149,20 @@
       "display_tier": "PASS",
       "closing_ml_home": -175,
       "closing_ml_away": 144,
-      "closing_ml_captured_at": "2026-05-28 22:30:03 UTC"
+      "closing_ml_captured_at": "2026-05-28 22:30:03 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-28 22:36:01 UTC",
+      "locked_pick": "Pittsburgh Pirates",
+      "locked_pick_ml": -175,
+      "locked_confidence": 57.2,
+      "locked_edge": -8.2,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": -175,
+      "locked_away_ml": 144,
+      "locked_home_pitcher": "Paul Skenes",
+      "locked_away_pitcher": "Colin Rea",
+      "locked_sharp_signal": "neutral",
+      "locked_line_move": 0
     },
     {
       "away_team": "Minnesota Twins",
