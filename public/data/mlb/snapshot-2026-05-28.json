@@ -48,7 +48,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -136,
       "closing_ml_away": 113,
-      "closing_ml_captured_at": "2026-05-28 17:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-28 17:15:01 UTC"
     },
     {
       "away_team": "Los Angeles Angels",
@@ -149,7 +149,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -175,
       "closing_ml_away": 144,
-      "closing_ml_captured_at": "2026-05-28 17:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-28 17:15:01 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -191,9 +191,9 @@
       "game_time": "2026-05-28T18:10Z",
       "the_read": "V10 finds a solid edge over the market line. Davis Martin at full strength (61 IP). Sharps confirm the lean.",
       "display_tier": "PASS",
-      "closing_ml_home": -157,
-      "closing_ml_away": 130,
-      "closing_ml_captured_at": "2026-05-28 17:00:02 UTC"
+      "closing_ml_home": -171,
+      "closing_ml_away": 141,
+      "closing_ml_captured_at": "2026-05-28 17:15:01 UTC"
     },
     {
       "away_team": "Atlanta Braves",
@@ -237,7 +237,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 114,
       "closing_ml_away": -137,
-      "closing_ml_captured_at": "2026-05-28 17:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-28 17:15:01 UTC"
     },
     {
       "away_team": "Toronto Blue Jays",
@@ -281,7 +281,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -131,
       "closing_ml_away": 109,
-      "closing_ml_captured_at": "2026-05-28 17:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-28 17:15:01 UTC"
     }
   ]
 }
