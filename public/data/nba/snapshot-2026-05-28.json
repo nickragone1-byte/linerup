@@ -33,7 +33,20 @@
       "display_tier": "PLAY",
       "closing_ml_home": -166,
       "closing_ml_away": 140,
-      "closing_ml_captured_at": "2026-05-28 23:45:03 UTC"
+      "closing_ml_captured_at": "2026-05-28 23:45:03 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-29 00:32:02 UTC",
+      "locked_pick": "San Antonio Spurs",
+      "locked_pick_ml": -162,
+      "locked_confidence": 62.5,
+      "locked_edge": -0.6,
+      "locked_display_tier": "PLAY",
+      "locked_home_ml": -162,
+      "locked_away_ml": 136,
+      "locked_home_pitcher": null,
+      "locked_away_pitcher": null,
+      "locked_sharp_signal": "sharp on HOME",
+      "locked_line_move": -20
     }
   ]
 }
