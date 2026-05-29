@@ -3,5 +3,42 @@
   "last_updated": "2026-05-28",
   "tracking_start_date": "2026-05-28",
   "note": "Track record reset on May 28, 2026 \u2014 fresh start after pipeline fixes (live model inputs, TBD guard, tiered contradiction rule). Clean slate so every tracked pick reflects the corrected system.",
-  "results": []
+  "results": [
+    {
+      "date": "2026-05-28",
+      "matchup": "Houston Astros @ Texas Rangers",
+      "away_team": "Houston Astros",
+      "home_team": "Texas Rangers",
+      "tier": "PLAY",
+      "pick": "Texas Rangers ML (-149)",
+      "model_prob": 0.627,
+      "edge": 4.9,
+      "confidence_weight": 0.127,
+      "outcome": "LOSS",
+      "final_score": "Houston Astros 5, Texas Rangers 1",
+      "the_read": "V10 finds a solid edge over the market line. Nathan Eovaldi at full strength (61 IP).",
+      "lock_ml": -149,
+      "closing_ml": -149,
+      "clv_cents": 0,
+      "beat_close": false
+    },
+    {
+      "date": "2026-05-28",
+      "matchup": "Toronto Blue Jays @ Baltimore Orioles",
+      "away_team": "Toronto Blue Jays",
+      "home_team": "Baltimore Orioles",
+      "tier": "LEAN",
+      "pick": "Toronto Blue Jays ML (+109)",
+      "model_prob": 0.567,
+      "edge": -12.6,
+      "confidence_weight": 0.067,
+      "outcome": "WIN",
+      "final_score": "Toronto Blue Jays 2, Baltimore Orioles 1",
+      "the_read": "V10 finds a strong edge over the market line. Chris Bassitt at full strength (47 IP).",
+      "lock_ml": 109,
+      "closing_ml": 109,
+      "clv_cents": 0,
+      "beat_close": false
+    }
+  ]
 }
