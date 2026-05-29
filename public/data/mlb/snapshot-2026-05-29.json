@@ -610,7 +610,20 @@
       "display_tier": "PASS",
       "closing_ml_home": 114,
       "closing_ml_away": -137,
-      "closing_ml_captured_at": "2026-05-29 23:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-29 23:00:02 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-29 23:10:01 UTC",
+      "locked_pick": "Chicago Cubs",
+      "locked_pick_ml": -132,
+      "locked_confidence": 54,
+      "locked_edge": 0.3,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": 110,
+      "locked_away_ml": -132,
+      "locked_home_pitcher": "Andre Pallante",
+      "locked_away_pitcher": "Shota Imanaga",
+      "locked_sharp_signal": "neutral",
+      "locked_line_move": -3
     },
     {
       "away_team": "Milwaukee Brewers",
