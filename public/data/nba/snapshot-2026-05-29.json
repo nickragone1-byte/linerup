@@ -30,7 +30,20 @@
       "over_under": 219.5,
       "is_playoff": 1,
       "the_read": "V7 finds a small edge over the market line. Both teams at full strength. Sharps confirm the lean.",
-      "display_tier": "PLAY"
+      "display_tier": "PLAY",
+      "is_locked": true,
+      "locked_at": "2026-05-29 17:32:02 UTC",
+      "locked_pick": "San Antonio Spurs",
+      "locked_pick_ml": -162,
+      "locked_confidence": 62.5,
+      "locked_edge": -0.6,
+      "locked_display_tier": "PLAY",
+      "locked_home_ml": -162,
+      "locked_away_ml": 136,
+      "locked_home_pitcher": null,
+      "locked_away_pitcher": null,
+      "locked_sharp_signal": "sharp on HOME",
+      "locked_line_move": -20
     }
   ]
 }
