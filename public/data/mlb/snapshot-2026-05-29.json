@@ -48,7 +48,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -137,
       "closing_ml_away": 114,
-      "closing_ml_captured_at": "2026-05-29 22:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-29 23:00:02 UTC"
     },
     {
       "away_team": "Kansas City Royals",
@@ -92,7 +92,7 @@
       "display_tier": "PLAY",
       "closing_ml_home": -137,
       "closing_ml_away": 114,
-      "closing_ml_captured_at": "2026-05-29 22:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-29 23:00:02 UTC"
     },
     {
       "away_team": "Boston Red Sox",
@@ -135,8 +135,8 @@
       "the_read": "V10 finds a small edge over the market line. Slade Cecconi at full strength (57 IP). Mild sharp action confirms.",
       "display_tier": "PASS",
       "closing_ml_home": -126,
-      "closing_ml_away": 105,
-      "closing_ml_captured_at": "2026-05-29 22:45:01 UTC"
+      "closing_ml_away": 104,
+      "closing_ml_captured_at": "2026-05-29 23:00:02 UTC"
     },
     {
       "away_team": "Los Angeles Angels",
@@ -180,7 +180,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -173,
       "closing_ml_away": 143,
-      "closing_ml_captured_at": "2026-05-29 22:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-29 23:00:02 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -281,7 +281,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -120,
       "closing_ml_away": -101,
-      "closing_ml_captured_at": "2026-05-29 22:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-29 23:00:02 UTC"
     },
     {
       "away_team": "Miami Marlins",
@@ -325,7 +325,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -117,
       "closing_ml_away": -103,
-      "closing_ml_captured_at": "2026-05-29 22:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-29 23:00:02 UTC"
     },
     {
       "away_team": "Detroit Tigers",
@@ -367,9 +367,9 @@
       "game_time": "2026-05-29T23:40Z",
       "the_read": "V10 finds a small edge over the market line. Erick Fedde at full strength (49 IP).",
       "display_tier": "PASS",
-      "closing_ml_home": -109,
-      "closing_ml_away": -110,
-      "closing_ml_captured_at": "2026-05-29 22:45:01 UTC"
+      "closing_ml_home": -112,
+      "closing_ml_away": -108,
+      "closing_ml_captured_at": "2026-05-29 23:00:02 UTC"
     },
     {
       "away_team": "San Diego Padres",
@@ -470,14 +470,14 @@
       "display_tier": "PASS",
       "closing_ml_home": 128,
       "closing_ml_away": -154,
-      "closing_ml_captured_at": "2026-05-29 22:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-29 23:00:02 UTC"
     },
     {
       "away_team": "Toronto Blue Jays",
       "home_team": "Baltimore Orioles",
       "away_record": "28-29",
       "home_record": "26-31",
-      "away_pitcher": "TBD",
+      "away_pitcher": "Adam Macko",
       "home_pitcher": "Trevor Rogers",
       "away_sp_ip": 0,
       "home_sp_ip": 42.2,
@@ -487,11 +487,11 @@
       "home_sp_weight": 100,
       "venue": "Oriole Park at Camden Yards",
       "park_factor": 1.02,
-      "away_ml": -103,
-      "home_ml": -117,
+      "away_ml": 108,
+      "home_ml": -130,
       "ml_open_home": -115,
-      "line_move": -2,
-      "sharp_signal": "neutral",
+      "line_move": -15,
+      "sharp_signal": "sharp on HOME",
       "h_cum_rd": -0.73,
       "a_cum_rd": -0.07,
       "is_playoff": 0,
@@ -501,20 +501,20 @@
       "series_finale": 0,
       "game_context": "",
       "model_prob_home": 41.5,
-      "vegas_prob_home": 51.5,
-      "final_prob_home": 46.6,
+      "vegas_prob_home": 54,
+      "final_prob_home": 49.3,
       "pick": "Toronto Blue Jays",
-      "confidence": 53.4,
-      "edge": -10,
-      "over_under": 8.5,
+      "confidence": 50.7,
+      "edge": -12.6,
+      "over_under": 9,
       "tbd_flag": "AWAY TBD",
       "thin_sp": true,
       "game_time": "2026-05-29T23:05Z",
-      "the_read": "V10 finds a strong edge over the market line. Trevor Rogers at full strength (42 IP).",
+      "the_read": "V10 finds a strong edge over the market line. Trevor Rogers at full strength (42 IP). Sharps confirm the lean.",
       "display_tier": "PASS",
       "closing_ml_home": -126,
       "closing_ml_away": 105,
-      "closing_ml_captured_at": "2026-05-29 22:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-29 23:00:02 UTC"
     },
     {
       "away_team": "Chicago Cubs",
@@ -558,7 +558,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 114,
       "closing_ml_away": -137,
-      "closing_ml_captured_at": "2026-05-29 22:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-29 23:00:02 UTC"
     },
     {
       "away_team": "Milwaukee Brewers",
@@ -602,7 +602,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 119,
       "closing_ml_away": -143,
-      "closing_ml_captured_at": "2026-05-29 22:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-29 23:00:02 UTC"
     },
     {
       "away_team": "New York Yankees",
@@ -646,7 +646,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 114,
       "closing_ml_away": -137,
-      "closing_ml_captured_at": "2026-05-29 22:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-29 23:00:02 UTC"
     },
     {
       "away_team": "Atlanta Braves",
