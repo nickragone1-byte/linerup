@@ -45,7 +45,10 @@
       "thin_sp": false,
       "game_time": "2026-05-30T02:10Z",
       "the_read": "V10 finds a small edge over the market line. George Kirby at full strength (68 IP).",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": -144,
+      "closing_ml_away": 119,
+      "closing_ml_captured_at": "2026-05-29 16:45:02 UTC"
     },
     {
       "away_team": "Kansas City Royals",
@@ -86,7 +89,10 @@
       "thin_sp": false,
       "game_time": "2026-05-30T00:05Z",
       "the_read": "V10 finds a solid edge over the market line. MacKenzie Gore at full strength (55 IP).",
-      "display_tier": "PLAY"
+      "display_tier": "PLAY",
+      "closing_ml_home": -131,
+      "closing_ml_away": 109,
+      "closing_ml_captured_at": "2026-05-29 16:45:02 UTC"
     },
     {
       "away_team": "Boston Red Sox",
@@ -127,7 +133,10 @@
       "thin_sp": true,
       "game_time": "2026-05-29T23:10Z",
       "the_read": "V10 finds a small edge over the market line. Slade Cecconi at full strength (57 IP). Mild sharp action confirms.",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": -131,
+      "closing_ml_away": 108,
+      "closing_ml_captured_at": "2026-05-29 16:45:02 UTC"
     },
     {
       "away_team": "Los Angeles Angels",
@@ -168,7 +177,10 @@
       "thin_sp": false,
       "game_time": "2026-05-29T23:10Z",
       "the_read": "V10 finds a small edge over the market line. Nick Martinez at full strength (59 IP). Market moving against this pick.",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": -163,
+      "closing_ml_away": 135,
+      "closing_ml_captured_at": "2026-05-29 16:45:02 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -209,7 +221,10 @@
       "thin_sp": true,
       "game_time": "2026-05-29T22:45Z",
       "the_read": "V10 finds a small edge over the market line. Taj Bradley at full strength (52 IP).",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": -142,
+      "closing_ml_away": 118,
+      "closing_ml_captured_at": "2026-05-29 16:45:02 UTC"
     },
     {
       "away_team": "Philadelphia Phillies",
@@ -250,7 +265,10 @@
       "thin_sp": false,
       "game_time": "2026-05-30T02:15Z",
       "the_read": "V10 finds a small edge over the market line. Justin Wrobleski at full strength (55 IP).",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": -120,
+      "closing_ml_away": -101,
+      "closing_ml_captured_at": "2026-05-29 16:45:02 UTC"
     },
     {
       "away_team": "Miami Marlins",
@@ -291,7 +309,10 @@
       "thin_sp": false,
       "game_time": "2026-05-29T23:10Z",
       "the_read": "V10 finds a small edge over the market line. Freddy Peralta at full strength (61 IP). Mild sharp action against.",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": -115,
+      "closing_ml_away": -105,
+      "closing_ml_captured_at": "2026-05-29 16:45:02 UTC"
     },
     {
       "away_team": "Detroit Tigers",
@@ -332,7 +353,10 @@
       "thin_sp": true,
       "game_time": "2026-05-29T23:40Z",
       "the_read": "V10 finds a small edge over the market line. Erick Fedde at full strength (49 IP).",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": -105,
+      "closing_ml_away": -115,
+      "closing_ml_captured_at": "2026-05-29 16:45:02 UTC"
     },
     {
       "away_team": "San Diego Padres",
@@ -373,7 +397,10 @@
       "thin_sp": true,
       "game_time": "2026-05-29T22:45Z",
       "the_read": "V10 finds a solid edge over the market line. Bullpen edge drives the lean. Mild sharp action confirms.",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": -119,
+      "closing_ml_away": -102,
+      "closing_ml_captured_at": "2026-05-29 16:45:02 UTC"
     },
     {
       "away_team": "San Francisco Giants",
@@ -414,7 +441,10 @@
       "thin_sp": false,
       "game_time": "2026-05-30T00:40Z",
       "the_read": "V10 finds a strong edge over the market line. Michael Lorenzen at full strength (53 IP). Mild sharp action confirms.",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": 130,
+      "closing_ml_away": -157,
+      "closing_ml_captured_at": "2026-05-29 16:45:02 UTC"
     },
     {
       "away_team": "Toronto Blue Jays",
@@ -455,7 +485,10 @@
       "thin_sp": true,
       "game_time": "2026-05-29T23:05Z",
       "the_read": "V10 finds a strong edge over the market line. Trevor Rogers at full strength (42 IP).",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": -117,
+      "closing_ml_away": -103,
+      "closing_ml_captured_at": "2026-05-29 16:45:02 UTC"
     },
     {
       "away_team": "Chicago Cubs",
@@ -496,7 +529,10 @@
       "thin_sp": false,
       "game_time": "2026-05-29T23:15Z",
       "the_read": "V10 finds a small edge over the market line. Andre Pallante at full strength (55 IP).",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": 110,
+      "closing_ml_away": -132,
+      "closing_ml_captured_at": "2026-05-29 16:45:02 UTC"
     },
     {
       "away_team": "Milwaukee Brewers",
@@ -537,7 +573,10 @@
       "thin_sp": true,
       "game_time": "2026-05-30T00:10Z",
       "the_read": "V10 finds a strong edge over the market line. Kai-Wei Teng at full strength (37 IP).",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": 101,
+      "closing_ml_away": -122,
+      "closing_ml_captured_at": "2026-05-29 16:45:02 UTC"
     },
     {
       "away_team": "New York Yankees",
@@ -578,7 +617,10 @@
       "thin_sp": true,
       "game_time": "2026-05-30T01:40Z",
       "the_read": "V10 finds a solid edge over the market line. Luis Severino at full strength (61 IP).",
-      "display_tier": "PASS"
+      "display_tier": "PASS",
+      "closing_ml_home": 119,
+      "closing_ml_away": -143,
+      "closing_ml_captured_at": "2026-05-29 16:45:02 UTC"
     },
     {
       "away_team": "Atlanta Braves",
@@ -619,7 +661,10 @@
       "thin_sp": false,
       "game_time": "2026-05-29T22:40Z",
       "the_read": "V10 finds a solid edge over the market line. Chris Paddack at full strength (40 IP).",
-      "display_tier": "PLAY"
+      "display_tier": "PLAY",
+      "closing_ml_home": 119,
+      "closing_ml_away": -143,
+      "closing_ml_captured_at": "2026-05-29 16:45:02 UTC"
     }
   ]
 }
