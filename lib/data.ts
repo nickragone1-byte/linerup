@@ -47,16 +47,30 @@ export async function getPredictions(sport: string): Promise<PredictionsData> {
     }
   }
 
-  // Load live predictions
-  const liveRaw = await fs.readFile(livePath, "utf-8");
-  const live = JSON.parse(liveRaw) as PredictionsData;
+  // Load live predictions (guarded: a missing/corrupt file degrades to an empty
+  // slate rather than 500-ing the whole page).
+  let live: PredictionsData;
+  try {
+    const liveRaw = await fs.readFile(livePath, "utf-8");
+    live = JSON.parse(liveRaw) as PredictionsData;
+  } catch (err) {
+    console.error(`[data] live predictions unreadable at ${livePath}:`, err);
+    return { generated_at: new Date().toISOString(), model_version: "", training_accuracy: 0, training_games: 0, games: [] };
+  }
 
   // If still no snapshot found, return live (very first day of operation)
   if (!hasSnapshot) return live;
 
-  // Load snapshot (frozen picks/tiers)
-  const snapRaw = await fs.readFile(snapshotPath, "utf-8");
-  const snapshot = JSON.parse(snapRaw) as PredictionsData;
+  // Load snapshot (frozen picks/tiers) — guarded: on failure fall back to live
+  // so the page still renders current model state instead of crashing.
+  let snapshot: PredictionsData;
+  try {
+    const snapRaw = await fs.readFile(snapshotPath, "utf-8");
+    snapshot = JSON.parse(snapRaw) as PredictionsData;
+  } catch (err) {
+    console.error(`[data] snapshot unreadable at ${snapshotPath}, falling back to live:`, err);
+    return live;
+  }
 
   // Merge: use snapshot games as base, update lines/EV from live for matching games
   const liveMap = new Map<string, Game>();
