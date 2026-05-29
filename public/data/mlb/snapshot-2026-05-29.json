@@ -48,7 +48,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -137,
       "closing_ml_away": 114,
-      "closing_ml_captured_at": "2026-05-29 21:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-29 21:30:02 UTC"
     },
     {
       "away_team": "Kansas City Royals",
@@ -92,7 +92,7 @@
       "display_tier": "PLAY",
       "closing_ml_home": -137,
       "closing_ml_away": 114,
-      "closing_ml_captured_at": "2026-05-29 21:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-29 21:30:02 UTC"
     },
     {
       "away_team": "Boston Red Sox",
@@ -136,7 +136,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -131,
       "closing_ml_away": 108,
-      "closing_ml_captured_at": "2026-05-29 21:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-29 21:30:02 UTC"
     },
     {
       "away_team": "Los Angeles Angels",
@@ -180,7 +180,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -173,
       "closing_ml_away": 143,
-      "closing_ml_captured_at": "2026-05-29 21:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-29 21:30:02 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -224,7 +224,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -136,
       "closing_ml_away": 113,
-      "closing_ml_captured_at": "2026-05-29 21:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-29 21:30:02 UTC"
     },
     {
       "away_team": "Philadelphia Phillies",
@@ -268,7 +268,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -120,
       "closing_ml_away": 100,
-      "closing_ml_captured_at": "2026-05-29 21:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-29 21:30:02 UTC"
     },
     {
       "away_team": "Miami Marlins",
@@ -312,7 +312,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -117,
       "closing_ml_away": -103,
-      "closing_ml_captured_at": "2026-05-29 21:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-29 21:30:02 UTC"
     },
     {
       "away_team": "Detroit Tigers",
@@ -356,7 +356,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -112,
       "closing_ml_away": -108,
-      "closing_ml_captured_at": "2026-05-29 21:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-29 21:30:02 UTC"
     },
     {
       "away_team": "San Diego Padres",
@@ -400,7 +400,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -116,
       "closing_ml_away": -104,
-      "closing_ml_captured_at": "2026-05-29 21:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-29 21:30:02 UTC"
     },
     {
       "away_team": "San Francisco Giants",
@@ -444,7 +444,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 128,
       "closing_ml_away": -155,
-      "closing_ml_captured_at": "2026-05-29 21:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-29 21:30:02 UTC"
     },
     {
       "away_team": "Toronto Blue Jays",
@@ -488,7 +488,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -130,
       "closing_ml_away": 108,
-      "closing_ml_captured_at": "2026-05-29 21:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-29 21:30:02 UTC"
     },
     {
       "away_team": "Chicago Cubs",
@@ -532,7 +532,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 114,
       "closing_ml_away": -137,
-      "closing_ml_captured_at": "2026-05-29 21:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-29 21:30:02 UTC"
     },
     {
       "away_team": "Milwaukee Brewers",
@@ -574,9 +574,9 @@
       "game_time": "2026-05-30T00:10Z",
       "the_read": "V10 finds a strong edge over the market line. Kai-Wei Teng at full strength (37 IP).",
       "display_tier": "PASS",
-      "closing_ml_home": 104,
-      "closing_ml_away": -125,
-      "closing_ml_captured_at": "2026-05-29 21:15:02 UTC"
+      "closing_ml_home": 119,
+      "closing_ml_away": -143,
+      "closing_ml_captured_at": "2026-05-29 21:30:02 UTC"
     },
     {
       "away_team": "New York Yankees",
@@ -620,7 +620,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 119,
       "closing_ml_away": -143,
-      "closing_ml_captured_at": "2026-05-29 21:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-29 21:30:02 UTC"
     },
     {
       "away_team": "Atlanta Braves",
@@ -664,7 +664,7 @@
       "display_tier": "PLAY",
       "closing_ml_home": 113,
       "closing_ml_away": -136,
-      "closing_ml_captured_at": "2026-05-29 21:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-29 21:30:02 UTC"
     }
   ]
 }
