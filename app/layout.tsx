@@ -13,8 +13,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://linerup.bet"),
   title: "Linerup — Sports Analytics",
   description: "Public, transparent sports analytics models. Every prediction published before first pitch. Every result tracked.",
+  openGraph: {
+    type: "website",
+    siteName: "Linerup",
+    title: "Linerup",
+    description: "Public, transparent sports analytics models. Every prediction published before first pitch. Every result tracked.",
+    url: "https://linerup.bet",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Linerup",
+    description: "Public, transparent sports analytics models. Every prediction published before first pitch. Every result tracked.",
+  },
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
