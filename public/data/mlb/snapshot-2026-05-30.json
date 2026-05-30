@@ -400,7 +400,20 @@
       "display_tier": "PASS",
       "closing_ml_home": 100,
       "closing_ml_away": -121,
-      "closing_ml_captured_at": "2026-05-30 18:00:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 18:00:02 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-30 18:06:01 UTC",
+      "locked_pick": "Detroit Tigers",
+      "locked_pick_ml": -121,
+      "locked_confidence": 52.5,
+      "locked_edge": 2.7,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": 100,
+      "locked_away_ml": -121,
+      "locked_home_pitcher": "Anthony Kay",
+      "locked_away_pitcher": "Framber Valdez",
+      "locked_sharp_signal": "neutral",
+      "locked_line_move": 0
     },
     {
       "away_team": "Chicago Cubs",
