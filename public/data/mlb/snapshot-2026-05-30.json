@@ -48,7 +48,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -168,
       "closing_ml_away": 139,
-      "closing_ml_captured_at": "2026-05-30 18:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 18:30:01 UTC"
     },
     {
       "away_team": "Arizona Diamondbacks",
@@ -92,7 +92,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -157,
       "closing_ml_away": 130,
-      "closing_ml_captured_at": "2026-05-30 18:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 18:30:01 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -136,7 +136,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -154,
       "closing_ml_away": 128,
-      "closing_ml_captured_at": "2026-05-30 18:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 18:30:01 UTC"
     },
     {
       "away_team": "Philadelphia Phillies",
@@ -180,7 +180,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -126,
       "closing_ml_away": 105,
-      "closing_ml_captured_at": "2026-05-30 18:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 18:30:01 UTC"
     },
     {
       "away_team": "Boston Red Sox",
@@ -224,7 +224,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -131,
       "closing_ml_away": 108,
-      "closing_ml_captured_at": "2026-05-30 18:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 18:30:01 UTC"
     },
     {
       "away_team": "Kansas City Royals",
@@ -268,7 +268,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -118,
       "closing_ml_away": -102,
-      "closing_ml_captured_at": "2026-05-30 18:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 18:30:01 UTC"
     },
     {
       "away_team": "Miami Marlins",
@@ -312,7 +312,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -132,
       "closing_ml_away": 109,
-      "closing_ml_captured_at": "2026-05-30 18:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 18:30:01 UTC"
     },
     {
       "away_team": "San Francisco Giants",
@@ -354,9 +354,9 @@
       "game_time": "2026-05-31T01:10Z",
       "the_read": "V10 finds a small edge over the market line. Ryan Feltner at full strength (20 IP).",
       "display_tier": "PASS",
-      "closing_ml_home": -103,
-      "closing_ml_away": -117,
-      "closing_ml_captured_at": "2026-05-30 18:15:02 UTC"
+      "closing_ml_home": -105,
+      "closing_ml_away": -114,
+      "closing_ml_captured_at": "2026-05-30 18:30:01 UTC"
     },
     {
       "away_team": "Detroit Tigers",
@@ -457,7 +457,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 113,
       "closing_ml_away": -136,
-      "closing_ml_captured_at": "2026-05-30 18:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 18:30:01 UTC"
     },
     {
       "away_team": "San Diego Padres",
@@ -501,7 +501,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 113,
       "closing_ml_away": -136,
-      "closing_ml_captured_at": "2026-05-30 18:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 18:30:01 UTC"
     },
     {
       "away_team": "Toronto Blue Jays",
@@ -545,7 +545,7 @@
       "display_tier": "PLAY",
       "closing_ml_home": 105,
       "closing_ml_away": -126,
-      "closing_ml_captured_at": "2026-05-30 18:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 18:30:01 UTC"
     },
     {
       "away_team": "Atlanta Braves",
@@ -589,7 +589,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": 109,
       "closing_ml_away": -131,
-      "closing_ml_captured_at": "2026-05-30 18:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 18:30:01 UTC"
     },
     {
       "away_team": "New York Yankees",
@@ -633,7 +633,7 @@
       "display_tier": "PLAY",
       "closing_ml_home": 129,
       "closing_ml_away": -156,
-      "closing_ml_captured_at": "2026-05-30 18:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 18:30:01 UTC"
     },
     {
       "away_team": "Milwaukee Brewers",
@@ -677,7 +677,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -103,
       "closing_ml_away": -117,
-      "closing_ml_captured_at": "2026-05-30 18:15:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 18:30:01 UTC"
     }
   ]
 }
