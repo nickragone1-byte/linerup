@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30 00:10:01 UTC",
+  "generated_at": "2026-05-30 01:10:01 UTC",
   "overall": "FAIL",
   "checks": {
     "mlb_snapshot": {
@@ -8,7 +8,7 @@
     },
     "mlb_predictions": {
       "status": "OK",
-      "msg": "MLB predictions fresh (8 min ago)"
+      "msg": "MLB predictions fresh (9 min ago)"
     },
     "mlb_clv": {
       "status": "OK",
@@ -19,8 +19,8 @@
       "msg": "MLB grading ran successfully"
     },
     "mlb_starter": {
-      "status": "OK",
-      "msg": "starter detector log fresh (65 min ago)"
+      "status": "WARN",
+      "msg": "starter detector log is 125 min old"
     },
     "nba_snapshot": {
       "status": "FAIL",
@@ -28,7 +28,7 @@
     },
     "nba_predictions": {
       "status": "OK",
-      "msg": "NBA predictions fresh (9 min ago)"
+      "msg": "NBA predictions fresh (10 min ago)"
     },
     "nba_clv": {
       "status": "OK",
