@@ -105,7 +105,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -157,
       "closing_ml_away": 130,
-      "closing_ml_captured_at": "2026-05-30 21:30:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 21:45:01 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -206,7 +206,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -126,
       "closing_ml_away": 105,
-      "closing_ml_captured_at": "2026-05-30 21:30:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 21:45:01 UTC"
     },
     {
       "away_team": "Boston Red Sox",
@@ -421,7 +421,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -107,
       "closing_ml_away": -112,
-      "closing_ml_captured_at": "2026-05-30 21:30:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 21:45:01 UTC"
     },
     {
       "away_team": "Detroit Tigers",
@@ -520,9 +520,9 @@
       "game_time": "2026-05-30T23:15Z",
       "the_read": "V10 finds a small edge over the market line. Kyle Leahy at full strength (50 IP). Mild sharp action against.",
       "display_tier": "PASS",
-      "closing_ml_home": 109,
-      "closing_ml_away": -132,
-      "closing_ml_captured_at": "2026-05-30 21:30:02 UTC"
+      "closing_ml_home": 113,
+      "closing_ml_away": -136,
+      "closing_ml_captured_at": "2026-05-30 21:45:01 UTC"
     },
     {
       "away_team": "San Diego Padres",
@@ -678,9 +678,9 @@
       "game_time": "2026-05-30T23:15Z",
       "the_read": "V10 finds a strong edge over the market line. Brady Singer at full strength (46 IP). Mild sharp action confirms.",
       "display_tier": "LEAN",
-      "closing_ml_home": 101,
-      "closing_ml_away": -122,
-      "closing_ml_captured_at": "2026-05-30 21:30:02 UTC"
+      "closing_ml_home": 104,
+      "closing_ml_away": -125,
+      "closing_ml_captured_at": "2026-05-30 21:45:01 UTC"
     },
     {
       "away_team": "New York Yankees",
@@ -724,7 +724,7 @@
       "display_tier": "PLAY",
       "closing_ml_home": 129,
       "closing_ml_away": -156,
-      "closing_ml_captured_at": "2026-05-30 21:30:02 UTC"
+      "closing_ml_captured_at": "2026-05-30 21:45:01 UTC"
     },
     {
       "away_team": "Milwaukee Brewers",
