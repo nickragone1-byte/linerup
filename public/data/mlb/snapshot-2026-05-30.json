@@ -48,7 +48,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -168,
       "closing_ml_away": 139,
-      "closing_ml_captured_at": "2026-05-30 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 20:00:02 UTC"
     },
     {
       "away_team": "Arizona Diamondbacks",
@@ -92,7 +92,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -157,
       "closing_ml_away": 130,
-      "closing_ml_captured_at": "2026-05-30 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 20:00:02 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -109,11 +109,11 @@
       "home_sp_weight": 100,
       "venue": "PNC Park",
       "park_factor": 0.98,
-      "away_ml": 119,
-      "home_ml": -144,
+      "away_ml": 128,
+      "home_ml": -154,
       "ml_open_home": -143,
-      "line_move": -1,
-      "sharp_signal": "neutral",
+      "line_move": -11,
+      "sharp_signal": "mild on HOME",
       "h_cum_rd": 0.4,
       "a_cum_rd": -0.23,
       "is_playoff": 0,
@@ -123,20 +123,33 @@
       "series_finale": 0,
       "game_context": "",
       "model_prob_home": 57.7,
-      "vegas_prob_home": 56.4,
-      "final_prob_home": 59.4,
+      "vegas_prob_home": 58,
+      "final_prob_home": 60.7,
       "pick": "Pittsburgh Pirates",
-      "confidence": 59.4,
-      "edge": 1.4,
+      "confidence": 60.7,
+      "edge": -0.3,
       "over_under": 8.5,
       "tbd_flag": null,
       "thin_sp": false,
       "game_time": "2026-05-30T20:05Z",
-      "the_read": "V10 finds a small edge over the market line. Mitch Keller at full strength (64 IP).",
-      "display_tier": "PASS",
+      "the_read": "V10 finds a small edge over the market line. Mitch Keller at full strength (64 IP). Mild sharp action confirms.",
+      "display_tier": "PLAY",
       "closing_ml_home": -154,
       "closing_ml_away": 128,
-      "closing_ml_captured_at": "2026-05-30 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 20:00:02 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-30 20:00:01 UTC",
+      "locked_pick": "Pittsburgh Pirates",
+      "locked_pick_ml": -154,
+      "locked_confidence": 60.7,
+      "locked_edge": -0.3,
+      "locked_display_tier": "PLAY",
+      "locked_home_ml": -154,
+      "locked_away_ml": 128,
+      "locked_home_pitcher": "Mitch Keller",
+      "locked_away_pitcher": "Bailey Ober",
+      "locked_sharp_signal": "mild on HOME",
+      "locked_line_move": -11
     },
     {
       "away_team": "Philadelphia Phillies",
@@ -180,7 +193,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -131,
       "closing_ml_away": 108,
-      "closing_ml_captured_at": "2026-05-30 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 20:00:02 UTC"
     },
     {
       "away_team": "Boston Red Sox",
@@ -224,7 +237,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -131,
       "closing_ml_away": 109,
-      "closing_ml_captured_at": "2026-05-30 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 20:00:02 UTC"
     },
     {
       "away_team": "Kansas City Royals",
@@ -241,11 +254,11 @@
       "home_sp_weight": 100,
       "venue": "Globe Life Field",
       "park_factor": 1.04,
-      "away_ml": 101,
-      "home_ml": -122,
+      "away_ml": -102,
+      "home_ml": -118,
       "ml_open_home": -126,
-      "line_move": 4,
-      "sharp_signal": "neutral",
+      "line_move": 8,
+      "sharp_signal": "mild on AWAY",
       "h_cum_rd": -0.09,
       "a_cum_rd": -0.84,
       "is_playoff": 0,
@@ -255,20 +268,33 @@
       "series_finale": 0,
       "game_context": "",
       "model_prob_home": 59,
-      "vegas_prob_home": 52.5,
-      "final_prob_home": 54.9,
+      "vegas_prob_home": 51.7,
+      "final_prob_home": 52.7,
       "pick": "Texas Rangers",
-      "confidence": 54.9,
-      "edge": 6.5,
+      "confidence": 52.7,
+      "edge": 7.3,
       "over_under": 8,
       "tbd_flag": null,
       "thin_sp": false,
       "game_time": "2026-05-30T20:05Z",
-      "the_read": "V10 finds a solid edge over the market line. Kumar Rocker at full strength (50 IP).",
+      "the_read": "V10 finds a solid edge over the market line. Kumar Rocker at full strength (50 IP). Mild sharp action against.",
       "display_tier": "PASS",
       "closing_ml_home": -118,
       "closing_ml_away": -102,
-      "closing_ml_captured_at": "2026-05-30 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 20:00:02 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-30 20:00:01 UTC",
+      "locked_pick": "Texas Rangers",
+      "locked_pick_ml": -118,
+      "locked_confidence": 52.7,
+      "locked_edge": 7.3,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": -118,
+      "locked_away_ml": -102,
+      "locked_home_pitcher": "Kumar Rocker",
+      "locked_away_pitcher": "Seth Lugo",
+      "locked_sharp_signal": "mild on AWAY",
+      "locked_line_move": 8
     },
     {
       "away_team": "Miami Marlins",
@@ -356,7 +382,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -107,
       "closing_ml_away": -112,
-      "closing_ml_captured_at": "2026-05-30 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 20:00:02 UTC"
     },
     {
       "away_team": "Detroit Tigers",
@@ -457,7 +483,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 109,
       "closing_ml_away": -132,
-      "closing_ml_captured_at": "2026-05-30 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 20:00:02 UTC"
     },
     {
       "away_team": "San Diego Padres",
@@ -474,11 +500,11 @@
       "home_sp_weight": 100,
       "venue": "Nationals Park",
       "park_factor": 0.97,
-      "away_ml": -126,
-      "home_ml": 105,
+      "away_ml": -136,
+      "home_ml": 113,
       "ml_open_home": 104,
-      "line_move": 1,
-      "sharp_signal": "neutral",
+      "line_move": 9,
+      "sharp_signal": "mild on AWAY",
       "h_cum_rd": -0.07,
       "a_cum_rd": -0.02,
       "is_playoff": 0,
@@ -488,20 +514,33 @@
       "series_finale": 0,
       "game_context": "",
       "model_prob_home": 45.8,
-      "vegas_prob_home": 46.7,
-      "final_prob_home": 43.9,
+      "vegas_prob_home": 44.9,
+      "final_prob_home": 42.6,
       "pick": "San Diego Padres",
-      "confidence": 56.1,
-      "edge": -0.9,
+      "confidence": 57.4,
+      "edge": 0.9,
       "over_under": 7.5,
       "tbd_flag": null,
       "thin_sp": false,
       "game_time": "2026-05-30T20:05Z",
-      "the_read": "V10 finds a small edge over the market line. Foster Griffin at full strength (62 IP).",
+      "the_read": "V10 finds a small edge over the market line. Foster Griffin at full strength (62 IP). Mild sharp action against.",
       "display_tier": "PASS",
       "closing_ml_home": 113,
       "closing_ml_away": -136,
-      "closing_ml_captured_at": "2026-05-30 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 20:00:02 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-30 20:00:01 UTC",
+      "locked_pick": "San Diego Padres",
+      "locked_pick_ml": -136,
+      "locked_confidence": 57.4,
+      "locked_edge": 0.9,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": 113,
+      "locked_away_ml": -136,
+      "locked_home_pitcher": "Foster Griffin",
+      "locked_away_pitcher": "Michael King",
+      "locked_sharp_signal": "mild on AWAY",
+      "locked_line_move": 9
     },
     {
       "away_team": "Toronto Blue Jays",
@@ -545,7 +584,20 @@
       "display_tier": "PLAY",
       "closing_ml_home": 108,
       "closing_ml_away": -131,
-      "closing_ml_captured_at": "2026-05-30 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 20:00:02 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-30 20:00:01 UTC",
+      "locked_pick": "Toronto Blue Jays",
+      "locked_pick_ml": -126,
+      "locked_confidence": 58.6,
+      "locked_edge": -4.5,
+      "locked_display_tier": "PLAY",
+      "locked_home_ml": 105,
+      "locked_away_ml": -126,
+      "locked_home_pitcher": "Brandon Young",
+      "locked_away_pitcher": "Trey Yesavage",
+      "locked_sharp_signal": "neutral",
+      "locked_line_move": -4
     },
     {
       "away_team": "Atlanta Braves",
@@ -587,9 +639,9 @@
       "game_time": "2026-05-30T23:15Z",
       "the_read": "V10 finds a strong edge over the market line. Brady Singer at full strength (46 IP). Mild sharp action confirms.",
       "display_tier": "LEAN",
-      "closing_ml_home": 105,
-      "closing_ml_away": -126,
-      "closing_ml_captured_at": "2026-05-30 19:45:01 UTC"
+      "closing_ml_home": 101,
+      "closing_ml_away": -124,
+      "closing_ml_captured_at": "2026-05-30 20:00:02 UTC"
     },
     {
       "away_team": "New York Yankees",
@@ -633,7 +685,7 @@
       "display_tier": "PLAY",
       "closing_ml_home": 129,
       "closing_ml_away": -156,
-      "closing_ml_captured_at": "2026-05-30 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 20:00:02 UTC"
     },
     {
       "away_team": "Milwaukee Brewers",
@@ -677,7 +729,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -103,
       "closing_ml_away": -117,
-      "closing_ml_captured_at": "2026-05-30 19:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 20:00:02 UTC"
     }
   ]
 }
