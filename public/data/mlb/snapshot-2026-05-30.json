@@ -105,7 +105,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -157,
       "closing_ml_away": 130,
-      "closing_ml_captured_at": "2026-05-30 22:15:03 UTC"
+      "closing_ml_captured_at": "2026-05-30 22:30:03 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -206,7 +206,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -131,
       "closing_ml_away": 108,
-      "closing_ml_captured_at": "2026-05-30 22:15:03 UTC"
+      "closing_ml_captured_at": "2026-05-30 22:30:03 UTC"
     },
     {
       "away_team": "Boston Red Sox",
@@ -421,7 +421,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -107,
       "closing_ml_away": -112,
-      "closing_ml_captured_at": "2026-05-30 22:15:03 UTC"
+      "closing_ml_captured_at": "2026-05-30 22:30:03 UTC"
     },
     {
       "away_team": "Detroit Tigers",
@@ -522,7 +522,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 113,
       "closing_ml_away": -136,
-      "closing_ml_captured_at": "2026-05-30 22:15:03 UTC"
+      "closing_ml_captured_at": "2026-05-30 22:30:03 UTC"
     },
     {
       "away_team": "San Diego Padres",
@@ -680,7 +680,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": 104,
       "closing_ml_away": -125,
-      "closing_ml_captured_at": "2026-05-30 22:15:03 UTC"
+      "closing_ml_captured_at": "2026-05-30 22:30:03 UTC"
     },
     {
       "away_team": "New York Yankees",
@@ -724,7 +724,7 @@
       "display_tier": "PLAY",
       "closing_ml_home": 129,
       "closing_ml_away": -156,
-      "closing_ml_captured_at": "2026-05-30 22:15:03 UTC"
+      "closing_ml_captured_at": "2026-05-30 22:30:03 UTC"
     },
     {
       "away_team": "Milwaukee Brewers",
