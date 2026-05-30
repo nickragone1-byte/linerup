@@ -42,7 +42,7 @@ export function passReason(internal: Tier, game?: { sharp_signal?: string | null
     case "⚠️ THIN SP":
       return "Thin pitcher sample";
     case "⚪ SKIP":
-      return "Low confidence";
+      return "No market value";
     case "⚠️ INFO":
     default:
       return "Proceed with caution";
