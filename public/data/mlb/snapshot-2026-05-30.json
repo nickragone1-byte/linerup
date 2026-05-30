@@ -48,7 +48,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -168,
       "closing_ml_away": 139,
-      "closing_ml_captured_at": "2026-05-30 16:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 17:00:02 UTC"
     },
     {
       "away_team": "Arizona Diamondbacks",
@@ -92,7 +92,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -157,
       "closing_ml_away": 130,
-      "closing_ml_captured_at": "2026-05-30 16:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 17:00:02 UTC"
     },
     {
       "away_team": "Minnesota Twins",
@@ -136,7 +136,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -144,
       "closing_ml_away": 119,
-      "closing_ml_captured_at": "2026-05-30 16:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 17:00:02 UTC"
     },
     {
       "away_team": "Philadelphia Phillies",
@@ -180,7 +180,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": -126,
       "closing_ml_away": 105,
-      "closing_ml_captured_at": "2026-05-30 16:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 17:00:02 UTC"
     },
     {
       "away_team": "Boston Red Sox",
@@ -224,7 +224,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -131,
       "closing_ml_away": 108,
-      "closing_ml_captured_at": "2026-05-30 16:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 17:00:02 UTC"
     },
     {
       "away_team": "Kansas City Royals",
@@ -268,7 +268,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -122,
       "closing_ml_away": 101,
-      "closing_ml_captured_at": "2026-05-30 16:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 17:00:02 UTC"
     },
     {
       "away_team": "Miami Marlins",
@@ -312,7 +312,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -132,
       "closing_ml_away": 109,
-      "closing_ml_captured_at": "2026-05-30 16:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 17:00:02 UTC"
     },
     {
       "away_team": "San Francisco Giants",
@@ -356,7 +356,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -103,
       "closing_ml_away": -117,
-      "closing_ml_captured_at": "2026-05-30 16:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 17:00:02 UTC"
     },
     {
       "away_team": "Detroit Tigers",
@@ -400,7 +400,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 100,
       "closing_ml_away": -121,
-      "closing_ml_captured_at": "2026-05-30 16:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 17:00:02 UTC"
     },
     {
       "away_team": "Chicago Cubs",
@@ -444,7 +444,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 112,
       "closing_ml_away": -135,
-      "closing_ml_captured_at": "2026-05-30 16:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 17:00:02 UTC"
     },
     {
       "away_team": "San Diego Padres",
@@ -488,7 +488,7 @@
       "display_tier": "PASS",
       "closing_ml_home": 105,
       "closing_ml_away": -126,
-      "closing_ml_captured_at": "2026-05-30 16:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 17:00:02 UTC"
     },
     {
       "away_team": "Toronto Blue Jays",
@@ -532,7 +532,7 @@
       "display_tier": "PLAY",
       "closing_ml_home": 105,
       "closing_ml_away": -126,
-      "closing_ml_captured_at": "2026-05-30 16:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 17:00:02 UTC"
     },
     {
       "away_team": "Atlanta Braves",
@@ -576,7 +576,7 @@
       "display_tier": "LEAN",
       "closing_ml_home": 109,
       "closing_ml_away": -132,
-      "closing_ml_captured_at": "2026-05-30 16:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 17:00:02 UTC"
     },
     {
       "away_team": "New York Yankees",
@@ -620,7 +620,7 @@
       "display_tier": "PLAY",
       "closing_ml_home": 128,
       "closing_ml_away": -155,
-      "closing_ml_captured_at": "2026-05-30 16:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 17:00:02 UTC"
     },
     {
       "away_team": "Milwaukee Brewers",
@@ -664,7 +664,7 @@
       "display_tier": "PASS",
       "closing_ml_home": -103,
       "closing_ml_away": -117,
-      "closing_ml_captured_at": "2026-05-30 16:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-30 17:00:02 UTC"
     }
   ]
 }
