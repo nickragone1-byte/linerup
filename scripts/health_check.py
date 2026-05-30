@@ -3,14 +3,13 @@
 Linerup pipeline health checker.
 
 Evaluates the state of every automated component and writes a status
-JSON to public/data/health.json. Checks are intentionally simple —
-each returns OK/WARN/FAIL plus a short message. The site reads this
-file to render a /health page.
+JSON to public/data/health.json. Each check returns OK/WARN/FAIL plus a
+short message. The site reads this file to render a /health page.
 
-Runs hourly via cron.
+Runs hourly via cron. Time-sensitive checks are schedule-aware so they
+only flag genuine problems, not normal pre-window / off-hours states.
 """
 import json
-import os
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -24,21 +23,20 @@ def now_utc():
     return datetime.now(timezone.utc)
 
 
-def file_age_minutes(path: Path):
+def file_age_minutes(path):
     if not path.exists():
         return None
     age = now_utc() - datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc)
     return age.total_seconds() / 60
 
 
-def check_today_snapshot(sport_dir: Path, sport: str):
+def check_today_snapshot(sport_dir, sport, expected_by_hour_utc):
     today = now_utc().strftime("%Y-%m-%d")
     snap = sport_dir / f"snapshot-{today}.json"
     if not snap.exists():
-        # Before 9:30 AM PT snapshot is expected to be missing
-        hour_pt = (now_utc() - timedelta(hours=7)).hour  # rough PT
-        if hour_pt < 10:
-            return {"status": "OK", "msg": f"{sport} snapshot not yet created (before 9:30 AM PT)"}
+        # The day's snapshot is built mid-morning UTC; before that it is expected to be absent.
+        if now_utc().hour < expected_by_hour_utc:
+            return {"status": "OK", "msg": f"{sport} snapshot not yet created (due by {expected_by_hour_utc:02d}:00 UTC)"}
         return {"status": "FAIL", "msg": f"{sport} snapshot for {today} is missing"}
     try:
         with snap.open() as f:
@@ -49,17 +47,20 @@ def check_today_snapshot(sport_dir: Path, sport: str):
         return {"status": "FAIL", "msg": f"{sport} snapshot unreadable: {e}"}
 
 
-def check_live_predictions(sport_dir: Path, sport: str, max_age_min: int = 90):
+def check_live_predictions(sport_dir, sport, active_hours, max_age_min=120):
     p = sport_dir / "predictions.json"
     age = file_age_minutes(p)
     if age is None:
         return {"status": "FAIL", "msg": f"{sport} predictions.json missing"}
     if age > max_age_min:
-        return {"status": "WARN", "msg": f"{sport} predictions.json is {age:.0f} min old (script may have failed)"}
+        # Predictions only regenerate during the game-prep window; stale outside it is normal.
+        if now_utc().hour in active_hours:
+            return {"status": "WARN", "msg": f"{sport} predictions {age:.0f} min old during active window (script may have failed)"}
+        return {"status": "OK", "msg": f"{sport} predictions {age:.0f} min old (outside regen window, expected)"}
     return {"status": "OK", "msg": f"{sport} predictions fresh ({age:.0f} min ago)"}
 
 
-def check_clv_capture(sport_dir: Path, sport: str):
+def check_clv_capture(sport_dir, sport, window_open_hour_utc):
     """Look for closing_ml_captured_at on any game in today's snapshot."""
     today = now_utc().strftime("%Y-%m-%d")
     snap = sport_dir / f"snapshot-{today}.json"
@@ -70,46 +71,37 @@ def check_clv_capture(sport_dir: Path, sport: str):
             d = json.load(f)
     except Exception:
         return {"status": "FAIL", "msg": f"{sport} snapshot unreadable for CLV check"}
-    captured = [g for g in d.get("games", []) if g.get("closing_ml_captured_at")]
-    pre_count = sum(
-        1 for g in d.get("games", [])
-        if g.get("closing_ml_home") is None and g.get("closing_ml_away") is None
-    )
     n_games = len(d.get("games", []))
     if n_games == 0:
         return {"status": "OK", "msg": f"{sport} no games today"}
+    captured = [g for g in d.get("games", []) if g.get("closing_ml_captured_at")]
     if captured:
         latest = max(g["closing_ml_captured_at"] for g in captured)
         return {"status": "OK", "msg": f"{sport} CLV: {len(captured)}/{n_games} games captured, latest {latest}"}
-    return {"status": "WARN", "msg": f"{sport} CLV: no games captured yet ({n_games} total, may be pre-capture-window)"}
+    # Nothing captured yet is only a concern once the capture window has opened.
+    if now_utc().hour < window_open_hour_utc:
+        return {"status": "OK", "msg": f"{sport} CLV: pre-capture-window (opens {window_open_hour_utc:02d}:00 UTC)"}
+    return {"status": "WARN", "msg": f"{sport} CLV: no games captured yet ({n_games} total, window already open)"}
 
 
-def check_results(sport_dir: Path, sport: str):
+def check_results(sport_dir, sport):
     """
-    Verify the grading script ran today. results.json may legitimately
-    not have been modified (no qualifying picks, no snapshot yesterday),
-    so the real signal is whether the cron fired and what the log says.
+    Verify the grading script ran recently. results.json may legitimately
+    not have changed (no qualifying picks, no snapshot), so the real signal
+    is whether the cron fired and what the log says.
     """
     log = Path("/root/linerup-results.log")
     if not log.exists():
         return {"status": "WARN", "msg": f"{sport} grading log missing"}
     log_age = file_age_minutes(log)
-    # Grading runs at 14:00 UTC daily. Should be < 24h since last run.
     if log_age is None or log_age > 24 * 60:
         return {"status": "FAIL", "msg": f"{sport} grading log not updated in 24h+ (cron may be broken)"}
-
-    # Read recent log entries to see what the latest run did
     try:
         with log.open() as f:
             lines = f.read().splitlines()
     except Exception:
         return {"status": "WARN", "msg": f"{sport} grading log unreadable"}
-
-    # Find latest sport-specific block (last 100 lines is enough)
-    sport_marker_mlb = "Grading 2026-"
-    sport_marker_nba = "Grading NBA 2026-"
-    marker = sport_marker_nba if sport == "NBA" else sport_marker_mlb
-    # We want the most recent occurrence of this marker
+    marker = "Grading NBA 2026-" if sport == "NBA" else "Grading 2026-"
     idx = -1
     for i in range(len(lines) - 1, -1, -1):
         if lines[i].startswith(marker):
@@ -117,43 +109,45 @@ def check_results(sport_dir: Path, sport: str):
             break
     if idx == -1:
         return {"status": "WARN", "msg": f"{sport} no recent grading attempt found in log"}
-
-    # Look at the next few lines for the outcome
     tail = "\n".join(lines[idx:idx + 5])
     if "No snapshot for" in tail or "No NBA snapshot for" in tail:
-        return {"status": "WARN", "msg": f"{sport} grading skipped — no snapshot for previous day (pipeline gap)"}
+        return {"status": "WARN", "msg": f"{sport} grading skipped - no snapshot for previous day (pipeline gap)"}
     if "No gradeable picks" in tail or "Nothing to update" in tail:
-        return {"status": "OK", "msg": f"{sport} grading ran — no qualifying picks to grade yesterday"}
-    if "->" in tail:  # winner arrow indicates grading happened
+        return {"status": "OK", "msg": f"{sport} grading ran - no qualifying picks yesterday"}
+    if "->" in tail:
         return {"status": "OK", "msg": f"{sport} grading ran successfully"}
     return {"status": "OK", "msg": f"{sport} grading ran (status unclear)"}
 
 
 def check_starter_detector():
-    """MLB-only — has the starter change detector been running?"""
+    """MLB-only - has the starter change detector been running?"""
     log = Path("/root/linerup-starter.log")
-    if not log.exists():
-        return {"status": "WARN", "msg": "starter detector log missing"}
     age = file_age_minutes(log)
-    if age is None or age > 90:
-        return {"status": "WARN", "msg": f"starter detector log is {age:.0f} min old"}
+    if age is None:
+        return {"status": "WARN", "msg": "starter detector log missing"}
+    # Runs at :05 during 16-23 UTC; a stale log outside that window is expected.
+    if age > 90:
+        if now_utc().hour in set(range(16, 24)):
+            return {"status": "WARN", "msg": f"starter detector log {age:.0f} min old during active window"}
+        return {"status": "OK", "msg": f"starter detector idle (off-window, {age:.0f} min old)"}
     return {"status": "OK", "msg": f"starter detector log fresh ({age:.0f} min ago)"}
 
 
 def main():
+    mlb_pred_hours = set(range(16, 24)) | {0, 1, 2, 3}
+    nba_pred_hours = set(range(17, 24)) | {0, 1, 2, 3}
     checks = {
-        "mlb_snapshot":     check_today_snapshot(MLB_DIR, "MLB"),
-        "mlb_predictions":  check_live_predictions(MLB_DIR, "MLB"),
-        "mlb_clv":          check_clv_capture(MLB_DIR, "MLB"),
+        "mlb_snapshot":     check_today_snapshot(MLB_DIR, "MLB", expected_by_hour_utc=17),
+        "mlb_predictions":  check_live_predictions(MLB_DIR, "MLB", mlb_pred_hours),
+        "mlb_clv":          check_clv_capture(MLB_DIR, "MLB", window_open_hour_utc=15),
         "mlb_results":      check_results(MLB_DIR, "MLB"),
         "mlb_starter":      check_starter_detector(),
-        "nba_snapshot":     check_today_snapshot(NBA_DIR, "NBA"),
-        "nba_predictions":  check_live_predictions(NBA_DIR, "NBA", max_age_min=120),
-        "nba_clv":          check_clv_capture(NBA_DIR, "NBA"),
+        "nba_snapshot":     check_today_snapshot(NBA_DIR, "NBA", expected_by_hour_utc=18),
+        "nba_predictions":  check_live_predictions(NBA_DIR, "NBA", nba_pred_hours),
+        "nba_clv":          check_clv_capture(NBA_DIR, "NBA", window_open_hour_utc=22),
         "nba_results":      check_results(NBA_DIR, "NBA"),
     }
 
-    # Overall status = worst of all
     statuses = [c["status"] for c in checks.values()]
     if "FAIL" in statuses:
         overall = "FAIL"
