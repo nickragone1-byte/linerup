@@ -535,7 +535,20 @@
       "display_tier": "PASS",
       "closing_ml_home": 128,
       "closing_ml_away": -154,
-      "closing_ml_captured_at": "2026-05-29 23:45:01 UTC"
+      "closing_ml_captured_at": "2026-05-29 23:45:01 UTC",
+      "is_locked": true,
+      "locked_at": "2026-05-30 00:42:01 UTC",
+      "locked_pick": "San Francisco Giants",
+      "locked_pick_ml": -154,
+      "locked_confidence": 52.2,
+      "locked_edge": 8.5,
+      "locked_display_tier": "PASS",
+      "locked_home_ml": 128,
+      "locked_away_ml": -154,
+      "locked_home_pitcher": "TBD",
+      "locked_away_pitcher": "Adrian Houser",
+      "locked_sharp_signal": "mild on HOME",
+      "locked_line_move": -13
     },
     {
       "away_team": "Toronto Blue Jays",
