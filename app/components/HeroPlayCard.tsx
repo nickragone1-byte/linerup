@@ -29,7 +29,7 @@ export default function HeroPlayCard({ game, displayTier, narrative, compact = f
   const _hpML = isHome ? game.home_ml : game.away_ml;
   const pickML = _hpML != null ? formatML(_hpML as number) : "TBA";
   const ts = TIER_STYLE[displayTier];
-  const modelPct = isHome ? game.model_prob_home : 100 - game.model_prob_home;
+  const modelPct = isHome ? game.final_prob_home : 100 - game.final_prob_home;
   const vegasPct = game.vegas_prob_home != null ? (isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home) : null;
 
   return (

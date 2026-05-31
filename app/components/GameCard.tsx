@@ -45,7 +45,7 @@ export default function GameCard({ game, displayTier, internalTier, narrative }:
   const isHome = game.pick === game.home_team;
   const _rawML = isHome ? game.home_ml : game.away_ml;
   const pickML = _rawML != null ? formatML(_rawML as number) : "TBA";
-  const modelPct = isHome ? game.model_prob_home : 100 - game.model_prob_home;
+  const modelPct = isHome ? game.final_prob_home : 100 - game.final_prob_home;
   const vegasPct = game.vegas_prob_home != null ? (isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home) : null;
   const edgePos = (game.edge ?? 0) > 0;
 

@@ -26,7 +26,7 @@ export default function HeroCardNBA({ game, display, narrative }: Props) {
   const isHome = game.pick === game.home_team;
   const pickedSide: "away" | "home" = isHome ? "home" : "away";
   const vegasImplied = game.vegas_prob_home != null ? (isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home) : null;
-  const modelProb = isHome ? game.model_prob_home : 100 - game.model_prob_home;
+  const modelProb = isHome ? game.final_prob_home : 100 - game.final_prob_home;
 
   const style = TIER_STYLES[display] ?? TIER_STYLES.PLAY;
 

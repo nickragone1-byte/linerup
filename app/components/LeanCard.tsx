@@ -158,7 +158,7 @@ export default function LeanCard({ game, narrative }: Props) {
             />
             <div className="mt-3 pt-3 grid grid-cols-2 gap-3" style={{ borderTop: "1px solid #1a2335" }}>
             {[
-              { label: "Model %", value: `${isHome ? game.model_prob_home.toFixed(1) : (100 - game.model_prob_home).toFixed(1)}%`, full: false },
+              { label: "Model %", value: `${isHome ? game.final_prob_home.toFixed(1) : (100 - game.final_prob_home).toFixed(1)}%`, full: false },
               { label: "Vegas %", value: game.vegas_prob_home != null ? `${(isHome ? game.vegas_prob_home : 100 - game.vegas_prob_home).toFixed(1)}%` : "—", full: false },
               { label: "Game Time", value: (() => {
                 if (!game.game_time) return "TBD";
